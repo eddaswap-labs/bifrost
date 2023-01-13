@@ -94,7 +94,15 @@
 
 <input type="checkbox" id="qr-modal" class="modal-toggle" />
 <label for="qr-modal" class="modal cursor-pointer">
-	<label class="modal-box relative w-fit p-0" for="">
+	<label
+		class="modal-box relative w-fit text-center flex flex-col gap-2 items-center py-4 px-6"
+		for=""
+	>
+		<h3 class="text-lg font-bold">Connect TON</h3>
+		<p class="text-neutral text-sm w-56">Scan the QR code with your phone's camera or Tonkeeper.</p>
 		<div id="qr-code" />
+		<p class="text-neutral text-sm w-56">
+			We do not store your wallet credentials, so your TON is safe.
+		</p>
 	</label>
 </label>
