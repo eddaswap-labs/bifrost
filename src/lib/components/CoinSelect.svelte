@@ -32,9 +32,9 @@
 <div class="dropdown w-full">
 	<label
 		tabindex="0"
-		class="flex-shrink-0 z-10 inline-flex items-center justify-between py-2.5 px-4 text-sm font-medium text-center text-gray-500 bg-base-100 w-full h-14"
+		class="btn flex-shrink-0 z-10 inline-flex items-center justify-between border border-black text-sm font-medium text-center text-gray-500 bg-base-100 w-full h-12"
 	>
-		<div class="flex flex-row gap-5 items-center">
+		<div class="flex flex-row gap-3 items-center">
 			<img src={coins[$selectedId].logo} alt="" width={coins[$selectedId].size} />
 			{coins[$selectedId].symbol}
 		</div>
@@ -46,7 +46,7 @@
 			/></svg
 		>
 	</label>
-	<ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-full">
+	<ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 w-full border border-black">
 		{#each coins as coin, id}
 			{#if id !== $selectedId}
 				<li>

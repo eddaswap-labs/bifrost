@@ -2,7 +2,7 @@
 	import '../app.css';
 </script>
 
-<div class="flex flex-col h-screen justify-between">
+<div class="flex flex-col min-h-screen justify-between">
 	<slot />
 
 	<footer class="footer footer-center p-5 bg-base-100 text-base-content rounded">

@@ -23,7 +23,7 @@
 	];
 
 	export let selectedId = writable(0);
-	export let value = writable(0);
+	export let value = writable(0.0);
 
 	const selectCoin = (id) => {
 		selectedId.set(id);
@@ -33,12 +33,7 @@
 <div class="dropdown w-full">
 	<label class="input-group">
 		<span>
-			<img
-				class="mr-1"
-				src={coins[$selectedId].logo}
-				alt="ethereum logo"
-				width={coins[$selectedId].size}
-			/>
+			<img class="mr-1" src={coins[$selectedId].logo} alt="logo" width={coins[$selectedId].size} />
 			<svg aria-hidden="true" class="w-6 h-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
 				><path
 					fill-rule="evenodd"
@@ -51,13 +46,25 @@
 			type="number"
 			placeholder="0.01"
 			class="input input-bordered w-full"
-			min="0"
+			min="0.0"
 			step="0.01"
 		/>
 	</label>
 	<ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-full">
 		{#each coins as coin, id}
-			{#if id !== $selectedId}
+			{#if id === $selectedId}
+				<li>
+					<button
+						class="btn-active btn-ghost"
+						on:click={() => {
+							selectCoin(id);
+						}}
+					>
+						<img class="mr-2" src={coin.logo} alt="logo" width={coin.size} />
+						{coin.symbol}
+					</button>
+				</li>
+			{:else}
 				<li>
 					<button
 						on:click={() => {
