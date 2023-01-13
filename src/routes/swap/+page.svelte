@@ -1,20 +1,25 @@
 <script>
 	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 
 	import Arrows from '$lib/images/arrows.svg';
 	import CoinSelect from '$lib/components/CoinSelect.svelte';
 	import { writable } from 'svelte/store';
 	import Header from '$lib/components/Header.svelte';
 	import { bigIntToFloat } from '$lib/pkg/utils';
-	import ConnectWalletETH from '../../lib/components/wallet/ConnectWalletETH.svelte';
-	import ConnectWalletTZS from '../../lib/components/wallet/ConnectWalletTZS.svelte';
-	import ConnectWalletTON from '../../lib/components/wallet/ConnectWalletTON.svelte';
+	import { coins } from '$lib/pkg/coins';
+	import ConnectWalletETH from '$lib/components/wallet/ConnectWalletETH.svelte';
+	import ConnectWalletTZS from '$lib/components/wallet/ConnectWalletTZS.svelte';
+	import ConnectWalletTON from '$lib/components/wallet/ConnectWalletTON.svelte';
 
 	let ready = false;
 	onMount(() => (ready = true));
 
-	let fromCoin = writable(0);
-	let toCoin = writable(1);
+	let fromSymbol = $page.url.searchParams.get('from');
+	let toSymbol = $page.url.searchParams.get('to');
+
+	let fromCoin = writable(fromSymbol ? coins.findIndex((c) => c.symbol === fromSymbol) : 0);
+	let toCoin = writable(toSymbol ? coins.findIndex((c) => c.symbol === toSymbol) : 1);
 
 	let fromValue = writable(0.0);
 	let toValue = writable(0.0);

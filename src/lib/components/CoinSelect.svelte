@@ -1,26 +1,6 @@
 <script>
-	import ETHLogo from '$lib/images/eth_logo.png';
-	import TZSLogo from '$lib/images/tzs_logo.svg';
-	import TONLogo from '$lib/images/ton_logo.svg';
+	import { coins } from '$lib/pkg/coins';
 	import { writable } from 'svelte/store';
-
-	export let coins = [
-		{
-			symbol: 'ETH',
-			logo: ETHLogo,
-			size: 20
-		},
-		{
-			symbol: 'TZS',
-			logo: TZSLogo,
-			size: 20
-		},
-		{
-			symbol: 'TON',
-			logo: TONLogo,
-			size: 25
-		}
-	];
 
 	export let selectedId = writable(0);
 

@@ -5,6 +5,7 @@
 	import Arrows from '$lib/images/arrows.svg';
 	import CoinSelect from '$lib/components/CoinSelect.svelte';
 	import { writable } from 'svelte/store';
+	import { coins } from '$lib/pkg/coins';
 
 	let ready = false;
 	onMount(() => (ready = true));
@@ -48,7 +49,11 @@
 					<p>to</p>
 					<CoinSelect selectedId={toCoin} />
 				</div>
-				<a class="btn btn-primary btn-wide mt-7" href="/swap">go swap!</a>
+				<a
+					class="btn btn-primary btn-wide mt-7"
+					href={'/swap?from=' + coins[$fromCoin].symbol + '&to=' + coins[$toCoin].symbol}
+					>go swap!</a
+				>
 			</div>
 		{/if}
 	</div>
