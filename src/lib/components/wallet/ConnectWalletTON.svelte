@@ -45,7 +45,7 @@
 	{#if !connected}
 		<label for="connect-modal-ton" class="btn btn-sm btn-secondary">Connect Wallet</label>
 	{:else}
-		<label for="disconnect-modal" class="btn btn-sm btn-secondary"
+		<label for="disconnect-modal-ton" class="btn btn-sm btn-secondary"
 			>{shortAccountString(10, 5, $selectedAccount ?? '')}</label
 		>
 	{/if}
@@ -65,7 +65,7 @@
 		<label for="connect-modal-ton" class="btn btn-sm absolute right-2 top-2">✕</label>
 		<div class="flex py-4 justify-center flex-col gap-2">
 			<button class="btn btn-block" on:click={connect}>
-				<img class="mr-2" src={TonkeeperLogo} alt="metamask" width={35} />
+				<img class="mr-2" src={TonkeeperLogo} alt="tonkeeper" width={35} />
 				Tonkeeper
 			</button>
 		</div>

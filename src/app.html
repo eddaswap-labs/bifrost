@@ -7,12 +7,6 @@
 		%sveltekit.head%
 		<title>Bifrost bridge</title>
 	</head>
-	<script>
-	let	Buffer = require("buffer");
-
-	window.Buffer = Buffer;
-	window.global ||= window;
-	</script>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>

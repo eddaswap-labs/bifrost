@@ -42,6 +42,7 @@
 		"daisyui": "^2.46.1",
 		"ethers": "^5.7.2",
 		"qr-code-styling": "^1.6.0-rc.1",
-		"svelte-web3": "^4.0.0"
+		"svelte-web3": "^4.0.0",
+		"ton": "^13.3.0"
 	}
 }
