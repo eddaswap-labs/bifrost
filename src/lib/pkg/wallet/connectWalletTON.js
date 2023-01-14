@@ -1,4 +1,5 @@
 import TonConnect from '@tonconnect/sdk';
+import { Address } from 'ton';
 
 export const connectWalletTON = async (setWalletAddress) => {
 	const walletsList = await TonConnect.getWallets();
@@ -13,10 +14,12 @@ export const connectWalletTON = async (setWalletAddress) => {
 			'https://raw.githubusercontent.com/bifrost-defi/bifrost/main/tonconnect-manifest.json'
 	});
 
+	connector.restoreConnection();
+
 	connector.onStatusChange((wallet) => {
-		console.log(wallet);
 		if (connector.connected && wallet) {
-			setWalletAddress(wallet.account.address);
+			let address = Address.parseRaw(wallet.account.address).toString();
+			setWalletAddress(address);
 		}
 	}, console.error);
 
