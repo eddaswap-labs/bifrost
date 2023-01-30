@@ -14,6 +14,7 @@ export const connectMetamask = async () => {
 };
 
 export const connectWalletConnect = async () => {
+	// TODO
 	const web3Modal = new Web3Modal({
 		projectId: '<YOUR_PROJECT_ID>',
 		standaloneChains: ['eip155:1']
