@@ -24,7 +24,7 @@ export class TonKeeper extends Wallet {
 				'https://raw.githubusercontent.com/bifrost-defi/bifrost/main/tonconnect-manifest.json'
 		});
 
-		connector.restoreConnection();
+		this.connector.restoreConnection();
 	}
 
 	async connectInjected() {
@@ -32,13 +32,13 @@ export class TonKeeper extends Wallet {
 	}
 
 	async connectExternal(cb) {
-		connector.onStatusChange((wallet) => {
-			if (connector.connected && wallet) {
+		this.connector.onStatusChange((wallet) => {
+			if (this.connector.connected && wallet) {
 				let address = Address.parseRaw(wallet.account.address).toString();
 				cb(address);
 			}
 		}, console.error);
 
-		return connector.connect(walletConnectionSource);
+		return this.connector.connect(this.walletConnectionSource);
 	}
 }
