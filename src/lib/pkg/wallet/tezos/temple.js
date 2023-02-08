@@ -1,5 +1,5 @@
 import { TezosToolkit } from '@taquito/taquito';
-import { isAvailable, TempleWallet } from '@temple-wallet/dapp';
+import { isAvailable, TempleWallet as TWallet } from '@temple-wallet/dapp';
 import { Wallet } from '../wallet';
 import { ReadOnlySigner } from './signer';
 
@@ -10,13 +10,15 @@ import { ReadOnlySigner } from './signer';
  */
 export class TempleWallet extends Wallet {
 	constructor() {
-		TempleWallet.isAvailable().then((isAvailable) => {
+		super();
+
+		TWallet.isAvailable().then((isAvailable) => {
 			if (!isAvailable) {
 				throw new Error('Temple Wallet not installed');
 			}
 		});
 
-		this.wallet = new TempleWallet('Bifrost bridge');
+		this.wallet = new TWallet('Bifrost bridge');
 	}
 
 	async connectInjected() {
@@ -28,7 +30,7 @@ export class TempleWallet extends Wallet {
 			forcePermission: true
 		});
 
-		let address = this.wallet.pkh || (await this.wallet.getPKH());
+		this.address = this.wallet.pkh || (await this.wallet.getPKH());
 		const { pkh, publicKey } = this.wallet.permission;
 
 		let url = 'https://kathmandunet.ecadinfra.com';
@@ -37,7 +39,7 @@ export class TempleWallet extends Wallet {
 		tzs.setWalletProvider(this.wallet);
 		tzs.setSignerProvider(new ReadOnlySigner(pkh, publicKey));
 
-		return address;
+		return this.address;
 	}
 
 	async connectExternal(cb) {

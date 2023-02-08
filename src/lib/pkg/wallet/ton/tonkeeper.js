@@ -9,22 +9,14 @@ import { Wallet } from '../wallet';
  */
 export class TonKeeper extends Wallet {
 	constructor() {
-		let walletsList = [];
-		TonConnect.getWallets().then((wl) => {
-			walletsList = wl;
-		});
+		super();
 
-		this.walletConnectionSource = {
-			universalLink: walletsList[0].universalLink,
-			bridgeUrl: walletsList[0].bridgeUrl
-		};
-
-		this.connector = new TonConnect({
+		const connector = new TonConnect({
 			manifestUrl:
 				'https://raw.githubusercontent.com/bifrost-defi/bifrost/main/tonconnect-manifest.json'
 		});
 
-		this.connector.restoreConnection();
+		this.connector = connector;
 	}
 
 	async connectInjected() {
@@ -32,13 +24,22 @@ export class TonKeeper extends Wallet {
 	}
 
 	async connectExternal(cb) {
+		await this.connector.restoreConnection();
+
+		const walletsList = await TonConnect.getWallets();
+
+		const walletConnectionSource = {
+			universalLink: walletsList[0].universalLink,
+			bridgeUrl: walletsList[0].bridgeUrl
+		};
+
 		this.connector.onStatusChange((wallet) => {
 			if (this.connector.connected && wallet) {
-				let address = Address.parseRaw(wallet.account.address).toString();
-				cb(address);
+				this.address = Address.parseRaw(wallet.account.address).toString();
+				cb(this.address);
 			}
 		}, console.error);
 
-		return this.connector.connect(this.walletConnectionSource);
+		return this.connector.connect(walletConnectionSource);
 	}
 }

@@ -7,6 +7,22 @@ import { Address } from 'ton';
  * @abstract Wallet
  */
 export class Wallet {
+	/**
+	 * The connection status.
+	 * True if connected, false otherwise.
+	 *
+	 * @public
+	 * @type {boolean}
+	 */
+	connected;
+	/**
+	 * The address of the wallet.
+	 *
+	 * @public
+	 * @type {string}
+	 */
+	address;
+
 	constructor() {
 		if (this.constructor == Wallet) {
 			throw new Error("Abstract classes can't be instantiated.");

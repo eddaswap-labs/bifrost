@@ -1,31 +1,25 @@
 <script>
 	import TempleLogo from '$lib/images/temple_logo.png';
 	import { shortAccountString } from '$lib/pkg/utils';
-	import { writable } from 'svelte/store';
-	import { connectTempleWallet } from '$lib/pkg/wallet/connectWalletTZS';
-
-	let connected = false;
-	let selectedAccount = writable('');
+	import { Tezos } from '$lib/stores.js';
 
 	let isConnectingModalOpen = false;
 	let isDisconnectingModalOpen = false;
 	const connect = async () => {
-		selectedAccount.set(await connectTempleWallet());
-		connected = true;
+		await $Tezos.TempleWallet.connectInjected();
 		isConnectingModalOpen = false;
 	};
 	const disconnect = () => {
-		connected = false;
 		isDisconnectingModalOpen = false;
 	};
 </script>
 
 <div>
-	{#if !connected}
+	{#if !$Tezos.connected}
 		<label for="connect-modal-tzs" class="btn btn-sm btn-secondary">Connect Wallet</label>
 	{:else}
 		<label for="disconnect-modal-tzs" class="btn btn-sm btn-secondary"
-			>{shortAccountString(10, 5, $selectedAccount ?? '')}</label
+			>{shortAccountString(10, 5, $Tezos.address ?? '')}</label
 		>
 	{/if}
 </div>

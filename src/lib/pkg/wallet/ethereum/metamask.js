@@ -11,16 +11,18 @@ const tokenABI = []; // TODO
  */
 export class MetaMask extends Wallet {
 	constructor() {
-		this.provider = new ethers.providers.Web3Provider(window.ethereum);
+		super();
 	}
 
 	async connectInjected() {
+		this.provider = new ethers.providers.Web3Provider(window.ethereum);
+
 		await this.provider.send('eth_requestAccounts', []);
 		const signer = provider.getSigner();
 
-		let address = await signer.getAddress();
+		this.address = await signer.getAddress();
 
-		return address;
+		return this.address;
 	}
 
 	async connectExternal(cb) {
