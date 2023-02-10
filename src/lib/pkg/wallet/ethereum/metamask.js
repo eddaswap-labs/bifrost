@@ -12,13 +12,13 @@ const tokenABI = []; // TODO
 export class MetaMask extends Wallet {
 	constructor() {
 		super();
+
+		this.provider = new ethers.providers.Web3Provider(window.ethereum);
 	}
 
 	async connectInjected() {
-		this.provider = new ethers.providers.Web3Provider(window.ethereum);
-
 		await this.provider.send('eth_requestAccounts', []);
-		const signer = provider.getSigner();
+		const signer = this.provider.getSigner();
 
 		this.address = await signer.getAddress();
 
