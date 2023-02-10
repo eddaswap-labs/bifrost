@@ -48,27 +48,24 @@ const makeWalletStore = (wallet) => {
 	};
 };
 
-export const EthereumWallets = {
-	MetaMask: makeWalletStore(new MetaMask())
-};
-export const TezosWallets = makeWalletStore({
-	TempleWallet: makeWalletStore(new TezosTempleWallet())
-});
-export const TonWallets = makeWalletStore({
-	TonKeeper: makeWalletStore(new TonKeeper())
-});
-
 const makeNetworkStore = (walletStores) => {
-	const connected = derived(Object.values(walletStores), (wallets, set) => {
-		set(wallets.some(($wallet) => $wallet.connected));
-	});
+	const { subscribe, set, update } = writable({});
 
-	const address = derived(Object.values(walletStores), (wallets, set) => {
-		set(wallets.filter(($wallet) => $wallet.connected)[0].address);
-	});
+	const connected = () => {
+		get(this).some(($wallet) => $wallet.connected);
+	};
+
+	const address = () => get(this).filter(($wallet) => $wallet.connected)[0].address;
+
+	const init = async () => {
+		for (let [key, value] of Object.entries(walletStores)) {
+			walletStores[key] = makeWalletStore(value);
+		}
+	};
 
 	return {
 		subscribe,
+		init,
 		connected,
 		address,
 		...walletStores
