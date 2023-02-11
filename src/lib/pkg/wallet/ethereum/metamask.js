@@ -9,7 +9,7 @@ const tokenABI = []; // TODO
  *
  * @class MetaMask
  */
-export class MetaMask extends Wallet {
+export default class MetaMask extends Wallet {
 	constructor() {
 		super();
 

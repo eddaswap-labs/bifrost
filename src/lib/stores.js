@@ -1,7 +1,4 @@
-import { derived, writable, get } from 'svelte/store';
-import { MetaMask } from './pkg/wallet/ethereum/metamask';
-import { TonKeeper } from './pkg/wallet/ton/tonkeeper';
-import { TempleWallet as TezosTempleWallet } from './pkg/wallet/tezos/temple';
+import { writable, get } from 'svelte/store';
 import { Wallet } from './pkg/wallet/wallet';
 
 const makeWalletStore = (wallet) => {
@@ -48,30 +45,45 @@ const makeWalletStore = (wallet) => {
 	};
 };
 
-const makeNetworkStore = (walletStores) => {
-	const { subscribe, set, update } = writable({});
-
-	const connected = () => {
-		get(this).some(($wallet) => $wallet.connected);
-	};
-
-	const address = () => get(this).filter(($wallet) => $wallet.connected)[0].address;
-
-	const init = async () => {
-		for (let [key, value] of Object.entries(walletStores)) {
-			walletStores[key] = makeWalletStore(value);
-		}
-	};
+const makeNetworkStore = () => {
+	let initialValue = {};
+	const { subscribe, set } = writable(initialValue);
 
 	return {
 		subscribe,
-		init,
-		connected,
-		address,
-		...walletStores
+		init(wallets) {
+			let walletStores = {};
+			for (let [key, value] of Object.entries(wallets)) {
+				walletStores[key] = makeWalletStore(value);
+			}
+
+			set(walletStores);
+		},
+		connected() {
+			const wallets = get(this);
+
+			for (let [key, $value] of Object.entries(wallets)) {
+				if ($value.connected) {
+					return true;
+				}
+			}
+
+			return false;
+		},
+		address() {
+			const wallets = get(this);
+
+			for (let [key, $value] of Object.entries(wallets)) {
+				if ($value.connected) {
+					return $value.address;
+				}
+			}
+
+			return '';
+		}
 	};
 };
 
-export const Ethereum = makeNetworkStore(EthereumWallets);
-export const Tezos = makeNetworkStore(TezosWallets);
-export const TON = makeNetworkStore(TonWallets);
+export const Ethereum = makeNetworkStore();
+export const Tezos = makeNetworkStore();
+export const TON = makeNetworkStore();

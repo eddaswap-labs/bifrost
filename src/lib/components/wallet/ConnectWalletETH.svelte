@@ -1,8 +1,6 @@
 <script>
 	import MetamaskLogo from '$lib/images/metamask_logo.png';
-	import WalletConnectLogo from '$lib/images/walletconnect_logo.png';
 	import { shortAccountString } from '$lib/pkg/utils';
-	import { writable } from 'svelte/store';
 	import { Ethereum } from '$lib/stores.js';
 
 	let isConnectingModalOpen = false;
@@ -23,11 +21,11 @@
 </script>
 
 <div>
-	{#if !$Ethereum.connected}
+	{#if !Ethereum.connected()}
 		<label for="connect-modal-eth" class="btn btn-sm btn-secondary">Connect Wallet</label>
 	{:else}
 		<label for="disconnect-modal-eth" class="btn btn-sm btn-secondary"
-			>{shortAccountString(10, 5, $Ethereum.address ?? '')}</label
+			>{shortAccountString(10, 5, Ethereum.address() ?? '')}</label
 		>
 	{/if}
 </div>

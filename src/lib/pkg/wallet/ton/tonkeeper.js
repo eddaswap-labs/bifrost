@@ -7,7 +7,7 @@ import { Wallet } from '../wallet';
  *
  * @class TonKeeper
  */
-export class TonKeeper extends Wallet {
+export default class TonKeeper extends Wallet {
 	constructor() {
 		super();
 

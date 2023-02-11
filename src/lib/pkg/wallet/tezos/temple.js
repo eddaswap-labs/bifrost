@@ -8,7 +8,7 @@ import { ReadOnlySigner } from './signer';
  *
  * @class TempleWallet
  */
-export class TempleWallet extends Wallet {
+export default class TempleWallet extends Wallet {
 	constructor() {
 		super();
 

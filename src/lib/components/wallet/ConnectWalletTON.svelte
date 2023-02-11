@@ -1,12 +1,10 @@
 <script>
-	import MetamaskLogo from '$lib/images/metamask_logo.png';
 	import { shortAccountString } from '$lib/pkg/utils';
-	import { TON } from '$lib/stores.js';
-	import { writable } from 'svelte/store';
 	import QRCodeStyling from 'qr-code-styling';
 	import * as QROptions from './qr.json';
 	import BifrostLogo from '$lib/images/bifrost.png';
 	import TonkeeperLogo from '$lib/images/tonkeeper_logo.png';
+	import { TON } from '$lib/stores.js';
 
 	const qrCode = new QRCodeStyling(QROptions);
 
@@ -27,18 +25,16 @@
 		isConnectingModalOpen = false;
 	};
 	const disconnect = () => {
-		selectedAccount.set('');
-		connected = false;
 		isDisconnectingModalOpen = false;
 	};
 </script>
 
 <div>
-	{#if !$TON.connected}
+	{#if !TON.connected()}
 		<label for="connect-modal-ton" class="btn btn-sm btn-secondary">Connect Wallet</label>
 	{:else}
 		<label for="disconnect-modal-ton" class="btn btn-sm btn-secondary"
-			>{shortAccountString(10, 5, $TON.address ?? '')}</label
+			>{shortAccountString(10, 5, TON.address() ?? '')}</label
 		>
 	{/if}
 </div>

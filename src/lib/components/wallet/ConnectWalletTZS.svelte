@@ -15,11 +15,11 @@
 </script>
 
 <div>
-	{#if !$Tezos.connected}
+	{#if !Tezos.connected()}
 		<label for="connect-modal-tzs" class="btn btn-sm btn-secondary">Connect Wallet</label>
 	{:else}
 		<label for="disconnect-modal-tzs" class="btn btn-sm btn-secondary"
-			>{shortAccountString(10, 5, $Tezos.address ?? '')}</label
+			>{shortAccountString(10, 5, Tezos.address() ?? '')}</label
 		>
 	{/if}
 </div>
