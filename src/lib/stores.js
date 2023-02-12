@@ -1,4 +1,4 @@
-import { writable, get } from 'svelte/store';
+import { writable, get, derived } from 'svelte/store';
 import { Wallet } from './pkg/wallet/wallet';
 
 const makeWalletStore = (wallet) => {
@@ -57,29 +57,16 @@ const makeNetworkStore = () => {
 				walletStores[key] = makeWalletStore(value);
 			}
 
-			set(walletStores);
-		},
-		connected() {
-			const wallets = get(this);
+			let connected = derived(Object.values(walletStores), ($wallets) => {
+				return $wallets.some(($wallet) => $wallet.connected);
+			});
 
-			for (let [key, $value] of Object.entries(wallets)) {
-				if ($value.connected) {
-					return true;
-				}
-			}
+			let address = derived(Object.values(walletStores), ($wallets) => {
+				let addresses = $wallets.map(($wallet) => $wallet.address);
+				return addresses.filter((address) => address !== '')[0];
+			});
 
-			return false;
-		},
-		address() {
-			const wallets = get(this);
-
-			for (let [key, $value] of Object.entries(wallets)) {
-				if ($value.connected) {
-					return $value.address;
-				}
-			}
-
-			return '';
+			set({ connected, address, ...walletStores });
 		}
 	};
 };

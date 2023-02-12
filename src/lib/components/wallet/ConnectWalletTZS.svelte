@@ -3,6 +3,8 @@
 	import { shortAccountString } from '$lib/pkg/utils';
 	import { Tezos } from '$lib/stores.js';
 
+	const { connected, address } = $Tezos;
+
 	let isConnectingModalOpen = false;
 	let isDisconnectingModalOpen = false;
 	const connect = async () => {
@@ -15,11 +17,11 @@
 </script>
 
 <div>
-	{#if !Tezos.connected()}
+	{#if !$connected}
 		<label for="connect-modal-tzs" class="btn btn-sm btn-secondary">Connect Wallet</label>
 	{:else}
 		<label for="disconnect-modal-tzs" class="btn btn-sm btn-secondary"
-			>{shortAccountString(10, 5, Tezos.address() ?? '')}</label
+			>{shortAccountString(10, 5, $address ?? '')}</label
 		>
 	{/if}
 </div>

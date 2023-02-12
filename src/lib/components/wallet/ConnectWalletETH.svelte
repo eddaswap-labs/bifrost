@@ -3,6 +3,8 @@
 	import { shortAccountString } from '$lib/pkg/utils';
 	import { Ethereum } from '$lib/stores.js';
 
+	const { connected, address } = $Ethereum;
+
 	let isConnectingModalOpen = false;
 	let isDisconnectingModalOpen = false;
 	const connect = async (wallet) => {
@@ -15,17 +17,16 @@
 		isConnectingModalOpen = false;
 	};
 	const disconnect = () => {
-		selectedAccount.set('');
 		isDisconnectingModalOpen = false;
 	};
 </script>
 
 <div>
-	{#if !Ethereum.connected()}
+	{#if !$connected}
 		<label for="connect-modal-eth" class="btn btn-sm btn-secondary">Connect Wallet</label>
 	{:else}
 		<label for="disconnect-modal-eth" class="btn btn-sm btn-secondary"
-			>{shortAccountString(10, 5, Ethereum.address() ?? '')}</label
+			>{shortAccountString(10, 5, $address ?? '')}</label
 		>
 	{/if}
 </div>

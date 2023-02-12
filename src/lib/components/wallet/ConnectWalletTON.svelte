@@ -6,6 +6,8 @@
 	import TonkeeperLogo from '$lib/images/tonkeeper_logo.png';
 	import { TON } from '$lib/stores.js';
 
+	const { connected, address } = $TON;
+
 	const qrCode = new QRCodeStyling(QROptions);
 
 	let isConnectingModalOpen = false;
@@ -30,11 +32,11 @@
 </script>
 
 <div>
-	{#if !TON.connected()}
+	{#if !$connected}
 		<label for="connect-modal-ton" class="btn btn-sm btn-secondary">Connect Wallet</label>
 	{:else}
 		<label for="disconnect-modal-ton" class="btn btn-sm btn-secondary"
-			>{shortAccountString(10, 5, TON.address() ?? '')}</label
+			>{shortAccountString(10, 5, $address ?? '')}</label
 		>
 	{/if}
 </div>
