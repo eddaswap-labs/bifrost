@@ -45,7 +45,7 @@
 				<p>from</p>
 				<div class="flex flex-row justify-between items-center my-3">
 					<div class="w-1/3">
-						<CoinSelect class="w-1/4" bind:selectedId={fromCoin} />
+						<CoinSelect bind:selectedId={fromCoin} />
 					</div>
 					{#if $fromCoin === 0}
 						<ConnectWalletETH />
@@ -70,7 +70,7 @@
 				<p>to</p>
 				<div class="flex flex-row justify-between items-center my-3">
 					<div class="w-1/3">
-						<CoinSelect class="w-1/4" bind:selectedId={toCoin} />
+						<CoinSelect bind:selectedId={toCoin} />
 					</div>
 					{#if $toCoin === 0}
 						<ConnectWalletETH />
