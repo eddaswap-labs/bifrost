@@ -6,7 +6,15 @@
 		<meta name="viewport" content="width=device-width" />
 		%sveltekit.head%
 		<title>Bifrost bridge</title>
+		<!-- <script src="hooks.client.js" /> -->
 	</head>
+	<script>
+		window.global = window;
+	</script>
+	<script type="commonjs">
+		const Buffer = require("buffer/").Buffer;
+		window.Buffer = Buffer;
+	</script>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>

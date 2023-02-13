@@ -1,28 +1,20 @@
 <script>
-	import MetamaskLogo from '$lib/images/metamask_logo.png';
 	import { shortAccountString } from '$lib/pkg/utils';
-	import { connectWalletTON } from '$lib/pkg/wallet/connectWalletTON';
-	import { writable } from 'svelte/store';
 	import QRCodeStyling from 'qr-code-styling';
 	import * as QROptions from './qr.json';
 	import BifrostLogo from '$lib/images/bifrost.png';
 	import TonkeeperLogo from '$lib/images/tonkeeper_logo.png';
+	import { TON } from '$lib/stores.js';
+
+	const { connected, address, wallets } = $TON;
 
 	const qrCode = new QRCodeStyling(QROptions);
-
-	let connected = false;
-	let selectedAccount = writable('');
 
 	let isConnectingModalOpen = false;
 	let isDisconnectingModalOpen = false;
 
 	const connect = async () => {
-		let connectionLink = await connectWalletTON((address) => {
-			// Set wallet address and close modal when user approves connection.
-			selectedAccount.set(address);
-			connected = true;
-			document.getElementById('qr-modal').checked = false;
-		});
+		let connectionLink = await wallets.TonKeeper.connectExternal();
 
 		qrCode.update({
 			data: connectionLink,
@@ -35,18 +27,17 @@
 		isConnectingModalOpen = false;
 	};
 	const disconnect = () => {
-		selectedAccount.set('');
-		connected = false;
+		TON.disconnect();
 		isDisconnectingModalOpen = false;
 	};
 </script>
 
 <div>
-	{#if !connected}
+	{#if !$connected}
 		<label for="connect-modal-ton" class="btn btn-sm btn-secondary">Connect Wallet</label>
 	{:else}
 		<label for="disconnect-modal-ton" class="btn btn-sm btn-secondary"
-			>{shortAccountString(10, 5, $selectedAccount ?? '')}</label
+			>{shortAccountString(10, 5, $address ?? '')}</label
 		>
 	{/if}
 </div>

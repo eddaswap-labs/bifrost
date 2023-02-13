@@ -1,40 +1,33 @@
 <script>
 	import MetamaskLogo from '$lib/images/metamask_logo.png';
-	import WalletConnectLogo from '$lib/images/walletconnect_logo.png';
 	import { shortAccountString } from '$lib/pkg/utils';
-	import { writable } from 'svelte/store';
-	import { connectMetamask, connectWalletConnect } from '../../pkg/wallet/connectWalletETH';
+	import { Ethereum } from '$lib/stores.js';
 
-	let connected = false;
-	let selectedAccount = writable('');
+	const { connected, address, wallets } = $Ethereum;
 
 	let isConnectingModalOpen = false;
 	let isDisconnectingModalOpen = false;
 	const connect = async (wallet) => {
 		switch (wallet) {
 			case 'metamask':
-				selectedAccount.set(await connectMetamask());
-				break;
+				await wallets.MetaMask.connectInjected();
 			case 'walletconnect':
-				selectedAccount.set(await connectWalletConnect());
 				break;
 		}
-		connected = true;
 		isConnectingModalOpen = false;
 	};
 	const disconnect = () => {
-		selectedAccount.set('');
-		connected = false;
+		Ethereum.disconnect();
 		isDisconnectingModalOpen = false;
 	};
 </script>
 
 <div>
-	{#if !connected}
+	{#if !$connected}
 		<label for="connect-modal-eth" class="btn btn-sm btn-secondary">Connect Wallet</label>
 	{:else}
 		<label for="disconnect-modal-eth" class="btn btn-sm btn-secondary"
-			>{shortAccountString(10, 5, $selectedAccount ?? '')}</label
+			>{shortAccountString(10, 5, $address ?? '')}</label
 		>
 	{/if}
 </div>
