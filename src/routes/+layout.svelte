@@ -12,7 +12,7 @@
 			>
 		</div>
 		<div>
-			<p>&#169; {new Date().getFullYear()}</p>
+			<p>&#169; {new Date().getFullYear()} Bifrost</p>
 		</div>
 	</footer>
 </div>

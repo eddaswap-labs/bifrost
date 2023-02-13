@@ -39,7 +39,7 @@
 	<div
 		class="bg-base-200 shadow-sm flex flex-col items-center py-8 px-5 w-full md:w-1/3 border-4 border-black"
 	>
-		<h4 class="mb-5">Wrapped Swap</h4>
+		<h4 class="text-2xl mb-5">Wrapped Swap</h4>
 		<div class="w-full">
 			<p>from</p>
 			<div class="flex flex-row justify-between items-center my-3">
