@@ -25,7 +25,7 @@
 		<div class="hero-content text-left">
 			{#if ready}
 				<div class="max-w-xl" in:fly={{ x: -200, duration: 1500 }}>
-					<h1 class="text-5xl font-bold">👾 Bifrost</h1>
+					<h1 class="text-5xl font-bold">👾 Bifrost Protocol</h1>
 					<p class="py-8">Swap tokens between Ethereum, TON and Tezos with ease.</p>
 				</div>
 			{/if}
