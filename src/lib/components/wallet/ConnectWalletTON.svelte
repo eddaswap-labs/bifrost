@@ -6,7 +6,7 @@
 	import TonkeeperLogo from '$lib/images/tonkeeper_logo.png';
 	import { TON } from '$lib/stores.js';
 
-	const { connected, address } = $TON;
+	const { connected, address, wallets } = $TON;
 
 	const qrCode = new QRCodeStyling(QROptions);
 
@@ -14,7 +14,7 @@
 	let isDisconnectingModalOpen = false;
 
 	const connect = async () => {
-		let connectionLink = await $TON.TonKeeper.connectExternal();
+		let connectionLink = await wallets.TonKeeper.connectExternal();
 
 		qrCode.update({
 			data: connectionLink,
@@ -27,6 +27,7 @@
 		isConnectingModalOpen = false;
 	};
 	const disconnect = () => {
+		TON.disconnect();
 		isDisconnectingModalOpen = false;
 	};
 </script>

@@ -3,15 +3,16 @@
 	import { shortAccountString } from '$lib/pkg/utils';
 	import { Tezos } from '$lib/stores.js';
 
-	const { connected, address } = $Tezos;
+	const { connected, address, wallets } = $Tezos;
 
 	let isConnectingModalOpen = false;
 	let isDisconnectingModalOpen = false;
 	const connect = async () => {
-		await $Tezos.TempleWallet.connectInjected();
+		await wallets.TempleWallet.connectInjected();
 		isConnectingModalOpen = false;
 	};
 	const disconnect = () => {
+		Tezos.disconnect();
 		isDisconnectingModalOpen = false;
 	};
 </script>

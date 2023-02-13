@@ -28,7 +28,7 @@ const makeWalletStore = (wallet) => {
 		return link;
 	};
 
-	const disconnect = async () => {
+	const disconnect = () => {
 		set({
 			address: '',
 			connected: false
@@ -57,16 +57,28 @@ const makeNetworkStore = () => {
 				walletStores[key] = makeWalletStore(value);
 			}
 
-			let connected = derived(Object.values(walletStores), ($wallets) => {
-				return $wallets.some(($wallet) => $wallet.connected);
+			let connected = derived(Object.values(walletStores), (wallets, set) => {
+				const status = wallets.some((wallet) => wallet.connected);
+				set(status);
+
+				return status;
 			});
 
-			let address = derived(Object.values(walletStores), ($wallets) => {
-				let addresses = $wallets.map(($wallet) => $wallet.address);
-				return addresses.filter((address) => address !== '')[0];
+			let address = derived(Object.values(walletStores), (wallets, set) => {
+				let addresses = wallets.map((wallet) => wallet.address);
+				let connectedAddress = addresses.filter((address) => address !== '')[0];
+				set(connectedAddress);
+
+				return connectedAddress;
 			});
 
-			set({ connected, address, ...walletStores });
+			set({ connected, address, wallets: walletStores });
+		},
+		disconnect() {
+			let network = get(this);
+			for (let wallet of Object.values(network.wallets)) {
+				wallet.disconnect();
+			}
 		}
 	};
 };

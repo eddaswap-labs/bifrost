@@ -3,20 +3,21 @@
 	import { shortAccountString } from '$lib/pkg/utils';
 	import { Ethereum } from '$lib/stores.js';
 
-	const { connected, address } = $Ethereum;
+	const { connected, address, wallets } = $Ethereum;
 
 	let isConnectingModalOpen = false;
 	let isDisconnectingModalOpen = false;
 	const connect = async (wallet) => {
 		switch (wallet) {
 			case 'metamask':
-				await $Ethereum.MetaMask.connectInjected();
+				await wallets.MetaMask.connectInjected();
 			case 'walletconnect':
 				break;
 		}
 		isConnectingModalOpen = false;
 	};
 	const disconnect = () => {
+		Ethereum.disconnect();
 		isDisconnectingModalOpen = false;
 	};
 </script>
