@@ -37,7 +37,7 @@
 				class="bg-base-200 shadow-xl flex flex-col items-center py-8 mx-10 px-5 w-96 border-4 border-black"
 				in:fly={{ x: 200, duration: 1500 }}
 			>
-				<h4 class="mb-5">Wrapped Swap</h4>
+				<h4 class="mb-5">Choose currencies</h4>
 				<div class="w-full">
 					<p>from</p>
 					<CoinSelect selectedId={fromCoin} />
