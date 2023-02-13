@@ -20,7 +20,7 @@ const makeWalletStore = (wallet) => {
 	const connectExternal = async () => {
 		let link = await wallet.connectExternal((address) => {
 			set({
-				address: walletAddress,
+				address,
 				connected: true
 			});
 		});
@@ -57,19 +57,13 @@ const makeNetworkStore = () => {
 				walletStores[key] = makeWalletStore(value);
 			}
 
-			let connected = derived(Object.values(walletStores), (wallets, set) => {
-				const status = wallets.some((wallet) => wallet.connected);
-				set(status);
-
-				return status;
+			let connected = derived(Object.values(walletStores), (wallets) => {
+				return wallets.some((wallet) => wallet.connected);
 			});
 
-			let address = derived(Object.values(walletStores), (wallets, set) => {
+			let address = derived(Object.values(walletStores), (wallets) => {
 				let addresses = wallets.map((wallet) => wallet.address);
-				let connectedAddress = addresses.filter((address) => address !== '')[0];
-				set(connectedAddress);
-
-				return connectedAddress;
+				return addresses.filter((address) => address !== '')[0];
 			});
 
 			set({ connected, address, wallets: walletStores });
