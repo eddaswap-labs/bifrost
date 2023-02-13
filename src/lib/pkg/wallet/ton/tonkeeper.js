@@ -11,12 +11,10 @@ export default class TonKeeper extends Wallet {
 	constructor() {
 		super();
 
-		const connector = new TonConnect({
+		this.connector = new TonConnect({
 			manifestUrl:
 				'https://raw.githubusercontent.com/bifrost-defi/bifrost/main/tonconnect-manifest.json'
 		});
-
-		this.connector = connector;
 	}
 
 	async connectInjected() {
@@ -24,8 +22,6 @@ export default class TonKeeper extends Wallet {
 	}
 
 	async connectExternal(cb) {
-		await this.connector.restoreConnection();
-
 		const walletsList = await TonConnect.getWallets();
 
 		const walletConnectionSource = {
