@@ -51,8 +51,10 @@
 				</div>
 				<a
 					class="btn btn-primary btn-wide mt-7"
-					href={'/swap?from=' + coins[$fromCoin].symbol + '&to=' + coins[$toCoin].symbol}
-					>go swap!</a
+					href={'/swap?from=' +
+						coins[$fromCoin].nativeSymbol +
+						'&to=' +
+						coins[$toCoin].nativeSymbol}>go swap!</a
 				>
 			</div>
 		{/if}

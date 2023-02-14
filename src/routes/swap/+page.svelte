@@ -18,8 +18,8 @@
 	let fromSymbol = $page.url.searchParams.get('from');
 	let toSymbol = $page.url.searchParams.get('to');
 
-	let fromCoin = writable(fromSymbol ? coins.findIndex((c) => c.symbol === fromSymbol) : 0);
-	let toCoin = writable(toSymbol ? coins.findIndex((c) => c.symbol === toSymbol) : 1);
+	let fromCoin = writable(fromSymbol ? coins.findIndex((c) => c.nativeSymbol === fromSymbol) : 0);
+	let toCoin = writable(toSymbol ? coins.findIndex((c) => c.nativeSymbol === toSymbol) : 1);
 
 	let fromValue = writable(0.0);
 	let toValue = writable(0.0);

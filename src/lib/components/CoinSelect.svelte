@@ -15,8 +15,8 @@
 		class="btn flex-shrink-0 z-10 inline-flex items-center justify-between border border-black text-sm font-medium text-center text-gray-500 bg-base-100 w-full h-12"
 	>
 		<div class="flex flex-row gap-3 items-center">
-			<img src={coins[$selectedId].logo} alt="" width={coins[$selectedId].size} />
-			{coins[$selectedId].symbol}
+			<img src={coins[$selectedId].logo} alt="" width={coins[$selectedId].logoSize} />
+			{coins[$selectedId].nativeSymbol}
 		</div>
 		<svg aria-hidden="true" class="w-4 h-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
 			><path
@@ -35,8 +35,8 @@
 							selectCoin(id);
 						}}
 					>
-						<img class="mr-2" src={coin.logo} alt="logo" width={coin.size} />
-						{coin.symbol}
+						<img class="mr-2" src={coin.logo} alt="logo" width={coin.logoSize} />
+						{coin.nativeSymbol}
 					</button>
 				</li>
 			{/if}
