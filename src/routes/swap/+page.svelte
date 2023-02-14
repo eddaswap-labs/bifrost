@@ -11,6 +11,7 @@
 	import ConnectWalletETH from '$lib/components/wallet/ConnectWalletETH.svelte';
 	import ConnectWalletTZS from '$lib/components/wallet/ConnectWalletTZS.svelte';
 	import ConnectWalletTON from '$lib/components/wallet/ConnectWalletTON.svelte';
+	import { send, receive } from '$lib/animations/pages.crossfade.js';
 
 	let ready = false;
 	onMount(() => (ready = true));
@@ -37,7 +38,9 @@
 
 <div class="flex flex-col md:flex-row h-full justify-center items-center px-5 md:px-0">
 	<div
-		class="bg-base-200 shadow-sm flex flex-col items-center py-8 px-5 w-full md:w-1/3 border-4 border-black"
+		class="absolute bg-base-200 shadow-sm flex flex-col items-center py-8 px-5 w-full md:w-1/3 border-4 border-black"
+		out:send={{ key: 'swap' }}
+		in:receive={{ key: 'swap' }}
 	>
 		<h4 class="text-2xl mb-5">Wrapped Swap</h4>
 		<div class="w-full">
