@@ -1,5 +1,5 @@
 import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, q as text, a as space, l as claim_element, m as children, r as claim_text, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, C as noop, P as src_url_equal, Q as listen, E as run_all, M as component_subscribe, u as set_data, v as binding_callbacks, X as bind, x as create_component, y as claim_component, z as mount_component, Y as add_flush_callback, t as transition_out, d as check_outros, f as transition_in, N as add_render_callback, R as create_out_transition, A as destroy_component, o as onMount, g as group_outros, O as create_in_transition, D as subscribe } from "../../../chunks/index-9a875c02.js";
-import { p as page } from "../../../chunks/stores-85f13fc7.js";
+import { p as page } from "../../../chunks/stores-2ed94eef.js";
 import { C as CoinSelect, c as coins, A as Arrows, s as send, r as receive } from "../../../chunks/pages.crossfade-2420eecd.js";
 import { w as writable } from "../../../chunks/index-dc764774.js";
 import { B as BigNumber, E as Ethereum, T as Tezos, g as getDefaultExportFromCjs, b as TON } from "../../../chunks/bignumber-c0d740ce.js";

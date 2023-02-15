@@ -1,5 +1,5 @@
 import { S as SvelteComponent, i as init, s as safe_not_equal, a as space, e as empty$2, c as claim_space, b as insert_hydration, g as group_outros, t as transition_out, d as check_outros, f as transition_in, h as detach, j as afterUpdate, o as onMount, k as element, l as claim_element, m as children, n as attr, p as set_style, q as text, r as claim_text, u as set_data, v as binding_callbacks, w as construct_svelte_component, x as create_component, y as claim_component, z as mount_component, A as destroy_component, B as tick } from "./index-9a875c02.js";
-import { S as SCROLL_KEY, a as SNAPSHOT_KEY, I as INDEX_KEY, g as get_base_uri, f as find_anchor, b as get_link_info, c as get_router_options, s as stores, i as is_external_url, d as scroll_state, e as base$4, P as PRELOAD_PRIORITIES, h as init$1, j as set_assets, k as set_version } from "./singletons-6c5df80c.js";
+import { S as SCROLL_KEY, a as SNAPSHOT_KEY, I as INDEX_KEY, g as get_base_uri, f as find_anchor, b as get_link_info, c as get_router_options, s as stores, i as is_external_url, d as scroll_state, e as base$4, P as PRELOAD_PRIORITIES, h as init$1, j as set_assets, k as set_version } from "./singletons-a9c21052.js";
 import { r as require$$0$1, c as commonjsGlobal, W as Wallet$1, g as getDefaultExportFromCjs, a as commonjsRequire$1, B as BigNumber$1, n as naclFastExports, d as dist, E as Ethereum, T as Tezos, b as TON } from "./bignumber-c0d740ce.js";
 function normalize_path(path, trailing_slash) {
   if (path === "/" || trailing_slash === "ignore")
@@ -19092,7 +19092,7 @@ var STATUS_CODE;
   STATUS_CODE2[STATUS_CODE2["NETWORK_AUTHENTICATION_REQUIRED"] = 511] = "NETWORK_AUTHENTICATION_REQUIRED";
 })(STATUS_CODE || (STATUS_CODE = {}));
 const isNode$1 = typeof process !== "undefined" && process.versions != null && process.versions.node != null;
-const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-6c881688.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
+const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-c113ad72.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
 var ResponseType;
 (function(ResponseType2) {
   ResponseType2["TEXT"] = "text";
@@ -55951,9 +55951,9 @@ TON.init({
 const matchers = {};
 const nodes = [
   () => __vitePreload(() => import("./0-49d9c192.js"), true ? ["./0-49d9c192.js","./_layout-a7d677aa.js","../components/pages/_layout.svelte-ec21c90a.js","./index-9a875c02.js","../assets/_layout-38bda2d6.css"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./1-959a0610.js"), true ? ["./1-959a0610.js","../components/error.svelte-5b574140.js","./index-9a875c02.js","./stores-85f13fc7.js","./singletons-6c5df80c.js","./index-dc764774.js"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./1-17fa8d1f.js"), true ? ["./1-17fa8d1f.js","../components/error.svelte-2b4289db.js","./index-9a875c02.js","./stores-2ed94eef.js","./singletons-a9c21052.js","./index-dc764774.js"] : void 0, import.meta.url),
   () => __vitePreload(() => import("./2-0529020a.js"), true ? ["./2-0529020a.js","../components/pages/_page.svelte-b1a7b9f1.js","./index-9a875c02.js","./pages.crossfade-2420eecd.js","./index-dc764774.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./3-232d8aaf.js"), true ? ["./3-232d8aaf.js","../components/pages/swap/_page.svelte-b6b46523.js","./index-9a875c02.js","./stores-85f13fc7.js","./singletons-6c5df80c.js","./index-dc764774.js","./pages.crossfade-2420eecd.js","./bignumber-c0d740ce.js"] : void 0, import.meta.url)
+  () => __vitePreload(() => import("./3-327b5ba6.js"), true ? ["./3-327b5ba6.js","../components/pages/swap/_page.svelte-ccfdd992.js","./index-9a875c02.js","./stores-2ed94eef.js","./singletons-a9c21052.js","./index-dc764774.js","./pages.crossfade-2420eecd.js","./bignumber-c0d740ce.js"] : void 0, import.meta.url)
 ];
 const server_loads = [];
 const dictionary = {

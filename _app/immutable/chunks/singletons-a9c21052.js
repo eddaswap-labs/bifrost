@@ -1,5 +1,5 @@
 import { w as writable } from "./index-dc764774.js";
-const base = "";
+const base = "/bifrost";
 let assets = base;
 function set_assets(path) {
   assets = path;
