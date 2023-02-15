@@ -84,7 +84,15 @@ function derived(stores, fn, initial_value) {
     };
   });
 }
+const base = "/bifrost";
+let assets = base;
+function set_assets(path) {
+  assets = path;
+}
 export {
+  assets as a,
+  base as b,
   derived as d,
+  set_assets as s,
   writable as w
 };

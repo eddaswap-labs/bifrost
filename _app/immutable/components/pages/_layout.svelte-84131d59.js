@@ -1,7 +1,7 @@
 import { S as SvelteComponent, i as init, s as safe_not_equal, H as create_slot, k as element, a as space, q as text, l as claim_element, m as children, c as claim_space, r as claim_text, h as detach, n as attr, b as insert_hydration, I as append_hydration, J as update_slot_base, K as get_all_dirty_from_scope, L as get_slot_changes, f as transition_in, t as transition_out } from "../../chunks/index-9a875c02.js";
 const app = "";
 function create_fragment(ctx) {
-  let div2;
+  let div5;
   let t0;
   let footer;
   let div0;
@@ -14,6 +14,14 @@ function create_fragment(ctx) {
   let t4_value = new Date().getFullYear() + "";
   let t4;
   let t5;
+  let t6;
+  let div4;
+  let div3;
+  let div2;
+  let span;
+  let t7;
+  let br;
+  let t8;
   let current;
   const default_slot_template = (
     /*#slots*/
@@ -28,7 +36,7 @@ function create_fragment(ctx) {
   );
   return {
     c() {
-      div2 = element("div");
+      div5 = element("div");
       if (default_slot)
         default_slot.c();
       t0 = space();
@@ -42,15 +50,23 @@ function create_fragment(ctx) {
       t3 = text("© ");
       t4 = text(t4_value);
       t5 = text(" Bifrost");
+      t6 = space();
+      div4 = element("div");
+      div3 = element("div");
+      div2 = element("div");
+      span = element("span");
+      t7 = text("Bridge is still under development. ");
+      br = element("br");
+      t8 = text(" You only see the beta release.");
       this.h();
     },
     l(nodes) {
-      div2 = claim_element(nodes, "DIV", { class: true });
-      var div2_nodes = children(div2);
+      div5 = claim_element(nodes, "DIV", { class: true });
+      var div5_nodes = children(div5);
       if (default_slot)
-        default_slot.l(div2_nodes);
-      t0 = claim_space(div2_nodes);
-      footer = claim_element(div2_nodes, "FOOTER", { class: true });
+        default_slot.l(div5_nodes);
+      t0 = claim_space(div5_nodes);
+      footer = claim_element(div5_nodes, "FOOTER", { class: true });
       var footer_nodes = children(footer);
       div0 = claim_element(footer_nodes, "DIV", { class: true });
       var div0_nodes = children(div0);
@@ -75,7 +91,23 @@ function create_fragment(ctx) {
       p_nodes.forEach(detach);
       div1_nodes.forEach(detach);
       footer_nodes.forEach(detach);
+      t6 = claim_space(div5_nodes);
+      div4 = claim_element(div5_nodes, "DIV", { class: true });
+      var div4_nodes = children(div4);
+      div3 = claim_element(div4_nodes, "DIV", { class: true });
+      var div3_nodes = children(div3);
+      div2 = claim_element(div3_nodes, "DIV", {});
+      var div2_nodes = children(div2);
+      span = claim_element(div2_nodes, "SPAN", {});
+      var span_nodes = children(span);
+      t7 = claim_text(span_nodes, "Bridge is still under development. ");
+      br = claim_element(span_nodes, "BR", {});
+      t8 = claim_text(span_nodes, " You only see the beta release.");
+      span_nodes.forEach(detach);
       div2_nodes.forEach(detach);
+      div3_nodes.forEach(detach);
+      div4_nodes.forEach(detach);
+      div5_nodes.forEach(detach);
       this.h();
     },
     h() {
@@ -85,15 +117,17 @@ function create_fragment(ctx) {
       attr(a, "href", "https://t.me/bifrost_defi");
       attr(div0, "class", "grid grid-flow-col gap-4");
       attr(footer, "class", "footer footer-center p-5 bg-base-100 gap-2 text-base-content rounded");
-      attr(div2, "class", "flex flex-col min-h-screen justify-between");
+      attr(div3, "class", "alert alert-warning");
+      attr(div4, "class", "toast");
+      attr(div5, "class", "flex flex-col min-h-screen justify-between");
     },
     m(target, anchor) {
-      insert_hydration(target, div2, anchor);
+      insert_hydration(target, div5, anchor);
       if (default_slot) {
-        default_slot.m(div2, null);
+        default_slot.m(div5, null);
       }
-      append_hydration(div2, t0);
-      append_hydration(div2, footer);
+      append_hydration(div5, t0);
+      append_hydration(div5, footer);
       append_hydration(footer, div0);
       append_hydration(div0, a);
       append_hydration(a, t1);
@@ -103,6 +137,14 @@ function create_fragment(ctx) {
       append_hydration(p, t3);
       append_hydration(p, t4);
       append_hydration(p, t5);
+      append_hydration(div5, t6);
+      append_hydration(div5, div4);
+      append_hydration(div4, div3);
+      append_hydration(div3, div2);
+      append_hydration(div2, span);
+      append_hydration(span, t7);
+      append_hydration(span, br);
+      append_hydration(span, t8);
       current = true;
     },
     p(ctx2, [dirty]) {
@@ -142,7 +184,7 @@ function create_fragment(ctx) {
     },
     d(detaching) {
       if (detaching)
-        detach(div2);
+        detach(div5);
       if (default_slot)
         default_slot.d(detaching);
     }

@@ -1,6 +1,6 @@
 import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, l as claim_element, m as children, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, f as transition_in, t as transition_out, d as check_outros, o as onMount, M as component_subscribe, C as noop, q as text, r as claim_text, N as add_render_callback, O as create_in_transition, x as create_component, y as claim_component, P as src_url_equal, z as mount_component, Q as listen, R as create_out_transition, A as destroy_component, E as run_all, g as group_outros } from "../../chunks/index-9a875c02.js";
-import { C as CoinSelect, A as Arrows, c as coins, s as send, f as fly, r as receive } from "../../chunks/pages.crossfade-2420eecd.js";
-import { w as writable } from "../../chunks/index-dc764774.js";
+import { C as CoinSelect, A as Arrows, c as coins, s as send, f as fly, r as receive } from "../../chunks/pages.crossfade-ab243352.js";
+import { b as base, w as writable } from "../../chunks/paths-8050205f.js";
 function create_if_block_1(ctx) {
   let div;
   let if_block = (
@@ -236,7 +236,7 @@ function create_if_block(ctx) {
       attr(button, "class", "mt-6 mb-1");
       attr(div1, "class", "w-full");
       attr(a, "class", "btn btn-primary btn-wide mt-7");
-      attr(a, "href", a_href_value = "swap?from=" + coins[
+      attr(a, "href", a_href_value = base + "/swap?from=" + coins[
         /*$fromCoin*/
         ctx[3]
       ].nativeSymbol + "&to=" + coins[
@@ -288,7 +288,7 @@ function create_if_block(ctx) {
     },
     p(ctx2, dirty) {
       if (!current || dirty & /*$fromCoin, $toCoin*/
-      12 && a_href_value !== (a_href_value = "swap?from=" + coins[
+      12 && a_href_value !== (a_href_value = base + "/swap?from=" + coins[
         /*$fromCoin*/
         ctx2[3]
       ].nativeSymbol + "&to=" + coins[
