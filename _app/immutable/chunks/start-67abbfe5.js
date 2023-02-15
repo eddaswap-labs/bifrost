@@ -19092,7 +19092,7 @@ var STATUS_CODE;
   STATUS_CODE2[STATUS_CODE2["NETWORK_AUTHENTICATION_REQUIRED"] = 511] = "NETWORK_AUTHENTICATION_REQUIRED";
 })(STATUS_CODE || (STATUS_CODE = {}));
 const isNode$1 = typeof process !== "undefined" && process.versions != null && process.versions.node != null;
-const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-2bf7668e.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
+const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-6c881688.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
 var ResponseType;
 (function(ResponseType2) {
   ResponseType2["TEXT"] = "text";
@@ -25288,46 +25288,38 @@ function getHighWaterMark(state2, options, duplexKey, isDuplex) {
 var state = {
   getHighWaterMark
 };
-var browser$1;
-var hasRequiredBrowser;
-function requireBrowser() {
-  if (hasRequiredBrowser)
-    return browser$1;
-  hasRequiredBrowser = 1;
-  browser$1 = deprecate;
-  function deprecate(fn, msg) {
-    if (config2("noDeprecation")) {
-      return fn;
-    }
-    var warned = false;
-    function deprecated() {
-      if (!warned) {
-        if (config2("throwDeprecation")) {
-          throw new Error(msg);
-        } else if (config2("traceDeprecation")) {
-          console.trace(msg);
-        } else {
-          console.warn(msg);
-        }
-        warned = true;
+var browser$1 = deprecate;
+function deprecate(fn, msg) {
+  if (config$1("noDeprecation")) {
+    return fn;
+  }
+  var warned = false;
+  function deprecated() {
+    if (!warned) {
+      if (config$1("throwDeprecation")) {
+        throw new Error(msg);
+      } else if (config$1("traceDeprecation")) {
+        console.trace(msg);
+      } else {
+        console.warn(msg);
       }
-      return fn.apply(this, arguments);
+      warned = true;
     }
-    return deprecated;
+    return fn.apply(this, arguments);
   }
-  function config2(name2) {
-    try {
-      if (!commonjsGlobal.localStorage)
-        return false;
-    } catch (_2) {
+  return deprecated;
+}
+function config$1(name2) {
+  try {
+    if (!commonjsGlobal.localStorage)
       return false;
-    }
-    var val = commonjsGlobal.localStorage[name2];
-    if (null == val)
-      return false;
-    return String(val).toLowerCase() === "true";
+  } catch (_2) {
+    return false;
   }
-  return browser$1;
+  var val = commonjsGlobal.localStorage[name2];
+  if (null == val)
+    return false;
+  return String(val).toLowerCase() === "true";
 }
 var _stream_writable;
 var hasRequired_stream_writable;
@@ -25347,7 +25339,7 @@ function require_stream_writable() {
   var Duplex2;
   Writable.WritableState = WritableState;
   var internalUtil = {
-    deprecate: requireBrowser()
+    deprecate: browser$1
   };
   var Stream = streamBrowser;
   var Buffer2 = buffer.Buffer;
