@@ -19092,7 +19092,7 @@ var STATUS_CODE;
   STATUS_CODE2[STATUS_CODE2["NETWORK_AUTHENTICATION_REQUIRED"] = 511] = "NETWORK_AUTHENTICATION_REQUIRED";
 })(STATUS_CODE || (STATUS_CODE = {}));
 const isNode$1 = typeof process !== "undefined" && process.versions != null && process.versions.node != null;
-const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-c113ad72.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
+const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-71f3c177.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
 var ResponseType;
 (function(ResponseType2) {
   ResponseType2["TEXT"] = "text";
@@ -55952,7 +55952,7 @@ const matchers = {};
 const nodes = [
   () => __vitePreload(() => import("./0-49d9c192.js"), true ? ["./0-49d9c192.js","./_layout-a7d677aa.js","../components/pages/_layout.svelte-ec21c90a.js","./index-9a875c02.js","../assets/_layout-38bda2d6.css"] : void 0, import.meta.url),
   () => __vitePreload(() => import("./1-17fa8d1f.js"), true ? ["./1-17fa8d1f.js","../components/error.svelte-2b4289db.js","./index-9a875c02.js","./stores-2ed94eef.js","./singletons-a9c21052.js","./index-dc764774.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./2-0529020a.js"), true ? ["./2-0529020a.js","../components/pages/_page.svelte-b1a7b9f1.js","./index-9a875c02.js","./pages.crossfade-2420eecd.js","./index-dc764774.js"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./2-fe9c37f5.js"), true ? ["./2-fe9c37f5.js","../components/pages/_page.svelte-45d99ed2.js","./index-9a875c02.js","./pages.crossfade-2420eecd.js","./index-dc764774.js"] : void 0, import.meta.url),
   () => __vitePreload(() => import("./3-327b5ba6.js"), true ? ["./3-327b5ba6.js","../components/pages/swap/_page.svelte-ccfdd992.js","./index-9a875c02.js","./stores-2ed94eef.js","./singletons-a9c21052.js","./index-dc764774.js","./pages.crossfade-2420eecd.js","./bignumber-c0d740ce.js"] : void 0, import.meta.url)
 ];
 const server_loads = [];

@@ -236,7 +236,7 @@ function create_if_block(ctx) {
       attr(button, "class", "mt-6 mb-1");
       attr(div1, "class", "w-full");
       attr(a, "class", "btn btn-primary btn-wide mt-7");
-      attr(a, "href", a_href_value = "/swap?from=" + coins[
+      attr(a, "href", a_href_value = "swap?from=" + coins[
         /*$fromCoin*/
         ctx[3]
       ].nativeSymbol + "&to=" + coins[
@@ -288,7 +288,7 @@ function create_if_block(ctx) {
     },
     p(ctx2, dirty) {
       if (!current || dirty & /*$fromCoin, $toCoin*/
-      12 && a_href_value !== (a_href_value = "/swap?from=" + coins[
+      12 && a_href_value !== (a_href_value = "swap?from=" + coins[
         /*$fromCoin*/
         ctx2[3]
       ].nativeSymbol + "&to=" + coins[
