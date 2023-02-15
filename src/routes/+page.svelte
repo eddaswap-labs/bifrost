@@ -1,6 +1,7 @@
 <script>
 	import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
 
 	import Arrows from '$lib/images/arrows.svg';
 	import CoinSelect from '$lib/components/CoinSelect.svelte';
@@ -61,7 +62,8 @@
 				<a
 					on:click={hideHero}
 					class="btn btn-primary btn-wide mt-7"
-					href={'/swap?from=' +
+					href={base +
+						'/swap?from=' +
 						coins[$fromCoin].nativeSymbol +
 						'&to=' +
 						coins[$toCoin].nativeSymbol}>go swap!</a

@@ -1,4 +1,3 @@
-import { onMount } from 'svelte';
 import { Ethereum, Tezos, TON } from '/src/lib/stores.js';
 import MetaMask from '/src/lib/pkg/wallet/ethereum/metamask.js';
 import TempleWallet from '/src/lib/pkg/wallet/tezos/temple.js';

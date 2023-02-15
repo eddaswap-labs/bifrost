@@ -7,13 +7,11 @@
 		%sveltekit.head%
 		<title>Bifrost bridge</title>
 		<!-- <script src="hooks.client.js" /> -->
+		<script src="https://bundle.run/buffer@6.0.3"></script>
 	</head>
 	<script>
 		window.global = window;
-	</script>
-	<script type="commonjs">
-		const Buffer = require("buffer/").Buffer;
-		window.Buffer = Buffer;
+		window.Buffer = buffer.Buffer;
 	</script>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>

@@ -1,5 +1,4 @@
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
-import inject from '@rollup/plugin-inject';
 import { sveltekit } from '@sveltejs/kit/vite';
 import type { UserConfig } from 'vite';
 
@@ -12,7 +11,8 @@ const config: UserConfig = {
 			},
 			plugins: [
 				NodeGlobalsPolyfillPlugin({
-					buffer: true
+					buffer: true,
+					process: true
 				})
 			]
 		}
