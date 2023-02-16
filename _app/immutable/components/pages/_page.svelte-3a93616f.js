@@ -77,7 +77,7 @@ function create_if_block_2(ctx) {
       t0 = text("👾 Bifrost Protocol");
       t1 = space();
       p = element("p");
-      t2 = text("Swap tokens between Ethereum, TON and Tezos with ease.");
+      t2 = text("Swap assets between Ethereum, TON and Tezos with ease.");
       this.h();
     },
     l(nodes) {
@@ -90,7 +90,7 @@ function create_if_block_2(ctx) {
       t1 = claim_space(div_nodes);
       p = claim_element(div_nodes, "P", { class: true });
       var p_nodes = children(p);
-      t2 = claim_text(p_nodes, "Swap tokens between Ethereum, TON and Tezos with ease.");
+      t2 = claim_text(p_nodes, "Swap assets between Ethereum, TON and Tezos with ease.");
       p_nodes.forEach(detach);
       div_nodes.forEach(detach);
       this.h();
@@ -166,7 +166,7 @@ function create_if_block(ctx) {
     c() {
       div2 = element("div");
       h4 = element("h4");
-      t0 = text("Choose currencies");
+      t0 = text("Choose networks");
       t1 = space();
       div0 = element("div");
       p0 = element("p");
@@ -192,7 +192,7 @@ function create_if_block(ctx) {
       var div2_nodes = children(div2);
       h4 = claim_element(div2_nodes, "H4", { class: true });
       var h4_nodes = children(h4);
-      t0 = claim_text(h4_nodes, "Choose currencies");
+      t0 = claim_text(h4_nodes, "Choose networks");
       h4_nodes.forEach(detach);
       t1 = claim_space(div2_nodes);
       div0 = claim_element(div2_nodes, "DIV", { class: true });

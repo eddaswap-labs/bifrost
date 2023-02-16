@@ -19100,7 +19100,7 @@ var STATUS_CODE;
   STATUS_CODE2[STATUS_CODE2["NETWORK_AUTHENTICATION_REQUIRED"] = 511] = "NETWORK_AUTHENTICATION_REQUIRED";
 })(STATUS_CODE || (STATUS_CODE = {}));
 const isNode$1 = typeof process !== "undefined" && process.versions != null && process.versions.node != null;
-const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-6066c69e.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
+const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-8684a65b.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
 var ResponseType;
 (function(ResponseType2) {
   ResponseType2["TEXT"] = "text";
@@ -55965,7 +55965,7 @@ const matchers = {};
 const nodes = [
   () => __vitePreload(() => import("./0-d1c422c6.js"), true ? ["./0-d1c422c6.js","./_layout-a7d677aa.js","../components/pages/_layout.svelte-8b8d505f.js","./index-64643071.js","./index-872a1312.js","../assets/_layout-755d2fce.css"] : void 0, import.meta.url),
   () => __vitePreload(() => import("./1-2fc3f775.js"), true ? ["./1-2fc3f775.js","../components/error.svelte-8979d714.js","./index-64643071.js","./stores-39e9a08b.js","./singletons-4a6b773a.js","./paths-9d4e3692.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./2-db682157.js"), true ? ["./2-db682157.js","../components/pages/_page.svelte-51e30f52.js","./index-64643071.js","./index-872a1312.js","./paths-9d4e3692.js","./pages.crossfade-94c26a17.js"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./2-f19f4fc4.js"), true ? ["./2-f19f4fc4.js","../components/pages/_page.svelte-3a93616f.js","./index-64643071.js","./index-872a1312.js","./paths-9d4e3692.js","./pages.crossfade-94c26a17.js"] : void 0, import.meta.url),
   () => __vitePreload(() => import("./3-e30ff317.js"), true ? ["./3-e30ff317.js","../components/pages/swap/_page.svelte-874d3260.js","./index-64643071.js","./stores-39e9a08b.js","./singletons-4a6b773a.js","./paths-9d4e3692.js","./pages.crossfade-94c26a17.js","./index-872a1312.js","./bignumber-d8f66591.js"] : void 0, import.meta.url)
 ];
 const server_loads = [];
