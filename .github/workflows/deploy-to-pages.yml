@@ -27,12 +27,6 @@ jobs:
           npm install --force
           npm run build
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
-        with:
-          publish_dir: ./build
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
