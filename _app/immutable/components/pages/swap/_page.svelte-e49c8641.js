@@ -1,9 +1,10 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, q as text, a as space, l as claim_element, m as children, r as claim_text, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, C as noop, U as src_url_equal, M as listen, f as transition_in, E as run_all, Q as component_subscribe, V as svg_element, W as claim_svg_element, u as set_data, R as add_render_callback, T as create_in_transition, v as binding_callbacks, Y as bind, x as create_component, y as claim_component, z as mount_component, Z as add_flush_callback, t as transition_out, d as check_outros, N as create_out_transition, A as destroy_component, o as onMount, g as group_outros, D as subscribe } from "../../../chunks/index-64643071.js";
-import { p as page } from "../../../chunks/stores-39e9a08b.js";
-import { C as CoinSelect, c as coins, A as Arrows, s as send, r as receive } from "../../../chunks/pages.crossfade-94c26a17.js";
-import { w as writable } from "../../../chunks/paths-9d4e3692.js";
-import { B as BigNumber, E as Ethereum, T as Tezos, g as getDefaultExportFromCjs, b as TON } from "../../../chunks/bignumber-d8f66591.js";
-import { a as fade$1 } from "../../../chunks/index-872a1312.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, q as text, a as space, l as claim_element, m as children, r as claim_text, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, C as noop, U as src_url_equal, M as listen, f as transition_in, E as run_all, Q as component_subscribe, V as svg_element, W as claim_svg_element, u as set_data, R as add_render_callback, T as create_in_transition, x as create_component, y as claim_component, z as mount_component, t as transition_out, d as check_outros, N as create_out_transition, A as destroy_component, o as onMount, g as group_outros } from "../../../chunks/index-59ec0738.js";
+import { p as page } from "../../../chunks/stores-c729a32f.js";
+import { C as CoinSelect, c as coins, A as Arrows, s as send, r as receive } from "../../../chunks/pages.crossfade-ad5482ad.js";
+import { w as writable } from "../../../chunks/paths-95a23751.js";
+import { B as BigNumber, E as Ethereum, T as Tezos, g as getDefaultExportFromCjs, b as TON } from "../../../chunks/bignumber-6871c801.js";
+import { a as fade$1 } from "../../../chunks/index-aa5a0dd9.js";
+const ArrowRight = "" + new URL("../../../assets/arrowRight-47960979.svg", import.meta.url).href;
 function create_else_block$3(ctx) {
   let span;
   let t;
@@ -3613,109 +3614,133 @@ function create_if_block(ctx) {
 function create_fragment(ctx) {
   let header;
   let t0;
-  let div9;
-  let div8;
+  let div14;
+  let div13;
   let h4;
   let t1;
   let t2;
-  let div2;
+  let div3;
   let p0;
   let t3;
   let t4;
   let div1;
   let div0;
   let coinselect0;
-  let updating_selectedId;
   let t5;
   let current_block_type_index;
   let if_block0;
   let t6;
+  let div2;
   let input0;
   let t7;
   let button0;
-  let img;
-  let img_src_value;
+  let img0;
+  let img0_src_value;
   let t8;
-  let div5;
+  let div7;
   let p1;
   let t9;
   let t10;
+  let div5;
   let div4;
-  let div3;
   let coinselect1;
-  let updating_selectedId_1;
   let t11;
   let current_block_type_index_1;
   let if_block1;
   let t12;
+  let div6;
   let input1;
   let t13;
-  let div7;
-  let div6;
-  let p2;
+  let div10;
+  let div8;
+  let input2;
+  let input2_value_value;
+  let input2_class_value;
   let t14;
+  let input3;
+  let input3_value_value;
+  let input3_class_value;
   let t15;
-  let p3;
+  let img1;
+  let img1_src_value;
   let t16;
+  let div9;
+  let input4;
+  let input4_value_value;
+  let input4_class_value;
   let t17;
-  let button1;
+  let input5;
+  let input5_value_value;
+  let input5_class_value;
   let t18;
-  let div8_intro;
-  let div8_outro;
+  let div12;
+  let div11;
+  let p2;
+  let t19;
+  let t20;
+  let p3;
+  let t21;
+  let t22;
+  let button1;
+  let t23;
+  let div13_intro;
+  let div13_outro;
   let current;
   let mounted;
   let dispose;
   header = new Header({});
-  function coinselect0_selectedId_binding(value) {
-    ctx[6](value);
-  }
-  let coinselect0_props = {};
-  if (/*fromCoin*/
-  ctx[0] !== void 0) {
-    coinselect0_props.selectedId = /*fromCoin*/
-    ctx[0];
-  }
-  coinselect0 = new CoinSelect({ props: coinselect0_props });
-  binding_callbacks.push(() => bind(coinselect0, "selectedId", coinselect0_selectedId_binding));
+  coinselect0 = new CoinSelect({
+    props: {
+      selectedId: (
+        /*fromNetwork*/
+        ctx[3]
+      ),
+      excludedId: (
+        /*toNetwork*/
+        ctx[4]
+      )
+    }
+  });
   const if_block_creators = [create_if_block_3, create_if_block_4, create_if_block_5];
   const if_blocks = [];
   function select_block_type(ctx2, dirty) {
-    if (/*$fromCoin*/
-    ctx2[3] === 0)
+    if (/*$fromNetwork*/
+    ctx2[2] === 0)
       return 0;
-    if (/*$fromCoin*/
-    ctx2[3] === 1)
+    if (/*$fromNetwork*/
+    ctx2[2] === 1)
       return 1;
-    if (/*$fromCoin*/
-    ctx2[3] === 2)
+    if (/*$fromNetwork*/
+    ctx2[2] === 2)
       return 2;
     return -1;
   }
   if (~(current_block_type_index = select_block_type(ctx))) {
     if_block0 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
   }
-  function coinselect1_selectedId_binding(value) {
-    ctx[7](value);
-  }
-  let coinselect1_props = {};
-  if (/*toCoin*/
-  ctx[1] !== void 0) {
-    coinselect1_props.selectedId = /*toCoin*/
-    ctx[1];
-  }
-  coinselect1 = new CoinSelect({ props: coinselect1_props });
-  binding_callbacks.push(() => bind(coinselect1, "selectedId", coinselect1_selectedId_binding));
+  coinselect1 = new CoinSelect({
+    props: {
+      selectedId: (
+        /*toNetwork*/
+        ctx[4]
+      ),
+      excludedId: (
+        /*fromNetwork*/
+        ctx[3]
+      )
+    }
+  });
   const if_block_creators_1 = [create_if_block, create_if_block_1, create_if_block_2];
   const if_blocks_1 = [];
   function select_block_type_1(ctx2, dirty) {
-    if (/*$toCoin*/
-    ctx2[2] === 0)
+    if (/*$toNetwork*/
+    ctx2[1] === 0)
       return 0;
-    if (/*$toCoin*/
-    ctx2[2] === 1)
+    if (/*$toNetwork*/
+    ctx2[1] === 1)
       return 1;
-    if (/*$toCoin*/
-    ctx2[2] === 2)
+    if (/*$toNetwork*/
+    ctx2[1] === 2)
       return 2;
     return -1;
   }
@@ -3726,12 +3751,12 @@ function create_fragment(ctx) {
     c() {
       create_component(header.$$.fragment);
       t0 = space();
-      div9 = element("div");
-      div8 = element("div");
+      div14 = element("div");
+      div13 = element("div");
       h4 = element("h4");
       t1 = text("Wrapped Swap");
       t2 = space();
-      div2 = element("div");
+      div3 = element("div");
       p0 = element("p");
       t3 = text("from");
       t4 = space();
@@ -3742,59 +3767,74 @@ function create_fragment(ctx) {
       if (if_block0)
         if_block0.c();
       t6 = space();
+      div2 = element("div");
       input0 = element("input");
       t7 = space();
       button0 = element("button");
-      img = element("img");
+      img0 = element("img");
       t8 = space();
-      div5 = element("div");
+      div7 = element("div");
       p1 = element("p");
       t9 = text("to");
       t10 = space();
+      div5 = element("div");
       div4 = element("div");
-      div3 = element("div");
       create_component(coinselect1.$$.fragment);
       t11 = space();
       if (if_block1)
         if_block1.c();
       t12 = space();
+      div6 = element("div");
       input1 = element("input");
       t13 = space();
-      div7 = element("div");
-      div6 = element("div");
-      p2 = element("p");
-      t14 = text("Swap fee");
+      div10 = element("div");
+      div8 = element("div");
+      input2 = element("input");
+      t14 = space();
+      input3 = element("input");
       t15 = space();
-      p3 = element("p");
-      t16 = text(
-        /*swapFee*/
-        ctx[5]
-      );
+      img1 = element("img");
+      t16 = space();
+      div9 = element("div");
+      input4 = element("input");
       t17 = space();
+      input5 = element("input");
+      t18 = space();
+      div12 = element("div");
+      div11 = element("div");
+      p2 = element("p");
+      t19 = text("Swap fee");
+      t20 = space();
+      p3 = element("p");
+      t21 = text(
+        /*swapFee*/
+        ctx[6]
+      );
+      t22 = space();
       button1 = element("button");
-      t18 = text("swap");
+      t23 = text("swap");
       this.h();
     },
     l(nodes) {
       claim_component(header.$$.fragment, nodes);
       t0 = claim_space(nodes);
-      div9 = claim_element(nodes, "DIV", { class: true });
-      var div9_nodes = children(div9);
-      div8 = claim_element(div9_nodes, "DIV", { class: true });
-      var div8_nodes = children(div8);
-      h4 = claim_element(div8_nodes, "H4", { class: true });
+      div14 = claim_element(nodes, "DIV", { class: true });
+      var div14_nodes = children(div14);
+      div13 = claim_element(div14_nodes, "DIV", { class: true });
+      var div13_nodes = children(div13);
+      h4 = claim_element(div13_nodes, "H4", { class: true });
       var h4_nodes = children(h4);
       t1 = claim_text(h4_nodes, "Wrapped Swap");
       h4_nodes.forEach(detach);
-      t2 = claim_space(div8_nodes);
-      div2 = claim_element(div8_nodes, "DIV", { class: true });
-      var div2_nodes = children(div2);
-      p0 = claim_element(div2_nodes, "P", {});
+      t2 = claim_space(div13_nodes);
+      div3 = claim_element(div13_nodes, "DIV", { class: true });
+      var div3_nodes = children(div3);
+      p0 = claim_element(div3_nodes, "P", {});
       var p0_nodes = children(p0);
       t3 = claim_text(p0_nodes, "from");
       p0_nodes.forEach(detach);
-      t4 = claim_space(div2_nodes);
-      div1 = claim_element(div2_nodes, "DIV", { class: true });
+      t4 = claim_space(div3_nodes);
+      div1 = claim_element(div3_nodes, "DIV", { class: true });
       var div1_nodes = children(div1);
       div0 = claim_element(div1_nodes, "DIV", { class: true });
       var div0_nodes = children(div0);
@@ -3804,7 +3844,9 @@ function create_fragment(ctx) {
       if (if_block0)
         if_block0.l(div1_nodes);
       div1_nodes.forEach(detach);
-      t6 = claim_space(div2_nodes);
+      t6 = claim_space(div3_nodes);
+      div2 = claim_element(div3_nodes, "DIV", { class: true });
+      var div2_nodes = children(div2);
       input0 = claim_element(div2_nodes, "INPUT", {
         type: true,
         placeholder: true,
@@ -3813,65 +3855,88 @@ function create_fragment(ctx) {
         step: true
       });
       div2_nodes.forEach(detach);
-      t7 = claim_space(div8_nodes);
-      button0 = claim_element(div8_nodes, "BUTTON", { class: true });
+      div3_nodes.forEach(detach);
+      t7 = claim_space(div13_nodes);
+      button0 = claim_element(div13_nodes, "BUTTON", { class: true });
       var button0_nodes = children(button0);
-      img = claim_element(button0_nodes, "IMG", { src: true, width: true, alt: true });
+      img0 = claim_element(button0_nodes, "IMG", { src: true, width: true, alt: true });
       button0_nodes.forEach(detach);
-      t8 = claim_space(div8_nodes);
-      div5 = claim_element(div8_nodes, "DIV", { class: true });
-      var div5_nodes = children(div5);
-      p1 = claim_element(div5_nodes, "P", {});
+      t8 = claim_space(div13_nodes);
+      div7 = claim_element(div13_nodes, "DIV", { class: true });
+      var div7_nodes = children(div7);
+      p1 = claim_element(div7_nodes, "P", {});
       var p1_nodes = children(p1);
       t9 = claim_text(p1_nodes, "to");
       p1_nodes.forEach(detach);
-      t10 = claim_space(div5_nodes);
+      t10 = claim_space(div7_nodes);
+      div5 = claim_element(div7_nodes, "DIV", { class: true });
+      var div5_nodes = children(div5);
       div4 = claim_element(div5_nodes, "DIV", { class: true });
       var div4_nodes = children(div4);
-      div3 = claim_element(div4_nodes, "DIV", { class: true });
-      var div3_nodes = children(div3);
-      claim_component(coinselect1.$$.fragment, div3_nodes);
-      div3_nodes.forEach(detach);
-      t11 = claim_space(div4_nodes);
-      if (if_block1)
-        if_block1.l(div4_nodes);
+      claim_component(coinselect1.$$.fragment, div4_nodes);
       div4_nodes.forEach(detach);
-      t12 = claim_space(div5_nodes);
-      input1 = claim_element(div5_nodes, "INPUT", {
+      t11 = claim_space(div5_nodes);
+      if (if_block1)
+        if_block1.l(div5_nodes);
+      div5_nodes.forEach(detach);
+      t12 = claim_space(div7_nodes);
+      div6 = claim_element(div7_nodes, "DIV", { class: true });
+      var div6_nodes = children(div6);
+      input1 = claim_element(div6_nodes, "INPUT", {
         type: true,
         placeholder: true,
         class: true,
         min: true,
         step: true
       });
-      div5_nodes.forEach(detach);
-      t13 = claim_space(div8_nodes);
-      div7 = claim_element(div8_nodes, "DIV", { class: true });
-      var div7_nodes = children(div7);
-      div6 = claim_element(div7_nodes, "DIV", { class: true });
-      var div6_nodes = children(div6);
-      p2 = claim_element(div6_nodes, "P", {});
-      var p2_nodes = children(p2);
-      t14 = claim_text(p2_nodes, "Swap fee");
-      p2_nodes.forEach(detach);
-      t15 = claim_space(div6_nodes);
-      p3 = claim_element(div6_nodes, "P", {});
-      var p3_nodes = children(p3);
-      t16 = claim_text(
-        p3_nodes,
-        /*swapFee*/
-        ctx[5]
-      );
-      p3_nodes.forEach(detach);
       div6_nodes.forEach(detach);
       div7_nodes.forEach(detach);
-      t17 = claim_space(div8_nodes);
-      button1 = claim_element(div8_nodes, "BUTTON", { class: true });
-      var button1_nodes = children(button1);
-      t18 = claim_text(button1_nodes, "swap");
-      button1_nodes.forEach(detach);
+      t13 = claim_space(div13_nodes);
+      div10 = claim_element(div13_nodes, "DIV", { class: true });
+      var div10_nodes = children(div10);
+      div8 = claim_element(div10_nodes, "DIV", { class: true });
+      var div8_nodes = children(div8);
+      input2 = claim_element(div8_nodes, "INPUT", { type: true, name: true, class: true });
+      t14 = claim_space(div8_nodes);
+      input3 = claim_element(div8_nodes, "INPUT", { type: true, name: true, class: true });
       div8_nodes.forEach(detach);
+      t15 = claim_space(div10_nodes);
+      img1 = claim_element(div10_nodes, "IMG", { src: true, width: true, alt: true });
+      t16 = claim_space(div10_nodes);
+      div9 = claim_element(div10_nodes, "DIV", { class: true });
+      var div9_nodes = children(div9);
+      input4 = claim_element(div9_nodes, "INPUT", { type: true, name: true, class: true });
+      t17 = claim_space(div9_nodes);
+      input5 = claim_element(div9_nodes, "INPUT", { type: true, name: true, class: true });
       div9_nodes.forEach(detach);
+      div10_nodes.forEach(detach);
+      t18 = claim_space(div13_nodes);
+      div12 = claim_element(div13_nodes, "DIV", { class: true });
+      var div12_nodes = children(div12);
+      div11 = claim_element(div12_nodes, "DIV", { class: true });
+      var div11_nodes = children(div11);
+      p2 = claim_element(div11_nodes, "P", {});
+      var p2_nodes = children(p2);
+      t19 = claim_text(p2_nodes, "Swap fee");
+      p2_nodes.forEach(detach);
+      t20 = claim_space(div11_nodes);
+      p3 = claim_element(div11_nodes, "P", {});
+      var p3_nodes = children(p3);
+      t21 = claim_text(
+        p3_nodes,
+        /*swapFee*/
+        ctx[6]
+      );
+      p3_nodes.forEach(detach);
+      div11_nodes.forEach(detach);
+      div12_nodes.forEach(detach);
+      t22 = claim_space(div13_nodes);
+      button1 = claim_element(div13_nodes, "BUTTON", { class: true });
+      var button1_nodes = children(button1);
+      t23 = claim_text(button1_nodes, "swap");
+      button1_nodes.forEach(detach);
+      div13_nodes.forEach(detach);
+      div14_nodes.forEach(detach);
       this.h();
     },
     h() {
@@ -3883,96 +3948,169 @@ function create_fragment(ctx) {
       attr(input0, "class", "input input-bordered border-black w-full");
       attr(input0, "min", "0.000");
       attr(input0, "step", "0.001");
-      attr(div2, "class", "w-full");
-      if (!src_url_equal(img.src, img_src_value = Arrows))
-        attr(img, "src", img_src_value);
-      attr(img, "width", 30);
-      attr(img, "alt", "arrows");
+      attr(div2, "class", "flex flex-row justify-between gap-5 items-center");
+      attr(div3, "class", "w-full");
+      if (!src_url_equal(img0.src, img0_src_value = Arrows))
+        attr(img0, "src", img0_src_value);
+      attr(img0, "width", 30);
+      attr(img0, "alt", "arrows");
       attr(button0, "class", "mt-6 mb-1");
-      attr(div3, "class", "w-1/3");
-      attr(div4, "class", "flex flex-row justify-between items-center my-3");
+      attr(div4, "class", "w-1/3");
+      attr(div5, "class", "flex flex-row justify-between items-center my-3");
       attr(input1, "type", "number");
       attr(input1, "placeholder", "0.001");
       attr(input1, "class", "input input-bordered border-black w-full");
       attr(input1, "min", "0.000");
       attr(input1, "step", "0.001");
-      attr(div5, "class", "w-full");
-      attr(div6, "class", "flex flex-row justify-between");
-      attr(div7, "class", "flex flex-col gap-2 w-full px-2 mt-5");
-      attr(button1, "class", "btn btn-primary btn-wide mt-5");
-      attr(div8, "class", "absolute bg-base-200 shadow-sm flex flex-col items-center py-8 px-5 w-full md:w-1/3 border-4 border-black");
-      attr(div9, "class", "flex flex-col md:flex-row h-full justify-center items-center px-5 md:px-0");
+      attr(div6, "class", "flex flex-row justify-between gap-5 items-center");
+      attr(div7, "class", "w-full");
+      attr(input2, "type", "button");
+      attr(input2, "name", "from-options");
+      input2.value = input2_value_value = coins[
+        /*$toNetwork*/
+        ctx[1]
+      ].wrappedSymbol;
+      attr(input2, "class", input2_class_value = "btn btn-sm " + /*assetPair*/
+      (ctx[0] === 0 ? "" : "btn-outline"));
+      attr(input3, "type", "button");
+      attr(input3, "name", "from-options");
+      input3.value = input3_value_value = coins[
+        /*$fromNetwork*/
+        ctx[2]
+      ].nativeSymbol;
+      attr(input3, "class", input3_class_value = "btn btn-sm " + /*assetPair*/
+      (ctx[0] === 1 ? "" : "btn-outline"));
+      attr(div8, "class", "btn-group");
+      if (!src_url_equal(img1.src, img1_src_value = ArrowRight))
+        attr(img1, "src", img1_src_value);
+      attr(img1, "width", 30);
+      attr(img1, "alt", "arrows");
+      attr(input4, "type", "button");
+      attr(input4, "name", "to-options");
+      input4.value = input4_value_value = coins[
+        /*$toNetwork*/
+        ctx[1]
+      ].nativeSymbol;
+      attr(input4, "class", input4_class_value = "btn btn-sm " + /*assetPair*/
+      (ctx[0] === 0 ? "" : "btn-outline"));
+      attr(input5, "type", "button");
+      attr(input5, "name", "to-options");
+      input5.value = input5_value_value = coins[
+        /*$fromNetwork*/
+        ctx[2]
+      ].wrappedSymbol;
+      attr(input5, "class", input5_class_value = "btn btn-sm " + /*assetPair*/
+      (ctx[0] === 1 ? "" : "btn-outline"));
+      attr(div9, "class", "btn-group");
+      attr(div10, "class", "flex flex-row justify-between w-80 mt-5");
+      attr(div11, "class", "flex flex-row justify-between");
+      attr(div12, "class", "flex flex-col gap-2 w-full px-2 mt-5");
+      attr(button1, "class", "btn btn-primary btn-full w-full mt-5");
+      attr(div13, "class", "absolute bg-base-200 shadow-sm flex flex-col items-center py-4 px-5 w-full md:w-1/3 border-4 border-black");
+      attr(div14, "class", "flex flex-col md:flex-row h-full justify-center items-center px-5 md:px-0");
     },
     m(target, anchor) {
       mount_component(header, target, anchor);
       insert_hydration(target, t0, anchor);
-      insert_hydration(target, div9, anchor);
-      append_hydration(div9, div8);
-      append_hydration(div8, h4);
+      insert_hydration(target, div14, anchor);
+      append_hydration(div14, div13);
+      append_hydration(div13, h4);
       append_hydration(h4, t1);
-      append_hydration(div8, t2);
-      append_hydration(div8, div2);
-      append_hydration(div2, p0);
+      append_hydration(div13, t2);
+      append_hydration(div13, div3);
+      append_hydration(div3, p0);
       append_hydration(p0, t3);
-      append_hydration(div2, t4);
-      append_hydration(div2, div1);
+      append_hydration(div3, t4);
+      append_hydration(div3, div1);
       append_hydration(div1, div0);
       mount_component(coinselect0, div0, null);
       append_hydration(div1, t5);
       if (~current_block_type_index) {
         if_blocks[current_block_type_index].m(div1, null);
       }
-      append_hydration(div2, t6);
+      append_hydration(div3, t6);
+      append_hydration(div3, div2);
       append_hydration(div2, input0);
-      append_hydration(div8, t7);
-      append_hydration(div8, button0);
-      append_hydration(button0, img);
-      append_hydration(div8, t8);
-      append_hydration(div8, div5);
-      append_hydration(div5, p1);
+      append_hydration(div13, t7);
+      append_hydration(div13, button0);
+      append_hydration(button0, img0);
+      append_hydration(div13, t8);
+      append_hydration(div13, div7);
+      append_hydration(div7, p1);
       append_hydration(p1, t9);
-      append_hydration(div5, t10);
+      append_hydration(div7, t10);
+      append_hydration(div7, div5);
       append_hydration(div5, div4);
-      append_hydration(div4, div3);
-      mount_component(coinselect1, div3, null);
-      append_hydration(div4, t11);
+      mount_component(coinselect1, div4, null);
+      append_hydration(div5, t11);
       if (~current_block_type_index_1) {
-        if_blocks_1[current_block_type_index_1].m(div4, null);
+        if_blocks_1[current_block_type_index_1].m(div5, null);
       }
-      append_hydration(div5, t12);
-      append_hydration(div5, input1);
-      append_hydration(div8, t13);
-      append_hydration(div8, div7);
+      append_hydration(div7, t12);
       append_hydration(div7, div6);
-      append_hydration(div6, p2);
-      append_hydration(p2, t14);
-      append_hydration(div6, t15);
-      append_hydration(div6, p3);
-      append_hydration(p3, t16);
-      append_hydration(div8, t17);
-      append_hydration(div8, button1);
-      append_hydration(button1, t18);
+      append_hydration(div6, input1);
+      append_hydration(div13, t13);
+      append_hydration(div13, div10);
+      append_hydration(div10, div8);
+      append_hydration(div8, input2);
+      append_hydration(div8, t14);
+      append_hydration(div8, input3);
+      append_hydration(div10, t15);
+      append_hydration(div10, img1);
+      append_hydration(div10, t16);
+      append_hydration(div10, div9);
+      append_hydration(div9, input4);
+      append_hydration(div9, t17);
+      append_hydration(div9, input5);
+      append_hydration(div13, t18);
+      append_hydration(div13, div12);
+      append_hydration(div12, div11);
+      append_hydration(div11, p2);
+      append_hydration(p2, t19);
+      append_hydration(div11, t20);
+      append_hydration(div11, p3);
+      append_hydration(p3, t21);
+      append_hydration(div13, t22);
+      append_hydration(div13, button1);
+      append_hydration(button1, t23);
       current = true;
       if (!mounted) {
-        dispose = listen(
-          button0,
-          "click",
-          /*switchCoins*/
-          ctx[4]
-        );
+        dispose = [
+          listen(
+            button0,
+            "click",
+            /*switchCoins*/
+            ctx[5]
+          ),
+          listen(
+            input2,
+            "click",
+            /*click_handler*/
+            ctx[7]
+          ),
+          listen(
+            input3,
+            "click",
+            /*click_handler_1*/
+            ctx[8]
+          ),
+          listen(
+            input4,
+            "click",
+            /*click_handler_2*/
+            ctx[9]
+          ),
+          listen(
+            input5,
+            "click",
+            /*click_handler_3*/
+            ctx[10]
+          )
+        ];
         mounted = true;
       }
     },
     p(ctx2, [dirty]) {
-      const coinselect0_changes = {};
-      if (!updating_selectedId && dirty & /*fromCoin*/
-      1) {
-        updating_selectedId = true;
-        coinselect0_changes.selectedId = /*fromCoin*/
-        ctx2[0];
-        add_flush_callback(() => updating_selectedId = false);
-      }
-      coinselect0.$set(coinselect0_changes);
       let previous_block_index = current_block_type_index;
       current_block_type_index = select_block_type(ctx2);
       if (current_block_type_index !== previous_block_index) {
@@ -3995,15 +4133,6 @@ function create_fragment(ctx) {
           if_block0 = null;
         }
       }
-      const coinselect1_changes = {};
-      if (!updating_selectedId_1 && dirty & /*toCoin*/
-      2) {
-        updating_selectedId_1 = true;
-        coinselect1_changes.selectedId = /*toCoin*/
-        ctx2[1];
-        add_flush_callback(() => updating_selectedId_1 = false);
-      }
-      coinselect1.$set(coinselect1_changes);
       let previous_block_index_1 = current_block_type_index_1;
       current_block_type_index_1 = select_block_type_1(ctx2);
       if (current_block_type_index_1 !== previous_block_index_1) {
@@ -4021,10 +4150,58 @@ function create_fragment(ctx) {
             if_block1.c();
           }
           transition_in(if_block1, 1);
-          if_block1.m(div4, null);
+          if_block1.m(div5, null);
         } else {
           if_block1 = null;
         }
+      }
+      if (!current || dirty & /*$toNetwork*/
+      2 && input2_value_value !== (input2_value_value = coins[
+        /*$toNetwork*/
+        ctx2[1]
+      ].wrappedSymbol)) {
+        input2.value = input2_value_value;
+      }
+      if (!current || dirty & /*assetPair*/
+      1 && input2_class_value !== (input2_class_value = "btn btn-sm " + /*assetPair*/
+      (ctx2[0] === 0 ? "" : "btn-outline"))) {
+        attr(input2, "class", input2_class_value);
+      }
+      if (!current || dirty & /*$fromNetwork*/
+      4 && input3_value_value !== (input3_value_value = coins[
+        /*$fromNetwork*/
+        ctx2[2]
+      ].nativeSymbol)) {
+        input3.value = input3_value_value;
+      }
+      if (!current || dirty & /*assetPair*/
+      1 && input3_class_value !== (input3_class_value = "btn btn-sm " + /*assetPair*/
+      (ctx2[0] === 1 ? "" : "btn-outline"))) {
+        attr(input3, "class", input3_class_value);
+      }
+      if (!current || dirty & /*$toNetwork*/
+      2 && input4_value_value !== (input4_value_value = coins[
+        /*$toNetwork*/
+        ctx2[1]
+      ].nativeSymbol)) {
+        input4.value = input4_value_value;
+      }
+      if (!current || dirty & /*assetPair*/
+      1 && input4_class_value !== (input4_class_value = "btn btn-sm " + /*assetPair*/
+      (ctx2[0] === 0 ? "" : "btn-outline"))) {
+        attr(input4, "class", input4_class_value);
+      }
+      if (!current || dirty & /*$fromNetwork*/
+      4 && input5_value_value !== (input5_value_value = coins[
+        /*$fromNetwork*/
+        ctx2[2]
+      ].wrappedSymbol)) {
+        input5.value = input5_value_value;
+      }
+      if (!current || dirty & /*assetPair*/
+      1 && input5_class_value !== (input5_class_value = "btn btn-sm " + /*assetPair*/
+      (ctx2[0] === 1 ? "" : "btn-outline"))) {
+        attr(input5, "class", input5_class_value);
       }
     },
     i(local) {
@@ -4036,10 +4213,10 @@ function create_fragment(ctx) {
       transition_in(coinselect1.$$.fragment, local);
       transition_in(if_block1);
       add_render_callback(() => {
-        if (div8_outro)
-          div8_outro.end(1);
-        div8_intro = create_in_transition(div8, receive, { key: "swap" });
-        div8_intro.start();
+        if (div13_outro)
+          div13_outro.end(1);
+        div13_intro = create_in_transition(div13, receive, { key: "swap" });
+        div13_intro.start();
       });
       current = true;
     },
@@ -4049,9 +4226,9 @@ function create_fragment(ctx) {
       transition_out(if_block0);
       transition_out(coinselect1.$$.fragment, local);
       transition_out(if_block1);
-      if (div8_intro)
-        div8_intro.invalidate();
-      div8_outro = create_out_transition(div8, send, { key: "swap" });
+      if (div13_intro)
+        div13_intro.invalidate();
+      div13_outro = create_out_transition(div13, send, { key: "swap" });
       current = false;
     },
     d(detaching) {
@@ -4059,7 +4236,7 @@ function create_fragment(ctx) {
       if (detaching)
         detach(t0);
       if (detaching)
-        detach(div9);
+        detach(div14);
       destroy_component(coinselect0);
       if (~current_block_type_index) {
         if_blocks[current_block_type_index].d();
@@ -4068,50 +4245,48 @@ function create_fragment(ctx) {
       if (~current_block_type_index_1) {
         if_blocks_1[current_block_type_index_1].d();
       }
-      if (detaching && div8_outro)
-        div8_outro.end();
+      if (detaching && div13_outro)
+        div13_outro.end();
       mounted = false;
-      dispose();
+      run_all(dispose);
     }
   };
 }
 function instance($$self, $$props, $$invalidate) {
-  let $toCoin, $$unsubscribe_toCoin = noop, $$subscribe_toCoin = () => ($$unsubscribe_toCoin(), $$unsubscribe_toCoin = subscribe(toCoin, ($$value) => $$invalidate(2, $toCoin = $$value)), toCoin);
-  let $fromCoin, $$unsubscribe_fromCoin = noop, $$subscribe_fromCoin = () => ($$unsubscribe_fromCoin(), $$unsubscribe_fromCoin = subscribe(fromCoin, ($$value) => $$invalidate(3, $fromCoin = $$value)), fromCoin);
+  let $toNetwork;
+  let $fromNetwork;
   let $page;
-  component_subscribe($$self, page, ($$value) => $$invalidate(9, $page = $$value));
-  $$self.$$.on_destroy.push(() => $$unsubscribe_toCoin());
-  $$self.$$.on_destroy.push(() => $$unsubscribe_fromCoin());
+  component_subscribe($$self, page, ($$value) => $$invalidate(12, $page = $$value));
   onMount(() => true);
   let fromSymbol = $page.url.searchParams.get("from");
   let toSymbol = $page.url.searchParams.get("to");
-  let fromCoin = writable(fromSymbol ? coins.findIndex((c) => c.nativeSymbol === fromSymbol) : 0);
-  $$subscribe_fromCoin();
-  let toCoin = writable(toSymbol ? coins.findIndex((c) => c.nativeSymbol === toSymbol) : 1);
-  $$subscribe_toCoin();
+  let fromNetwork = writable(fromSymbol ? coins.findIndex((c) => c.nativeSymbol === fromSymbol) : 0);
+  component_subscribe($$self, fromNetwork, (value) => $$invalidate(2, $fromNetwork = value));
+  let toNetwork = writable(toSymbol ? coins.findIndex((c) => c.nativeSymbol === toSymbol) : 1);
+  component_subscribe($$self, toNetwork, (value) => $$invalidate(1, $toNetwork = value));
+  let assetPair = 0;
   const switchCoins = () => {
-    const from = $fromCoin;
-    fromCoin.set($toCoin);
-    toCoin.set(from);
+    const from = $fromNetwork;
+    fromNetwork.set($toNetwork);
+    toNetwork.set(from);
   };
   let swapFee = bigIntToFloat(0, 18, 18);
-  function coinselect0_selectedId_binding(value) {
-    fromCoin = value;
-    $$subscribe_fromCoin($$invalidate(0, fromCoin));
-  }
-  function coinselect1_selectedId_binding(value) {
-    toCoin = value;
-    $$subscribe_toCoin($$invalidate(1, toCoin));
-  }
+  const click_handler = () => $$invalidate(0, assetPair = 0);
+  const click_handler_1 = () => $$invalidate(0, assetPair = 1);
+  const click_handler_2 = () => $$invalidate(0, assetPair = 0);
+  const click_handler_3 = () => $$invalidate(0, assetPair = 1);
   return [
-    fromCoin,
-    toCoin,
-    $toCoin,
-    $fromCoin,
+    assetPair,
+    $toNetwork,
+    $fromNetwork,
+    fromNetwork,
+    toNetwork,
     switchCoins,
     swapFee,
-    coinselect0_selectedId_binding,
-    coinselect1_selectedId_binding
+    click_handler,
+    click_handler_1,
+    click_handler_2,
+    click_handler_3
   ];
 }
 class Page extends SvelteComponent {

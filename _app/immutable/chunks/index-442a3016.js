@@ -1,4 +1,4 @@
-import { s as settle, u as utils, b as buildFullPath, a as buildURL, c as axios } from "./start-7fb7b0c8.js";
+import { s as settle, u as utils, b as buildFullPath, a as buildURL, c as axios } from "./start-2d5340fb.js";
 async function fetchAdapter(config) {
   const request = createRequest(config);
   const promiseChain = [getResponse(request, config)];

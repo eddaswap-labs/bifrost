@@ -1,6 +1,6 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, q as text, V as svg_element, l as claim_element, m as children, c as claim_space, r as claim_text, h as detach, W as claim_svg_element, U as src_url_equal, n as attr, b as insert_hydration, I as append_hydration, u as set_data, C as noop, X as destroy_each, e as empty, D as subscribe, M as listen } from "./index-64643071.js";
-import { w as writable } from "./paths-9d4e3692.js";
-import { c as crossfade, q as quintOut } from "./index-872a1312.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, q as text, V as svg_element, l as claim_element, m as children, c as claim_space, r as claim_text, h as detach, W as claim_svg_element, U as src_url_equal, n as attr, b as insert_hydration, I as append_hydration, u as set_data, C as noop, X as destroy_each, e as empty, D as subscribe, M as listen } from "./index-59ec0738.js";
+import { w as writable } from "./paths-95a23751.js";
+import { c as crossfade, q as quintOut } from "./index-aa5a0dd9.js";
 const Arrows = "" + new URL("../assets/arrows-ebfb004d.svg", import.meta.url).href;
 const ETHLogo = "" + new URL("../assets/eth_logo-7d70db0d.png", import.meta.url).href;
 const TZSLogo = "" + new URL("../assets/tzs_logo-7098441a.svg", import.meta.url).href;
@@ -27,8 +27,8 @@ let coins = [
 ];
 function get_each_context(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[4] = list[i];
-  child_ctx[6] = i;
+  child_ctx[6] = list[i];
+  child_ctx[8] = i;
   return child_ctx;
 }
 function create_if_block(ctx) {
@@ -39,7 +39,7 @@ function create_if_block(ctx) {
   let t0;
   let t1_value = (
     /*coin*/
-    ctx[4].nativeSymbol + ""
+    ctx[6].nativeSymbol + ""
   );
   let t1;
   let t2;
@@ -48,9 +48,9 @@ function create_if_block(ctx) {
   function click_handler() {
     return (
       /*click_handler*/
-      ctx[3](
+      ctx[5](
         /*id*/
-        ctx[6]
+        ctx[8]
       )
     );
   }
@@ -85,14 +85,14 @@ function create_if_block(ctx) {
     h() {
       attr(img, "class", "mr-2");
       if (!src_url_equal(img.src, img_src_value = /*coin*/
-      ctx[4].logo))
+      ctx[6].logo))
         attr(img, "src", img_src_value);
       attr(img, "alt", "logo");
       attr(
         img,
         "width",
         /*coin*/
-        ctx[4].logoSize
+        ctx[6].logoSize
       );
     },
     m(target, anchor) {
@@ -122,8 +122,10 @@ function create_each_block(ctx) {
   let if_block_anchor;
   let if_block = (
     /*id*/
-    ctx[6] !== /*$selectedId*/
-    ctx[1] && create_if_block(ctx)
+    ctx[8] !== /*$selectedId*/
+    ctx[2] && /*id*/
+    ctx[8] !== /*$excludedId*/
+    ctx[3] && create_if_block(ctx)
   );
   return {
     c() {
@@ -143,8 +145,10 @@ function create_each_block(ctx) {
     },
     p(ctx2, dirty) {
       if (/*id*/
-      ctx2[6] !== /*$selectedId*/
-      ctx2[1]) {
+      ctx2[8] !== /*$selectedId*/
+      ctx2[2] && /*id*/
+      ctx2[8] !== /*$excludedId*/
+      ctx2[3]) {
         if (if_block) {
           if_block.p(ctx2, dirty);
         } else {
@@ -175,7 +179,7 @@ function create_fragment(ctx) {
   let t0;
   let t1_value = coins[
     /*$selectedId*/
-    ctx[1]
+    ctx[2]
   ].nativeSymbol + "";
   let t1;
   let t2;
@@ -246,13 +250,13 @@ function create_fragment(ctx) {
     h() {
       if (!src_url_equal(img.src, img_src_value = coins[
         /*$selectedId*/
-        ctx[1]
+        ctx[2]
       ].logo))
         attr(img, "src", img_src_value);
       attr(img, "alt", "");
       attr(img, "width", img_width_value = coins[
         /*$selectedId*/
-        ctx[1]
+        ctx[2]
       ].logoSize);
       attr(div0, "class", "flex flex-row gap-3 items-center");
       attr(path, "fill-rule", "evenodd");
@@ -286,27 +290,27 @@ function create_fragment(ctx) {
     },
     p(ctx2, [dirty]) {
       if (dirty & /*$selectedId*/
-      2 && !src_url_equal(img.src, img_src_value = coins[
+      4 && !src_url_equal(img.src, img_src_value = coins[
         /*$selectedId*/
-        ctx2[1]
+        ctx2[2]
       ].logo)) {
         attr(img, "src", img_src_value);
       }
       if (dirty & /*$selectedId*/
-      2 && img_width_value !== (img_width_value = coins[
+      4 && img_width_value !== (img_width_value = coins[
         /*$selectedId*/
-        ctx2[1]
+        ctx2[2]
       ].logoSize)) {
         attr(img, "width", img_width_value);
       }
       if (dirty & /*$selectedId*/
-      2 && t1_value !== (t1_value = coins[
+      4 && t1_value !== (t1_value = coins[
         /*$selectedId*/
-        ctx2[1]
+        ctx2[2]
       ].nativeSymbol + ""))
         set_data(t1, t1_value);
-      if (dirty & /*selectCoin, coins, $selectedId*/
-      6) {
+      if (dirty & /*selectCoin, coins, $selectedId, $excludedId*/
+      28) {
         each_value = coins;
         let i;
         for (i = 0; i < each_value.length; i += 1) {
@@ -335,10 +339,14 @@ function create_fragment(ctx) {
   };
 }
 function instance($$self, $$props, $$invalidate) {
-  let $selectedId, $$unsubscribe_selectedId = noop, $$subscribe_selectedId = () => ($$unsubscribe_selectedId(), $$unsubscribe_selectedId = subscribe(selectedId, ($$value) => $$invalidate(1, $selectedId = $$value)), selectedId);
+  let $selectedId, $$unsubscribe_selectedId = noop, $$subscribe_selectedId = () => ($$unsubscribe_selectedId(), $$unsubscribe_selectedId = subscribe(selectedId, ($$value) => $$invalidate(2, $selectedId = $$value)), selectedId);
+  let $excludedId, $$unsubscribe_excludedId = noop, $$subscribe_excludedId = () => ($$unsubscribe_excludedId(), $$unsubscribe_excludedId = subscribe(excludedId, ($$value) => $$invalidate(3, $excludedId = $$value)), excludedId);
   $$self.$$.on_destroy.push(() => $$unsubscribe_selectedId());
+  $$self.$$.on_destroy.push(() => $$unsubscribe_excludedId());
   let { selectedId = writable(0) } = $$props;
   $$subscribe_selectedId();
+  let { excludedId = writable(0) } = $$props;
+  $$subscribe_excludedId();
   const selectCoin = (id) => {
     selectedId.set(id);
   };
@@ -348,13 +356,15 @@ function instance($$self, $$props, $$invalidate) {
   $$self.$$set = ($$props2) => {
     if ("selectedId" in $$props2)
       $$subscribe_selectedId($$invalidate(0, selectedId = $$props2.selectedId));
+    if ("excludedId" in $$props2)
+      $$subscribe_excludedId($$invalidate(1, excludedId = $$props2.excludedId));
   };
-  return [selectedId, $selectedId, selectCoin, click_handler];
+  return [selectedId, excludedId, $selectedId, $excludedId, selectCoin, click_handler];
 }
 class CoinSelect extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance, create_fragment, safe_not_equal, { selectedId: 0 });
+    init(this, options, instance, create_fragment, safe_not_equal, { selectedId: 0, excludedId: 1 });
   }
 }
 const [send, receive] = crossfade({

@@ -1,7 +1,7 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, l as claim_element, m as children, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, f as transition_in, t as transition_out, d as check_outros, o as onMount, Q as component_subscribe, C as noop, q as text, r as claim_text, R as add_render_callback, T as create_in_transition, x as create_component, y as claim_component, U as src_url_equal, z as mount_component, M as listen, N as create_out_transition, A as destroy_component, E as run_all, g as group_outros } from "../../chunks/index-64643071.js";
-import { f as fly } from "../../chunks/index-872a1312.js";
-import { b as base, w as writable } from "../../chunks/paths-9d4e3692.js";
-import { C as CoinSelect, A as Arrows, c as coins, s as send, r as receive } from "../../chunks/pages.crossfade-94c26a17.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, l as claim_element, m as children, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, f as transition_in, t as transition_out, d as check_outros, o as onMount, Q as component_subscribe, C as noop, q as text, r as claim_text, R as add_render_callback, T as create_in_transition, x as create_component, y as claim_component, U as src_url_equal, z as mount_component, M as listen, N as create_out_transition, A as destroy_component, E as run_all, g as group_outros } from "../../chunks/index-59ec0738.js";
+import { f as fly } from "../../chunks/index-aa5a0dd9.js";
+import { b as base, w as writable } from "../../chunks/paths-95a23751.js";
+import { C as CoinSelect, A as Arrows, c as coins, s as send, r as receive } from "../../chunks/pages.crossfade-ad5482ad.js";
 function create_if_block_1(ctx) {
   let div;
   let if_block = (
@@ -153,15 +153,29 @@ function create_if_block(ctx) {
   let mounted;
   let dispose;
   coinselect0 = new CoinSelect({
-    props: { selectedId: (
-      /*fromCoin*/
-      ctx[4]
-    ) }
+    props: {
+      selectedId: (
+        /*fromCoin*/
+        ctx[4]
+      ),
+      excludedId: (
+        /*toCoin*/
+        ctx[5]
+      )
+    }
   });
-  coinselect1 = new CoinSelect({ props: { selectedId: (
-    /*toCoin*/
-    ctx[5]
-  ) } });
+  coinselect1 = new CoinSelect({
+    props: {
+      selectedId: (
+        /*toCoin*/
+        ctx[5]
+      ),
+      excludedId: (
+        /*fromCoin*/
+        ctx[4]
+      )
+    }
+  });
   return {
     c() {
       div2 = element("div");

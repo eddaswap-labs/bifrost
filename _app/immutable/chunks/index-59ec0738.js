@@ -476,9 +476,6 @@ function tick() {
 function add_render_callback(fn) {
   render_callbacks.push(fn);
 }
-function add_flush_callback(fn) {
-  flush_callbacks.push(fn);
-}
 const seen_callbacks = /* @__PURE__ */ new Set();
 let flushidx = 0;
 function flush() {
@@ -700,13 +697,6 @@ function create_out_transition(node, fn, params) {
     }
   };
 }
-function bind(component, name, callback) {
-  const index = component.$$.props[name];
-  if (index !== void 0) {
-    component.$$.bound[index] = callback;
-    callback(component.$$.ctx[index]);
-  }
-}
 function create_component(block) {
   block && block.c();
 }
@@ -853,8 +843,6 @@ export {
   svg_element as V,
   claim_svg_element as W,
   destroy_each as X,
-  bind as Y,
-  add_flush_callback as Z,
   space as a,
   insert_hydration as b,
   claim_space as c,
