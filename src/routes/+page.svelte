@@ -50,14 +50,14 @@
 				<h4 class="mb-5">Choose networks</h4>
 				<div class="w-full">
 					<p>from</p>
-					<CoinSelect selectedId={fromCoin} />
+					<CoinSelect selectedId={fromCoin} excludedId={toCoin} />
 				</div>
 				<button class="mt-6 mb-1" on:click={switchCoins}
 					><img src={Arrows} width={30} alt="arrows" /></button
 				>
 				<div class="w-full">
 					<p>to</p>
-					<CoinSelect selectedId={toCoin} />
+					<CoinSelect selectedId={toCoin} excludedId={fromCoin} />
 				</div>
 				<a
 					on:click={hideHero}

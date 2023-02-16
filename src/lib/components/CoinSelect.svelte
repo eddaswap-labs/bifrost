@@ -3,6 +3,7 @@
 	import { writable } from 'svelte/store';
 
 	export let selectedId = writable(0);
+	export let excludedId = writable(0);
 
 	const selectCoin = (id) => {
 		selectedId.set(id);
@@ -28,7 +29,7 @@
 	</label>
 	<ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 w-full border border-black">
 		{#each coins as coin, id}
-			{#if id !== $selectedId}
+			{#if id !== $selectedId && id !== $excludedId}
 				<li>
 					<button
 						on:click={() => {
