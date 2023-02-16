@@ -1,7 +1,7 @@
 import { S as SvelteComponent, i as init, s as safe_not_equal, a as space, e as empty$2, c as claim_space, b as insert_hydration, g as group_outros, t as transition_out, d as check_outros, f as transition_in, h as detach, j as afterUpdate, o as onMount, k as element, l as claim_element, m as children, n as attr, p as set_style, q as text, r as claim_text, u as set_data, v as binding_callbacks, w as construct_svelte_component, x as create_component, y as claim_component, z as mount_component, A as destroy_component, B as tick } from "./index-64643071.js";
-import { S as SCROLL_KEY, a as SNAPSHOT_KEY, I as INDEX_KEY, g as get_base_uri, f as find_anchor, b as get_link_info, c as get_router_options, s as stores, i as is_external_url, d as scroll_state, P as PRELOAD_PRIORITIES, e as init$1, h as set_version } from "./singletons-8a040551.js";
-import { r as require$$0$1, c as commonjsGlobal, W as Wallet$1, g as getDefaultExportFromCjs, a as commonjsRequire$1, B as BigNumber$1, n as naclFastExports, d as dist, E as Ethereum, T as Tezos, b as TON } from "./bignumber-d04f630d.js";
-import { b as base$4, s as set_assets } from "./paths-51e4d197.js";
+import { S as SCROLL_KEY, a as SNAPSHOT_KEY, I as INDEX_KEY, g as get_base_uri, f as find_anchor, b as get_link_info, c as get_router_options, s as stores, i as is_external_url, d as scroll_state, P as PRELOAD_PRIORITIES, e as init$1, h as set_version } from "./singletons-4a6b773a.js";
+import { r as require$$0$1, c as commonjsGlobal, W as Wallet$1, g as getDefaultExportFromCjs, a as commonjsRequire$1, B as BigNumber$1, n as naclFastExports, d as dist, E as Ethereum, T as Tezos, b as TON } from "./bignumber-d8f66591.js";
+import { b as base$4, s as set_assets } from "./paths-9d4e3692.js";
 function normalize_path(path, trailing_slash) {
   if (path === "/" || trailing_slash === "ignore")
     return path;
@@ -19100,7 +19100,7 @@ var STATUS_CODE;
   STATUS_CODE2[STATUS_CODE2["NETWORK_AUTHENTICATION_REQUIRED"] = 511] = "NETWORK_AUTHENTICATION_REQUIRED";
 })(STATUS_CODE || (STATUS_CODE = {}));
 const isNode$1 = typeof process !== "undefined" && process.versions != null && process.versions.node != null;
-const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-eda80c28.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
+const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-6066c69e.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
 var ResponseType;
 (function(ResponseType2) {
   ResponseType2["TEXT"] = "text";
@@ -55964,9 +55964,9 @@ TON.init({
 const matchers = {};
 const nodes = [
   () => __vitePreload(() => import("./0-d1c422c6.js"), true ? ["./0-d1c422c6.js","./_layout-a7d677aa.js","../components/pages/_layout.svelte-8b8d505f.js","./index-64643071.js","./index-872a1312.js","../assets/_layout-755d2fce.css"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./1-e38741e9.js"), true ? ["./1-e38741e9.js","../components/error.svelte-e4420b85.js","./index-64643071.js","./stores-1fb1289c.js","./singletons-8a040551.js","./paths-51e4d197.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./2-9bde166e.js"), true ? ["./2-9bde166e.js","../components/pages/_page.svelte-ae8b0cb5.js","./index-64643071.js","./index-872a1312.js","./paths-51e4d197.js","./pages.crossfade-ed74b118.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./3-f8dee5c5.js"), true ? ["./3-f8dee5c5.js","../components/pages/swap/_page.svelte-1efb4ca2.js","./index-64643071.js","./stores-1fb1289c.js","./singletons-8a040551.js","./paths-51e4d197.js","./pages.crossfade-ed74b118.js","./index-872a1312.js","./bignumber-d04f630d.js"] : void 0, import.meta.url)
+  () => __vitePreload(() => import("./1-2fc3f775.js"), true ? ["./1-2fc3f775.js","../components/error.svelte-8979d714.js","./index-64643071.js","./stores-39e9a08b.js","./singletons-4a6b773a.js","./paths-9d4e3692.js"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./2-db682157.js"), true ? ["./2-db682157.js","../components/pages/_page.svelte-51e30f52.js","./index-64643071.js","./index-872a1312.js","./paths-9d4e3692.js","./pages.crossfade-94c26a17.js"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./3-e30ff317.js"), true ? ["./3-e30ff317.js","../components/pages/swap/_page.svelte-874d3260.js","./index-64643071.js","./stores-39e9a08b.js","./singletons-4a6b773a.js","./paths-9d4e3692.js","./pages.crossfade-94c26a17.js","./index-872a1312.js","./bignumber-d8f66591.js"] : void 0, import.meta.url)
 ];
 const server_loads = [];
 const dictionary = {

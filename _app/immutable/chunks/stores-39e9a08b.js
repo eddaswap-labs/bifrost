@@ -1,5 +1,5 @@
 import "./index-64643071.js";
-import { s as stores } from "./singletons-8a040551.js";
+import { s as stores } from "./singletons-4a6b773a.js";
 const getStores = () => {
   const stores$1 = stores;
   return {
