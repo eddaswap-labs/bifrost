@@ -7,8 +7,11 @@ on:
     branches: ['main']
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
 
     strategy:
       matrix:
@@ -27,14 +30,6 @@ jobs:
           npm install --force
           npm run build
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-
-    steps:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
