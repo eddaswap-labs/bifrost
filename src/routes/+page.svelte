@@ -34,7 +34,7 @@
 				{#if ready}
 					<div class="max-w-xl" in:fly={{ x: -200, duration: 1500 }}>
 						<h1 class="text-5xl font-bold">👾 Bifrost Protocol</h1>
-						<p class="py-8">Swap tokens between Ethereum, TON and Tezos with ease.</p>
+						<p class="py-8">Swap assets between Ethereum, TON and Tezos with ease.</p>
 					</div>
 				{/if}
 			</div>
@@ -47,7 +47,7 @@
 				out:send={{ key: 'swap' }}
 				in:receive={{ key: 'swap' }}
 			>
-				<h4 class="mb-5">Choose currencies</h4>
+				<h4 class="mb-5">Choose networks</h4>
 				<div class="w-full">
 					<p>from</p>
 					<CoinSelect selectedId={fromCoin} />
