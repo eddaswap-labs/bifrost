@@ -1,5 +1,8 @@
 <script>
 	import '../app.css';
+	import { fly } from 'svelte/transition';
+
+	let showAlert = true;
 </script>
 
 <div class="flex flex-col min-h-screen justify-between">
@@ -16,11 +19,21 @@
 		</div>
 	</footer>
 
-	<div class="toast">
-		<div class="alert alert-warning">
-			<div>
-				<span>Bridge is still under development. <br /> You only see the beta release.</span>
+	{#if showAlert}
+		<div class="toast" out:fly={{ x: 100, duration: 1000 }}>
+			<div class="alert alert-warning">
+				<div
+					class="cursor-pointer"
+					on:click={() => {
+						showAlert = false;
+					}}
+				>
+					✕
+				</div>
+				<div>
+					<span>Bridge is still under development. <br /> You only see the beta release.</span>
+				</div>
 			</div>
 		</div>
-	</div>
+	{/if}
 </div>

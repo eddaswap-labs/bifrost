@@ -14,14 +14,17 @@ export default class TempleWallet extends Wallet {
 
 		TWallet.isAvailable().then((isAvailable) => {
 			if (!isAvailable) {
-				throw new Error('Temple Wallet not installed');
+				this.available = false;
+			} else {
+				this.available = true;
+				this.wallet = new TWallet('Bifrost bridge');
 			}
 		});
-
-		this.wallet = new TWallet('Bifrost bridge');
 	}
 
 	async connectInjected() {
+		if (!this.available) throw new Error('Temple Wallet not installed');
+
 		if (this.wallet.connected) {
 			return;
 		}

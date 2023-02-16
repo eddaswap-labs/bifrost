@@ -8,6 +8,11 @@ import { Address } from 'ton';
  */
 export class Wallet {
 	/**
+	 * True if user has wallet installed in browser, false otherwise.
+	 * For external wallets its always true.
+	 */
+	available;
+	/**
 	 * The connection status.
 	 * True if connected, false otherwise.
 	 *

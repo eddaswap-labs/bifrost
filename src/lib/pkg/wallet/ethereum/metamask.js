@@ -13,10 +13,17 @@ export default class MetaMask extends Wallet {
 	constructor() {
 		super();
 
-		this.provider = new ethers.providers.Web3Provider(window.ethereum);
+		if (!window.ethereum) {
+			this.available = false;
+		} else {
+			this.available = true;
+			this.provider = new ethers.providers.Web3Provider(window.ethereum);
+		}
 	}
 
 	async connectInjected() {
+		if (!this.available) throw new Error('MetaMask is not installed');
+
 		await this.provider.send('eth_requestAccounts', []);
 		const signer = this.provider.getSigner();
 

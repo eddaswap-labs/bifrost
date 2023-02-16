@@ -11,6 +11,7 @@ export default class TonKeeper extends Wallet {
 	constructor() {
 		super();
 
+		this.available = true;
 		this.connector = new TonConnect({
 			manifestUrl:
 				'https://raw.githubusercontent.com/bifrost-defi/bifrost/main/tonconnect-manifest.json'

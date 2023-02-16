@@ -40,6 +40,7 @@ const makeWalletStore = (wallet) => {
 		connectInjected,
 		connectExternal,
 		disconnect,
+		available: wallet.available,
 		lockCoins: wallet.lockCoins,
 		burnTokens: wallet.burnTokens
 	};
