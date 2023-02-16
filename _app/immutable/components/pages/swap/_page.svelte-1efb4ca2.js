@@ -1,8 +1,9 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, q as text, a as space, l as claim_element, m as children, r as claim_text, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, C as noop, P as src_url_equal, Q as listen, E as run_all, M as component_subscribe, u as set_data, v as binding_callbacks, X as bind, x as create_component, y as claim_component, z as mount_component, Y as add_flush_callback, t as transition_out, d as check_outros, f as transition_in, N as add_render_callback, R as create_out_transition, A as destroy_component, o as onMount, g as group_outros, O as create_in_transition, D as subscribe } from "../../../chunks/index-9a875c02.js";
-import { p as page } from "../../../chunks/stores-4d8d83f0.js";
-import { C as CoinSelect, c as coins, A as Arrows, s as send, r as receive } from "../../../chunks/pages.crossfade-ab243352.js";
-import { w as writable } from "../../../chunks/paths-8050205f.js";
-import { B as BigNumber, E as Ethereum, T as Tezos, g as getDefaultExportFromCjs, b as TON } from "../../../chunks/bignumber-a7818f98.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, q as text, a as space, l as claim_element, m as children, r as claim_text, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, C as noop, U as src_url_equal, M as listen, f as transition_in, E as run_all, Q as component_subscribe, V as svg_element, W as claim_svg_element, u as set_data, R as add_render_callback, T as create_in_transition, v as binding_callbacks, Y as bind, x as create_component, y as claim_component, z as mount_component, Z as add_flush_callback, t as transition_out, d as check_outros, N as create_out_transition, A as destroy_component, o as onMount, g as group_outros, D as subscribe } from "../../../chunks/index-64643071.js";
+import { p as page } from "../../../chunks/stores-1fb1289c.js";
+import { C as CoinSelect, c as coins, A as Arrows, s as send, r as receive } from "../../../chunks/pages.crossfade-ed74b118.js";
+import { w as writable } from "../../../chunks/paths-51e4d197.js";
+import { B as BigNumber, E as Ethereum, T as Tezos, g as getDefaultExportFromCjs, b as TON } from "../../../chunks/bignumber-d04f630d.js";
+import { a as fade$1 } from "../../../chunks/index-872a1312.js";
 function create_else_block$3(ctx) {
   let span;
   let t;
@@ -133,7 +134,7 @@ function create_else_block$2(ctx) {
     10,
     5,
     /*$address*/
-    ctx[3] ?? ""
+    ctx[4] ?? ""
   ) + "";
   let t;
   return {
@@ -159,11 +160,11 @@ function create_else_block$2(ctx) {
     },
     p(ctx2, dirty) {
       if (dirty & /*$address*/
-      8 && t_value !== (t_value = shortAccountString(
+      16 && t_value !== (t_value = shortAccountString(
         10,
         5,
         /*$address*/
-        ctx2[3] ?? ""
+        ctx2[4] ?? ""
       ) + ""))
         set_data(t, t_value);
     },
@@ -173,7 +174,7 @@ function create_else_block$2(ctx) {
     }
   };
 }
-function create_if_block$3(ctx) {
+function create_if_block_1$2(ctx) {
   let label;
   let t;
   return {
@@ -204,6 +205,106 @@ function create_if_block$3(ctx) {
     }
   };
 }
+function create_if_block$3(ctx) {
+  let div1;
+  let div0;
+  let svg;
+  let path;
+  let t0;
+  let span;
+  let t1;
+  let div1_intro;
+  return {
+    c() {
+      div1 = element("div");
+      div0 = element("div");
+      svg = svg_element("svg");
+      path = svg_element("path");
+      t0 = space();
+      span = element("span");
+      t1 = text(
+        /*errorMessage*/
+        ctx[0]
+      );
+      this.h();
+    },
+    l(nodes) {
+      div1 = claim_element(nodes, "DIV", { class: true });
+      var div1_nodes = children(div1);
+      div0 = claim_element(div1_nodes, "DIV", {});
+      var div0_nodes = children(div0);
+      svg = claim_svg_element(div0_nodes, "svg", {
+        xmlns: true,
+        class: true,
+        fill: true,
+        viewBox: true
+      });
+      var svg_nodes = children(svg);
+      path = claim_svg_element(svg_nodes, "path", {
+        "stroke-linecap": true,
+        "stroke-linejoin": true,
+        "stroke-width": true,
+        d: true
+      });
+      children(path).forEach(detach);
+      svg_nodes.forEach(detach);
+      t0 = claim_space(div0_nodes);
+      span = claim_element(div0_nodes, "SPAN", {});
+      var span_nodes = children(span);
+      t1 = claim_text(
+        span_nodes,
+        /*errorMessage*/
+        ctx[0]
+      );
+      span_nodes.forEach(detach);
+      div0_nodes.forEach(detach);
+      div1_nodes.forEach(detach);
+      this.h();
+    },
+    h() {
+      attr(path, "stroke-linecap", "round");
+      attr(path, "stroke-linejoin", "round");
+      attr(path, "stroke-width", "2");
+      attr(path, "d", "M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z");
+      attr(svg, "xmlns", "http://www.w3.org/2000/svg");
+      attr(svg, "class", "stroke-current flex-shrink-0 h-6 w-6");
+      attr(svg, "fill", "none");
+      attr(svg, "viewBox", "0 0 24 24");
+      attr(div1, "class", "alert alert-error shadow-lg");
+    },
+    m(target, anchor) {
+      insert_hydration(target, div1, anchor);
+      append_hydration(div1, div0);
+      append_hydration(div0, svg);
+      append_hydration(svg, path);
+      append_hydration(div0, t0);
+      append_hydration(div0, span);
+      append_hydration(span, t1);
+    },
+    p(ctx2, dirty) {
+      if (dirty & /*errorMessage*/
+      1)
+        set_data(
+          t1,
+          /*errorMessage*/
+          ctx2[0]
+        );
+    },
+    i(local) {
+      if (!div1_intro) {
+        add_render_callback(() => {
+          div1_intro = create_in_transition(div1, fade$1, {});
+          div1_intro.start();
+        });
+      }
+    },
+    o: noop,
+    d(detaching) {
+      if (detaching)
+        detach(div1);
+    }
+  };
+}
 function create_fragment$3(ctx) {
   let div0;
   let t0;
@@ -223,33 +324,38 @@ function create_fragment$3(ctx) {
   let img_src_value;
   let t6;
   let t7;
-  let input1;
   let t8;
+  let input1;
+  let t9;
   let div6;
   let div5;
   let h31;
-  let t9;
   let t10;
-  let label1;
   let t11;
+  let label1;
   let t12;
+  let t13;
   let div4;
   let button1;
-  let t13;
+  let t14;
   let mounted;
   let dispose;
   function select_block_type(ctx2, dirty) {
     if (!/*$connected*/
-    ctx2[2])
-      return create_if_block$3;
+    ctx2[3])
+      return create_if_block_1$2;
     return create_else_block$2;
   }
   let current_block_type = select_block_type(ctx);
-  let if_block = current_block_type(ctx);
+  let if_block0 = current_block_type(ctx);
+  let if_block1 = (
+    /*errorMessage*/
+    ctx[0] !== "" && create_if_block$3(ctx)
+  );
   return {
     c() {
       div0 = element("div");
-      if_block.c();
+      if_block0.c();
       t0 = space();
       input0 = element("input");
       t1 = space();
@@ -266,25 +372,28 @@ function create_fragment$3(ctx) {
       img = element("img");
       t6 = text("\n				MetaMask");
       t7 = space();
-      input1 = element("input");
+      if (if_block1)
+        if_block1.c();
       t8 = space();
+      input1 = element("input");
+      t9 = space();
       div6 = element("div");
       div5 = element("div");
       h31 = element("h3");
-      t9 = text("You are going to disconnect");
-      t10 = space();
+      t10 = text("You are going to disconnect");
+      t11 = space();
       label1 = element("label");
-      t11 = text("✕");
-      t12 = space();
+      t12 = text("✕");
+      t13 = space();
       div4 = element("div");
       button1 = element("button");
-      t13 = text("Disconnect");
+      t14 = text("Disconnect");
       this.h();
     },
     l(nodes) {
       div0 = claim_element(nodes, "DIV", {});
       var div0_nodes = children(div0);
-      if_block.l(div0_nodes);
+      if_block0.l(div0_nodes);
       div0_nodes.forEach(detach);
       t0 = claim_space(nodes);
       input0 = claim_element(nodes, "INPUT", { type: true, id: true, class: true });
@@ -316,30 +425,33 @@ function create_fragment$3(ctx) {
       t6 = claim_text(button0_nodes, "\n				MetaMask");
       button0_nodes.forEach(detach);
       div1_nodes.forEach(detach);
+      t7 = claim_space(div2_nodes);
+      if (if_block1)
+        if_block1.l(div2_nodes);
       div2_nodes.forEach(detach);
       div3_nodes.forEach(detach);
-      t7 = claim_space(nodes);
-      input1 = claim_element(nodes, "INPUT", { type: true, id: true, class: true });
       t8 = claim_space(nodes);
+      input1 = claim_element(nodes, "INPUT", { type: true, id: true, class: true });
+      t9 = claim_space(nodes);
       div6 = claim_element(nodes, "DIV", { class: true });
       var div6_nodes = children(div6);
       div5 = claim_element(div6_nodes, "DIV", { class: true });
       var div5_nodes = children(div5);
       h31 = claim_element(div5_nodes, "H3", { class: true });
       var h31_nodes = children(h31);
-      t9 = claim_text(h31_nodes, "You are going to disconnect");
+      t10 = claim_text(h31_nodes, "You are going to disconnect");
       h31_nodes.forEach(detach);
-      t10 = claim_space(div5_nodes);
+      t11 = claim_space(div5_nodes);
       label1 = claim_element(div5_nodes, "LABEL", { for: true, class: true });
       var label1_nodes = children(label1);
-      t11 = claim_text(label1_nodes, "✕");
+      t12 = claim_text(label1_nodes, "✕");
       label1_nodes.forEach(detach);
-      t12 = claim_space(div5_nodes);
+      t13 = claim_space(div5_nodes);
       div4 = claim_element(div5_nodes, "DIV", { class: true });
       var div4_nodes = children(div4);
       button1 = claim_element(div4_nodes, "BUTTON", { class: true });
       var button1_nodes = children(button1);
-      t13 = claim_text(button1_nodes, "Disconnect");
+      t14 = claim_text(button1_nodes, "Disconnect");
       button1_nodes.forEach(detach);
       div4_nodes.forEach(detach);
       div5_nodes.forEach(detach);
@@ -375,11 +487,11 @@ function create_fragment$3(ctx) {
     },
     m(target, anchor) {
       insert_hydration(target, div0, anchor);
-      if_block.m(div0, null);
+      if_block0.m(div0, null);
       insert_hydration(target, t0, anchor);
       insert_hydration(target, input0, anchor);
       input0.checked = /*isConnectingModalOpen*/
-      ctx[0];
+      ctx[1];
       insert_hydration(target, t1, anchor);
       insert_hydration(target, div3, anchor);
       append_hydration(div3, div2);
@@ -393,80 +505,103 @@ function create_fragment$3(ctx) {
       append_hydration(div1, button0);
       append_hydration(button0, img);
       append_hydration(button0, t6);
-      insert_hydration(target, t7, anchor);
+      append_hydration(div2, t7);
+      if (if_block1)
+        if_block1.m(div2, null);
+      insert_hydration(target, t8, anchor);
       insert_hydration(target, input1, anchor);
       input1.checked = /*isDisconnectingModalOpen*/
-      ctx[1];
-      insert_hydration(target, t8, anchor);
+      ctx[2];
+      insert_hydration(target, t9, anchor);
       insert_hydration(target, div6, anchor);
       append_hydration(div6, div5);
       append_hydration(div5, h31);
-      append_hydration(h31, t9);
-      append_hydration(div5, t10);
+      append_hydration(h31, t10);
+      append_hydration(div5, t11);
       append_hydration(div5, label1);
-      append_hydration(label1, t11);
-      append_hydration(div5, t12);
+      append_hydration(label1, t12);
+      append_hydration(div5, t13);
       append_hydration(div5, div4);
       append_hydration(div4, button1);
-      append_hydration(button1, t13);
+      append_hydration(button1, t14);
       if (!mounted) {
         dispose = [
           listen(
             input0,
             "change",
             /*input0_change_handler*/
-            ctx[8]
+            ctx[9]
           ),
           listen(
             button0,
             "click",
             /*click_handler*/
-            ctx[9]
+            ctx[10]
           ),
           listen(
             input1,
             "change",
             /*input1_change_handler*/
-            ctx[10]
+            ctx[11]
           ),
           listen(
             button1,
             "click",
             /*disconnect*/
-            ctx[7]
+            ctx[8]
           )
         ];
         mounted = true;
       }
     },
     p(ctx2, [dirty]) {
-      if (current_block_type === (current_block_type = select_block_type(ctx2)) && if_block) {
-        if_block.p(ctx2, dirty);
+      if (current_block_type === (current_block_type = select_block_type(ctx2)) && if_block0) {
+        if_block0.p(ctx2, dirty);
       } else {
-        if_block.d(1);
-        if_block = current_block_type(ctx2);
-        if (if_block) {
-          if_block.c();
-          if_block.m(div0, null);
+        if_block0.d(1);
+        if_block0 = current_block_type(ctx2);
+        if (if_block0) {
+          if_block0.c();
+          if_block0.m(div0, null);
         }
       }
       if (dirty & /*isConnectingModalOpen*/
-      1) {
-        input0.checked = /*isConnectingModalOpen*/
-        ctx2[0];
-      }
-      if (dirty & /*isDisconnectingModalOpen*/
       2) {
-        input1.checked = /*isDisconnectingModalOpen*/
+        input0.checked = /*isConnectingModalOpen*/
         ctx2[1];
       }
+      if (/*errorMessage*/
+      ctx2[0] !== "") {
+        if (if_block1) {
+          if_block1.p(ctx2, dirty);
+          if (dirty & /*errorMessage*/
+          1) {
+            transition_in(if_block1, 1);
+          }
+        } else {
+          if_block1 = create_if_block$3(ctx2);
+          if_block1.c();
+          transition_in(if_block1, 1);
+          if_block1.m(div2, null);
+        }
+      } else if (if_block1) {
+        if_block1.d(1);
+        if_block1 = null;
+      }
+      if (dirty & /*isDisconnectingModalOpen*/
+      4) {
+        input1.checked = /*isDisconnectingModalOpen*/
+        ctx2[2];
+      }
     },
-    i: noop,
+    i(local) {
+      transition_in(if_block1);
+    },
     o: noop,
     d(detaching) {
       if (detaching)
         detach(div0);
-      if_block.d();
+      if_block0.d();
       if (detaching)
         detach(t0);
       if (detaching)
@@ -475,12 +610,14 @@ function create_fragment$3(ctx) {
         detach(t1);
       if (detaching)
         detach(div3);
+      if (if_block1)
+        if_block1.d();
       if (detaching)
-        detach(t7);
+        detach(t8);
       if (detaching)
         detach(input1);
       if (detaching)
-        detach(t8);
+        detach(t9);
       if (detaching)
         detach(div6);
       mounted = false;
@@ -492,33 +629,40 @@ function instance$3($$self, $$props, $$invalidate) {
   let $Ethereum;
   let $connected;
   let $address;
-  component_subscribe($$self, Ethereum, ($$value) => $$invalidate(11, $Ethereum = $$value));
+  component_subscribe($$self, Ethereum, ($$value) => $$invalidate(12, $Ethereum = $$value));
   const { connected, address, wallets } = $Ethereum;
-  component_subscribe($$self, connected, (value) => $$invalidate(2, $connected = value));
-  component_subscribe($$self, address, (value) => $$invalidate(3, $address = value));
+  component_subscribe($$self, connected, (value) => $$invalidate(3, $connected = value));
+  component_subscribe($$self, address, (value) => $$invalidate(4, $address = value));
+  let errorMessage = "";
   let isConnectingModalOpen = false;
   let isDisconnectingModalOpen = false;
   const connect = async (wallet) => {
     switch (wallet) {
       case "metamask":
+        if (!wallets.MetaMask.available) {
+          $$invalidate(0, errorMessage = "MetaMask is not installed!");
+          return;
+        }
         await wallets.MetaMask.connectInjected();
+        break;
     }
-    $$invalidate(0, isConnectingModalOpen = false);
+    $$invalidate(1, isConnectingModalOpen = false);
   };
   const disconnect = () => {
     Ethereum.disconnect();
-    $$invalidate(1, isDisconnectingModalOpen = false);
+    $$invalidate(2, isDisconnectingModalOpen = false);
   };
   function input0_change_handler() {
     isConnectingModalOpen = this.checked;
-    $$invalidate(0, isConnectingModalOpen);
+    $$invalidate(1, isConnectingModalOpen);
   }
   const click_handler = () => connect("metamask");
   function input1_change_handler() {
     isDisconnectingModalOpen = this.checked;
-    $$invalidate(1, isDisconnectingModalOpen);
+    $$invalidate(2, isDisconnectingModalOpen);
   }
   return [
+    errorMessage,
     isConnectingModalOpen,
     isDisconnectingModalOpen,
     $connected,
@@ -545,7 +689,7 @@ function create_else_block$1(ctx) {
     10,
     5,
     /*$address*/
-    ctx[3] ?? ""
+    ctx[4] ?? ""
   ) + "";
   let t;
   return {
@@ -571,11 +715,11 @@ function create_else_block$1(ctx) {
     },
     p(ctx2, dirty) {
       if (dirty & /*$address*/
-      8 && t_value !== (t_value = shortAccountString(
+      16 && t_value !== (t_value = shortAccountString(
         10,
         5,
         /*$address*/
-        ctx2[3] ?? ""
+        ctx2[4] ?? ""
       ) + ""))
         set_data(t, t_value);
     },
@@ -585,7 +729,7 @@ function create_else_block$1(ctx) {
     }
   };
 }
-function create_if_block$2(ctx) {
+function create_if_block_1$1(ctx) {
   let label;
   let t;
   return {
@@ -616,6 +760,106 @@ function create_if_block$2(ctx) {
     }
   };
 }
+function create_if_block$2(ctx) {
+  let div1;
+  let div0;
+  let svg;
+  let path;
+  let t0;
+  let span;
+  let t1;
+  let div1_intro;
+  return {
+    c() {
+      div1 = element("div");
+      div0 = element("div");
+      svg = svg_element("svg");
+      path = svg_element("path");
+      t0 = space();
+      span = element("span");
+      t1 = text(
+        /*errorMessage*/
+        ctx[0]
+      );
+      this.h();
+    },
+    l(nodes) {
+      div1 = claim_element(nodes, "DIV", { class: true });
+      var div1_nodes = children(div1);
+      div0 = claim_element(div1_nodes, "DIV", {});
+      var div0_nodes = children(div0);
+      svg = claim_svg_element(div0_nodes, "svg", {
+        xmlns: true,
+        class: true,
+        fill: true,
+        viewBox: true
+      });
+      var svg_nodes = children(svg);
+      path = claim_svg_element(svg_nodes, "path", {
+        "stroke-linecap": true,
+        "stroke-linejoin": true,
+        "stroke-width": true,
+        d: true
+      });
+      children(path).forEach(detach);
+      svg_nodes.forEach(detach);
+      t0 = claim_space(div0_nodes);
+      span = claim_element(div0_nodes, "SPAN", {});
+      var span_nodes = children(span);
+      t1 = claim_text(
+        span_nodes,
+        /*errorMessage*/
+        ctx[0]
+      );
+      span_nodes.forEach(detach);
+      div0_nodes.forEach(detach);
+      div1_nodes.forEach(detach);
+      this.h();
+    },
+    h() {
+      attr(path, "stroke-linecap", "round");
+      attr(path, "stroke-linejoin", "round");
+      attr(path, "stroke-width", "2");
+      attr(path, "d", "M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z");
+      attr(svg, "xmlns", "http://www.w3.org/2000/svg");
+      attr(svg, "class", "stroke-current flex-shrink-0 h-6 w-6");
+      attr(svg, "fill", "none");
+      attr(svg, "viewBox", "0 0 24 24");
+      attr(div1, "class", "alert alert-error shadow-lg");
+    },
+    m(target, anchor) {
+      insert_hydration(target, div1, anchor);
+      append_hydration(div1, div0);
+      append_hydration(div0, svg);
+      append_hydration(svg, path);
+      append_hydration(div0, t0);
+      append_hydration(div0, span);
+      append_hydration(span, t1);
+    },
+    p(ctx2, dirty) {
+      if (dirty & /*errorMessage*/
+      1)
+        set_data(
+          t1,
+          /*errorMessage*/
+          ctx2[0]
+        );
+    },
+    i(local) {
+      if (!div1_intro) {
+        add_render_callback(() => {
+          div1_intro = create_in_transition(div1, fade, {});
+          div1_intro.start();
+        });
+      }
+    },
+    o: noop,
+    d(detaching) {
+      if (detaching)
+        detach(div1);
+    }
+  };
+}
 function create_fragment$2(ctx) {
   let div0;
   let t0;
@@ -635,33 +879,38 @@ function create_fragment$2(ctx) {
   let img_src_value;
   let t6;
   let t7;
-  let input1;
   let t8;
+  let input1;
+  let t9;
   let div6;
   let div5;
   let h31;
-  let t9;
   let t10;
-  let label1;
   let t11;
+  let label1;
   let t12;
+  let t13;
   let div4;
   let button1;
-  let t13;
+  let t14;
   let mounted;
   let dispose;
   function select_block_type(ctx2, dirty) {
     if (!/*$connected*/
-    ctx2[2])
-      return create_if_block$2;
+    ctx2[3])
+      return create_if_block_1$1;
     return create_else_block$1;
   }
   let current_block_type = select_block_type(ctx);
-  let if_block = current_block_type(ctx);
+  let if_block0 = current_block_type(ctx);
+  let if_block1 = (
+    /*errorMessage*/
+    ctx[0] !== "" && create_if_block$2(ctx)
+  );
   return {
     c() {
       div0 = element("div");
-      if_block.c();
+      if_block0.c();
       t0 = space();
       input0 = element("input");
       t1 = space();
@@ -678,25 +927,28 @@ function create_fragment$2(ctx) {
       img = element("img");
       t6 = text("\n				Temple Wallet");
       t7 = space();
-      input1 = element("input");
+      if (if_block1)
+        if_block1.c();
       t8 = space();
+      input1 = element("input");
+      t9 = space();
       div6 = element("div");
       div5 = element("div");
       h31 = element("h3");
-      t9 = text("You are going to disconnect");
-      t10 = space();
+      t10 = text("You are going to disconnect");
+      t11 = space();
       label1 = element("label");
-      t11 = text("✕");
-      t12 = space();
+      t12 = text("✕");
+      t13 = space();
       div4 = element("div");
       button1 = element("button");
-      t13 = text("Disconnect");
+      t14 = text("Disconnect");
       this.h();
     },
     l(nodes) {
       div0 = claim_element(nodes, "DIV", {});
       var div0_nodes = children(div0);
-      if_block.l(div0_nodes);
+      if_block0.l(div0_nodes);
       div0_nodes.forEach(detach);
       t0 = claim_space(nodes);
       input0 = claim_element(nodes, "INPUT", { type: true, id: true, class: true });
@@ -728,30 +980,33 @@ function create_fragment$2(ctx) {
       t6 = claim_text(button0_nodes, "\n				Temple Wallet");
       button0_nodes.forEach(detach);
       div1_nodes.forEach(detach);
+      t7 = claim_space(div2_nodes);
+      if (if_block1)
+        if_block1.l(div2_nodes);
       div2_nodes.forEach(detach);
       div3_nodes.forEach(detach);
-      t7 = claim_space(nodes);
-      input1 = claim_element(nodes, "INPUT", { type: true, id: true, class: true });
       t8 = claim_space(nodes);
+      input1 = claim_element(nodes, "INPUT", { type: true, id: true, class: true });
+      t9 = claim_space(nodes);
       div6 = claim_element(nodes, "DIV", { class: true });
       var div6_nodes = children(div6);
       div5 = claim_element(div6_nodes, "DIV", { class: true });
       var div5_nodes = children(div5);
       h31 = claim_element(div5_nodes, "H3", { class: true });
       var h31_nodes = children(h31);
-      t9 = claim_text(h31_nodes, "You are going to disconnect");
+      t10 = claim_text(h31_nodes, "You are going to disconnect");
       h31_nodes.forEach(detach);
-      t10 = claim_space(div5_nodes);
+      t11 = claim_space(div5_nodes);
       label1 = claim_element(div5_nodes, "LABEL", { for: true, class: true });
       var label1_nodes = children(label1);
-      t11 = claim_text(label1_nodes, "✕");
+      t12 = claim_text(label1_nodes, "✕");
       label1_nodes.forEach(detach);
-      t12 = claim_space(div5_nodes);
+      t13 = claim_space(div5_nodes);
       div4 = claim_element(div5_nodes, "DIV", { class: true });
       var div4_nodes = children(div4);
       button1 = claim_element(div4_nodes, "BUTTON", { class: true });
       var button1_nodes = children(button1);
-      t13 = claim_text(button1_nodes, "Disconnect");
+      t14 = claim_text(button1_nodes, "Disconnect");
       button1_nodes.forEach(detach);
       div4_nodes.forEach(detach);
       div5_nodes.forEach(detach);
@@ -787,11 +1042,11 @@ function create_fragment$2(ctx) {
     },
     m(target, anchor) {
       insert_hydration(target, div0, anchor);
-      if_block.m(div0, null);
+      if_block0.m(div0, null);
       insert_hydration(target, t0, anchor);
       insert_hydration(target, input0, anchor);
       input0.checked = /*isConnectingModalOpen*/
-      ctx[0];
+      ctx[1];
       insert_hydration(target, t1, anchor);
       insert_hydration(target, div3, anchor);
       append_hydration(div3, div2);
@@ -805,80 +1060,103 @@ function create_fragment$2(ctx) {
       append_hydration(div1, button0);
       append_hydration(button0, img);
       append_hydration(button0, t6);
-      insert_hydration(target, t7, anchor);
+      append_hydration(div2, t7);
+      if (if_block1)
+        if_block1.m(div2, null);
+      insert_hydration(target, t8, anchor);
       insert_hydration(target, input1, anchor);
       input1.checked = /*isDisconnectingModalOpen*/
-      ctx[1];
-      insert_hydration(target, t8, anchor);
+      ctx[2];
+      insert_hydration(target, t9, anchor);
       insert_hydration(target, div6, anchor);
       append_hydration(div6, div5);
       append_hydration(div5, h31);
-      append_hydration(h31, t9);
-      append_hydration(div5, t10);
+      append_hydration(h31, t10);
+      append_hydration(div5, t11);
       append_hydration(div5, label1);
-      append_hydration(label1, t11);
-      append_hydration(div5, t12);
+      append_hydration(label1, t12);
+      append_hydration(div5, t13);
       append_hydration(div5, div4);
       append_hydration(div4, button1);
-      append_hydration(button1, t13);
+      append_hydration(button1, t14);
       if (!mounted) {
         dispose = [
           listen(
             input0,
             "change",
             /*input0_change_handler*/
-            ctx[8]
+            ctx[9]
           ),
           listen(
             button0,
             "click",
             /*connect*/
-            ctx[6]
+            ctx[7]
           ),
           listen(
             input1,
             "change",
             /*input1_change_handler*/
-            ctx[9]
+            ctx[10]
           ),
           listen(
             button1,
             "click",
             /*disconnect*/
-            ctx[7]
+            ctx[8]
           )
         ];
         mounted = true;
       }
     },
     p(ctx2, [dirty]) {
-      if (current_block_type === (current_block_type = select_block_type(ctx2)) && if_block) {
-        if_block.p(ctx2, dirty);
+      if (current_block_type === (current_block_type = select_block_type(ctx2)) && if_block0) {
+        if_block0.p(ctx2, dirty);
       } else {
-        if_block.d(1);
-        if_block = current_block_type(ctx2);
-        if (if_block) {
-          if_block.c();
-          if_block.m(div0, null);
+        if_block0.d(1);
+        if_block0 = current_block_type(ctx2);
+        if (if_block0) {
+          if_block0.c();
+          if_block0.m(div0, null);
         }
       }
       if (dirty & /*isConnectingModalOpen*/
-      1) {
-        input0.checked = /*isConnectingModalOpen*/
-        ctx2[0];
-      }
-      if (dirty & /*isDisconnectingModalOpen*/
       2) {
-        input1.checked = /*isDisconnectingModalOpen*/
+        input0.checked = /*isConnectingModalOpen*/
         ctx2[1];
       }
+      if (/*errorMessage*/
+      ctx2[0] !== "") {
+        if (if_block1) {
+          if_block1.p(ctx2, dirty);
+          if (dirty & /*errorMessage*/
+          1) {
+            transition_in(if_block1, 1);
+          }
+        } else {
+          if_block1 = create_if_block$2(ctx2);
+          if_block1.c();
+          transition_in(if_block1, 1);
+          if_block1.m(div2, null);
+        }
+      } else if (if_block1) {
+        if_block1.d(1);
+        if_block1 = null;
+      }
+      if (dirty & /*isDisconnectingModalOpen*/
+      4) {
+        input1.checked = /*isDisconnectingModalOpen*/
+        ctx2[2];
+      }
     },
-    i: noop,
+    i(local) {
+      transition_in(if_block1);
+    },
     o: noop,
     d(detaching) {
       if (detaching)
         detach(div0);
-      if_block.d();
+      if_block0.d();
       if (detaching)
         detach(t0);
       if (detaching)
@@ -887,12 +1165,14 @@ function create_fragment$2(ctx) {
         detach(t1);
       if (detaching)
         detach(div3);
+      if (if_block1)
+        if_block1.d();
       if (detaching)
-        detach(t7);
+        detach(t8);
       if (detaching)
         detach(input1);
       if (detaching)
-        detach(t8);
+        detach(t9);
       if (detaching)
         detach(div6);
       mounted = false;
@@ -904,29 +1184,35 @@ function instance$2($$self, $$props, $$invalidate) {
   let $Tezos;
   let $connected;
   let $address;
-  component_subscribe($$self, Tezos, ($$value) => $$invalidate(10, $Tezos = $$value));
+  component_subscribe($$self, Tezos, ($$value) => $$invalidate(11, $Tezos = $$value));
   const { connected, address, wallets } = $Tezos;
-  component_subscribe($$self, connected, (value) => $$invalidate(2, $connected = value));
-  component_subscribe($$self, address, (value) => $$invalidate(3, $address = value));
+  component_subscribe($$self, connected, (value) => $$invalidate(3, $connected = value));
+  component_subscribe($$self, address, (value) => $$invalidate(4, $address = value));
+  let errorMessage = "";
   let isConnectingModalOpen = false;
   let isDisconnectingModalOpen = false;
   const connect = async () => {
+    if (!wallets.TempleWallet.available) {
+      $$invalidate(0, errorMessage = "TempleWallet is not installed!");
+      return;
+    }
     await wallets.TempleWallet.connectInjected();
-    $$invalidate(0, isConnectingModalOpen = false);
+    $$invalidate(1, isConnectingModalOpen = false);
   };
   const disconnect = () => {
     Tezos.disconnect();
-    $$invalidate(1, isDisconnectingModalOpen = false);
+    $$invalidate(2, isDisconnectingModalOpen = false);
   };
   function input0_change_handler() {
     isConnectingModalOpen = this.checked;
-    $$invalidate(0, isConnectingModalOpen);
+    $$invalidate(1, isConnectingModalOpen);
   }
   function input1_change_handler() {
     isDisconnectingModalOpen = this.checked;
-    $$invalidate(1, isDisconnectingModalOpen);
+    $$invalidate(2, isDisconnectingModalOpen);
   }
   return [
+    errorMessage,
     isConnectingModalOpen,
     isDisconnectingModalOpen,
     $connected,
