@@ -13,6 +13,12 @@
 			<a class="link link-hover" target="_blank" rel="noreferrer" href="https://t.me/bifrost_defi"
 				>Telegram</a
 			>
+			<a
+				class="link link-hover"
+				target="_blank"
+				rel="noreferrer"
+				href="https://github.com/bifrost-defi">Github</a
+			>
 		</div>
 		<div>
 			<p>&#169; {new Date().getFullYear()} Bifrost</p>
