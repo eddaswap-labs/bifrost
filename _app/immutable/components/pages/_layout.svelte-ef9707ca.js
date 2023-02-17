@@ -107,16 +107,19 @@ function create_fragment(ctx) {
   let t0;
   let footer;
   let div0;
-  let a;
+  let a0;
   let t1;
   let t2;
+  let a1;
+  let t3;
+  let t4;
   let div1;
   let p;
-  let t3;
-  let t4_value = new Date().getFullYear() + "";
-  let t4;
   let t5;
+  let t6_value = new Date().getFullYear() + "";
   let t6;
+  let t7;
+  let t8;
   let current;
   const default_slot_template = (
     /*#slots*/
@@ -141,15 +144,18 @@ function create_fragment(ctx) {
       t0 = space();
       footer = element("footer");
       div0 = element("div");
-      a = element("a");
+      a0 = element("a");
       t1 = text("Telegram");
       t2 = space();
+      a1 = element("a");
+      t3 = text("Github");
+      t4 = space();
       div1 = element("div");
       p = element("p");
-      t3 = text("© ");
-      t4 = text(t4_value);
-      t5 = text(" Bifrost");
-      t6 = space();
+      t5 = text("© ");
+      t6 = text(t6_value);
+      t7 = text(" Bifrost");
+      t8 = space();
       if (if_block)
         if_block.c();
       this.h();
@@ -164,38 +170,52 @@ function create_fragment(ctx) {
       var footer_nodes = children(footer);
       div0 = claim_element(footer_nodes, "DIV", { class: true });
       var div0_nodes = children(div0);
-      a = claim_element(div0_nodes, "A", {
+      a0 = claim_element(div0_nodes, "A", {
         class: true,
         target: true,
         rel: true,
         href: true
       });
-      var a_nodes = children(a);
-      t1 = claim_text(a_nodes, "Telegram");
-      a_nodes.forEach(detach);
+      var a0_nodes = children(a0);
+      t1 = claim_text(a0_nodes, "Telegram");
+      a0_nodes.forEach(detach);
+      t2 = claim_space(div0_nodes);
+      a1 = claim_element(div0_nodes, "A", {
+        class: true,
+        target: true,
+        rel: true,
+        href: true
+      });
+      var a1_nodes = children(a1);
+      t3 = claim_text(a1_nodes, "Github");
+      a1_nodes.forEach(detach);
       div0_nodes.forEach(detach);
-      t2 = claim_space(footer_nodes);
+      t4 = claim_space(footer_nodes);
       div1 = claim_element(footer_nodes, "DIV", {});
       var div1_nodes = children(div1);
       p = claim_element(div1_nodes, "P", {});
       var p_nodes = children(p);
-      t3 = claim_text(p_nodes, "© ");
-      t4 = claim_text(p_nodes, t4_value);
-      t5 = claim_text(p_nodes, " Bifrost");
+      t5 = claim_text(p_nodes, "© ");
+      t6 = claim_text(p_nodes, t6_value);
+      t7 = claim_text(p_nodes, " Bifrost");
       p_nodes.forEach(detach);
       div1_nodes.forEach(detach);
       footer_nodes.forEach(detach);
-      t6 = claim_space(div2_nodes);
+      t8 = claim_space(div2_nodes);
       if (if_block)
         if_block.l(div2_nodes);
       div2_nodes.forEach(detach);
       this.h();
     },
     h() {
-      attr(a, "class", "link link-hover");
-      attr(a, "target", "_blank");
-      attr(a, "rel", "noreferrer");
-      attr(a, "href", "https://t.me/bifrost_defi");
+      attr(a0, "class", "link link-hover");
+      attr(a0, "target", "_blank");
+      attr(a0, "rel", "noreferrer");
+      attr(a0, "href", "https://t.me/bifrost_defi");
+      attr(a1, "class", "link link-hover");
+      attr(a1, "target", "_blank");
+      attr(a1, "rel", "noreferrer");
+      attr(a1, "href", "https://github.com/bifrost-defi");
       attr(div0, "class", "grid grid-flow-col gap-4");
       attr(footer, "class", "footer footer-center p-5 bg-base-100 gap-2 text-base-content rounded");
       attr(div2, "class", "flex flex-col min-h-screen justify-between");
@@ -208,15 +228,18 @@ function create_fragment(ctx) {
       append_hydration(div2, t0);
       append_hydration(div2, footer);
       append_hydration(footer, div0);
-      append_hydration(div0, a);
-      append_hydration(a, t1);
-      append_hydration(footer, t2);
+      append_hydration(div0, a0);
+      append_hydration(a0, t1);
+      append_hydration(div0, t2);
+      append_hydration(div0, a1);
+      append_hydration(a1, t3);
+      append_hydration(footer, t4);
       append_hydration(footer, div1);
       append_hydration(div1, p);
-      append_hydration(p, t3);
-      append_hydration(p, t4);
       append_hydration(p, t5);
-      append_hydration(div2, t6);
+      append_hydration(p, t6);
+      append_hydration(p, t7);
+      append_hydration(div2, t8);
       if (if_block)
         if_block.m(div2, null);
       current = true;
