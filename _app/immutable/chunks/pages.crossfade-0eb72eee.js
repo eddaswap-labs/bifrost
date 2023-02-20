@@ -13,8 +13,8 @@ let coins = [
     logoSize: 20
   },
   {
-    nativeSymbol: "TZS",
-    wrappedSymbol: "bTZS",
+    nativeSymbol: "XTZ",
+    wrappedSymbol: "bXTZ",
     logo: TZSLogo,
     logoSize: 20
   },
