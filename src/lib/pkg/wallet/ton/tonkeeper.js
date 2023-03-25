@@ -77,17 +77,18 @@ export default class TonKeeper extends Wallet {
 
 		const jettonWalletAddress = getResult.stack.readAddress();
 
-		const tonAmount = toNano(amount);
+		const jettonsAmount = toNano(amount);
 		const destAddressHex = parseInt(destAddress, 16);
 
-		const customPayload = Dictionary.empty(Dictionary.Keys.BigUint, Dictionary.Values.Cell);
-		customPayload.set(0x4fe560c1, beginCell().storeUint(destAddressHex, 160));
-		customPayload.set(0x53c2ce98, beginCell().storeUint(coinId, 32));
+		const customPayload = Dictionary.empty(Dictionary.Keys.Uint(32), Dictionary.Values.Cell());
+		customPayload.set(0x4fe560c1, beginCell().storeUint(destAddressHex, 160).endCell());
+		customPayload.set(0x53c2ce98, beginCell().storeUint(coinId, 32).endCell());
 
 		const body = beginCell()
 			.storeUint(0x595f07bc, 32)
 			.storeUint(0, 64)
-			.storeCoins(tonAmount)
+			.storeCoins(jettonsAmount)
+			.storeAddress(null) // no response
 			.storeDict(customPayload)
 			.endCell();
 
