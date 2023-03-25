@@ -47,7 +47,7 @@
 		out:send={{ key: 'swap' }}
 		in:receive={{ key: 'swap' }}
 	>
-		<h4 class="text-2xl mb-5">Wrapped Swap</h4>
+		<h4 class="text-2xl mb-5">Synthetic Swap</h4>
 		<div class="w-full">
 			<p>from</p>
 			<div class="flex flex-row justify-between items-center my-3">
@@ -102,7 +102,7 @@
 				<input
 					type="button"
 					name="from-options"
-					value={coins[$toNetwork].wrappedSymbol}
+					value={coins[$toNetwork].syntheticSymbol}
 					class={'btn btn-sm ' + (assetPair === 0 ? '' : 'btn-outline')}
 					on:click={() => (assetPair = 0)}
 				/>
@@ -128,7 +128,7 @@
 				<input
 					type="button"
 					name="to-options"
-					value={coins[$fromNetwork].wrappedSymbol}
+					value={coins[$fromNetwork].syntheticSymbol}
 					class={'btn btn-sm ' + (assetPair === 1 ? '' : 'btn-outline')}
 					on:click={() => (assetPair = 1)}
 				/>

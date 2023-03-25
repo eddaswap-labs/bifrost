@@ -5,19 +5,19 @@ import TONLogo from '$lib/images/ton_logo.svg';
 export let coins = [
 	{
 		nativeSymbol: 'ETH',
-		wrappedSymbol: 'bETH',
+		syntheticSymbol: 'bETH',
 		logo: ETHLogo,
 		logoSize: 20
 	},
 	{
 		nativeSymbol: 'XTZ',
-		wrappedSymbol: 'bXTZ',
+		syntheticSymbol: 'bXTZ',
 		logo: TZSLogo,
 		logoSize: 20
 	},
 	{
 		nativeSymbol: 'TON',
-		wrappedSymbol: 'bTON',
+		syntheticSymbol: 'bTON',
 		logo: TONLogo,
 		logoSize: 25
 	}
