@@ -3693,7 +3693,7 @@ var bn$1 = {
   })(module, commonjsGlobal);
 })(bn$1);
 const BN$9 = bnExports$1;
-const version$j = "logger/5.7.0";
+const version$k = "logger/5.7.0";
 let _permanentCensorErrors = false;
 let _censorErrors = false;
 const LogLevels = { debug: 1, "default": 2, info: 2, warning: 3, error: 4, off: 5 };
@@ -3942,7 +3942,7 @@ class Logger {
   }
   static globalLogger() {
     if (!_globalLogger) {
-      _globalLogger = new Logger(version$j);
+      _globalLogger = new Logger(version$k);
     }
     return _globalLogger;
   }
@@ -3977,8 +3977,8 @@ class Logger {
 }
 Logger.errors = ErrorCode;
 Logger.levels = LogLevel;
-const version$i = "bytes/5.7.0";
-const logger$p = new Logger(version$i);
+const version$j = "bytes/5.7.0";
+const logger$p = new Logger(version$j);
 function isHexable(value) {
   return !!value.toHexString;
 }
@@ -4333,9 +4333,9 @@ function splitSignature(signature2) {
   result.compact = result.r + result.yParityAndS.substring(2);
   return result;
 }
-const version$h = "bignumber/5.7.0";
+const version$i = "bignumber/5.7.0";
 var BN$8 = BN$9.BN;
-const logger$o = new Logger(version$h);
+const logger$o = new Logger(version$i);
 const _constructorGuard$3 = {};
 const MAX_SAFE = 9007199254740991;
 function isBigNumberish(value) {
@@ -4595,7 +4595,7 @@ function throwFault$1(fault, operation, value) {
 function _base36To16(value) {
   return new BN$8(value, 36).toString(16);
 }
-const logger$n = new Logger(version$h);
+const logger$n = new Logger(version$i);
 const _constructorGuard$2 = {};
 const Zero$2 = BigNumber.from(0);
 const NegativeOne$2 = BigNumber.from(-1);
@@ -4935,8 +4935,8 @@ class FixedNumber {
 }
 const ONE = FixedNumber.from(1);
 const BUMP = FixedNumber.from("0.5");
-const version$g = "properties/5.7.0";
-var __awaiter$j = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+const version$h = "properties/5.7.0";
+var __awaiter$l = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -4963,7 +4963,7 @@ var __awaiter$j = globalThis && globalThis.__awaiter || function(thisArg, _argum
     step((generator = generator.apply(thisArg, _arguments || [])).next());
   });
 };
-const logger$m = new Logger(version$g);
+const logger$m = new Logger(version$h);
 function defineReadOnly(object, name2, value) {
   Object.defineProperty(object, name2, {
     enumerable: true,
@@ -4984,7 +4984,7 @@ function getStatic(ctor, key2) {
   return null;
 }
 function resolveProperties(object) {
-  return __awaiter$j(this, void 0, void 0, function* () {
+  return __awaiter$l(this, void 0, void 0, function* () {
     const promises = Object.keys(object).map((key2) => {
       const value = object[key2];
       return Promise.resolve(value).then((v2) => ({ key: key2, value: v2 }));
@@ -5068,8 +5068,8 @@ class Description {
     }
   }
 }
-const version$f = "abi/5.7.0";
-const logger$l = new Logger(version$f);
+const version$g = "abi/5.7.0";
+const logger$l = new Logger(version$g);
 const _constructorGuard$1 = {};
 let ModifiersBytes = { calldata: true, memory: true, storage: true };
 let ModifiersNest = { calldata: true, memory: true };
@@ -5875,7 +5875,7 @@ function splitNesting(value) {
   }
   return result;
 }
-const logger$k = new Logger(version$f);
+const logger$k = new Logger(version$g);
 function checkResultErrors(result) {
   const errors = [];
   const checkErrors = function(path, object) {
@@ -6136,12 +6136,12 @@ var sha3$1 = {
     };
     var createCshakeOutputMethod = function(bits2, padding2, outputType) {
       return function(message, outputBits, n, s2) {
-        return methods["cshake" + bits2].update(message, outputBits, n, s2)[outputType]();
+        return methods2["cshake" + bits2].update(message, outputBits, n, s2)[outputType]();
       };
     };
     var createKmacOutputMethod = function(bits2, padding2, outputType) {
       return function(key2, message, outputBits, s2) {
-        return methods["kmac" + bits2].update(key2, message, outputBits, s2)[outputType]();
+        return methods2["kmac" + bits2].update(key2, message, outputBits, s2)[outputType]();
       };
     };
     var createOutputMethods = function(method, createMethod2, bits2, padding2) {
@@ -6176,7 +6176,7 @@ var sha3$1 = {
       var method = createCshakeOutputMethod(bits2, padding2, "hex");
       method.create = function(outputBits, n, s2) {
         if (!n && !s2) {
-          return methods["shake" + bits2].create(outputBits);
+          return methods2["shake" + bits2].create(outputBits);
         } else {
           return new Keccak(bits2, padding2, outputBits).bytepad([n, s2], w2);
         }
@@ -6204,18 +6204,18 @@ var sha3$1 = {
       { name: "cshake", padding: CSHAKE_PADDING, bits: SHAKE_BITS, createMethod: createCshakeMethod },
       { name: "kmac", padding: CSHAKE_PADDING, bits: SHAKE_BITS, createMethod: createKmacMethod }
     ];
-    var methods = {}, methodNames = [];
+    var methods2 = {}, methodNames = [];
     for (var i2 = 0; i2 < algorithms.length; ++i2) {
       var algorithm = algorithms[i2];
       var bits = algorithm.bits;
       for (var j2 = 0; j2 < bits.length; ++j2) {
         var methodName = algorithm.name + "_" + bits[j2];
         methodNames.push(methodName);
-        methods[methodName] = algorithm.createMethod(bits[j2], algorithm.padding);
+        methods2[methodName] = algorithm.createMethod(bits[j2], algorithm.padding);
         if (algorithm.name !== "sha3") {
           var newMethodName = algorithm.name + bits[j2];
           methodNames.push(newMethodName);
-          methods[newMethodName] = methods[methodName];
+          methods2[newMethodName] = methods2[methodName];
         }
       }
     }
@@ -6663,10 +6663,10 @@ var sha3$1 = {
       }
     };
     if (COMMON_JS) {
-      module.exports = methods;
+      module.exports = methods2;
     } else {
       for (i2 = 0; i2 < methodNames.length; ++i2) {
-        root[methodNames[i2]] = methods[methodNames[i2]];
+        root[methodNames[i2]] = methods2[methodNames[i2]];
       }
     }
   })();
@@ -6675,8 +6675,8 @@ const sha3 = sha3Exports;
 function keccak256(data2) {
   return "0x" + sha3.keccak_256(arrayify(data2));
 }
-const version$e = "rlp/5.7.0";
-const logger$j = new Logger(version$e);
+const version$f = "rlp/5.7.0";
+const logger$j = new Logger(version$f);
 function arrayifyInteger(value) {
   const result = [];
   while (value) {
@@ -6776,7 +6776,7 @@ function _decode(data2, offset) {
   }
   return { consumed: 1, result: hexlify(data2[offset]) };
 }
-function decode$3(data2) {
+function decode$4(data2) {
   const bytes = arrayify(data2);
   const decoded = _decode(bytes, 0);
   if (decoded.consumed !== bytes.length) {
@@ -6784,8 +6784,8 @@ function decode$3(data2) {
   }
   return decoded.result;
 }
-const version$d = "address/5.7.0";
-const logger$i = new Logger(version$d);
+const version$e = "address/5.7.0";
+const logger$i = new Logger(version$e);
 function getChecksumAddress(address) {
   if (!isHexString(address, 20)) {
     logger$i.throwArgumentError("invalid address", "address", address);
@@ -6909,7 +6909,7 @@ class AnonymousCoder extends Coder {
     return this.coder.decode(reader);
   }
 }
-const logger$h = new Logger(version$f);
+const logger$h = new Logger(version$g);
 function pack(writer, coders, values) {
   let arrayValues = null;
   if (Array.isArray(values)) {
@@ -7214,8 +7214,8 @@ class NumberCoder extends Coder {
     return reader.coerce(this.name, value);
   }
 }
-const version$c = "strings/5.7.0";
-const logger$g = new Logger(version$c);
+const version$d = "strings/5.7.0";
+const logger$g = new Logger(version$d);
 var UnicodeNormalizationForm;
 (function(UnicodeNormalizationForm2) {
   UnicodeNormalizationForm2["current"] = "";
@@ -7396,14 +7396,14 @@ class StringCoder extends DynamicBytesCoder {
 class TupleCoder extends Coder {
   constructor(coders, localName) {
     let dynamic = false;
-    const types = [];
+    const types2 = [];
     coders.forEach((coder) => {
       if (coder.dynamic) {
         dynamic = true;
       }
-      types.push(coder.type);
+      types2.push(coder.type);
     });
-    const type = "tuple(" + types.join(",") + ")";
+    const type = "tuple(" + types2.join(",") + ")";
     super("tuple", type, localName, dynamic);
     this.coders = coders;
   }
@@ -7444,7 +7444,7 @@ class TupleCoder extends Coder {
     return reader.coerce(this.name, unpack(reader, this.coders));
   }
 }
-const logger$f = new Logger(version$f);
+const logger$f = new Logger(version$g);
 const paramTypeBytes = new RegExp(/^bytes([0-9]*)$/);
 const paramTypeNumber = new RegExp(/^(u?int)([0-9]*)$/);
 class AbiCoder {
@@ -7497,26 +7497,26 @@ class AbiCoder {
   _getWriter() {
     return new Writer(this._getWordSize());
   }
-  getDefaultValue(types) {
-    const coders = types.map((type) => this._getCoder(ParamType.from(type)));
+  getDefaultValue(types2) {
+    const coders = types2.map((type) => this._getCoder(ParamType.from(type)));
     const coder = new TupleCoder(coders, "_");
     return coder.defaultValue();
   }
-  encode(types, values) {
-    if (types.length !== values.length) {
+  encode(types2, values) {
+    if (types2.length !== values.length) {
       logger$f.throwError("types/values length mismatch", Logger.errors.INVALID_ARGUMENT, {
-        count: { types: types.length, values: values.length },
-        value: { types, values }
+        count: { types: types2.length, values: values.length },
+        value: { types: types2, values }
       });
     }
-    const coders = types.map((type) => this._getCoder(ParamType.from(type)));
+    const coders = types2.map((type) => this._getCoder(ParamType.from(type)));
     const coder = new TupleCoder(coders, "_");
     const writer = this._getWriter();
     coder.encode(writer, values);
     return writer.data;
   }
-  decode(types, data2, loose) {
-    const coders = types.map((type) => this._getCoder(ParamType.from(type)));
+  decode(types2, data2, loose) {
+    const coders = types2.map((type) => this._getCoder(ParamType.from(type)));
     const coder = new TupleCoder(coders, "_");
     return coder.decode(this._getReader(arrayify(data2), loose));
   }
@@ -7525,8 +7525,8 @@ const defaultAbiCoder = new AbiCoder();
 function id(text2) {
   return keccak256(toUtf8Bytes(text2));
 }
-const version$b = "hash/5.7.0";
-function decode$2(textData) {
+const version$c = "hash/5.7.0";
+function decode$3(textData) {
   textData = atob(textData);
   const data2 = [];
   for (let i2 = 0; i2 < textData.length; i2++) {
@@ -7760,7 +7760,7 @@ function read_emoji_trie(next) {
   }
 }
 function getData() {
-  return read_compressed_payload(decode$2("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"));
+  return read_compressed_payload(decode$3("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"));
 }
 const r$2 = getData();
 const VALID = new Set(read_member_array(r$2));
@@ -7862,7 +7862,7 @@ function consume_emoji_reversed(cps, eaten) {
   }
   return emoji;
 }
-const logger$e = new Logger(version$b);
+const logger$e = new Logger(version$c);
 const Zeros = new Uint8Array(32);
 Zeros.fill(0);
 function checkComponent(comp) {
@@ -7913,7 +7913,7 @@ function dnsEncode(name2) {
     return bytes;
   }))) + "00";
 }
-var __awaiter$i = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+var __awaiter$k = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -7940,7 +7940,7 @@ var __awaiter$i = globalThis && globalThis.__awaiter || function(thisArg, _argum
     step((generator = generator.apply(thisArg, _arguments || [])).next());
   });
 };
-const logger$d = new Logger(version$b);
+const logger$d = new Logger(version$c);
 const padding = new Uint8Array(32);
 padding.fill(0);
 const NegativeOne = BigNumber.from(-1);
@@ -8068,35 +8068,35 @@ function encodeType(name2, fields) {
   return `${name2}(${fields.map(({ name: name3, type }) => type + " " + name3).join(",")})`;
 }
 class TypedDataEncoder {
-  constructor(types) {
-    defineReadOnly(this, "types", Object.freeze(deepCopy(types)));
+  constructor(types2) {
+    defineReadOnly(this, "types", Object.freeze(deepCopy(types2)));
     defineReadOnly(this, "_encoderCache", {});
     defineReadOnly(this, "_types", {});
     const links = {};
     const parents = {};
     const subtypes = {};
-    Object.keys(types).forEach((type) => {
+    Object.keys(types2).forEach((type) => {
       links[type] = {};
       parents[type] = [];
       subtypes[type] = {};
     });
-    for (const name2 in types) {
+    for (const name2 in types2) {
       const uniqueNames = {};
-      types[name2].forEach((field) => {
+      types2[name2].forEach((field) => {
         if (uniqueNames[field.name]) {
-          logger$d.throwArgumentError(`duplicate variable name ${JSON.stringify(field.name)} in ${JSON.stringify(name2)}`, "types", types);
+          logger$d.throwArgumentError(`duplicate variable name ${JSON.stringify(field.name)} in ${JSON.stringify(name2)}`, "types", types2);
         }
         uniqueNames[field.name] = true;
         const baseType = field.type.match(/^([^\x5b]*)(\x5b|$)/)[1];
         if (baseType === name2) {
-          logger$d.throwArgumentError(`circular type reference to ${JSON.stringify(baseType)}`, "types", types);
+          logger$d.throwArgumentError(`circular type reference to ${JSON.stringify(baseType)}`, "types", types2);
         }
         const encoder = getBaseEncoder(baseType);
         if (encoder) {
           return;
         }
         if (!parents[baseType]) {
-          logger$d.throwArgumentError(`unknown type ${JSON.stringify(baseType)}`, "types", types);
+          logger$d.throwArgumentError(`unknown type ${JSON.stringify(baseType)}`, "types", types2);
         }
         parents[baseType].push(name2);
         links[name2][baseType] = true;
@@ -8104,14 +8104,14 @@ class TypedDataEncoder {
     }
     const primaryTypes = Object.keys(parents).filter((n) => parents[n].length === 0);
     if (primaryTypes.length === 0) {
-      logger$d.throwArgumentError("missing primary type", "types", types);
+      logger$d.throwArgumentError("missing primary type", "types", types2);
     } else if (primaryTypes.length > 1) {
-      logger$d.throwArgumentError(`ambiguous primary types or unused types: ${primaryTypes.map((t) => JSON.stringify(t)).join(", ")}`, "types", types);
+      logger$d.throwArgumentError(`ambiguous primary types or unused types: ${primaryTypes.map((t) => JSON.stringify(t)).join(", ")}`, "types", types2);
     }
     defineReadOnly(this, "primaryType", primaryTypes[0]);
     function checkCircular(type, found) {
       if (found[type]) {
-        logger$d.throwArgumentError(`circular type reference to ${JSON.stringify(type)}`, "types", types);
+        logger$d.throwArgumentError(`circular type reference to ${JSON.stringify(type)}`, "types", types2);
       }
       found[type] = true;
       Object.keys(links[type]).forEach((child) => {
@@ -8129,7 +8129,7 @@ class TypedDataEncoder {
     for (const name2 in subtypes) {
       const st = Object.keys(subtypes[name2]);
       st.sort();
-      this._types[name2] = encodeType(name2, types[name2]) + st.map((t) => encodeType(t, types[t])).join("");
+      this._types[name2] = encodeType(name2, types2[name2]) + st.map((t) => encodeType(t, types2[t])).join("");
     }
   }
   getEncoder(type) {
@@ -8226,14 +8226,14 @@ class TypedDataEncoder {
   visit(value, callback) {
     return this._visit(this.primaryType, value, callback);
   }
-  static from(types) {
-    return new TypedDataEncoder(types);
+  static from(types2) {
+    return new TypedDataEncoder(types2);
   }
-  static getPrimaryType(types) {
-    return TypedDataEncoder.from(types).primaryType;
+  static getPrimaryType(types2) {
+    return TypedDataEncoder.from(types2).primaryType;
   }
-  static hashStruct(name2, types, value) {
-    return TypedDataEncoder.from(types).hashStruct(name2, value);
+  static hashStruct(name2, types2, value) {
+    return TypedDataEncoder.from(types2).hashStruct(name2, value);
   }
   static hashDomain(domain) {
     const domainFields = [];
@@ -8249,25 +8249,25 @@ class TypedDataEncoder {
     });
     return TypedDataEncoder.hashStruct("EIP712Domain", { EIP712Domain: domainFields }, domain);
   }
-  static encode(domain, types, value) {
+  static encode(domain, types2, value) {
     return hexConcat([
       "0x1901",
       TypedDataEncoder.hashDomain(domain),
-      TypedDataEncoder.from(types).hash(value)
+      TypedDataEncoder.from(types2).hash(value)
     ]);
   }
-  static hash(domain, types, value) {
-    return keccak256(TypedDataEncoder.encode(domain, types, value));
+  static hash(domain, types2, value) {
+    return keccak256(TypedDataEncoder.encode(domain, types2, value));
   }
   // Replaces all address types with ENS names with their looked up address
-  static resolveNames(domain, types, value, resolveName2) {
-    return __awaiter$i(this, void 0, void 0, function* () {
+  static resolveNames(domain, types2, value, resolveName2) {
+    return __awaiter$k(this, void 0, void 0, function* () {
       domain = shallowCopy(domain);
       const ensCache = {};
       if (domain.verifyingContract && !isHexString(domain.verifyingContract, 20)) {
         ensCache[domain.verifyingContract] = "0x";
       }
-      const encoder = TypedDataEncoder.from(types);
+      const encoder = TypedDataEncoder.from(types2);
       encoder.visit(value, (type, value2) => {
         if (type === "address" && !isHexString(value2, 20)) {
           ensCache[value2] = "0x";
@@ -8289,7 +8289,7 @@ class TypedDataEncoder {
       return { domain, value };
     });
   }
-  static getPayload(domain, types, value) {
+  static getPayload(domain, types2, value) {
     TypedDataEncoder.hashDomain(domain);
     const domainValues = {};
     const domainTypes = [];
@@ -8301,10 +8301,10 @@ class TypedDataEncoder {
       domainValues[name2] = domainChecks[name2](value2);
       domainTypes.push({ name: name2, type: domainFieldTypes[name2] });
     });
-    const encoder = TypedDataEncoder.from(types);
-    const typesWithDomain = shallowCopy(types);
+    const encoder = TypedDataEncoder.from(types2);
+    const typesWithDomain = shallowCopy(types2);
     if (typesWithDomain.EIP712Domain) {
-      logger$d.throwArgumentError("types must not contain EIP712Domain type", "types.EIP712Domain", types);
+      logger$d.throwArgumentError("types must not contain EIP712Domain type", "types.EIP712Domain", types2);
     } else {
       typesWithDomain.EIP712Domain = domainTypes;
     }
@@ -8336,7 +8336,7 @@ class TypedDataEncoder {
     };
   }
 }
-const logger$c = new Logger(version$f);
+const logger$c = new Logger(version$g);
 class LogDescription extends Description {
 }
 class TransactionDescription extends Description {
@@ -8890,8 +8890,8 @@ class Interface {
     return !!(value && value._isInterface);
   }
 }
-const version$a = "abstract-provider/5.7.0";
-var __awaiter$h = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+const version$b = "abstract-provider/5.7.0";
+var __awaiter$j = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -8918,7 +8918,7 @@ var __awaiter$h = globalThis && globalThis.__awaiter || function(thisArg, _argum
     step((generator = generator.apply(thisArg, _arguments || [])).next());
   });
 };
-const logger$b = new Logger(version$a);
+const logger$b = new Logger(version$b);
 class ForkEvent extends Description {
   static isForkEvent(value) {
     return !!(value && value._isForkEvent);
@@ -8930,7 +8930,7 @@ class Provider {
     defineReadOnly(this, "_isProvider", true);
   }
   getFeeData() {
-    return __awaiter$h(this, void 0, void 0, function* () {
+    return __awaiter$j(this, void 0, void 0, function* () {
       const { block, gasPrice } = yield resolveProperties({
         block: this.getBlock("latest"),
         gasPrice: this.getGasPrice().catch((error) => {
@@ -8958,8 +8958,8 @@ class Provider {
     return !!(value && value._isProvider);
   }
 }
-const version$9 = "abstract-signer/5.7.0";
-var __awaiter$g = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+const version$a = "abstract-signer/5.7.0";
+var __awaiter$i = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -8986,7 +8986,7 @@ var __awaiter$g = globalThis && globalThis.__awaiter || function(thisArg, _argum
     step((generator = generator.apply(thisArg, _arguments || [])).next());
   });
 };
-const logger$a = new Logger(version$9);
+const logger$a = new Logger(version$a);
 const allowedTransactionKeys$1 = [
   "accessList",
   "ccipReadEnabled",
@@ -9018,20 +9018,20 @@ class Signer {
   ///////////////////
   // Sub-classes MAY override these
   getBalance(blockTag) {
-    return __awaiter$g(this, void 0, void 0, function* () {
+    return __awaiter$i(this, void 0, void 0, function* () {
       this._checkProvider("getBalance");
       return yield this.provider.getBalance(this.getAddress(), blockTag);
     });
   }
   getTransactionCount(blockTag) {
-    return __awaiter$g(this, void 0, void 0, function* () {
+    return __awaiter$i(this, void 0, void 0, function* () {
       this._checkProvider("getTransactionCount");
       return yield this.provider.getTransactionCount(this.getAddress(), blockTag);
     });
   }
   // Populates "from" if unspecified, and estimates the gas for the transaction
   estimateGas(transaction) {
-    return __awaiter$g(this, void 0, void 0, function* () {
+    return __awaiter$i(this, void 0, void 0, function* () {
       this._checkProvider("estimateGas");
       const tx = yield resolveProperties(this.checkTransaction(transaction));
       return yield this.provider.estimateGas(tx);
@@ -9039,7 +9039,7 @@ class Signer {
   }
   // Populates "from" if unspecified, and calls with the transaction
   call(transaction, blockTag) {
-    return __awaiter$g(this, void 0, void 0, function* () {
+    return __awaiter$i(this, void 0, void 0, function* () {
       this._checkProvider("call");
       const tx = yield resolveProperties(this.checkTransaction(transaction));
       return yield this.provider.call(tx, blockTag);
@@ -9047,7 +9047,7 @@ class Signer {
   }
   // Populates all fields in a transaction, signs it and sends it to the network
   sendTransaction(transaction) {
-    return __awaiter$g(this, void 0, void 0, function* () {
+    return __awaiter$i(this, void 0, void 0, function* () {
       this._checkProvider("sendTransaction");
       const tx = yield this.populateTransaction(transaction);
       const signedTx = yield this.signTransaction(tx);
@@ -9055,26 +9055,26 @@ class Signer {
     });
   }
   getChainId() {
-    return __awaiter$g(this, void 0, void 0, function* () {
+    return __awaiter$i(this, void 0, void 0, function* () {
       this._checkProvider("getChainId");
       const network = yield this.provider.getNetwork();
       return network.chainId;
     });
   }
   getGasPrice() {
-    return __awaiter$g(this, void 0, void 0, function* () {
+    return __awaiter$i(this, void 0, void 0, function* () {
       this._checkProvider("getGasPrice");
       return yield this.provider.getGasPrice();
     });
   }
   getFeeData() {
-    return __awaiter$g(this, void 0, void 0, function* () {
+    return __awaiter$i(this, void 0, void 0, function* () {
       this._checkProvider("getFeeData");
       return yield this.provider.getFeeData();
     });
   }
   resolveName(name2) {
-    return __awaiter$g(this, void 0, void 0, function* () {
+    return __awaiter$i(this, void 0, void 0, function* () {
       this._checkProvider("resolveName");
       return yield this.provider.resolveName(name2);
     });
@@ -9118,10 +9118,10 @@ class Signer {
   // Notes:
   //  - We allow gasPrice for EIP-1559 as long as it matches maxFeePerGas
   populateTransaction(transaction) {
-    return __awaiter$g(this, void 0, void 0, function* () {
+    return __awaiter$i(this, void 0, void 0, function* () {
       const tx = yield resolveProperties(this.checkTransaction(transaction));
       if (tx.to != null) {
-        tx.to = Promise.resolve(tx.to).then((to) => __awaiter$g(this, void 0, void 0, function* () {
+        tx.to = Promise.resolve(tx.to).then((to) => __awaiter$i(this, void 0, void 0, function* () {
           if (to == null) {
             return null;
           }
@@ -9251,7 +9251,7 @@ class VoidSigner extends Signer {
   signTransaction(transaction) {
     return this._fail("VoidSigner cannot sign transactions", "signTransaction");
   }
-  _signTypedData(domain, types, value) {
+  _signTypedData(domain, types2, value) {
     return this._fail("VoidSigner cannot sign typed data", "signTypedData");
   }
   connect(provider) {
@@ -12713,8 +12713,8 @@ var elliptic_1 = createCommonjsModule(function(module, exports2) {
   elliptic2.eddsa = null;
 });
 var EC$1$1 = elliptic_1.ec;
-const version$8 = "signing-key/5.7.0";
-const logger$9 = new Logger(version$8);
+const version$9 = "signing-key/5.7.0";
+const logger$9 = new Logger(version$9);
 let _curve = null;
 function getCurve() {
   if (!_curve) {
@@ -12787,8 +12787,8 @@ function computePublicKey(key2, compressed) {
   }
   return logger$9.throwArgumentError("invalid public or private key", "key", "[REDACTED]");
 }
-const version$7 = "transactions/5.7.0";
-const logger$8 = new Logger(version$7);
+const version$8 = "transactions/5.7.0";
+const logger$8 = new Logger(version$8);
 var TransactionTypes;
 (function(TransactionTypes2) {
   TransactionTypes2[TransactionTypes2["legacy"] = 0] = "legacy";
@@ -12925,7 +12925,7 @@ function _parseEipSignature(tx, fields, serialize) {
   }
 }
 function _parseEip1559(payload) {
-  const transaction = decode$3(payload.slice(1));
+  const transaction = decode$4(payload.slice(1));
   if (transaction.length !== 9 && transaction.length !== 12) {
     logger$8.throwArgumentError("invalid component count for transaction type: 2", "payload", hexlify(payload));
   }
@@ -12952,7 +12952,7 @@ function _parseEip1559(payload) {
   return tx;
 }
 function _parseEip2930(payload) {
-  const transaction = decode$3(payload.slice(1));
+  const transaction = decode$4(payload.slice(1));
   if (transaction.length !== 8 && transaction.length !== 11) {
     logger$8.throwArgumentError("invalid component count for transaction type: 1", "payload", hexlify(payload));
   }
@@ -12975,7 +12975,7 @@ function _parseEip2930(payload) {
   return tx;
 }
 function _parse(rawTransaction) {
-  const transaction = decode$3(rawTransaction);
+  const transaction = decode$4(rawTransaction);
   if (transaction.length !== 9 && transaction.length !== 6) {
     logger$8.throwArgumentError("invalid raw transaction", "rawTransaction", rawTransaction);
   }
@@ -13040,8 +13040,8 @@ function parse(rawTransaction) {
     transactionType: payload[0]
   });
 }
-const version$6 = "contracts/5.7.0";
-var __awaiter$f = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+const version$7 = "contracts/5.7.0";
+var __awaiter$h = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -13068,9 +13068,9 @@ var __awaiter$f = globalThis && globalThis.__awaiter || function(thisArg, _argum
     step((generator = generator.apply(thisArg, _arguments || [])).next());
   });
 };
-const logger$7 = new Logger(version$6);
+const logger$7 = new Logger(version$7);
 function resolveName(resolver, nameOrPromise) {
-  return __awaiter$f(this, void 0, void 0, function* () {
+  return __awaiter$h(this, void 0, void 0, function* () {
     const name2 = yield nameOrPromise;
     if (typeof name2 !== "string") {
       logger$7.throwArgumentError("invalid address or ENS name", "name", name2);
@@ -13092,7 +13092,7 @@ function resolveName(resolver, nameOrPromise) {
   });
 }
 function resolveAddresses(resolver, value, paramType) {
-  return __awaiter$f(this, void 0, void 0, function* () {
+  return __awaiter$h(this, void 0, void 0, function* () {
     if (Array.isArray(paramType)) {
       return yield Promise.all(paramType.map((paramType2, index) => {
         return resolveAddresses(resolver, Array.isArray(value) ? value[index] : value[paramType2.name], paramType2);
@@ -13117,7 +13117,7 @@ function resolveAddresses(resolver, value, paramType) {
   });
 }
 function populateTransaction(contract, fragment, args) {
-  return __awaiter$f(this, void 0, void 0, function* () {
+  return __awaiter$h(this, void 0, void 0, function* () {
     let overrides = {};
     if (args.length === fragment.inputs.length + 1 && typeof args[args.length - 1] === "object") {
       overrides = shallowCopy(args.pop());
@@ -13128,7 +13128,7 @@ function populateTransaction(contract, fragment, args) {
         overrides.from = resolveProperties({
           override: resolveName(contract.signer, overrides.from),
           signer: contract.signer.getAddress()
-        }).then((check) => __awaiter$f(this, void 0, void 0, function* () {
+        }).then((check) => __awaiter$h(this, void 0, void 0, function* () {
           if (getAddress(check.signer) !== check.override) {
             logger$7.throwError("Contract with a Signer cannot override from", Logger.errors.UNSUPPORTED_OPERATION, {
               operation: "overrides.from"
@@ -13233,7 +13233,7 @@ function buildPopulate(contract, fragment) {
 function buildEstimate(contract, fragment) {
   const signerOrProvider = contract.signer || contract.provider;
   return function(...args) {
-    return __awaiter$f(this, void 0, void 0, function* () {
+    return __awaiter$h(this, void 0, void 0, function* () {
       if (!signerOrProvider) {
         logger$7.throwError("estimate require a provider or signer", Logger.errors.UNSUPPORTED_OPERATION, {
           operation: "estimateGas"
@@ -13284,7 +13284,7 @@ function addContractWait(contract, tx) {
 function buildCall(contract, fragment, collapseSimple) {
   const signerOrProvider = contract.signer || contract.provider;
   return function(...args) {
-    return __awaiter$f(this, void 0, void 0, function* () {
+    return __awaiter$h(this, void 0, void 0, function* () {
       let blockTag = void 0;
       if (args.length === fragment.inputs.length + 1 && typeof args[args.length - 1] === "object") {
         const overrides = shallowCopy(args.pop());
@@ -13318,7 +13318,7 @@ function buildCall(contract, fragment, collapseSimple) {
 }
 function buildSend(contract, fragment) {
   return function(...args) {
-    return __awaiter$f(this, void 0, void 0, function* () {
+    return __awaiter$h(this, void 0, void 0, function* () {
       if (!contract.signer) {
         logger$7.throwError("sending a transaction requires a signer", Logger.errors.UNSUPPORTED_OPERATION, {
           operation: "sendTransaction"
@@ -13861,13 +13861,13 @@ class BaseX {
     }
   }
   encode(value) {
-    let source = arrayify(value);
-    if (source.length === 0) {
+    let source2 = arrayify(value);
+    if (source2.length === 0) {
       return "";
     }
     let digits = [0];
-    for (let i2 = 0; i2 < source.length; ++i2) {
-      let carry = source[i2];
+    for (let i2 = 0; i2 < source2.length; ++i2) {
+      let carry = source2[i2];
       for (let j2 = 0; j2 < digits.length; ++j2) {
         carry += digits[j2] << 8;
         digits[j2] = carry % this.base;
@@ -13879,7 +13879,7 @@ class BaseX {
       }
     }
     let string = "";
-    for (let k = 0; source[k] === 0 && k < source.length - 1; ++k) {
+    for (let k = 0; source2[k] === 0 && k < source2.length - 1; ++k) {
       string += this._leader;
     }
     for (let q = digits.length - 1; q >= 0; --q) {
@@ -13920,13 +13920,13 @@ class BaseX {
 }
 new BaseX("abcdefghijklmnopqrstuvwxyz234567");
 const Base58 = new BaseX("123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz");
-const version$5 = "sha2/5.7.0";
-new Logger(version$5);
+const version$6 = "sha2/5.7.0";
+new Logger(version$6);
 function sha256$2(data2) {
   return "0x" + hash$3.sha256().update(arrayify(data2)).digest("hex");
 }
-const version$4 = "networks/5.7.1";
-const logger$6 = new Logger(version$4);
+const version$5 = "networks/5.7.1";
+const logger$6 = new Logger(version$5);
 function isRenetworkable(value) {
   return value && typeof value.renetwork === "function";
 }
@@ -14150,8 +14150,8 @@ function getNetwork(network) {
     _defaultProvider: defaultProvider
   };
 }
-const version$3 = "web/5.7.1";
-var __awaiter$e = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+const version$4 = "web/5.7.1";
+var __awaiter$g = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -14179,7 +14179,7 @@ var __awaiter$e = globalThis && globalThis.__awaiter || function(thisArg, _argum
   });
 };
 function getUrl(href, options) {
-  return __awaiter$e(this, void 0, void 0, function* () {
+  return __awaiter$g(this, void 0, void 0, function* () {
     if (options == null) {
       options = {};
     }
@@ -14233,7 +14233,7 @@ function getUrl(href, options) {
     };
   });
 }
-var __awaiter$d = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+var __awaiter$f = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -14260,7 +14260,7 @@ var __awaiter$d = globalThis && globalThis.__awaiter || function(thisArg, _argum
     step((generator = generator.apply(thisArg, _arguments || [])).next());
   });
 };
-const logger$5 = new Logger(version$3);
+const logger$5 = new Logger(version$4);
 function staller(duration) {
   return new Promise((resolve) => {
     setTimeout(resolve, duration);
@@ -14347,7 +14347,7 @@ function _fetchData(connection, body, processFunc) {
         statusCode: 200,
         statusMessage: "OK",
         headers: { "content-type": dataMatch[1] || "text/plain" },
-        body: dataMatch[2] ? decode$2(dataMatch[3]) : unpercent(dataMatch[3])
+        body: dataMatch[2] ? decode$3(dataMatch[3]) : unpercent(dataMatch[3])
       };
       let result = response.body;
       if (processFunc) {
@@ -14408,7 +14408,7 @@ function _fetchData(connection, body, processFunc) {
     return { promise, cancel };
   }();
   const runningFetch = function() {
-    return __awaiter$d(this, void 0, void 0, function* () {
+    return __awaiter$f(this, void 0, void 0, function* () {
       for (let attempt = 0; attempt < attemptLimit; attempt++) {
         let response = null;
         try {
@@ -14707,7 +14707,7 @@ function decodeUnsafe() {
   if (typeof res === "object")
     return res;
 }
-function decode$1(str) {
+function decode$2(str) {
   var res = __decode.apply(null, arguments);
   if (typeof res === "object")
     return res;
@@ -14762,15 +14762,15 @@ function fromWords(words) {
 }
 var bech32 = {
   decodeUnsafe,
-  decode: decode$1,
+  decode: decode$2,
   encode: encode$2,
   toWordsUnsafe,
   toWords,
   fromWordsUnsafe,
   fromWords
 };
-const version$2 = "providers/5.7.2";
-const logger$4 = new Logger(version$2);
+const version$3 = "providers/5.7.2";
+const logger$4 = new Logger(version$3);
 class Formatter {
   constructor() {
     this.formats = this.getDefaultFormats();
@@ -15167,7 +15167,7 @@ class Formatter {
     };
   }
 }
-var __awaiter$c = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+var __awaiter$e = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -15194,7 +15194,7 @@ var __awaiter$c = globalThis && globalThis.__awaiter || function(thisArg, _argum
     step((generator = generator.apply(thisArg, _arguments || [])).next());
   });
 };
-const logger$3 = new Logger(version$2);
+const logger$3 = new Logger(version$3);
 const MAX_CCIP_REDIRECTS = 10;
 function checkTopic(topic) {
   if (topic == null) {
@@ -15418,7 +15418,7 @@ class Resolver {
     return this._supportsEip2544;
   }
   _fetch(selector, parameters) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       const tx = {
         to: this.address,
         ccipReadEnabled: true,
@@ -15450,7 +15450,7 @@ class Resolver {
     });
   }
   _fetchBytes(selector, parameters) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       const result = yield this._fetch(selector, parameters);
       if (result != null) {
         return _parseBytes(result, 0);
@@ -15506,7 +15506,7 @@ class Resolver {
     return null;
   }
   getAddress(coinType) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       if (coinType == null) {
         coinType = 60;
       }
@@ -15540,7 +15540,7 @@ class Resolver {
     });
   }
   getAvatar() {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       const linkage = [{ type: "name", content: this.name }];
       try {
         const avatar = yield this.getText("avatar");
@@ -15639,7 +15639,7 @@ class Resolver {
     });
   }
   getContentHash() {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       const hexBytes = yield this._fetchBytes("0xbc1c58d1");
       if (hexBytes == null || hexBytes === "0x") {
         return null;
@@ -15679,7 +15679,7 @@ class Resolver {
     });
   }
   getText(key2) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       let keyBytes = toUtf8Bytes(key2);
       keyBytes = concat$1([bytes32ify(64), bytes32ify(keyBytes.length), keyBytes]);
       if (keyBytes.length % 32 !== 0) {
@@ -15737,7 +15737,7 @@ class BaseProvider extends Provider {
     this._fastQueryDate = 0;
   }
   _ready() {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       if (this._network == null) {
         let network = null;
         if (this._networkPromise) {
@@ -15791,7 +15791,7 @@ class BaseProvider extends Provider {
     return getNetwork(network == null ? "homestead" : network);
   }
   ccipReadFetch(tx, calldata, urls) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       if (this.disableCcipRead || urls.length === 0) {
         return null;
       }
@@ -15824,7 +15824,7 @@ class BaseProvider extends Provider {
   // Fetches the blockNumber, but will reuse any result that is less
   // than maxAge old or has been requested since the last request
   _getInternalBlockNumber(maxAge) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       yield this._ready();
       if (maxAge > 0) {
         while (this._internalBlockNumber) {
@@ -15872,7 +15872,7 @@ class BaseProvider extends Provider {
     });
   }
   poll() {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       const pollId = nextPollId++;
       const runners = [];
       let blockNumber = null;
@@ -16000,14 +16000,14 @@ class BaseProvider extends Provider {
   // This method should query the network if the underlying network
   // can change, such as when connected to a JSON-RPC backend
   detectNetwork() {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       return logger$3.throwError("provider does not support network detection", Logger.errors.UNSUPPORTED_OPERATION, {
         operation: "provider.detectNetwork"
       });
     });
   }
   getNetwork() {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       const network = yield this._ready();
       const currentNetwork = yield this.detectNetwork();
       if (network.chainId !== currentNetwork.chainId) {
@@ -16105,12 +16105,12 @@ class BaseProvider extends Provider {
     }
   }
   waitForTransaction(transactionHash, confirmations, timeout) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       return this._waitForTransaction(transactionHash, confirmations == null ? 1 : confirmations, timeout || 0, null);
     });
   }
   _waitForTransaction(transactionHash, confirmations, timeout, replaceable) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       const receipt = yield this.getTransactionReceipt(transactionHash);
       if ((receipt ? receipt.confirmations : 0) >= confirmations) {
         return receipt;
@@ -16144,12 +16144,12 @@ class BaseProvider extends Provider {
         if (replaceable) {
           let lastBlockNumber = replaceable.startBlock;
           let scannedBlock = null;
-          const replaceHandler = (blockNumber) => __awaiter$c(this, void 0, void 0, function* () {
+          const replaceHandler = (blockNumber) => __awaiter$e(this, void 0, void 0, function* () {
             if (done2) {
               return;
             }
             yield stall(1e3);
-            this.getTransactionCount(replaceable.from).then((nonce) => __awaiter$c(this, void 0, void 0, function* () {
+            this.getTransactionCount(replaceable.from).then((nonce) => __awaiter$e(this, void 0, void 0, function* () {
               if (done2) {
                 return;
               }
@@ -16242,12 +16242,12 @@ class BaseProvider extends Provider {
     });
   }
   getBlockNumber() {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       return this._getInternalBlockNumber(0);
     });
   }
   getGasPrice() {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       yield this.getNetwork();
       const result = yield this.perform("getGasPrice", {});
       try {
@@ -16262,7 +16262,7 @@ class BaseProvider extends Provider {
     });
   }
   getBalance(addressOrName, blockTag) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       yield this.getNetwork();
       const params = yield resolveProperties({
         address: this._getAddress(addressOrName),
@@ -16282,7 +16282,7 @@ class BaseProvider extends Provider {
     });
   }
   getTransactionCount(addressOrName, blockTag) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       yield this.getNetwork();
       const params = yield resolveProperties({
         address: this._getAddress(addressOrName),
@@ -16302,7 +16302,7 @@ class BaseProvider extends Provider {
     });
   }
   getCode(addressOrName, blockTag) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       yield this.getNetwork();
       const params = yield resolveProperties({
         address: this._getAddress(addressOrName),
@@ -16322,7 +16322,7 @@ class BaseProvider extends Provider {
     });
   }
   getStorageAt(addressOrName, position, blockTag) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       yield this.getNetwork();
       const params = yield resolveProperties({
         address: this._getAddress(addressOrName),
@@ -16351,7 +16351,7 @@ class BaseProvider extends Provider {
     if (hash3 != null && tx.hash !== hash3) {
       logger$3.throwError("Transaction hash mismatch from Provider.sendTransaction.", Logger.errors.UNKNOWN_ERROR, { expectedHash: tx.hash, returnedHash: hash3 });
     }
-    result.wait = (confirms, timeout) => __awaiter$c(this, void 0, void 0, function* () {
+    result.wait = (confirms, timeout) => __awaiter$e(this, void 0, void 0, function* () {
       if (confirms == null) {
         confirms = 1;
       }
@@ -16386,7 +16386,7 @@ class BaseProvider extends Provider {
     return result;
   }
   sendTransaction(signedTransaction) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       yield this.getNetwork();
       const hexTx = yield Promise.resolve(signedTransaction).then((t) => hexlify(t));
       const tx = this.formatter.transaction(signedTransaction);
@@ -16405,7 +16405,7 @@ class BaseProvider extends Provider {
     });
   }
   _getTransactionRequest(transaction) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       const values = yield transaction;
       const tx = {};
       ["from", "to"].forEach((key2) => {
@@ -16439,7 +16439,7 @@ class BaseProvider extends Provider {
     });
   }
   _getFilter(filter2) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       filter2 = yield filter2;
       const result = {};
       if (filter2.address != null) {
@@ -16461,7 +16461,7 @@ class BaseProvider extends Provider {
     });
   }
   _call(transaction, blockTag, attempt) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       if (attempt >= MAX_CCIP_REDIRECTS) {
         logger$3.throwError("CCIP read exceeded maximum redirections", Logger.errors.SERVER_ERROR, {
           redirects: attempt,
@@ -16542,7 +16542,7 @@ class BaseProvider extends Provider {
     });
   }
   call(transaction, blockTag) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       yield this.getNetwork();
       const resolved = yield resolveProperties({
         transaction: this._getTransactionRequest(transaction),
@@ -16553,7 +16553,7 @@ class BaseProvider extends Provider {
     });
   }
   estimateGas(transaction) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       yield this.getNetwork();
       const params = yield resolveProperties({
         transaction: this._getTransactionRequest(transaction)
@@ -16572,7 +16572,7 @@ class BaseProvider extends Provider {
     });
   }
   _getAddress(addressOrName) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       addressOrName = yield addressOrName;
       if (typeof addressOrName !== "string") {
         logger$3.throwArgumentError("invalid address or ENS name", "name", addressOrName);
@@ -16587,7 +16587,7 @@ class BaseProvider extends Provider {
     });
   }
   _getBlock(blockHashOrBlockTag, includeTransactions) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       yield this.getNetwork();
       blockHashOrBlockTag = yield blockHashOrBlockTag;
       let blockNumber = -128;
@@ -16606,7 +16606,7 @@ class BaseProvider extends Provider {
           logger$3.throwArgumentError("invalid block hash or block tag", "blockHashOrBlockTag", blockHashOrBlockTag);
         }
       }
-      return poll(() => __awaiter$c(this, void 0, void 0, function* () {
+      return poll(() => __awaiter$e(this, void 0, void 0, function* () {
         const block = yield this.perform("getBlock", params);
         if (block == null) {
           if (params.blockHash != null) {
@@ -16653,11 +16653,11 @@ class BaseProvider extends Provider {
     return this._getBlock(blockHashOrBlockTag, true);
   }
   getTransaction(transactionHash) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       yield this.getNetwork();
       transactionHash = yield transactionHash;
       const params = { transactionHash: this.formatter.hash(transactionHash, true) };
-      return poll(() => __awaiter$c(this, void 0, void 0, function* () {
+      return poll(() => __awaiter$e(this, void 0, void 0, function* () {
         const result = yield this.perform("getTransaction", params);
         if (result == null) {
           if (this._emitted["t:" + transactionHash] == null) {
@@ -16681,11 +16681,11 @@ class BaseProvider extends Provider {
     });
   }
   getTransactionReceipt(transactionHash) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       yield this.getNetwork();
       transactionHash = yield transactionHash;
       const params = { transactionHash: this.formatter.hash(transactionHash, true) };
-      return poll(() => __awaiter$c(this, void 0, void 0, function* () {
+      return poll(() => __awaiter$e(this, void 0, void 0, function* () {
         const result = yield this.perform("getTransactionReceipt", params);
         if (result == null) {
           if (this._emitted["t:" + transactionHash] == null) {
@@ -16712,7 +16712,7 @@ class BaseProvider extends Provider {
     });
   }
   getLogs(filter2) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       yield this.getNetwork();
       const params = yield resolveProperties({ filter: this._getFilter(filter2) });
       const logs = yield this.perform("getLogs", params);
@@ -16725,13 +16725,13 @@ class BaseProvider extends Provider {
     });
   }
   getEtherPrice() {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       yield this.getNetwork();
       return this.perform("getEtherPrice", {});
     });
   }
   _getBlockTag(blockTag) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       blockTag = yield blockTag;
       if (typeof blockTag === "number" && blockTag < 0) {
         if (blockTag % 1) {
@@ -16748,7 +16748,7 @@ class BaseProvider extends Provider {
     });
   }
   getResolver(name2) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       let currentName = name2;
       while (true) {
         if (currentName === "" || currentName === ".") {
@@ -16770,7 +16770,7 @@ class BaseProvider extends Provider {
     });
   }
   _getResolver(name2, operation) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       if (operation == null) {
         operation = "ENS";
       }
@@ -16790,7 +16790,7 @@ class BaseProvider extends Provider {
     });
   }
   resolveName(name2) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       name2 = yield name2;
       try {
         return Promise.resolve(this.formatter.address(name2));
@@ -16810,7 +16810,7 @@ class BaseProvider extends Provider {
     });
   }
   lookupAddress(address) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       address = yield address;
       address = this.formatter.address(address);
       const node2 = address.substring(2).toLowerCase() + ".addr.reverse";
@@ -16830,7 +16830,7 @@ class BaseProvider extends Provider {
     });
   }
   getAvatar(nameOrAddress) {
-    return __awaiter$c(this, void 0, void 0, function* () {
+    return __awaiter$e(this, void 0, void 0, function* () {
       let resolver = null;
       if (isHexString(nameOrAddress)) {
         const address = this.formatter.address(nameOrAddress);
@@ -16979,7 +16979,7 @@ class BaseProvider extends Provider {
     return this;
   }
 }
-var __awaiter$b = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+var __awaiter$d = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -17006,7 +17006,7 @@ var __awaiter$b = globalThis && globalThis.__awaiter || function(thisArg, _argum
     step((generator = generator.apply(thisArg, _arguments || [])).next());
   });
 };
-const logger$2 = new Logger(version$2);
+const logger$2 = new Logger(version$3);
 const errorGas = ["call", "estimateGas"];
 function spelunk(value, requireData2) {
   if (value == null) {
@@ -17184,7 +17184,7 @@ class JsonRpcSigner extends Signer {
       transaction.gasLimit = this.provider.estimateGas(estimate);
     }
     if (transaction.to != null) {
-      transaction.to = Promise.resolve(transaction.to).then((to) => __awaiter$b(this, void 0, void 0, function* () {
+      transaction.to = Promise.resolve(transaction.to).then((to) => __awaiter$d(this, void 0, void 0, function* () {
         if (to == null) {
           return null;
         }
@@ -17226,11 +17226,11 @@ class JsonRpcSigner extends Signer {
     });
   }
   sendTransaction(transaction) {
-    return __awaiter$b(this, void 0, void 0, function* () {
+    return __awaiter$d(this, void 0, void 0, function* () {
       const blockNumber = yield this.provider._getInternalBlockNumber(100 + 2 * this.provider.pollingInterval);
       const hash3 = yield this.sendUncheckedTransaction(transaction);
       try {
-        return yield poll(() => __awaiter$b(this, void 0, void 0, function* () {
+        return yield poll(() => __awaiter$d(this, void 0, void 0, function* () {
           const tx = yield this.provider.getTransaction(hash3);
           if (tx === null) {
             return void 0;
@@ -17244,7 +17244,7 @@ class JsonRpcSigner extends Signer {
     });
   }
   signMessage(message) {
-    return __awaiter$b(this, void 0, void 0, function* () {
+    return __awaiter$d(this, void 0, void 0, function* () {
       const data2 = typeof message === "string" ? toUtf8Bytes(message) : message;
       const address = yield this.getAddress();
       try {
@@ -17262,7 +17262,7 @@ class JsonRpcSigner extends Signer {
     });
   }
   _legacySignMessage(message) {
-    return __awaiter$b(this, void 0, void 0, function* () {
+    return __awaiter$d(this, void 0, void 0, function* () {
       const data2 = typeof message === "string" ? toUtf8Bytes(message) : message;
       const address = yield this.getAddress();
       try {
@@ -17279,23 +17279,23 @@ class JsonRpcSigner extends Signer {
       }
     });
   }
-  _signTypedData(domain, types, value) {
-    return __awaiter$b(this, void 0, void 0, function* () {
-      const populated = yield TypedDataEncoder.resolveNames(domain, types, value, (name2) => {
+  _signTypedData(domain, types2, value) {
+    return __awaiter$d(this, void 0, void 0, function* () {
+      const populated = yield TypedDataEncoder.resolveNames(domain, types2, value, (name2) => {
         return this.provider.resolveName(name2);
       });
       const address = yield this.getAddress();
       try {
         return yield this.provider.send("eth_signTypedData_v4", [
           address.toLowerCase(),
-          JSON.stringify(TypedDataEncoder.getPayload(populated.domain, types, populated.value))
+          JSON.stringify(TypedDataEncoder.getPayload(populated.domain, types2, populated.value))
         ]);
       } catch (error) {
         if (typeof error.message === "string" && error.message.match(/user denied/i)) {
           logger$2.throwError("user rejected signing", Logger.errors.ACTION_REJECTED, {
             action: "_signTypedData",
             from: address,
-            messageData: { domain: populated.domain, types, value: populated.value }
+            messageData: { domain: populated.domain, types: types2, value: populated.value }
           });
         }
         throw error;
@@ -17303,7 +17303,7 @@ class JsonRpcSigner extends Signer {
     });
   }
   unlock(password) {
-    return __awaiter$b(this, void 0, void 0, function* () {
+    return __awaiter$d(this, void 0, void 0, function* () {
       const provider = this.provider;
       const address = yield this.getAddress();
       return provider.send("personal_unlockAccount", [address.toLowerCase(), password, null]);
@@ -17389,7 +17389,7 @@ class JsonRpcProvider extends BaseProvider {
     return this._cache["detectNetwork"];
   }
   _uncachedDetectNetwork() {
-    return __awaiter$b(this, void 0, void 0, function* () {
+    return __awaiter$d(this, void 0, void 0, function* () {
       yield timer$1(0);
       let chainId = null;
       try {
@@ -17513,7 +17513,7 @@ class JsonRpcProvider extends BaseProvider {
     return null;
   }
   perform(method, params) {
-    return __awaiter$b(this, void 0, void 0, function* () {
+    return __awaiter$d(this, void 0, void 0, function* () {
       if (method === "call" || method === "estimateGas") {
         const tx = params.transaction;
         if (tx && tx.type != null && BigNumber.from(tx.type).isZero()) {
@@ -17635,7 +17635,7 @@ class JsonRpcProvider extends BaseProvider {
     return result;
   }
 }
-const logger$1 = new Logger(version$2);
+const logger$1 = new Logger(version$3);
 let _nextId = 1;
 function buildWeb3LegacyFetcher(provider, sendFunc) {
   const fetcher = "Web3LegacyFetcher";
@@ -17756,8 +17756,8 @@ class Web3Provider extends JsonRpcProvider {
     return this.jsonRpcFetchFunc(method, params);
   }
 }
-const version$1 = "units/5.7.0";
-const logger = new Logger(version$1);
+const version$2 = "units/5.7.0";
+const logger = new Logger(version$2);
 const names = [
   "wei",
   "kwei",
@@ -17860,7 +17860,7 @@ function isArrayBuffer(val) {
 function isFormData(val) {
   return toString.call(val) === "[object FormData]";
 }
-function isArrayBufferView(val) {
+function isArrayBufferView$1(val) {
   var result;
   if (typeof ArrayBuffer !== "undefined" && ArrayBuffer.isView) {
     result = ArrayBuffer.isView(val);
@@ -17970,7 +17970,7 @@ var utils$m = {
   isArrayBuffer,
   isBuffer,
   isFormData,
-  isArrayBufferView,
+  isArrayBufferView: isArrayBufferView$1,
   isString: isString$1,
   isNumber,
   isObject: isObject$1,
@@ -18183,11 +18183,11 @@ var buildFullPath = function buildFullPath2(baseURL, requestedURL) {
   }
   return requestedURL;
 };
-var parseHeaders;
+var parseHeaders$1;
 var hasRequiredParseHeaders;
 function requireParseHeaders() {
   if (hasRequiredParseHeaders)
-    return parseHeaders;
+    return parseHeaders$1;
   hasRequiredParseHeaders = 1;
   var utils2 = utils$m;
   var ignoreDuplicateOf = [
@@ -18209,7 +18209,7 @@ function requireParseHeaders() {
     "retry-after",
     "user-agent"
   ];
-  parseHeaders = function parseHeaders2(headers) {
+  parseHeaders$1 = function parseHeaders2(headers) {
     var parsed = {};
     var key2;
     var val;
@@ -18234,7 +18234,7 @@ function requireParseHeaders() {
     });
     return parsed;
   };
-  return parseHeaders;
+  return parseHeaders$1;
 }
 var isURLSameOrigin;
 var hasRequiredIsURLSameOrigin;
@@ -18627,15 +18627,15 @@ var utils$f = utils$m;
 var mergeConfig$2 = function mergeConfig2(config1, config2) {
   config2 = config2 || {};
   var config3 = {};
-  function getMergedValue(target, source) {
-    if (utils$f.isPlainObject(target) && utils$f.isPlainObject(source)) {
-      return utils$f.merge(target, source);
-    } else if (utils$f.isPlainObject(source)) {
-      return utils$f.merge({}, source);
-    } else if (utils$f.isArray(source)) {
-      return source.slice();
+  function getMergedValue(target, source2) {
+    if (utils$f.isPlainObject(target) && utils$f.isPlainObject(source2)) {
+      return utils$f.merge(target, source2);
+    } else if (utils$f.isPlainObject(source2)) {
+      return utils$f.merge({}, source2);
+    } else if (utils$f.isArray(source2)) {
+      return source2.slice();
     }
-    return source;
+    return source2;
   }
   function mergeDeepProperties(prop) {
     if (!utils$f.isUndefined(config2[prop])) {
@@ -18938,7 +18938,7 @@ function requireCancelToken() {
       this._listeners.splice(index, 1);
     }
   };
-  CancelToken.source = function source() {
+  CancelToken.source = function source2() {
     var cancel;
     var token = new CancelToken(function executor(c2) {
       cancel = c2;
@@ -19008,7 +19008,7 @@ axiosExports.default = axios$1;
   module.exports = axiosExports;
 })(axios$3);
 const axios = /* @__PURE__ */ getDefaultExportFromCjs(axiosExports$1);
-function __awaiter$a(thisArg, _arguments, P2, generator) {
+function __awaiter$c(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -19100,7 +19100,7 @@ var STATUS_CODE;
   STATUS_CODE2[STATUS_CODE2["NETWORK_AUTHENTICATION_REQUIRED"] = 511] = "NETWORK_AUTHENTICATION_REQUIRED";
 })(STATUS_CODE || (STATUS_CODE = {}));
 const isNode$1 = typeof process !== "undefined" && process.versions != null && process.versions.node != null;
-const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-e149b785.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
+const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-672d256f.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
 var ResponseType;
 (function(ResponseType2) {
   ResponseType2["TEXT"] = "text";
@@ -19161,7 +19161,7 @@ class HttpBackend {
    * @param options contains options to be passed for the HTTP request (url, method and timeout)
    */
   createRequest({ url, method, timeout = this.timeout, query, headers = {}, json = true }, data2) {
-    return __awaiter$a(this, void 0, void 0, function* () {
+    return __awaiter$c(this, void 0, void 0, function* () {
       let resType;
       let transformResponse2 = void 0;
       if (!headers["Content-Type"]) {
@@ -24857,16 +24857,16 @@ function requireBuffer_list() {
   }
   function _objectSpread(target) {
     for (var i2 = 1; i2 < arguments.length; i2++) {
-      var source = arguments[i2] != null ? arguments[i2] : {};
+      var source2 = arguments[i2] != null ? arguments[i2] : {};
       if (i2 % 2) {
-        ownKeys(Object(source), true).forEach(function(key2) {
-          _defineProperty(target, key2, source[key2]);
+        ownKeys(Object(source2), true).forEach(function(key2) {
+          _defineProperty(target, key2, source2[key2]);
         });
       } else if (Object.getOwnPropertyDescriptors) {
-        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source2));
       } else {
-        ownKeys(Object(source)).forEach(function(key2) {
-          Object.defineProperty(target, key2, Object.getOwnPropertyDescriptor(source, key2));
+        ownKeys(Object(source2)).forEach(function(key2) {
+          Object.defineProperty(target, key2, Object.getOwnPropertyDescriptor(source2, key2));
         });
       }
     }
@@ -29010,28 +29010,28 @@ function base$2(ALPHABET2) {
   var LEADER = ALPHABET2.charAt(0);
   var FACTOR = Math.log(BASE) / Math.log(256);
   var iFACTOR = Math.log(256) / Math.log(BASE);
-  function encode4(source) {
-    if (Array.isArray(source) || source instanceof Uint8Array) {
-      source = _Buffer.from(source);
+  function encode4(source2) {
+    if (Array.isArray(source2) || source2 instanceof Uint8Array) {
+      source2 = _Buffer.from(source2);
     }
-    if (!_Buffer.isBuffer(source)) {
+    if (!_Buffer.isBuffer(source2)) {
       throw new TypeError("Expected Buffer");
     }
-    if (source.length === 0) {
+    if (source2.length === 0) {
       return "";
     }
     var zeroes = 0;
     var length = 0;
     var pbegin = 0;
-    var pend = source.length;
-    while (pbegin !== pend && source[pbegin] === 0) {
+    var pend = source2.length;
+    while (pbegin !== pend && source2[pbegin] === 0) {
       pbegin++;
       zeroes++;
     }
     var size = (pend - pbegin) * iFACTOR + 1 >>> 0;
     var b58 = new Uint8Array(size);
     while (pbegin !== pend) {
-      var carry = source[pbegin];
+      var carry = source2[pbegin];
       var i3 = 0;
       for (var it1 = size - 1; (carry !== 0 || i3 < length) && it1 !== -1; it1--, i3++) {
         carry += 256 * b58[it1] >>> 0;
@@ -29054,24 +29054,24 @@ function base$2(ALPHABET2) {
     }
     return str;
   }
-  function decodeUnsafe2(source) {
-    if (typeof source !== "string") {
+  function decodeUnsafe2(source2) {
+    if (typeof source2 !== "string") {
       throw new TypeError("Expected String");
     }
-    if (source.length === 0) {
+    if (source2.length === 0) {
       return _Buffer.alloc(0);
     }
     var psz = 0;
     var zeroes = 0;
     var length = 0;
-    while (source[psz] === LEADER) {
+    while (source2[psz] === LEADER) {
       zeroes++;
       psz++;
     }
-    var size = (source.length - psz) * FACTOR + 1 >>> 0;
+    var size = (source2.length - psz) * FACTOR + 1 >>> 0;
     var b256 = new Uint8Array(size);
-    while (source[psz]) {
-      var carry = BASE_MAP[source.charCodeAt(psz)];
+    while (source2[psz]) {
+      var carry = BASE_MAP[source2.charCodeAt(psz)];
       if (carry === 255) {
         return;
       }
@@ -29161,21 +29161,21 @@ function sha256x2(buffer2) {
 }
 var bs58check = bs58checkBase(sha256x2);
 var elliptic = {};
-const name = "elliptic";
-const version = "6.5.4";
-const description = "EC cryptography";
-const main = "lib/elliptic.js";
-const files = [
+const name$1 = "elliptic";
+const version$1 = "6.5.4";
+const description$1 = "EC cryptography";
+const main$1 = "lib/elliptic.js";
+const files$1 = [
   "lib"
 ];
-const scripts = {
+const scripts$1 = {
   lint: "eslint lib test",
   "lint:fix": "npm run lint -- --fix",
   unit: "istanbul test _mocha --reporter=spec test/index.js",
   test: "npm run lint && npm run unit",
   version: "grunt dist && git add dist/"
 };
-const repository = {
+const repository$1 = {
   type: "git",
   url: "git@github.com:indutny/elliptic"
 };
@@ -29185,13 +29185,13 @@ const keywords = [
   "curve",
   "Cryptography"
 ];
-const author = "Fedor Indutny <fedor@indutny.com>";
-const license = "MIT";
-const bugs = {
+const author$1 = "Fedor Indutny <fedor@indutny.com>";
+const license$1 = "MIT";
+const bugs$1 = {
   url: "https://github.com/indutny/elliptic/issues"
 };
-const homepage = "https://github.com/indutny/elliptic";
-const devDependencies = {
+const homepage$1 = "https://github.com/indutny/elliptic";
+const devDependencies$1 = {
   brfs: "^2.0.2",
   coveralls: "^3.1.0",
   eslint: "^7.6.0",
@@ -29206,7 +29206,7 @@ const devDependencies = {
   istanbul: "^0.4.5",
   mocha: "^8.0.1"
 };
-const dependencies = {
+const dependencies$1 = {
   "bn.js": "^4.11.9",
   brorand: "^1.1.0",
   "hash.js": "^1.0.0",
@@ -29216,20 +29216,20 @@ const dependencies = {
   "minimalistic-crypto-utils": "^1.0.1"
 };
 const require$$0 = {
-  name,
-  version,
-  description,
-  main,
-  files,
-  scripts,
-  repository,
+  name: name$1,
+  version: version$1,
+  description: description$1,
+  main: main$1,
+  files: files$1,
+  scripts: scripts$1,
+  repository: repository$1,
   keywords,
-  author,
-  license,
-  bugs,
-  homepage,
-  devDependencies,
-  dependencies
+  author: author$1,
+  license: license$1,
+  bugs: bugs$1,
+  homepage: homepage$1,
+  devDependencies: devDependencies$1,
+  dependencies: dependencies$1
 };
 var utils$c = {};
 var bnExports = {};
@@ -35756,7 +35756,7 @@ function __rest$3(s2, e) {
     }
   return t;
 }
-function __awaiter$9(thisArg, _arguments, P2, generator) {
+function __awaiter$b(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -35950,7 +35950,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-hash
    */
   getBlockHash({ block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const hash3 = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/hash`),
         method: "GET"
@@ -35967,7 +35967,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-live-blocks
    */
   getLiveBlocks({ block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const blocks = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/live_blocks`),
         method: "GET"
@@ -35985,7 +35985,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-context-contracts-contract-id-balance
    */
   getBalance(address, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       this.validateAddress(address);
       const balance = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/contracts/${address}/balance`),
@@ -36004,7 +36004,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-context-contracts-contract-id-storage
    */
   getStorage(address, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       this.validateContract(address);
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/contracts/${address}/storage`),
@@ -36022,7 +36022,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-context-contracts-contract-id-script
    */
   getScript(address, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       this.validateContract(address);
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/contracts/${address}/script`),
@@ -36040,7 +36040,7 @@ class RpcClient {
    *
    */
   getNormalizedScript(address, unparsingMode = { unparsing_mode: "Readable" }, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       this.validateContract(address);
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/contracts/${address}/script/normalized`),
@@ -36058,7 +36058,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-context-contracts-contract-id
    */
   getContract(address, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       this.validateAddress(address);
       const contractResponse = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/contracts/${address}`),
@@ -36077,7 +36077,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-context-contracts-contract-id-manager-key
    */
   getManagerKey(address, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       this.validateAddress(address);
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/contracts/${address}/manager_key`),
@@ -36095,7 +36095,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-context-contracts-contract-id-delegate
    */
   getDelegate(address, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       this.validateAddress(address);
       let delegate;
       try {
@@ -36125,7 +36125,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#post-block-id-context-contracts-contract-id-big-map-get
    */
   getBigMapKey(address, key2, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       this.validateAddress(address);
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/contracts/${address}/big_map_get`),
@@ -36144,7 +36144,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-context-big-maps-big-map-id-script-expr
    */
   getBigMapExpr(id2, expr, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/big_maps/${id2}/${expr}`),
         method: "GET"
@@ -36161,7 +36161,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-context-delegates-pkh
    */
   getDelegates(address, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       this.validateAddress(address);
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/delegates/${address}`),
@@ -36200,7 +36200,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/kathmandu/rpc.html#get-block-id-context-delegates-pkh-voting-info
    */
   getVotingInfo(address, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       this.validateAddress(address);
       return yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/delegates/${address}/voting_info`),
@@ -36217,7 +36217,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-context-constants
    */
   getConstants({ block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/constants`),
         method: "GET"
@@ -36266,7 +36266,7 @@ class RpcClient {
    * @example getBlock({ block: BL8fTiWcSxWCjiMVnDkbh6EuhqVPZzgWheJ2dqwrxYRm9AephXh~2 }) will return an offset of 2 blocks from given block hash..
    */
   getBlock({ block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}`),
         method: "GET"
@@ -36283,7 +36283,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-header
    */
   getBlockHeader({ block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/header`),
         method: "GET"
@@ -36300,7 +36300,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-metadata
    */
   getBlockMetadata({ block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/metadata`),
         method: "GET"
@@ -36318,7 +36318,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-helpers-baking-rights
    */
   getBakingRights(args = {}, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/helpers/baking_rights`),
         method: "GET",
@@ -36337,7 +36337,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-helpers-endorsing-rights
    */
   getEndorsingRights(args = {}, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/helpers/endorsing_rights`),
         method: "GET",
@@ -36354,7 +36354,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-votes-ballot-list
    */
   getBallotList({ block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/votes/ballot_list`),
         method: "GET"
@@ -36371,7 +36371,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-votes-ballots
    */
   getBallots({ block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/votes/ballots`),
         method: "GET"
@@ -36389,7 +36389,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-votes-current-proposal
    */
   getCurrentProposal({ block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/votes/current_proposal`),
         method: "GET"
@@ -36406,7 +36406,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-votes-current-quorum
    */
   getCurrentQuorum({ block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/votes/current_quorum`),
         method: "GET"
@@ -36423,7 +36423,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-votes-listings
    */
   getVotesListings({ block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/votes/listings`),
         method: "GET"
@@ -36446,7 +36446,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-votes-proposals
    */
   getProposals({ block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/votes/proposals`),
         method: "GET"
@@ -36467,7 +36467,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#post-block-id-helpers-forge-operations
    */
   forgeOperations(data2, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/helpers/forge/operations`),
         method: "POST"
@@ -36483,7 +36483,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#post-injection-operation
    */
   injectOperation(signedOpBytes) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       return this.httpBackend.createRequest({
         url: this.createURL(`/injection/operation`),
         method: "POST"
@@ -36500,7 +36500,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#post-block-id-helpers-preapply-operations
    */
   preapplyOperations(ops, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/helpers/preapply/operations`),
         method: "POST"
@@ -36519,7 +36519,7 @@ class RpcClient {
    * @version 005_PsBABY5H
    */
   getEntrypoints(contract, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       this.validateContract(contract);
       const contractResponse = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/contracts/${contract}/entrypoints`),
@@ -36537,7 +36537,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#post-block-id-helpers-scripts-run-operation
    */
   runOperation(op, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/helpers/scripts/run_operation`),
         method: "POST"
@@ -36554,7 +36554,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#post-block-id-helpers-scripts-run-code
    */
   runCode(code2, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/helpers/scripts/run_code`),
         method: "POST"
@@ -36571,7 +36571,7 @@ class RpcClient {
    */
   runScriptView(_a2, { block } = defaultRPCOptions) {
     var { unparsing_mode = "Readable" } = _a2, rest = __rest$3(_a2, ["unparsing_mode"]);
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/helpers/scripts/run_script_view`),
         method: "POST"
@@ -36587,7 +36587,7 @@ class RpcClient {
    */
   runView(_a2, { block } = defaultRPCOptions) {
     var { unparsing_mode = "Readable" } = _a2, rest = __rest$3(_a2, ["unparsing_mode"]);
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/helpers/scripts/run_view`),
         method: "POST"
@@ -36595,7 +36595,7 @@ class RpcClient {
     });
   }
   getChainId() {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/chain_id`),
         method: "GET"
@@ -36619,7 +36619,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#post-block-id-helpers-scripts-pack-data
    */
   packData(data2, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const _a2 = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/helpers/scripts/pack_data`),
         method: "POST"
@@ -36650,7 +36650,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-votes-current-period
    */
   getCurrentPeriod({ block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/votes/current_period`),
         method: "GET"
@@ -36669,7 +36669,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-votes-successor-period
    */
   getSuccessorPeriod({ block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       const response = yield this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/votes/successor_period`),
         method: "GET"
@@ -36687,7 +36687,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/active/rpc.html#get-block-id-context-sapling-sapling-state-id-get-diff
    */
   getSaplingDiffById(id2, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/sapling/${id2}/get_diff`),
         method: "GET"
@@ -36704,7 +36704,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/active/rpc.html#get-block-id-context-contracts-contract-id-single-sapling-get-diff
    */
   getSaplingDiffByContract(contract, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/contracts/${contract}/single_sapling_get_diff`),
         method: "GET"
@@ -36712,7 +36712,7 @@ class RpcClient {
     });
   }
   getProtocols({ block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/protocols`),
         method: "GET"
@@ -36729,7 +36729,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/jakarta/rpc.html#get-block-id-context-tx-rollup-tx-rollup-id-state
    */
   getTxRollupState(txRollupId, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/tx_rollup/${txRollupId}/state`),
         method: "GET"
@@ -36747,7 +36747,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/jakarta/rpc.html#get-block-id-context-tx-rollup-tx-rollup-id-inbox-block-level
    */
   getTxRollupInbox(txRollupId, blockLevel, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/tx_rollup/${txRollupId}/inbox/${blockLevel}`),
         method: "GET"
@@ -36764,7 +36764,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/lima/rpc.html#get-block-id-context-contracts-contract-id-storage
    */
   getStorageUsedSpace(contract, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/contracts/${contract}/storage/used_space`),
         method: "GET"
@@ -36781,7 +36781,7 @@ class RpcClient {
    * @see https://tezos.gitlab.io/lima/rpc.html#get-block-id-context-contracts-contract-id-storage
    */
   getStoragePaidSpace(contract, { block } = defaultRPCOptions) {
-    return __awaiter$9(this, void 0, void 0, function* () {
+    return __awaiter$b(this, void 0, void 0, function* () {
       return this.httpBackend.createRequest({
         url: this.createURL(`/chains/${this.chain}/blocks/${block}/context/contracts/${contract}/storage/paid_space`),
         method: "GET"
@@ -37329,8 +37329,8 @@ var Observable = /* @__PURE__ */ function() {
     });
   };
   Observable2.prototype._subscribe = function(subscriber) {
-    var source = this.source;
-    return source && source.subscribe(subscriber);
+    var source2 = this.source;
+    return source2 && source2.subscribe(subscriber);
   };
   Observable2.prototype[observable] = function() {
     return this;
@@ -37511,17 +37511,17 @@ var Subject = /* @__PURE__ */ function(_super) {
     observable2.source = this;
     return observable2;
   };
-  Subject2.create = function(destination, source) {
-    return new AnonymousSubject(destination, source);
+  Subject2.create = function(destination, source2) {
+    return new AnonymousSubject(destination, source2);
   };
   return Subject2;
 }(Observable);
 var AnonymousSubject = /* @__PURE__ */ function(_super) {
   __extends(AnonymousSubject2, _super);
-  function AnonymousSubject2(destination, source) {
+  function AnonymousSubject2(destination, source2) {
     var _this = _super.call(this) || this;
     _this.destination = destination;
-    _this.source = source;
+    _this.source = source2;
     return _this;
   }
   AnonymousSubject2.prototype.next = function(value) {
@@ -37543,8 +37543,8 @@ var AnonymousSubject = /* @__PURE__ */ function(_super) {
     }
   };
   AnonymousSubject2.prototype._subscribe = function(subscriber) {
-    var source = this.source;
-    if (source) {
+    var source2 = this.source;
+    if (source2) {
       return this.source.subscribe(subscriber);
     } else {
       return Subscription.EMPTY;
@@ -37553,19 +37553,19 @@ var AnonymousSubject = /* @__PURE__ */ function(_super) {
   return AnonymousSubject2;
 }(Subject);
 function refCount() {
-  return function refCountOperatorFunction(source) {
-    return source.lift(new RefCountOperator(source));
+  return function refCountOperatorFunction(source2) {
+    return source2.lift(new RefCountOperator(source2));
   };
 }
 var RefCountOperator = /* @__PURE__ */ function() {
   function RefCountOperator2(connectable) {
     this.connectable = connectable;
   }
-  RefCountOperator2.prototype.call = function(subscriber, source) {
+  RefCountOperator2.prototype.call = function(subscriber, source2) {
     var connectable = this.connectable;
     connectable._refCount++;
     var refCounter = new RefCountSubscriber(subscriber, connectable);
-    var subscription = source.subscribe(refCounter);
+    var subscription = source2.subscribe(refCounter);
     if (!refCounter.closed) {
       refCounter.connection = connectable.connect();
     }
@@ -37608,9 +37608,9 @@ var RefCountSubscriber = /* @__PURE__ */ function(_super) {
 }(Subscriber);
 var ConnectableObservable = /* @__PURE__ */ function(_super) {
   __extends(ConnectableObservable2, _super);
-  function ConnectableObservable2(source, subjectFactory) {
+  function ConnectableObservable2(source2, subjectFactory) {
     var _this = _super.call(this) || this;
-    _this.source = source;
+    _this.source = source2;
     _this.subjectFactory = subjectFactory;
     _this._refCount = 0;
     _this._isComplete = false;
@@ -38247,11 +38247,11 @@ var EmptyErrorImpl = /* @__PURE__ */ function() {
 }();
 var EmptyError = EmptyErrorImpl;
 function map(project, thisArg) {
-  return function mapOperation(source) {
+  return function mapOperation(source2) {
     if (typeof project !== "function") {
       throw new TypeError("argument is not a function. Are you looking for `mapTo()`?");
     }
-    return source.lift(new MapOperator(project, thisArg));
+    return source2.lift(new MapOperator(project, thisArg));
   };
 }
 var MapOperator = /* @__PURE__ */ function() {
@@ -38259,8 +38259,8 @@ var MapOperator = /* @__PURE__ */ function() {
     this.project = project;
     this.thisArg = thisArg;
   }
-  MapOperator2.prototype.call = function(subscriber, source) {
-    return source.subscribe(new MapSubscriber(subscriber, this.project, this.thisArg));
+  MapOperator2.prototype.call = function(subscriber, source2) {
+    return source2.subscribe(new MapSubscriber(subscriber, this.project, this.thisArg));
   };
   return MapOperator2;
 }();
@@ -38440,8 +38440,8 @@ var CombineLatestOperator = /* @__PURE__ */ function() {
   function CombineLatestOperator2(resultSelector) {
     this.resultSelector = resultSelector;
   }
-  CombineLatestOperator2.prototype.call = function(subscriber, source) {
-    return source.subscribe(new CombineLatestSubscriber(subscriber, this.resultSelector));
+  CombineLatestOperator2.prototype.call = function(subscriber, source2) {
+    return source2.subscribe(new CombineLatestSubscriber(subscriber, this.resultSelector));
   };
   return CombineLatestOperator2;
 }();
@@ -38674,8 +38674,8 @@ function mergeMap(project, resultSelector, concurrent) {
     concurrent = Number.POSITIVE_INFINITY;
   }
   if (typeof resultSelector === "function") {
-    return function(source) {
-      return source.pipe(mergeMap(function(a2, i2) {
+    return function(source2) {
+      return source2.pipe(mergeMap(function(a2, i2) {
         return from(project(a2, i2)).pipe(map(function(b2, ii) {
           return resultSelector(a2, b2, i2, ii);
         }));
@@ -38684,8 +38684,8 @@ function mergeMap(project, resultSelector, concurrent) {
   } else if (typeof resultSelector === "number") {
     concurrent = resultSelector;
   }
-  return function(source) {
-    return source.lift(new MergeMapOperator(project, concurrent));
+  return function(source2) {
+    return source2.lift(new MergeMapOperator(project, concurrent));
   };
 }
 var MergeMapOperator = /* @__PURE__ */ function() {
@@ -38696,8 +38696,8 @@ var MergeMapOperator = /* @__PURE__ */ function() {
     this.project = project;
     this.concurrent = concurrent;
   }
-  MergeMapOperator2.prototype.call = function(observer, source) {
-    return source.subscribe(new MergeMapSubscriber(observer, this.project, this.concurrent));
+  MergeMapOperator2.prototype.call = function(observer, source2) {
+    return source2.subscribe(new MergeMapSubscriber(observer, this.project, this.concurrent));
   };
   return MergeMapOperator2;
 }();
@@ -38790,8 +38790,8 @@ function defer(observableFactory) {
       subscriber.error(err);
       return void 0;
     }
-    var source = input ? from(input) : empty();
-    return source.subscribe(subscriber);
+    var source2 = input ? from(input) : empty();
+    return source2.subscribe(subscriber);
   });
 }
 function isNumeric(val) {
@@ -38799,8 +38799,8 @@ function isNumeric(val) {
 }
 var NEVER = /* @__PURE__ */ new Observable(noop);
 function filter(predicate, thisArg) {
-  return function filterOperatorFunction(source) {
-    return source.lift(new FilterOperator(predicate, thisArg));
+  return function filterOperatorFunction(source2) {
+    return source2.lift(new FilterOperator(predicate, thisArg));
   };
 }
 var FilterOperator = /* @__PURE__ */ function() {
@@ -38808,8 +38808,8 @@ var FilterOperator = /* @__PURE__ */ function() {
     this.predicate = predicate;
     this.thisArg = thisArg;
   }
-  FilterOperator2.prototype.call = function(subscriber, source) {
-    return source.subscribe(new FilterSubscriber(subscriber, this.predicate, this.thisArg));
+  FilterOperator2.prototype.call = function(subscriber, source2) {
+    return source2.subscribe(new FilterSubscriber(subscriber, this.predicate, this.thisArg));
   };
   return FilterOperator2;
 }();
@@ -38917,9 +38917,9 @@ function dispatch(state2) {
   this.schedule(state2, period);
 }
 function catchError(selector) {
-  return function catchErrorOperatorFunction(source) {
+  return function catchErrorOperatorFunction(source2) {
     var operator = new CatchOperator(selector);
-    var caught = source.lift(operator);
+    var caught = source2.lift(operator);
     return operator.caught = caught;
   };
 }
@@ -38927,8 +38927,8 @@ var CatchOperator = /* @__PURE__ */ function() {
   function CatchOperator2(selector) {
     this.selector = selector;
   }
-  CatchOperator2.prototype.call = function(subscriber, source) {
-    return source.subscribe(new CatchSubscriber(subscriber, this.selector, this.caught));
+  CatchOperator2.prototype.call = function(subscriber, source2) {
+    return source2.subscribe(new CatchSubscriber(subscriber, this.selector, this.caught));
   };
   return CatchOperator2;
 }();
@@ -38967,16 +38967,16 @@ function defaultIfEmpty(defaultValue) {
   if (defaultValue === void 0) {
     defaultValue = null;
   }
-  return function(source) {
-    return source.lift(new DefaultIfEmptyOperator(defaultValue));
+  return function(source2) {
+    return source2.lift(new DefaultIfEmptyOperator(defaultValue));
   };
 }
 var DefaultIfEmptyOperator = /* @__PURE__ */ function() {
   function DefaultIfEmptyOperator2(defaultValue) {
     this.defaultValue = defaultValue;
   }
-  DefaultIfEmptyOperator2.prototype.call = function(subscriber, source) {
-    return source.subscribe(new DefaultIfEmptySubscriber(subscriber, this.defaultValue));
+  DefaultIfEmptyOperator2.prototype.call = function(subscriber, source2) {
+    return source2.subscribe(new DefaultIfEmptySubscriber(subscriber, this.defaultValue));
   };
   return DefaultIfEmptyOperator2;
 }();
@@ -39004,8 +39004,8 @@ function isDate(value) {
   return value instanceof Date && !isNaN(+value);
 }
 function distinctUntilChanged(compare, keySelector) {
-  return function(source) {
-    return source.lift(new DistinctUntilChangedOperator(compare, keySelector));
+  return function(source2) {
+    return source2.lift(new DistinctUntilChangedOperator(compare, keySelector));
   };
 }
 var DistinctUntilChangedOperator = /* @__PURE__ */ function() {
@@ -39013,8 +39013,8 @@ var DistinctUntilChangedOperator = /* @__PURE__ */ function() {
     this.compare = compare;
     this.keySelector = keySelector;
   }
-  DistinctUntilChangedOperator2.prototype.call = function(subscriber, source) {
-    return source.subscribe(new DistinctUntilChangedSubscriber(subscriber, this.compare, this.keySelector));
+  DistinctUntilChangedOperator2.prototype.call = function(subscriber, source2) {
+    return source2.subscribe(new DistinctUntilChangedSubscriber(subscriber, this.compare, this.keySelector));
   };
   return DistinctUntilChangedOperator2;
 }();
@@ -39067,16 +39067,16 @@ function throwIfEmpty(errorFactory) {
   if (errorFactory === void 0) {
     errorFactory = defaultErrorFactory;
   }
-  return function(source) {
-    return source.lift(new ThrowIfEmptyOperator(errorFactory));
+  return function(source2) {
+    return source2.lift(new ThrowIfEmptyOperator(errorFactory));
   };
 }
 var ThrowIfEmptyOperator = /* @__PURE__ */ function() {
   function ThrowIfEmptyOperator2(errorFactory) {
     this.errorFactory = errorFactory;
   }
-  ThrowIfEmptyOperator2.prototype.call = function(subscriber, source) {
-    return source.subscribe(new ThrowIfEmptySubscriber(subscriber, this.errorFactory));
+  ThrowIfEmptyOperator2.prototype.call = function(subscriber, source2) {
+    return source2.subscribe(new ThrowIfEmptySubscriber(subscriber, this.errorFactory));
   };
   return ThrowIfEmptyOperator2;
 }();
@@ -39111,11 +39111,11 @@ function defaultErrorFactory() {
   return new EmptyError();
 }
 function take(count) {
-  return function(source) {
+  return function(source2) {
     if (count === 0) {
       return empty();
     } else {
-      return source.lift(new TakeOperator(count));
+      return source2.lift(new TakeOperator(count));
     }
   };
 }
@@ -39126,8 +39126,8 @@ var TakeOperator = /* @__PURE__ */ function() {
       throw new ArgumentOutOfRangeError();
     }
   }
-  TakeOperator2.prototype.call = function(subscriber, source) {
-    return source.subscribe(new TakeSubscriber(subscriber, this.total));
+  TakeOperator2.prototype.call = function(subscriber, source2) {
+    return source2.subscribe(new TakeSubscriber(subscriber, this.total));
   };
   return TakeOperator2;
 }();
@@ -39157,22 +39157,22 @@ function endWith() {
   for (var _i = 0; _i < arguments.length; _i++) {
     array[_i] = arguments[_i];
   }
-  return function(source) {
-    return concat(source, of.apply(void 0, array));
+  return function(source2) {
+    return concat(source2, of.apply(void 0, array));
   };
 }
 function first(predicate, defaultValue) {
   var hasDefaultValue = arguments.length >= 2;
-  return function(source) {
-    return source.pipe(predicate ? filter(function(v2, i2) {
-      return predicate(v2, i2, source);
+  return function(source2) {
+    return source2.pipe(predicate ? filter(function(v2, i2) {
+      return predicate(v2, i2, source2);
     }) : identity, take(1), hasDefaultValue ? defaultIfEmpty(defaultValue) : throwIfEmpty(function() {
       return new EmptyError();
     }));
   };
 }
 function multicast(subjectOrSubjectFactory, selector) {
-  return function multicastOperatorFunction(source) {
+  return function multicastOperatorFunction(source2) {
     var subjectFactory;
     if (typeof subjectOrSubjectFactory === "function") {
       subjectFactory = subjectOrSubjectFactory;
@@ -39182,10 +39182,10 @@ function multicast(subjectOrSubjectFactory, selector) {
       };
     }
     if (typeof selector === "function") {
-      return source.lift(new MulticastOperator(subjectFactory, selector));
+      return source2.lift(new MulticastOperator(subjectFactory, selector));
     }
-    var connectable = Object.create(source, connectableObservableDescriptor);
-    connectable.source = source;
+    var connectable = Object.create(source2, connectableObservableDescriptor);
+    connectable.source = source2;
     connectable.subjectFactory = subjectFactory;
     return connectable;
   };
@@ -39195,11 +39195,11 @@ var MulticastOperator = /* @__PURE__ */ function() {
     this.subjectFactory = subjectFactory;
     this.selector = selector;
   }
-  MulticastOperator2.prototype.call = function(subscriber, source) {
+  MulticastOperator2.prototype.call = function(subscriber, source2) {
     var selector = this.selector;
     var subject = this.subjectFactory();
     var subscription = selector(subject).subscribe(subscriber);
-    subscription.add(source.subscribe(subject));
+    subscription.add(source2.subscribe(subject));
     return subscription;
   };
   return MulticastOperator2;
@@ -39213,8 +39213,8 @@ function pluck() {
   if (length === 0) {
     throw new Error("list of properties cannot be empty.");
   }
-  return function(source) {
-    return map(plucker(properties, length))(source);
+  return function(source2) {
+    return map(plucker(properties, length))(source2);
   };
 }
 function plucker(props, length) {
@@ -39243,47 +39243,47 @@ function publishReplay(bufferSize, windowTime, selectorOrScheduler, scheduler) {
   }
   var selector = typeof selectorOrScheduler === "function" ? selectorOrScheduler : void 0;
   var subject = new ReplaySubject(bufferSize, windowTime, scheduler);
-  return function(source) {
+  return function(source2) {
     return multicast(function() {
       return subject;
-    }, selector)(source);
+    }, selector)(source2);
   };
 }
 function retry(count) {
   if (count === void 0) {
     count = -1;
   }
-  return function(source) {
-    return source.lift(new RetryOperator(count, source));
+  return function(source2) {
+    return source2.lift(new RetryOperator(count, source2));
   };
 }
 var RetryOperator = /* @__PURE__ */ function() {
-  function RetryOperator2(count, source) {
+  function RetryOperator2(count, source2) {
     this.count = count;
-    this.source = source;
+    this.source = source2;
   }
-  RetryOperator2.prototype.call = function(subscriber, source) {
-    return source.subscribe(new RetrySubscriber(subscriber, this.count, this.source));
+  RetryOperator2.prototype.call = function(subscriber, source2) {
+    return source2.subscribe(new RetrySubscriber(subscriber, this.count, this.source));
   };
   return RetryOperator2;
 }();
 var RetrySubscriber = /* @__PURE__ */ function(_super) {
   __extends(RetrySubscriber2, _super);
-  function RetrySubscriber2(destination, count, source) {
+  function RetrySubscriber2(destination, count, source2) {
     var _this = _super.call(this, destination) || this;
     _this.count = count;
-    _this.source = source;
+    _this.source = source2;
     return _this;
   }
   RetrySubscriber2.prototype.error = function(err) {
     if (!this.isStopped) {
-      var _a2 = this, source = _a2.source, count = _a2.count;
+      var _a2 = this, source2 = _a2.source, count = _a2.count;
       if (count === 0) {
         return _super.prototype.error.call(this, err);
       } else if (count > -1) {
         this.count = count - 1;
       }
-      source.subscribe(this._unsubscribeAndRecycle());
+      source2.subscribe(this._unsubscribeAndRecycle());
     }
   };
   return RetrySubscriber2;
@@ -39300,8 +39300,8 @@ function shareReplay(configOrBufferSize, windowTime, scheduler) {
       scheduler
     };
   }
-  return function(source) {
-    return source.lift(shareReplayOperator(config2));
+  return function(source2) {
+    return source2.lift(shareReplayOperator(config2));
   };
 }
 function shareReplayOperator(_a2) {
@@ -39311,14 +39311,14 @@ function shareReplayOperator(_a2) {
   var subscription;
   var hasError = false;
   var isComplete = false;
-  return function shareReplayOperation(source) {
+  return function shareReplayOperation(source2) {
     refCount2++;
     var innerSub;
     if (!subject || hasError) {
       hasError = false;
       subject = new ReplaySubject(bufferSize, windowTime, scheduler);
       innerSub = subject.subscribe(this);
-      subscription = source.subscribe({
+      subscription = source2.subscribe({
         next: function(value) {
           subject.next(value);
         },
@@ -39358,35 +39358,35 @@ function startWith() {
   var scheduler = array[array.length - 1];
   if (isScheduler(scheduler)) {
     array.pop();
-    return function(source) {
-      return concat(array, source, scheduler);
+    return function(source2) {
+      return concat(array, source2, scheduler);
     };
   } else {
-    return function(source) {
-      return concat(array, source);
+    return function(source2) {
+      return concat(array, source2);
     };
   }
 }
 function switchMap(project, resultSelector) {
   if (typeof resultSelector === "function") {
-    return function(source) {
-      return source.pipe(switchMap(function(a2, i2) {
+    return function(source2) {
+      return source2.pipe(switchMap(function(a2, i2) {
         return from(project(a2, i2)).pipe(map(function(b2, ii) {
           return resultSelector(a2, b2, i2, ii);
         }));
       }));
     };
   }
-  return function(source) {
-    return source.lift(new SwitchMapOperator(project));
+  return function(source2) {
+    return source2.lift(new SwitchMapOperator(project));
   };
 }
 var SwitchMapOperator = /* @__PURE__ */ function() {
   function SwitchMapOperator2(project) {
     this.project = project;
   }
-  SwitchMapOperator2.prototype.call = function(subscriber, source) {
-    return source.subscribe(new SwitchMapSubscriber(subscriber, this.project));
+  SwitchMapOperator2.prototype.call = function(subscriber, source2) {
+    return source2.subscribe(new SwitchMapSubscriber(subscriber, this.project));
   };
   return SwitchMapOperator2;
 }();
@@ -39444,20 +39444,20 @@ var SwitchMapSubscriber = /* @__PURE__ */ function(_super) {
   return SwitchMapSubscriber2;
 }(SimpleOuterSubscriber);
 function takeUntil(notifier) {
-  return function(source) {
-    return source.lift(new TakeUntilOperator(notifier));
+  return function(source2) {
+    return source2.lift(new TakeUntilOperator(notifier));
   };
 }
 var TakeUntilOperator = /* @__PURE__ */ function() {
   function TakeUntilOperator2(notifier) {
     this.notifier = notifier;
   }
-  TakeUntilOperator2.prototype.call = function(subscriber, source) {
+  TakeUntilOperator2.prototype.call = function(subscriber, source2) {
     var takeUntilSubscriber = new TakeUntilSubscriber(subscriber);
     var notifierSubscription = innerSubscribe(this.notifier, new SimpleInnerSubscriber(takeUntilSubscriber));
     if (notifierSubscription && !takeUntilSubscriber.seenValue) {
       takeUntilSubscriber.add(notifierSubscription);
-      return source.subscribe(takeUntilSubscriber);
+      return source2.subscribe(takeUntilSubscriber);
     }
     return takeUntilSubscriber;
   };
@@ -39482,8 +39482,8 @@ function takeWhile(predicate, inclusive) {
   if (inclusive === void 0) {
     inclusive = false;
   }
-  return function(source) {
-    return source.lift(new TakeWhileOperator(predicate, inclusive));
+  return function(source2) {
+    return source2.lift(new TakeWhileOperator(predicate, inclusive));
   };
 }
 var TakeWhileOperator = /* @__PURE__ */ function() {
@@ -39491,8 +39491,8 @@ var TakeWhileOperator = /* @__PURE__ */ function() {
     this.predicate = predicate;
     this.inclusive = inclusive;
   }
-  TakeWhileOperator2.prototype.call = function(subscriber, source) {
-    return source.subscribe(new TakeWhileSubscriber(subscriber, this.predicate, this.inclusive));
+  TakeWhileOperator2.prototype.call = function(subscriber, source2) {
+    return source2.subscribe(new TakeWhileSubscriber(subscriber, this.predicate, this.inclusive));
   };
   return TakeWhileOperator2;
 }();
@@ -39530,8 +39530,8 @@ var TakeWhileSubscriber = /* @__PURE__ */ function(_super) {
   return TakeWhileSubscriber2;
 }(Subscriber);
 function tap(nextOrObserver, error, complete) {
-  return function tapOperatorFunction(source) {
-    return source.lift(new DoOperator(nextOrObserver, error, complete));
+  return function tapOperatorFunction(source2) {
+    return source2.lift(new DoOperator(nextOrObserver, error, complete));
   };
 }
 var DoOperator = /* @__PURE__ */ function() {
@@ -39540,8 +39540,8 @@ var DoOperator = /* @__PURE__ */ function() {
     this.error = error;
     this.complete = complete;
   }
-  DoOperator2.prototype.call = function(subscriber, source) {
-    return source.subscribe(new TapSubscriber(subscriber, this.nextOrObserver, this.error, this.complete));
+  DoOperator2.prototype.call = function(subscriber, source2) {
+    return source2.subscribe(new TapSubscriber(subscriber, this.nextOrObserver, this.error, this.complete));
   };
   return DoOperator2;
 }();
@@ -39598,10 +39598,10 @@ function timeoutWith(due, withObservable, scheduler) {
   if (scheduler === void 0) {
     scheduler = async;
   }
-  return function(source) {
+  return function(source2) {
     var absoluteTimeout = isDate(due);
     var waitFor = absoluteTimeout ? +due - scheduler.now() : Math.abs(due);
-    return source.lift(new TimeoutWithOperator(waitFor, absoluteTimeout, withObservable, scheduler));
+    return source2.lift(new TimeoutWithOperator(waitFor, absoluteTimeout, withObservable, scheduler));
   };
 }
 var TimeoutWithOperator = /* @__PURE__ */ function() {
@@ -39611,8 +39611,8 @@ var TimeoutWithOperator = /* @__PURE__ */ function() {
     this.withObservable = withObservable;
     this.scheduler = scheduler;
   }
-  TimeoutWithOperator2.prototype.call = function(subscriber, source) {
-    return source.subscribe(new TimeoutWithSubscriber(subscriber, this.absoluteTimeout, this.waitFor, this.withObservable, this.scheduler));
+  TimeoutWithOperator2.prototype.call = function(subscriber, source2) {
+    return source2.subscribe(new TimeoutWithSubscriber(subscriber, this.absoluteTimeout, this.waitFor, this.withObservable, this.scheduler));
   };
   return TimeoutWithOperator2;
 }();
@@ -44849,9 +44849,9 @@ const tezosPrefix = {
   RollupAddress: [20, [1, 128, 120, 31]],
   TxRollupL2Address: [20, [6, 161, 166]]
 };
-function checkDecodeTezosID(id2, ...types) {
+function checkDecodeTezosID(id2, ...types2) {
   const buf = decodeBase58Check(id2);
-  for (const t of types) {
+  for (const t of types2) {
     const [plen, p2] = tezosPrefix[t];
     if (buf.length === plen + p2.length) {
       let i2 = 0;
@@ -49201,7 +49201,7 @@ function __rest$1(s2, e) {
     }
   return t;
 }
-function __awaiter$8(thisArg, _arguments, P2, generator) {
+function __awaiter$a(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -49246,7 +49246,7 @@ class RpcInjector {
     this.context = context;
   }
   inject(signedOperationBytes) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       let hash3;
       try {
         hash3 = yield this.context.rpc.injectOperation(signedOperationBytes);
@@ -49270,22 +49270,22 @@ class UnconfiguredSignerError extends Error {
 }
 class NoopSigner {
   publicKey() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       throw new UnconfiguredSignerError();
     });
   }
   publicKeyHash() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       throw new UnconfiguredSignerError();
     });
   }
   secretKey() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       throw new UnconfiguredSignerError();
     });
   }
   sign(_bytes, _watermark) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       throw new UnconfiguredSignerError();
     });
   }
@@ -49386,9 +49386,9 @@ class InvalidParameterError extends Error {
   }
 }
 class InvalidDelegationSource extends Error {
-  constructor(source) {
-    super(`Since Babylon delegation source can no longer be a contract address ${source}. Please use the smart contract abstraction to set your delegate.`);
-    this.source = source;
+  constructor(source2) {
+    super(`Since Babylon delegation source can no longer be a contract address ${source2}. Please use the smart contract abstraction to set your delegate.`);
+    this.source = source2;
     this.name = "Invalid delegation source error";
   }
 }
@@ -49473,7 +49473,7 @@ class IntegerError extends Error {
     this.name = "IntegerError";
   }
 }
-const createOriginationOperation = ({ code: code2, init: init5, balance = "0", delegate, storage, fee = DEFAULT_FEE.ORIGINATION, gasLimit = DEFAULT_GAS_LIMIT.ORIGINATION, storageLimit = DEFAULT_STORAGE_LIMIT.ORIGINATION, mutez = false }) => __awaiter$8(void 0, void 0, void 0, function* () {
+const createOriginationOperation = ({ code: code2, init: init5, balance = "0", delegate, storage, fee = DEFAULT_FEE.ORIGINATION, gasLimit = DEFAULT_GAS_LIMIT.ORIGINATION, storageLimit = DEFAULT_STORAGE_LIMIT.ORIGINATION, mutez = false }) => __awaiter$a(void 0, void 0, void 0, function* () {
   if (storage !== void 0 && init5 !== void 0) {
     throw new OriginationParameterError("Storage and Init cannot be set a the same time. Please either use storage or init but not both.");
   }
@@ -49513,7 +49513,7 @@ const createOriginationOperation = ({ code: code2, init: init5, balance = "0", d
   }
   return operation;
 });
-const createTransferOperation = ({ to, amount, parameter, fee = DEFAULT_FEE.TRANSFER, gasLimit = DEFAULT_GAS_LIMIT.TRANSFER, storageLimit = DEFAULT_STORAGE_LIMIT.TRANSFER, mutez = false }) => __awaiter$8(void 0, void 0, void 0, function* () {
+const createTransferOperation = ({ to, amount, parameter, fee = DEFAULT_FEE.TRANSFER, gasLimit = DEFAULT_GAS_LIMIT.TRANSFER, storageLimit = DEFAULT_STORAGE_LIMIT.TRANSFER, mutez = false }) => __awaiter$a(void 0, void 0, void 0, function* () {
   const operation = {
     kind: OpKind.TRANSACTION,
     fee,
@@ -49525,10 +49525,10 @@ const createTransferOperation = ({ to, amount, parameter, fee = DEFAULT_FEE.TRAN
   };
   return operation;
 });
-const createSetDelegateOperation = ({ delegate, source, fee = DEFAULT_FEE.DELEGATION, gasLimit = DEFAULT_GAS_LIMIT.DELEGATION, storageLimit = DEFAULT_STORAGE_LIMIT.DELEGATION }) => __awaiter$8(void 0, void 0, void 0, function* () {
+const createSetDelegateOperation = ({ delegate, source: source2, fee = DEFAULT_FEE.DELEGATION, gasLimit = DEFAULT_GAS_LIMIT.DELEGATION, storageLimit = DEFAULT_STORAGE_LIMIT.DELEGATION }) => __awaiter$a(void 0, void 0, void 0, function* () {
   const operation = {
     kind: OpKind.DELEGATION,
-    source,
+    source: source2,
     fee,
     gas_limit: gasLimit,
     storage_limit: storageLimit,
@@ -49536,63 +49536,63 @@ const createSetDelegateOperation = ({ delegate, source, fee = DEFAULT_FEE.DELEGA
   };
   return operation;
 });
-const createRegisterDelegateOperation = ({ fee = DEFAULT_FEE.DELEGATION, gasLimit = DEFAULT_GAS_LIMIT.DELEGATION, storageLimit = DEFAULT_STORAGE_LIMIT.DELEGATION }, source) => __awaiter$8(void 0, void 0, void 0, function* () {
+const createRegisterDelegateOperation = ({ fee = DEFAULT_FEE.DELEGATION, gasLimit = DEFAULT_GAS_LIMIT.DELEGATION, storageLimit = DEFAULT_STORAGE_LIMIT.DELEGATION }, source2) => __awaiter$a(void 0, void 0, void 0, function* () {
   return {
     kind: OpKind.DELEGATION,
     fee,
     gas_limit: gasLimit,
     storage_limit: storageLimit,
-    delegate: source
+    delegate: source2
   };
 });
-const createRevealOperation = ({ fee = DEFAULT_FEE.REVEAL, gasLimit = DEFAULT_GAS_LIMIT.REVEAL, storageLimit = DEFAULT_STORAGE_LIMIT.REVEAL }, source, publicKey) => __awaiter$8(void 0, void 0, void 0, function* () {
+const createRevealOperation = ({ fee = DEFAULT_FEE.REVEAL, gasLimit = DEFAULT_GAS_LIMIT.REVEAL, storageLimit = DEFAULT_STORAGE_LIMIT.REVEAL }, source2, publicKey) => __awaiter$a(void 0, void 0, void 0, function* () {
   return {
     kind: OpKind.REVEAL,
     fee,
     public_key: publicKey,
-    source,
+    source: source2,
     gas_limit: gasLimit,
     storage_limit: storageLimit
   };
 });
-const createRegisterGlobalConstantOperation = ({ value, source, fee, gasLimit, storageLimit }) => __awaiter$8(void 0, void 0, void 0, function* () {
+const createRegisterGlobalConstantOperation = ({ value, source: source2, fee, gasLimit, storageLimit }) => __awaiter$a(void 0, void 0, void 0, function* () {
   return {
     kind: OpKind.REGISTER_GLOBAL_CONSTANT,
     value,
     fee,
     gas_limit: gasLimit,
     storage_limit: storageLimit,
-    source
+    source: source2
   };
 });
-const createTxRollupOriginationOperation = ({ source, fee, gasLimit, storageLimit }) => __awaiter$8(void 0, void 0, void 0, function* () {
+const createTxRollupOriginationOperation = ({ source: source2, fee, gasLimit, storageLimit }) => __awaiter$a(void 0, void 0, void 0, function* () {
   return {
     kind: OpKind.TX_ROLLUP_ORIGINATION,
     fee,
     gas_limit: gasLimit,
     storage_limit: storageLimit,
-    source,
+    source: source2,
     tx_rollup_origination: {}
   };
 });
-const createTxRollupBatchOperation = ({ content, rollup, source, fee, gasLimit, storageLimit }) => __awaiter$8(void 0, void 0, void 0, function* () {
+const createTxRollupBatchOperation = ({ content, rollup, source: source2, fee, gasLimit, storageLimit }) => __awaiter$a(void 0, void 0, void 0, function* () {
   return {
     kind: OpKind.TX_ROLLUP_SUBMIT_BATCH,
     fee,
     gas_limit: gasLimit,
     storage_limit: storageLimit,
-    source,
+    source: source2,
     content,
     rollup
   };
 });
-const createTransferTicketOperation = ({ ticketContents, ticketTy, ticketTicketer, ticketAmount, destination, entrypoint, source, fee, gasLimit, storageLimit }) => __awaiter$8(void 0, void 0, void 0, function* () {
+const createTransferTicketOperation = ({ ticketContents, ticketTy, ticketTicketer, ticketAmount, destination, entrypoint, source: source2, fee, gasLimit, storageLimit }) => __awaiter$a(void 0, void 0, void 0, function* () {
   return {
     kind: OpKind.TRANSFER_TICKET,
     fee,
     gas_limit: gasLimit,
     storage_limit: storageLimit,
-    source,
+    source: source2,
     ticket_contents: ticketContents,
     ticket_ty: ticketTy,
     ticket_ticketer: ticketTicketer,
@@ -49601,10 +49601,10 @@ const createTransferTicketOperation = ({ ticketContents, ticketTy, ticketTickete
     entrypoint
   };
 });
-const createIncreasePaidStorageOperation = ({ source, fee, gasLimit, storageLimit, amount, destination }) => __awaiter$8(void 0, void 0, void 0, function* () {
+const createIncreasePaidStorageOperation = ({ source: source2, fee, gasLimit, storageLimit, amount, destination }) => __awaiter$a(void 0, void 0, void 0, function* () {
   return {
     kind: OpKind.INCREASE_PAID_STORAGE,
-    source,
+    source: source2,
     fee,
     gas_limit: gasLimit,
     storage_limit: storageLimit,
@@ -49612,7 +49612,7 @@ const createIncreasePaidStorageOperation = ({ source, fee, gasLimit, storageLimi
     destination
   };
 });
-const createDrainDelegateOperation = ({ consensus_key, delegate, destination }) => __awaiter$8(void 0, void 0, void 0, function* () {
+const createDrainDelegateOperation = ({ consensus_key, delegate, destination }) => __awaiter$a(void 0, void 0, void 0, function* () {
   return {
     kind: OpKind.DRAIN_DELEGATE,
     consensus_key,
@@ -49620,25 +49620,25 @@ const createDrainDelegateOperation = ({ consensus_key, delegate, destination }) 
     destination
   };
 });
-const createBallotOperation = ({ source, proposal, ballot }) => __awaiter$8(void 0, void 0, void 0, function* () {
+const createBallotOperation = ({ source: source2, proposal, ballot }) => __awaiter$a(void 0, void 0, void 0, function* () {
   return {
     kind: OpKind.BALLOT,
-    source,
+    source: source2,
     proposal,
     ballot
   };
 });
-const createProposalsOperation = ({ source, proposals }) => __awaiter$8(void 0, void 0, void 0, function* () {
+const createProposalsOperation = ({ source: source2, proposals }) => __awaiter$a(void 0, void 0, void 0, function* () {
   return {
     kind: OpKind.PROPOSALS,
-    source,
+    source: source2,
     proposals
   };
 });
-const createUpdateConsensusKeyOperation = ({ source, fee, gasLimit, storageLimit, pk }) => __awaiter$8(void 0, void 0, void 0, function* () {
+const createUpdateConsensusKeyOperation = ({ source: source2, fee, gasLimit, storageLimit, pk }) => __awaiter$a(void 0, void 0, void 0, function* () {
   return {
     kind: OpKind.UPDATE_CONSENSUS_KEY,
-    source,
+    source: source2,
     fee,
     gas_limit: gasLimit,
     storage_limit: storageLimit,
@@ -49869,7 +49869,7 @@ class Operation {
    * @param timeout [180] Timeout
    */
   confirmation(confirmations, timeout) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (typeof confirmations !== "undefined" && confirmations < 1) {
         throw new InvalidConfirmationCountError("Confirmation count must be at least 1");
       }
@@ -49887,10 +49887,10 @@ class Operation {
   }
 }
 class BatchOperation extends Operation {
-  constructor(hash3, params, source, raw, results, context) {
+  constructor(hash3, params, source2, raw, results, context) {
     super(hash3, raw, results, context);
     this.params = params;
-    this.source = source;
+    this.source = source2;
   }
   sumProp(arr, prop) {
     return arr.reduce((prev, current) => {
@@ -49950,12 +49950,12 @@ class OperationEmitter {
     return this.context.signer;
   }
   isRevealOpNeeded(op, pkh) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return !(yield this.isAccountRevealRequired(pkh)) || !this.isRevealRequiredForOpType(op) ? false : true;
     });
   }
   isAccountRevealRequired(publicKeyHash) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return !(yield this.context.readProvider.isAccountRevealed(publicKeyHash, "head"));
     });
   }
@@ -49969,8 +49969,8 @@ class OperationEmitter {
     return opRequireReveal;
   }
   // Originally from sotez (Copyright (c) 2018 Andrew Kishino)
-  prepareOperation({ operation, source }, pkh) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+  prepareOperation({ operation, source: source2 }, pkh) {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const counters = {};
       let ops = [];
       const blockHashPromise = this.context.readProvider.getBlockHash("head~2");
@@ -49983,7 +49983,7 @@ class OperationEmitter {
       const publicKeyHash = pkh ? pkh : yield this.signer.publicKeyHash();
       let counterPromise = Promise.resolve(void 0);
       let currentVotingPeriodPromise = Promise.resolve(void 0);
-      ops.find((op) => __awaiter$8(this, void 0, void 0, function* () {
+      ops.find((op) => __awaiter$a(this, void 0, void 0, function* () {
         if (op.kind === "ballot" || op.kind === "proposals") {
           try {
             currentVotingPeriodPromise = this.rpc.getCurrentPeriod();
@@ -50019,7 +50019,7 @@ class OperationEmitter {
       };
       const getSource = (op) => {
         return {
-          source: typeof op.source === "undefined" ? source || publicKeyHash : op.source
+          source: typeof op.source === "undefined" ? source2 || publicKeyHash : op.source
         };
       };
       const constructOps = (cOps) => cOps.map((op) => {
@@ -50073,7 +50073,7 @@ class OperationEmitter {
     });
   }
   forge({ opOb: { branch, contents, protocol }, counter }) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const forgedBytes = yield this.context.forger.forge({ branch, contents });
       return {
         opbytes: forgedBytes,
@@ -50087,7 +50087,7 @@ class OperationEmitter {
     });
   }
   simulate(op) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return {
         opResponse: yield this.rpc.runOperation(op),
         op,
@@ -50097,7 +50097,7 @@ class OperationEmitter {
   }
   estimate(_a2, estimator) {
     var { fee, gasLimit, storageLimit } = _a2, rest = __rest$1(_a2, ["fee", "gasLimit", "storageLimit"]);
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       let calculatedFee = fee;
       let calculatedGas = gasLimit;
       let calculatedStorage = storageLimit;
@@ -50121,7 +50121,7 @@ class OperationEmitter {
     });
   }
   signAndInject(forgedBytes) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const signed2 = yield this.signer.sign(forgedBytes.opbytes, new Uint8Array([3]));
       forgedBytes.opbytes = signed2.sbytes;
       forgedBytes.opOb.signature = signed2.prefixSig;
@@ -50276,7 +50276,7 @@ class OperationBatch extends OperationEmitter {
     return this;
   }
   getRPCOp(param) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       switch (param.kind) {
         case OpKind.TRANSACTION:
           return createTransferOperation(Object.assign({}, param));
@@ -50350,7 +50350,7 @@ class OperationBatch extends OperationEmitter {
    * @param params Optionally specify the source of the operation
    */
   send(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const publicKeyHash = yield this.signer.publicKeyHash();
       const publicKey = yield this.signer.publicKey();
       const estimates = yield this.estimator.batch(this.operations);
@@ -50359,7 +50359,7 @@ class OperationBatch extends OperationEmitter {
       const ops = [];
       for (const op of this.operations) {
         if (isOpWithFee(op)) {
-          const estimated = yield this.estimate(op, () => __awaiter$8(this, void 0, void 0, function* () {
+          const estimated = yield this.estimate(op, () => __awaiter$a(this, void 0, void 0, function* () {
             return estimates[i2];
           }));
           ops.push(yield this.getRPCOp(Object.assign(Object.assign({}, op), estimated)));
@@ -50370,19 +50370,19 @@ class OperationBatch extends OperationEmitter {
       }
       if (revealNeeded) {
         const reveal = { kind: OpKind.REVEAL };
-        const estimatedReveal = yield this.estimate(reveal, () => __awaiter$8(this, void 0, void 0, function* () {
+        const estimatedReveal = yield this.estimate(reveal, () => __awaiter$a(this, void 0, void 0, function* () {
           return estimates[0];
         }));
         ops.unshift(yield createRevealOperation(Object.assign({}, estimatedReveal), publicKeyHash, publicKey));
       }
-      const source = params && params.source || publicKeyHash;
+      const source2 = params && params.source || publicKeyHash;
       const prepared = yield this.prepareOperation({
         operation: ops,
-        source
+        source: source2
       });
       const opBytes = yield this.forge(prepared);
       const { hash: hash3, context, forgedBytes, opResponse } = yield this.signAndInject(opBytes);
-      return new BatchOperation(hash3, ops, source, forgedBytes, opResponse, context);
+      return new BatchOperation(hash3, ops, source2, forgedBytes, opResponse, context);
     });
   }
 }
@@ -50476,7 +50476,7 @@ class WalletOperation {
     this.confirmed$.pipe(first(), catchError(() => of(void 0))).subscribe();
   }
   operationResults() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return this._operationResult.pipe(first()).toPromise();
     });
   }
@@ -50485,12 +50485,12 @@ class WalletOperation {
    * The promise returned by receipt will resolve only once the transaction is included
    */
   receipt() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return receiptFromOperation(yield this.operationResults());
     });
   }
   getCurrentConfirmation() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (!this._included) {
         return 0;
       }
@@ -50500,7 +50500,7 @@ class WalletOperation {
     });
   }
   isInCurrentBranch(tipBlockIdentifier = "head") {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (!this._included) {
         return true;
       }
@@ -50549,7 +50549,7 @@ class BatchWalletOperation extends WalletOperation {
     super(opHash, context, newHead$);
     this.opHash = opHash;
     this.context = context;
-    this.getOriginatedContractAddresses = () => __awaiter$8(this, void 0, void 0, function* () {
+    this.getOriginatedContractAddresses = () => __awaiter$a(this, void 0, void 0, function* () {
       const opResult = yield this.operationResults();
       const originationOpResults = opResult.filter((x2) => x2.kind === "origination");
       let addresses = [];
@@ -50562,13 +50562,13 @@ class BatchWalletOperation extends WalletOperation {
     });
   }
   revealOperation() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const operationResult = yield this.operationResults();
       return operationResult.find((x2) => x2.kind === OpKind.REVEAL);
     });
   }
   status() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (!this._included) {
         return "pending";
       }
@@ -50590,19 +50590,19 @@ class DelegationWalletOperation extends WalletOperation {
     this.context = context;
   }
   revealOperation() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const operationResult = yield this.operationResults();
       return operationResult.find((x2) => x2.kind === OpKind.REVEAL);
     });
   }
   delegationOperation() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const operationResult = yield this.operationResults();
       return operationResult.find((x2) => x2.kind === OpKind.DELEGATION);
     });
   }
   status() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (!this._included) {
         return "pending";
       }
@@ -50621,19 +50621,19 @@ class OriginationWalletOperation extends WalletOperation {
     this.context = context;
   }
   originationOperation() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const operationResult = yield this.operationResults();
       return findWithKind(operationResult, OpKind.ORIGINATION);
     });
   }
   revealOperation() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const operationResult = yield this.operationResults();
       return findWithKind(operationResult, OpKind.REVEAL);
     });
   }
   status() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (!this._included) {
         return "pending";
       }
@@ -50645,7 +50645,7 @@ class OriginationWalletOperation extends WalletOperation {
     });
   }
   contract() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const op = yield this.originationOperation();
       const address = ((op === null || op === void 0 ? void 0 : op.metadata.operation_result.originated_contracts) || [])[0];
       return this.context.wallet.at(address);
@@ -50659,19 +50659,19 @@ class TransactionWalletOperation extends WalletOperation {
     this.context = context;
   }
   revealOperation() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const operationResult = yield this.operationResults();
       return operationResult.find((x2) => x2.kind === OpKind.REVEAL);
     });
   }
   transactionOperation() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const operationResult = yield this.operationResults();
       return operationResult.find((x2) => x2.kind === OpKind.TRANSACTION);
     });
   }
   status() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (!this._included) {
         return "pending";
       }
@@ -50684,8 +50684,8 @@ class TransactionWalletOperation extends WalletOperation {
   }
 }
 function timeoutAfter(timeoutMillisec) {
-  return function inner(source) {
-    return new BehaviorSubject(null).pipe(timeoutWith(timeoutMillisec, throwError(new Error("Confirmation polling timed out"))), mergeMap(() => source));
+  return function inner(source2) {
+    return new BehaviorSubject(null).pipe(timeoutWith(timeoutMillisec, throwError(new Error("Confirmation polling timed out"))), mergeMap(() => source2));
   };
 }
 const createNewPollingBasedHeadObservable = (sharedHeadOb, context, _scheduler) => {
@@ -50699,7 +50699,7 @@ class OperationFactory {
     });
   }
   createNewHeadObservable() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return createNewPollingBasedHeadObservable(this.sharedHeadObs, this.context);
     });
   }
@@ -50708,13 +50708,13 @@ class OperationFactory {
       if (count === 1) {
         return of(block);
       }
-      return range(block.header.level, count - 1).pipe(startWith(block), concatMap((level) => __awaiter$8(this, void 0, void 0, function* () {
+      return range(block.header.level, count - 1).pipe(startWith(block), concatMap((level) => __awaiter$a(this, void 0, void 0, function* () {
         return this.context.readProvider.getBlock(typeof level === "number" ? level : level.header.level);
       })));
     }));
   }
   createHeadObservableFromConfig({ blockIdentifier }) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const observableSequence = [];
       if (blockIdentifier) {
         observableSequence.push(this.createPastBlockWalker(blockIdentifier));
@@ -50724,27 +50724,27 @@ class OperationFactory {
     });
   }
   createOperation(hash3, config2 = {}) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return new WalletOperation(hash3, this.context.clone(), yield this.createHeadObservableFromConfig(config2));
     });
   }
   createBatchOperation(hash3, config2 = {}) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return new BatchWalletOperation(hash3, this.context.clone(), yield this.createHeadObservableFromConfig(config2));
     });
   }
   createTransactionOperation(hash3, config2 = {}) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return new TransactionWalletOperation(hash3, this.context.clone(), yield this.createHeadObservableFromConfig(config2));
     });
   }
   createDelegationOperation(hash3, config2 = {}) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return new DelegationWalletOperation(hash3, this.context.clone(), yield this.createHeadObservableFromConfig(config2));
     });
   }
   createOriginationOperation(hash3, config2 = {}) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return new OriginationWalletOperation(hash3, this.context.clone(), yield this.createHeadObservableFromConfig(config2));
     });
   }
@@ -50754,7 +50754,7 @@ class RpcTzProvider extends OperationEmitter {
     super(context);
   }
   getBalance(address) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (validateAddress(address) !== ValidationResult.VALID) {
         throw new InvalidAddressError(address);
       }
@@ -50762,7 +50762,7 @@ class RpcTzProvider extends OperationEmitter {
     });
   }
   getDelegate(address) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (validateAddress(address) !== ValidationResult.VALID) {
         throw new InvalidAddressError(address);
       }
@@ -50770,7 +50770,7 @@ class RpcTzProvider extends OperationEmitter {
     });
   }
   activate(pkh, secret2) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (validateKeyHash(pkh) !== ValidationResult.VALID) {
         throw new InvalidKeyHashError(pkh);
       }
@@ -50897,7 +50897,7 @@ class RPCEstimateProvider extends OperationEmitter {
     this.OP_SIZE_REVEAL = 128;
   }
   getKeys() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const isSignerConfigured = this.context.isAnySignerConfigured();
       return {
         publicKeyHash: isSignerConfigured ? yield this.signer.publicKeyHash() : yield this.context.walletProvider.getPKH(),
@@ -50907,7 +50907,7 @@ class RPCEstimateProvider extends OperationEmitter {
   }
   // Maximum values defined by the protocol
   getAccountLimits(pkh, constants, numberOfOps) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const balance = yield this.context.readProvider.getBalance(pkh, "head");
       const { hard_gas_limit_per_operation, hard_gas_limit_per_block, hard_storage_limit_per_operation, cost_per_byte } = constants;
       return {
@@ -50954,7 +50954,7 @@ class RPCEstimateProvider extends OperationEmitter {
     }
   }
   prepareEstimate(params, constants, pkh) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const prepared = yield this.prepareOperation(params, pkh);
       const { opbytes, opOb: { branch, contents } } = yield this.forge(prepared);
       const operation = {
@@ -50992,7 +50992,7 @@ class RPCEstimateProvider extends OperationEmitter {
    */
   originate(_a2) {
     var { fee, storageLimit, gasLimit } = _a2, rest = __rest$1(_a2, ["fee", "storageLimit", "gasLimit"]);
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const { publicKeyHash } = yield this.getKeys();
       const protocolConstants = yield this.context.readProvider.getProtocolConstants("head");
       const DEFAULT_PARAMS = yield this.getAccountLimits(publicKeyHash, protocolConstants);
@@ -51016,7 +51016,7 @@ class RPCEstimateProvider extends OperationEmitter {
    */
   transfer(_a2) {
     var { fee, storageLimit, gasLimit } = _a2, rest = __rest$1(_a2, ["fee", "storageLimit", "gasLimit"]);
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (validateAddress(rest.to) !== ValidationResult.VALID) {
         throw new InvalidAddressError(rest.to);
       }
@@ -51047,7 +51047,7 @@ class RPCEstimateProvider extends OperationEmitter {
   transferTicket(_a2) {
     var _b;
     var { fee, storageLimit, gasLimit } = _a2, rest = __rest$1(_a2, ["fee", "storageLimit", "gasLimit"]);
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (validateContractAddress(rest.destination) !== ValidationResult.VALID) {
         throw new InvalidContractAddressError(rest.destination);
       }
@@ -51077,7 +51077,7 @@ class RPCEstimateProvider extends OperationEmitter {
    */
   setDelegate(_a2) {
     var { fee, gasLimit, storageLimit } = _a2, rest = __rest$1(_a2, ["fee", "gasLimit", "storageLimit"]);
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (rest.source && validateAddress(rest.source) !== ValidationResult.VALID) {
         throw new InvalidAddressError(rest.source);
       }
@@ -51105,7 +51105,7 @@ class RPCEstimateProvider extends OperationEmitter {
    * @returns An array of Estimate objects. If a reveal operation is needed, the first element of the array is the Estimate for the reveal operation.
    */
   batch(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const { publicKeyHash } = yield this.getKeys();
       let operations = [];
       const protocolConstants = yield this.context.readProvider.getProtocolConstants("head");
@@ -51158,7 +51158,7 @@ class RPCEstimateProvider extends OperationEmitter {
    * @param Estimate
    */
   registerDelegate(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const pkh = (yield this.getKeys()).publicKeyHash;
       const protocolConstants = yield this.context.readProvider.getProtocolConstants("head");
       const DEFAULT_PARAMS = yield this.getAccountLimits(pkh, protocolConstants);
@@ -51181,7 +51181,7 @@ class RPCEstimateProvider extends OperationEmitter {
    * @param Estimate
    */
   reveal(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const { publicKeyHash, publicKey } = yield this.getKeys();
       if (!publicKey) {
         throw new RevealEstimateError();
@@ -51205,7 +51205,7 @@ class RPCEstimateProvider extends OperationEmitter {
    */
   registerGlobalConstant(_a2) {
     var { fee, storageLimit, gasLimit } = _a2, rest = __rest$1(_a2, ["fee", "storageLimit", "gasLimit"]);
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const pkh = (yield this.getKeys()).publicKeyHash;
       const protocolConstants = yield this.context.readProvider.getProtocolConstants("head");
       const DEFAULT_PARAMS = yield this.getAccountLimits(pkh, protocolConstants);
@@ -51228,7 +51228,7 @@ class RPCEstimateProvider extends OperationEmitter {
    * @param params increasePaidStorage operation parameters
    */
   increasePaidStorage(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const { fee, storageLimit, gasLimit } = params, rest = __rest$1(params, ["fee", "storageLimit", "gasLimit"]);
       const pkh = (yield this.getKeys()).publicKeyHash;
       const protocolConstants = yield this.context.readProvider.getProtocolConstants("head");
@@ -51252,7 +51252,7 @@ class RPCEstimateProvider extends OperationEmitter {
    * @param TxRollupOriginateParams Originate tx rollup operation parameter
    */
   txRollupOriginate(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       params = params ? params : {};
       const { fee, storageLimit, gasLimit } = params, rest = __rest$1(params, ["fee", "storageLimit", "gasLimit"]);
       const pkh = (yield this.getKeys()).publicKeyHash;
@@ -51277,7 +51277,7 @@ class RPCEstimateProvider extends OperationEmitter {
    * @param Estimate
    */
   txRollupSubmitBatch(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const { fee, storageLimit, gasLimit } = params, rest = __rest$1(params, ["fee", "storageLimit", "gasLimit"]);
       const pkh = (yield this.getKeys()).publicKeyHash;
       const protocolConstants = yield this.context.readProvider.getProtocolConstants("head");
@@ -51301,7 +51301,7 @@ class RPCEstimateProvider extends OperationEmitter {
    * @param Estimate
    */
   updateConsensusKey(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const { fee, storageLimit, gasLimit } = params, rest = __rest$1(params, ["fee", "storageLimit", "gasLimit"]);
       const pkh = (yield this.getKeys()).publicKeyHash;
       const protocolConstants = yield this.context.readProvider.getProtocolConstants("head");
@@ -51317,7 +51317,7 @@ class RPCEstimateProvider extends OperationEmitter {
     });
   }
   addRevealOp(op, pkh) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const { publicKey } = yield this.getKeys();
       if (!publicKey) {
         throw new RevealEstimateError();
@@ -51332,10 +51332,10 @@ class RPCEstimateProvider extends OperationEmitter {
   }
 }
 class DelegateOperation extends Operation {
-  constructor(hash3, params, source, raw, results, context) {
+  constructor(hash3, params, source2, raw, results, context) {
     super(hash3, raw, results, context);
     this.params = params;
-    this.source = source;
+    this.source = source2;
   }
   get operationResults() {
     const delegationOp = Array.isArray(this.results) && this.results.find((op) => op.kind === "delegation");
@@ -51426,7 +51426,7 @@ class OriginationOperation extends Operation {
    * @description Provide the contract abstract of the newly originated contract
    */
   contract(confirmations, timeout) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (!this.contractAddress) {
         throw new OriginationOperationError("No contract was originated in this operation");
       }
@@ -51436,10 +51436,10 @@ class OriginationOperation extends Operation {
   }
 }
 class RegisterGlobalConstantOperation extends Operation {
-  constructor(hash3, params, source, raw, results, context) {
+  constructor(hash3, params, source2, raw, results, context) {
     super(hash3, raw, results, context);
     this.params = params;
-    this.source = source;
+    this.source = source2;
     this.globalConstantHash = this.operationResults && this.operationResults.global_address;
   }
   get operationResults() {
@@ -51477,10 +51477,10 @@ class RegisterGlobalConstantOperation extends Operation {
   }
 }
 class RevealOperation extends Operation {
-  constructor(hash3, params, source, raw, results, context) {
+  constructor(hash3, params, source2, raw, results, context) {
     super(hash3, raw, results, context);
     this.params = params;
-    this.source = source;
+    this.source = source2;
   }
   get operationResults() {
     const revealOp = Array.isArray(this.results) && this.results.find((op) => op.kind === "reveal");
@@ -51530,10 +51530,10 @@ class RevealOperation extends Operation {
   }
 }
 class TransactionOperation extends Operation {
-  constructor(hash3, params, source, raw, results, context) {
+  constructor(hash3, params, source2, raw, results, context) {
     super(hash3, raw, results, context);
     this.params = params;
-    this.source = source;
+    this.source = source2;
   }
   get operationResults() {
     const transactionOp = Array.isArray(this.results) && this.results.find((op) => op.kind === "transaction");
@@ -51641,13 +51641,13 @@ class ContractMethod {
    *
    * @param Options generic transfer operation parameters
    */
-  toTransferParams({ fee, gasLimit, storageLimit, source, amount = 0, mutez = false } = {}) {
+  toTransferParams({ fee, gasLimit, storageLimit, source: source2, amount = 0, mutez = false } = {}) {
     const fullTransferParams = {
       to: this.address,
       amount,
       fee,
       mutez,
-      source,
+      source: source2,
       gasLimit,
       storageLimit,
       parameter: {
@@ -51672,7 +51672,7 @@ class SaplingStateAbstraction {
    *
    */
   getSaplingDiff(block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return this.provider.getSaplingDiffByID(this.id.toString(), block);
     });
   }
@@ -51733,18 +51733,18 @@ class WalletOperationBatch {
     return this;
   }
   mapOperation(param) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       switch (param.kind) {
         case OpKind.TRANSACTION:
-          return this.walletProvider.mapTransferParamsToWalletParams(() => __awaiter$8(this, void 0, void 0, function* () {
+          return this.walletProvider.mapTransferParamsToWalletParams(() => __awaiter$a(this, void 0, void 0, function* () {
             return param;
           }));
         case OpKind.ORIGINATION:
-          return this.walletProvider.mapOriginateParamsToWalletParams(() => __awaiter$8(this, void 0, void 0, function* () {
+          return this.walletProvider.mapOriginateParamsToWalletParams(() => __awaiter$a(this, void 0, void 0, function* () {
             return this.context.parser.prepareCodeOrigination(Object.assign({}, param));
           }));
         case OpKind.DELEGATION:
-          return this.walletProvider.mapDelegateParamsToWalletParams(() => __awaiter$8(this, void 0, void 0, function* () {
+          return this.walletProvider.mapDelegateParamsToWalletParams(() => __awaiter$a(this, void 0, void 0, function* () {
             return param;
           }));
         default:
@@ -51782,7 +51782,7 @@ class WalletOperationBatch {
    *
    */
   send() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const ops = [];
       for (const op of this.operations) {
         ops.push(yield this.mapOperation(op));
@@ -51811,7 +51811,7 @@ class Wallet {
    * If forceRefetch is specified the wallet provider implementation will refetch the PKH from the wallet
    */
   pkh({ forceRefetch } = {}) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (!this._pkh || forceRefetch) {
         this._pkh = yield this.walletProvider.getPKH();
       }
@@ -51827,7 +51827,7 @@ class Wallet {
    * @param originateParams Originate operation parameter
    */
   originate(params) {
-    return this.walletCommand(() => __awaiter$8(this, void 0, void 0, function* () {
+    return this.walletCommand(() => __awaiter$a(this, void 0, void 0, function* () {
       const mappedParams = yield this.walletProvider.mapOriginateParamsToWalletParams(() => this.context.parser.prepareCodeOrigination(Object.assign({}, params)));
       const opHash = yield this.walletProvider.sendOperations([mappedParams]);
       return this.context.operationFactory.createOriginationOperation(opHash);
@@ -51845,8 +51845,8 @@ class Wallet {
     if (params.delegate && validateAddress(params.delegate) !== ValidationResult.VALID) {
       throw new InvalidAddressError(params.delegate);
     }
-    return this.walletCommand(() => __awaiter$8(this, void 0, void 0, function* () {
-      const mappedParams = yield this.walletProvider.mapDelegateParamsToWalletParams(() => __awaiter$8(this, void 0, void 0, function* () {
+    return this.walletCommand(() => __awaiter$a(this, void 0, void 0, function* () {
+      const mappedParams = yield this.walletProvider.mapDelegateParamsToWalletParams(() => __awaiter$a(this, void 0, void 0, function* () {
         return params;
       }));
       const opHash = yield this.walletProvider.sendOperations([mappedParams]);
@@ -51861,8 +51861,8 @@ class Wallet {
    *
    */
   registerDelegate() {
-    return this.walletCommand(() => __awaiter$8(this, void 0, void 0, function* () {
-      const mappedParams = yield this.walletProvider.mapDelegateParamsToWalletParams(() => __awaiter$8(this, void 0, void 0, function* () {
+    return this.walletCommand(() => __awaiter$a(this, void 0, void 0, function* () {
+      const mappedParams = yield this.walletProvider.mapDelegateParamsToWalletParams(() => __awaiter$a(this, void 0, void 0, function* () {
         const delegate = yield this.pkh();
         return { delegate };
       }));
@@ -51882,8 +51882,8 @@ class Wallet {
     if (validateAddress(params.to) !== ValidationResult.VALID) {
       throw new InvalidAddressError(params.to);
     }
-    return this.walletCommand(() => __awaiter$8(this, void 0, void 0, function* () {
-      const mappedParams = yield this.walletProvider.mapTransferParamsToWalletParams(() => __awaiter$8(this, void 0, void 0, function* () {
+    return this.walletCommand(() => __awaiter$a(this, void 0, void 0, function* () {
+      const mappedParams = yield this.walletProvider.mapTransferParamsToWalletParams(() => __awaiter$a(this, void 0, void 0, function* () {
         return params;
       }));
       const opHash = yield this.walletProvider.sendOperations([mappedParams]);
@@ -51913,7 +51913,7 @@ class Wallet {
    * @param address Smart contract address
    */
   at(address, contractAbstractionComposer = (x2) => x2) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (validateContractAddress(address) !== ValidationResult.VALID) {
         throw new InvalidContractAddressError(address);
       }
@@ -51931,27 +51931,27 @@ class LegacyWalletProvider {
     this.context = context;
   }
   getPKH() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return this.context.signer.publicKeyHash();
     });
   }
   mapTransferParamsToWalletParams(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return attachKind(yield params(), OpKind.TRANSACTION);
     });
   }
   mapOriginateParamsToWalletParams(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return attachKind(yield params(), OpKind.ORIGINATION);
     });
   }
   mapDelegateParamsToWalletParams(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return attachKind(yield params(), OpKind.DELEGATION);
     });
   }
   sendOperations(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const op = yield this.context.batch.batch(params).send();
       return op.hash;
     });
@@ -51992,13 +51992,13 @@ class ContractMethodObject {
    *
    * @param Options generic transfer operation parameters
    */
-  toTransferParams({ fee, gasLimit, storageLimit, source, amount = 0, mutez = false } = {}) {
+  toTransferParams({ fee, gasLimit, storageLimit, source: source2, amount = 0, mutez = false } = {}) {
     const fullTransferParams = {
       to: this.address,
       amount,
       fee,
       mutez,
-      source,
+      source: source2,
       gasLimit,
       storageLimit,
       parameter: {
@@ -52033,7 +52033,7 @@ class OnChainView {
    * @param executionContext.viewCaller the contract address which is the caller of view.
    */
   executeView(executionContext) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       this.verifyContextExecution(executionContext);
       const chainId = yield this._readProvider.getChainId();
       const viewArgs = this.transformArgsToMichelson();
@@ -52097,7 +52097,7 @@ class OnChainView {
     return instructions;
   }
   executeViewAndDecodeResult(viewScript) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       let storage;
       try {
         storage = (yield this._rpc.runScriptView(viewScript)).data;
@@ -52136,7 +52136,7 @@ class ContractView {
     this.readProvider = readProvider;
   }
   read(chainId) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (validateContractAddress(chainId !== null && chainId !== void 0 ? chainId : "") == ValidationResult.VALID) {
         throw new DeprecationError(`Since version 12, the lambda view no longer depends on a lambda contract. The read method no longer accepts a contract address as a parameter.`);
       } else if (chainId && validateChain(chainId) !== ValidationResult.VALID) {
@@ -52277,7 +52277,7 @@ class BigMapAbstraction {
    *
    */
   get(keyToEncode, block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       try {
         const id2 = yield this.provider.getBigMapKeyByID(this.id.toString(), keyToEncode, this.schema, block);
         return id2;
@@ -52304,7 +52304,7 @@ class BigMapAbstraction {
    *
    */
   getMultipleValues(keysToEncode, block, batchSize = 5) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return this.provider.getBigMapKeysByID(this.id.toString(), keysToEncode, this.schema, block, batchSize);
     });
   }
@@ -52339,10 +52339,10 @@ const smartContractAbstractionSemantic = (provider) => ({
   */
 });
 class TxRollupOriginationOperation extends Operation {
-  constructor(hash3, params, source, raw, results, context) {
+  constructor(hash3, params, source2, raw, results, context) {
     super(hash3, raw, results, context);
     this.params = params;
-    this.source = source;
+    this.source = source2;
     this.originatedRollup = this.operationResults && this.operationResults.originated_rollup;
   }
   get operationResults() {
@@ -52377,10 +52377,10 @@ class TxRollupOriginationOperation extends Operation {
   }
 }
 class TxRollupBatchOperation extends Operation {
-  constructor(hash3, params, source, raw, results, context) {
+  constructor(hash3, params, source2, raw, results, context) {
     super(hash3, raw, results, context);
     this.params = params;
-    this.source = source;
+    this.source = source2;
   }
   get operationResults() {
     const txrollupBatchOp = Array.isArray(this.results) && this.results.find((op) => op.kind === "tx_rollup_submit_batch");
@@ -52417,10 +52417,10 @@ class TxRollupBatchOperation extends Operation {
   }
 }
 class BallotOperation extends Operation {
-  constructor(hash3, params, source, raw, results, context) {
+  constructor(hash3, params, source2, raw, results, context) {
     super(hash3, raw, results, context);
     this.params = params;
-    this.source = source;
+    this.source = source2;
   }
   get operationResults() {
     const ballotOp = Array.isArray(this.results) && this.results.find((op) => op.kind === "ballot");
@@ -52459,10 +52459,10 @@ class DrainDelegateOperation extends Operation {
   }
 }
 class TransferTicketOperation extends Operation {
-  constructor(hash3, params, source, raw, results, context) {
+  constructor(hash3, params, source2, raw, results, context) {
     super(hash3, raw, results, context);
     this.params = params;
-    this.source = source;
+    this.source = source2;
   }
   get operationResults() {
     const transferOp = Array.isArray(this.results) && this.results.find((op) => op.kind === OpKind.TRANSFER_TICKET);
@@ -52492,10 +52492,10 @@ class TransferTicketOperation extends Operation {
   }
 }
 class IncreasePaidStorageOperation extends Operation {
-  constructor(hash3, params, source, raw, results, context) {
+  constructor(hash3, params, source2, raw, results, context) {
     super(hash3, raw, results, context);
     this.params = params;
-    this.source = source;
+    this.source = source2;
   }
   get operationResults() {
     const increasePaidStorageOp = Array.isArray(this.results) && this.results.find((op) => op.kind === "increase_paid_storage");
@@ -52531,10 +52531,10 @@ class IncreasePaidStorageOperation extends Operation {
   }
 }
 class ProposalsOperation extends Operation {
-  constructor(hash3, params, source, raw, results, context) {
+  constructor(hash3, params, source2, raw, results, context) {
     super(hash3, raw, results, context);
     this.params = params;
-    this.source = source;
+    this.source = source2;
   }
   get operationResults() {
     const proposalsOp = Array.isArray(this.results) && this.results.find((op) => op.kind === "proposals");
@@ -52550,10 +52550,10 @@ class ProposalsOperation extends Operation {
   }
 }
 class UpdateConsensusKeyOperation extends Operation {
-  constructor(hash3, params, source, raw, results, context) {
+  constructor(hash3, params, source2, raw, results, context) {
     super(hash3, raw, results, context);
     this.params = params;
-    this.source = source;
+    this.source = source2;
   }
   get operationResults() {
     const updateConsensusKeyOp = Array.isArray(this.results) && this.results.find((op) => op.kind === "update_consensus_key");
@@ -52601,7 +52601,7 @@ class RpcContractProvider extends OperationEmitter {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-context-contracts-contract-id-script
    */
   getStorage(contract, schema) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (validateContractAddress(contract) !== ValidationResult.VALID) {
         throw new InvalidContractAddressError(contract);
       }
@@ -52631,7 +52631,7 @@ class RpcContractProvider extends OperationEmitter {
    * @see https://tezos.gitlab.io/api/rpc.html#post-block-id-context-contracts-contract-id-big-map-get
    */
   getBigMapKey(contract, key2, schema) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (validateContractAddress(contract) !== ValidationResult.VALID) {
         throw new InvalidContractAddressError(contract);
       }
@@ -52661,7 +52661,7 @@ class RpcContractProvider extends OperationEmitter {
    * @see https://tezos.gitlab.io/api/rpc.html#get-block-id-context-big-maps-big-map-id-script-expr
    */
   getBigMapKeyByID(id2, keyToEncode, schema, block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const { key: key2, type } = schema.EncodeBigMapKey(keyToEncode);
       const { packed } = yield this.context.packer.packData({ data: key2, type });
       const encodedExpr = encodeExpr(packed);
@@ -52685,7 +52685,7 @@ class RpcContractProvider extends OperationEmitter {
    *
    */
   getBigMapKeysByID(id2, keys, schema, block, batchSize = 5) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const level = yield this.getBlockForRequest(keys, block);
       const bigMapValues = new MichelsonMap();
       let position = 0;
@@ -52703,12 +52703,12 @@ class RpcContractProvider extends OperationEmitter {
     });
   }
   getBlockForRequest(keys, block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return keys.length === 1 || typeof block !== "undefined" ? block : yield this.context.readProvider.getBlockLevel("head");
     });
   }
   getBigMapValueOrUndefined(keyToEncode, id2, schema, level) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       try {
         return yield this.getBigMapKeyByID(id2, keyToEncode, schema, level);
       } catch (ex) {
@@ -52729,20 +52729,20 @@ class RpcContractProvider extends OperationEmitter {
    *
    */
   getSaplingDiffByID(id2, block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const saplingState = block ? yield this.context.readProvider.getSaplingDiffById({ id: id2.toString() }, block) : yield this.context.readProvider.getSaplingDiffById({ id: id2.toString() }, "head");
       return saplingState;
     });
   }
   addRevealOperationIfNeeded(operation, publicKeyHash) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (isOpRequireReveal(operation)) {
         const ops = [operation];
         const publicKey = yield this.signer.publicKey();
         const estimateReveal = yield this.estimator.reveal();
         if (estimateReveal) {
           const reveal = { kind: OpKind.REVEAL };
-          const estimatedReveal = yield this.estimate(reveal, () => __awaiter$8(this, void 0, void 0, function* () {
+          const estimatedReveal = yield this.estimate(reveal, () => __awaiter$a(this, void 0, void 0, function* () {
             return estimateReveal;
           }));
           ops.unshift(yield createRevealOperation(Object.assign({}, estimatedReveal), publicKeyHash, publicKey));
@@ -52763,7 +52763,7 @@ class RpcContractProvider extends OperationEmitter {
    * @param OriginationOperation Originate operation parameter
    */
   originate(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const estimate = yield this.estimate(params, this.estimator.originate.bind(this.estimator));
       const publicKeyHash = yield this.signer.publicKeyHash();
       const operation = yield createOriginationOperation(yield this.context.parser.prepareCodeOrigination(Object.assign(Object.assign({}, params), estimate)));
@@ -52786,7 +52786,7 @@ class RpcContractProvider extends OperationEmitter {
    * @param SetDelegate operation parameter
    */
   setDelegate(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (params.source && validateAddress(params.source) !== ValidationResult.VALID) {
         throw new InvalidAddressError(params.source);
       }
@@ -52819,15 +52819,15 @@ class RpcContractProvider extends OperationEmitter {
    * @param RegisterDelegate operation parameter
    */
   registerDelegate(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const estimate = yield this.estimate(params, this.estimator.registerDelegate.bind(this.estimator));
-      const source = yield this.signer.publicKeyHash();
-      const operation = yield createRegisterDelegateOperation(Object.assign(Object.assign({}, params), estimate), source);
-      const ops = yield this.addRevealOperationIfNeeded(operation, source);
+      const source2 = yield this.signer.publicKeyHash();
+      const operation = yield createRegisterDelegateOperation(Object.assign(Object.assign({}, params), estimate), source2);
+      const ops = yield this.addRevealOperationIfNeeded(operation, source2);
       const prepared = yield this.prepareOperation({ operation: ops });
       const opBytes = yield this.forge(prepared);
       const { hash: hash3, context, forgedBytes, opResponse } = yield this.signAndInject(opBytes);
-      return new DelegateOperation(hash3, operation, source, forgedBytes, opResponse, context);
+      return new DelegateOperation(hash3, operation, source2, forgedBytes, opResponse, context);
     });
   }
   /**
@@ -52839,7 +52839,7 @@ class RpcContractProvider extends OperationEmitter {
    * @param Transfer operation parameter
    */
   transfer(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (validateAddress(params.to) !== ValidationResult.VALID) {
         throw new InvalidAddressError(params.to);
       }
@@ -52849,12 +52849,12 @@ class RpcContractProvider extends OperationEmitter {
       const publickKeyHash = yield this.signer.publicKeyHash();
       const estimate = yield this.estimate(params, this.estimator.transfer.bind(this.estimator));
       const operation = yield createTransferOperation(Object.assign(Object.assign({}, params), estimate));
-      const source = params.source || publickKeyHash;
+      const source2 = params.source || publickKeyHash;
       const ops = yield this.addRevealOperationIfNeeded(operation, publickKeyHash);
       const prepared = yield this.prepareOperation({ operation: ops, source: params.source });
       const opBytes = yield this.forge(prepared);
       const { hash: hash3, context, forgedBytes, opResponse } = yield this.signAndInject(opBytes);
-      return new TransactionOperation(hash3, operation, source, forgedBytes, opResponse, context);
+      return new TransactionOperation(hash3, operation, source2, forgedBytes, opResponse, context);
     });
   }
   /**
@@ -52867,7 +52867,7 @@ class RpcContractProvider extends OperationEmitter {
    */
   transferTicket(params) {
     var _a2;
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (validateContractAddress(params.destination) !== ValidationResult.VALID) {
         throw new InvalidContractAddressError(params.destination);
       }
@@ -52877,12 +52877,12 @@ class RpcContractProvider extends OperationEmitter {
       const publicKeyHash = yield this.signer.publicKeyHash();
       const estimate = yield this.estimate(params, this.estimator.transferTicket.bind(this.estimator));
       const operation = yield createTransferTicketOperation(Object.assign(Object.assign({}, params), estimate));
-      const source = (_a2 = params.source) !== null && _a2 !== void 0 ? _a2 : publicKeyHash;
+      const source2 = (_a2 = params.source) !== null && _a2 !== void 0 ? _a2 : publicKeyHash;
       const ops = yield this.addRevealOperationIfNeeded(operation, publicKeyHash);
       const prepared = yield this.prepareOperation({ operation: ops, source: params.source });
       const opBytes = yield this.forge(prepared);
       const { hash: hash3, context, forgedBytes, opResponse } = yield this.signAndInject(opBytes);
-      return new TransferTicketOperation(hash3, operation, source, forgedBytes, opResponse, context);
+      return new TransferTicketOperation(hash3, operation, source2, forgedBytes, opResponse, context);
     });
   }
   /**
@@ -52894,11 +52894,11 @@ class RpcContractProvider extends OperationEmitter {
    * @param RevealParams operation parameter
    */
   reveal(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const publicKeyHash = yield this.signer.publicKeyHash();
       const estimateReveal = yield this.estimator.reveal(params);
       if (estimateReveal) {
-        const estimated = yield this.estimate(params, () => __awaiter$8(this, void 0, void 0, function* () {
+        const estimated = yield this.estimate(params, () => __awaiter$a(this, void 0, void 0, function* () {
           return estimateReveal;
         }));
         const operation = yield createRevealOperation(Object.assign({}, estimated), publicKeyHash, yield this.signer.publicKey());
@@ -52920,7 +52920,7 @@ class RpcContractProvider extends OperationEmitter {
    * @param params registerGlobalConstant operation parameter
    */
   registerGlobalConstant(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const publickKeyHash = yield this.signer.publicKeyHash();
       const estimate = yield this.estimate(params, this.estimator.registerGlobalConstant.bind(this.estimator));
       const operation = yield createRegisterGlobalConstantOperation(Object.assign(Object.assign({}, params), estimate));
@@ -52940,7 +52940,7 @@ class RpcContractProvider extends OperationEmitter {
    * @param params increasePaidStorage operation parameter
    */
   increasePaidStorage(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const publicKeyHash = yield this.signer.publicKeyHash();
       const estimate = yield this.estimate(params, this.estimator.increasePaidStorage.bind(this.estimator));
       const operation = yield createIncreasePaidStorageOperation(Object.assign(Object.assign({}, params), estimate));
@@ -52960,7 +52960,7 @@ class RpcContractProvider extends OperationEmitter {
    * @param params drainDelegate operation parameter
    */
   drainDelegate(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const operation = yield createDrainDelegateOperation(Object.assign({}, params));
       const prepared = yield this.prepareOperation({ operation });
       const opBytes = yield this.forge(prepared);
@@ -52977,7 +52977,7 @@ class RpcContractProvider extends OperationEmitter {
    * @param TxRollupOriginateParams Originate rollup operation parameter
    */
   txRollupOriginate(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const publicKeyHash = yield this.signer.publicKeyHash();
       const estimate = yield this.estimate(params ? params : {}, this.estimator.txRollupOriginate.bind(this.estimator));
       const operation = yield createTxRollupOriginationOperation(Object.assign(Object.assign({}, params), estimate));
@@ -52997,7 +52997,7 @@ class RpcContractProvider extends OperationEmitter {
    * @param TxRollupBatchParams Batch tx rollup operation parameter
    */
   txRollupSubmitBatch(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const publicKeyHash = yield this.signer.publicKeyHash();
       const estimate = yield this.estimate(params, this.estimator.txRollupSubmitBatch.bind(this.estimator));
       const operation = yield createTxRollupBatchOperation(Object.assign(Object.assign({}, params), estimate));
@@ -53018,14 +53018,14 @@ class RpcContractProvider extends OperationEmitter {
    */
   ballot(params) {
     var _a2;
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const publicKeyHash = yield this.signer.publicKeyHash();
       if (params.source && validateAddress(params.source) !== ValidationResult.VALID) {
         throw new InvalidAddressError(params.source);
       }
-      const source = (_a2 = params.source) !== null && _a2 !== void 0 ? _a2 : publicKeyHash;
-      const operation = yield createBallotOperation(Object.assign(Object.assign({}, params), { source }));
-      const prepared = yield this.prepareOperation({ operation, source });
+      const source2 = (_a2 = params.source) !== null && _a2 !== void 0 ? _a2 : publicKeyHash;
+      const operation = yield createBallotOperation(Object.assign(Object.assign({}, params), { source: source2 }));
+      const prepared = yield this.prepareOperation({ operation, source: source2 });
       const opBytes = yield this.forge(prepared);
       const { hash: hash3, context, forgedBytes, opResponse } = yield this.signAndInject(opBytes);
       return new BallotOperation(hash3, operation, publicKeyHash, forgedBytes, opResponse, context);
@@ -53041,14 +53041,14 @@ class RpcContractProvider extends OperationEmitter {
    */
   proposals(params) {
     var _a2;
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const publicKeyHash = yield this.signer.publicKeyHash();
       if (params.source && validateAddress(params.source) !== ValidationResult.VALID) {
         throw new InvalidAddressError(params.source);
       }
-      const source = (_a2 = params.source) !== null && _a2 !== void 0 ? _a2 : publicKeyHash;
-      const operation = yield createProposalsOperation(Object.assign(Object.assign({}, params), { source }));
-      const prepared = yield this.prepareOperation({ operation, source });
+      const source2 = (_a2 = params.source) !== null && _a2 !== void 0 ? _a2 : publicKeyHash;
+      const operation = yield createProposalsOperation(Object.assign(Object.assign({}, params), { source: source2 }));
+      const prepared = yield this.prepareOperation({ operation, source: source2 });
       const opBytes = yield this.forge(prepared);
       const { hash: hash3, context, forgedBytes, opResponse } = yield this.signAndInject(opBytes);
       return new ProposalsOperation(hash3, operation, publicKeyHash, forgedBytes, opResponse, context);
@@ -53063,7 +53063,7 @@ class RpcContractProvider extends OperationEmitter {
    * @param UpdateConsensusKeyParams
    */
   updateConsensusKey(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const publicKeyHash = yield this.signer.publicKeyHash();
       const estimate = yield this.estimate(params, this.estimator.updateConsensusKey.bind(this.estimator));
       const operation = yield createUpdateConsensusKeyOperation(Object.assign(Object.assign({}, params), estimate));
@@ -53075,7 +53075,7 @@ class RpcContractProvider extends OperationEmitter {
     });
   }
   at(address, contractAbstractionComposer = (x2) => x2) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (validateContractAddress(address) !== ValidationResult.VALID) {
         throw new InvalidContractAddressError(address);
       }
@@ -53108,7 +53108,7 @@ class MichelCodecParser {
     this.context = context;
   }
   getNextProto() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (!this.context.proto) {
         const nextProto = yield this.context.readProvider.getNextProtocol("head");
         this.context.proto = nextProto;
@@ -53117,25 +53117,25 @@ class MichelCodecParser {
     });
   }
   parseScript(src2) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const parser = new Parser({ protocol: yield this.getNextProto() });
       return parser.parseScript(src2);
     });
   }
   parseMichelineExpression(src2) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const parser = new Parser({ protocol: yield this.getNextProto() });
       return parser.parseMichelineExpression(src2);
     });
   }
   parseJSON(src2) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const parser = new Parser({ protocol: yield this.getNextProto() });
       return parser.parseJSON(src2);
     });
   }
   prepareCodeOrigination(params) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const parsedParams = params;
       parsedParams.code = yield this.formatCodeParam(params.code);
       if (params.init) {
@@ -53161,7 +53161,7 @@ class MichelCodecParser {
     });
   }
   formatCodeParam(code2) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       let parsedCode;
       if (typeof code2 === "string") {
         const c2 = yield this.parseScript(code2);
@@ -53178,7 +53178,7 @@ class MichelCodecParser {
     });
   }
   formatInitParam(init5) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       let parsedInit;
       if (typeof init5 === "string") {
         const c2 = yield this.parseMichelineExpression(init5);
@@ -53193,7 +53193,7 @@ class MichelCodecParser {
     });
   }
   findGlobalConstantsHashAndValue(schema) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const globalConstantTokens = schema.findToken("constant");
       const globalConstantsHashAndValue = {};
       if (globalConstantTokens.length !== 0) {
@@ -53220,7 +53220,7 @@ class RpcPacker {
     this.context = context;
   }
   packData(data2) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return this.context.rpc.packData(data2);
     });
   }
@@ -53233,7 +53233,7 @@ class UnconfiguredGlobalConstantsProviderError extends Error {
 }
 class NoopGlobalConstantsProvider {
   getGlobalConstantByHash(_hash) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       throw new UnconfiguredGlobalConstantsProviderError();
     });
   }
@@ -53249,7 +53249,7 @@ class RpcReadAdapter {
    * @returns the balance in mutez
    */
   getBalance(address, block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return this.rpc.getBalance(address, { block: String(block) });
     });
   }
@@ -53260,7 +53260,7 @@ class RpcReadAdapter {
    * @returns the public key hash of the delegate or null if no delegate
    */
   getDelegate(address, block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return this.rpc.getDelegate(address, { block: String(block) });
     });
   }
@@ -53269,7 +53269,7 @@ class RpcReadAdapter {
    * @param block from which we want to retrieve the next protocol hash
    */
   getNextProtocol(block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const protocols = yield this.rpc.getProtocols({ block: String(block) });
       return protocols.next_protocol;
     });
@@ -53279,7 +53279,7 @@ class RpcReadAdapter {
    * @param block from which we want to retrieve the constants
    */
   getProtocolConstants(block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const { time_between_blocks, minimal_block_delay, hard_gas_limit_per_operation, hard_gas_limit_per_block, hard_storage_limit_per_operation, cost_per_byte, tx_rollup_origination_size } = yield this.rpc.getConstants({ block: String(block) });
       return {
         time_between_blocks,
@@ -53299,7 +53299,7 @@ class RpcReadAdapter {
    * @returns Note: The code must be in the JSON format and not contain global constant
    */
   getScript(contract, block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const { script } = yield this.rpc.getContract(contract, { block: String(block) });
       return script;
     });
@@ -53310,7 +53310,7 @@ class RpcReadAdapter {
    * @param block from which we want to retrieve the storage value
    */
   getStorage(contract, block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return this.rpc.getStorage(contract, { block: String(block) });
     });
   }
@@ -53318,7 +53318,7 @@ class RpcReadAdapter {
    * @description Access the block hash
    */
   getBlockHash(block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const { hash: hash3 } = yield this.rpc.getBlockHeader({ block: String(block) });
       return hash3;
     });
@@ -53327,7 +53327,7 @@ class RpcReadAdapter {
    * @description Access the block level
    */
   getBlockLevel(block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const { level } = yield this.rpc.getBlockHeader({ block: String(block) });
       return level;
     });
@@ -53338,7 +53338,7 @@ class RpcReadAdapter {
    * @param block from which we want to retrieve the counter
    */
   getCounter(pkh, block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const { counter } = yield this.rpc.getContract(pkh, { block: String(block) });
       return counter || "0";
     });
@@ -53349,7 +53349,7 @@ class RpcReadAdapter {
    * @returns date ISO format zero UTC offset ("2022-01-19T22:37:07Z")
    */
   getBlockTimestamp(block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const { timestamp } = yield this.rpc.getBlockHeader({ block: String(block) });
       return timestamp;
     });
@@ -53360,7 +53360,7 @@ class RpcReadAdapter {
    * @param block from which we want to retrieve the big map value
    */
   getBigMapValue(bigMapQuery, block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return this.rpc.getBigMapExpr(bigMapQuery.id, bigMapQuery.expr, {
         block: String(block)
       });
@@ -53372,7 +53372,7 @@ class RpcReadAdapter {
    * @param block from which we want to retrieve the sapling state
    */
   getSaplingDiffById(saplingStateQuery, block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return this.rpc.getSaplingDiffById(saplingStateQuery.id, { block: String(block) });
     });
   }
@@ -53382,7 +53382,7 @@ class RpcReadAdapter {
    * @param block The block you want to retrieve the sapling state from
    */
   getSaplingDiffByContract(contractAddress, block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return this.rpc.getSaplingDiffByContract(contractAddress, { block: String(block) });
     });
   }
@@ -53391,7 +53391,7 @@ class RpcReadAdapter {
    * @param contract address of the contract we want to get the entrypoints of
    */
   getEntrypoints(contract) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return this.rpc.getEntrypoints(contract);
     });
   }
@@ -53399,7 +53399,7 @@ class RpcReadAdapter {
    * @description Access the chain id
    */
   getChainId() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return this.rpc.getChainId();
     });
   }
@@ -53409,7 +53409,7 @@ class RpcReadAdapter {
    * @param block from which we want to know if the account is revealed
    */
   isAccountRevealed(publicKeyHash, block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const manager = yield this.rpc.getManagerKey(publicKeyHash, { block: String(block) });
       const haveManager = manager && typeof manager === "object" ? !!manager.key : !!manager;
       return haveManager;
@@ -53420,7 +53420,7 @@ class RpcReadAdapter {
    * @param block from which we want to retrieve the information
    */
   getBlock(block) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       return this.rpc.getBlock({ block: String(block) });
     });
   }
@@ -53642,7 +53642,7 @@ class PollingSubscribeProvider {
     return this._config$.getValue();
   }
   getConfirmationPollingInterval() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (!this.config.pollingIntervalMilliseconds) {
         const defaultIntervalTestnetsMainnet = 5e3;
         const defaultIntervalSandbox = 1e3;
@@ -53676,7 +53676,7 @@ class TaquitoLocalForger {
     this.context = context;
   }
   getNextProto() {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (!this.context.proto) {
         const nextProto = yield this.context.readProvider.getNextProtocol("head");
         this.context.proto = nextProto;
@@ -53685,7 +53685,7 @@ class TaquitoLocalForger {
     });
   }
   forge({ branch, contents }) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       const forger = new LocalForger(yield this.getNextProto());
       return forger.forge({ branch, contents });
     });
@@ -53805,7 +53805,7 @@ class Context {
     this._stream = value;
   }
   isAnyProtocolActive(protocol = []) {
-    return __awaiter$8(this, void 0, void 0, function* () {
+    return __awaiter$a(this, void 0, void 0, function* () {
       if (this._proto) {
         return protocol.includes(this._proto);
       } else {
@@ -54717,7 +54717,7 @@ function encode(value, urlSafe = false) {
   }
   return encodeUint8Array(uint8Array, urlSafe);
 }
-function decode(value, urlSafe = false) {
+function decode$1(value, urlSafe = false) {
   const decodedUint8Array = decodeToUint8Array(value, urlSafe);
   return {
     toString() {
@@ -54737,7 +54737,7 @@ function decode(value, urlSafe = false) {
 }
 const Base64 = {
   encode,
-  decode
+  decode: decode$1
 };
 function concatUint8Arrays(buffer1, buffer2) {
   const mergedArray = new Uint8Array(buffer1.length + buffer2.length);
@@ -54873,7 +54873,7 @@ class SendTransactionParser extends RpcParser {
   }
 }
 const sendTransactionParser = new SendTransactionParser();
-var __awaiter$7 = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+var __awaiter$9 = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -54906,17 +54906,17 @@ class HttpBridgeGatewayStorage {
     this.storeKey = "ton-connect-storage_http-bridge-gateway";
   }
   storeLastEventId(lastEventId) {
-    return __awaiter$7(this, void 0, void 0, function* () {
+    return __awaiter$9(this, void 0, void 0, function* () {
       return this.storage.setItem(this.storeKey, lastEventId);
     });
   }
   removeLastEventId() {
-    return __awaiter$7(this, void 0, void 0, function* () {
+    return __awaiter$9(this, void 0, void 0, function* () {
       return this.storage.removeItem(this.storeKey);
     });
   }
   getLastEventId() {
-    return __awaiter$7(this, void 0, void 0, function* () {
+    return __awaiter$9(this, void 0, void 0, function* () {
       const stored = yield this.storage.getItem(this.storeKey);
       if (!stored) {
         return null;
@@ -54934,7 +54934,7 @@ function removeUrlLastSlash(url) {
 function addPathToUrl(url, path) {
   return removeUrlLastSlash(url) + "/" + path;
 }
-var __awaiter$6 = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+var __awaiter$8 = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -54983,7 +54983,7 @@ class BridgeGateway {
     this.bridgeGatewayStorage = new HttpBridgeGatewayStorage(storage);
   }
   registerSession() {
-    return __awaiter$6(this, void 0, void 0, function* () {
+    return __awaiter$8(this, void 0, void 0, function* () {
       const url = new URL(addPathToUrl(this.bridgeUrl, this.ssePath));
       url.searchParams.append("client_id", this.sessionId);
       const lastEventId = yield this.bridgeGatewayStorage.getLastEventId();
@@ -55002,7 +55002,7 @@ class BridgeGateway {
     });
   }
   send(message, receiver, ttl) {
-    return __awaiter$6(this, void 0, void 0, function* () {
+    return __awaiter$8(this, void 0, void 0, function* () {
       const url = new URL(addPathToUrl(this.bridgeUrl, this.postPath));
       url.searchParams.append("client_id", this.sessionId);
       url.searchParams.append("to", receiver);
@@ -55034,7 +55034,7 @@ class BridgeGateway {
     }
   }
   messagesHandler(e) {
-    return __awaiter$6(this, void 0, void 0, function* () {
+    return __awaiter$8(this, void 0, void 0, function* () {
       if (e.data === this.heartbeatMessage) {
         return;
       }
@@ -55051,7 +55051,7 @@ class BridgeGateway {
     });
   }
 }
-var __awaiter$5 = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+var __awaiter$7 = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -55084,7 +55084,7 @@ class BridgeConnectionStorage {
     this.storeKey = "ton-connect-storage_bridge-connection";
   }
   storeConnection(connection) {
-    return __awaiter$5(this, void 0, void 0, function* () {
+    return __awaiter$7(this, void 0, void 0, function* () {
       if (connection.type === "injected") {
         return this.storage.setItem(this.storeKey, JSON.stringify(connection));
       }
@@ -55102,12 +55102,12 @@ class BridgeConnectionStorage {
     });
   }
   removeConnection() {
-    return __awaiter$5(this, void 0, void 0, function* () {
+    return __awaiter$7(this, void 0, void 0, function* () {
       return this.storage.removeItem(this.storeKey);
     });
   }
   getConnection() {
-    return __awaiter$5(this, void 0, void 0, function* () {
+    return __awaiter$7(this, void 0, void 0, function* () {
       const stored = yield this.storage.getItem(this.storeKey);
       if (!stored) {
         return null;
@@ -55129,7 +55129,7 @@ class BridgeConnectionStorage {
     });
   }
   getHttpConnection() {
-    return __awaiter$5(this, void 0, void 0, function* () {
+    return __awaiter$7(this, void 0, void 0, function* () {
       const connection = yield this.getConnection();
       if (!connection) {
         throw new TonConnectError("Trying to read HTTP connection source while nothing is stored");
@@ -55141,7 +55141,7 @@ class BridgeConnectionStorage {
     });
   }
   getInjectedConnection() {
-    return __awaiter$5(this, void 0, void 0, function* () {
+    return __awaiter$7(this, void 0, void 0, function* () {
       const connection = yield this.getConnection();
       if (!connection) {
         throw new TonConnectError("Trying to read Injected bridge connection source while nothing is stored");
@@ -55153,7 +55153,7 @@ class BridgeConnectionStorage {
     });
   }
   storedConnectionType() {
-    return __awaiter$5(this, void 0, void 0, function* () {
+    return __awaiter$7(this, void 0, void 0, function* () {
       const stored = yield this.storage.getItem(this.storeKey);
       if (!stored) {
         return null;
@@ -55164,7 +55164,7 @@ class BridgeConnectionStorage {
   }
 }
 const PROTOCOL_VERSION = 2;
-var __awaiter$4 = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+var __awaiter$6 = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -55204,7 +55204,7 @@ class BridgeProvider {
     this.connectionStorage = new BridgeConnectionStorage(storage);
   }
   static fromStorage(storage) {
-    return __awaiter$4(this, void 0, void 0, function* () {
+    return __awaiter$6(this, void 0, void 0, function* () {
       const bridgeConnectionStorage = new BridgeConnectionStorage(storage);
       const connection = yield bridgeConnectionStorage.getHttpConnection();
       return new BridgeProvider(storage, connection.session.walletConnectionSource);
@@ -55224,7 +55224,7 @@ class BridgeProvider {
   }
   restoreConnection() {
     var _a2;
-    return __awaiter$4(this, void 0, void 0, function* () {
+    return __awaiter$6(this, void 0, void 0, function* () {
       (_a2 = this.bridge) === null || _a2 === void 0 ? void 0 : _a2.close();
       const storedConnection = yield this.connectionStorage.getHttpConnection();
       if (!storedConnection) {
@@ -55266,7 +55266,7 @@ class BridgeProvider {
     return () => this.listeners = this.listeners.filter((listener) => listener !== callback);
   }
   gatewayListener(bridgeIncomingMessage) {
-    return __awaiter$4(this, void 0, void 0, function* () {
+    return __awaiter$6(this, void 0, void 0, function* () {
       const walletMessage = JSON.parse(this.session.sessionCrypto.decrypt(Base64.decode(bridgeIncomingMessage.message).toUint8Array(), hexToByteArray(bridgeIncomingMessage.from)));
       if (!("event" in walletMessage)) {
         const id2 = walletMessage.id.toString();
@@ -55288,12 +55288,12 @@ class BridgeProvider {
     });
   }
   gatewayErrorsListener(e) {
-    return __awaiter$4(this, void 0, void 0, function* () {
+    return __awaiter$6(this, void 0, void 0, function* () {
       throw new TonConnectError(`Bridge error ${JSON.stringify(e)}`);
     });
   }
   updateSession(connectEvent, walletPublicKey) {
-    return __awaiter$4(this, void 0, void 0, function* () {
+    return __awaiter$6(this, void 0, void 0, function* () {
       this.session = Object.assign(Object.assign({}, this.session), { walletPublicKey });
       const tonAddrItem = connectEvent.payload.items.find((item) => item.name === "ton_addr");
       const connectEventToSave = Object.assign(Object.assign({}, connectEvent), { payload: Object.assign(Object.assign({}, connectEvent.payload), { items: [tonAddrItem] }) });
@@ -55305,7 +55305,7 @@ class BridgeProvider {
     });
   }
   removeBridgeAndSession() {
-    return __awaiter$4(this, void 0, void 0, function* () {
+    return __awaiter$6(this, void 0, void 0, function* () {
       this.session = null;
       this.bridge = null;
       yield this.connectionStorage.removeConnection();
@@ -55333,7 +55333,7 @@ function getWebPageManifest() {
   }
   return "";
 }
-var __awaiter$3 = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+var __awaiter$5 = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -55375,7 +55375,7 @@ class InjectedProvider {
     this.injectedWallet = window2[injectedWalletKey].tonconnect;
   }
   static fromStorage(storage) {
-    return __awaiter$3(this, void 0, void 0, function* () {
+    return __awaiter$5(this, void 0, void 0, function* () {
       const bridgeConnectionStorage = new BridgeConnectionStorage(storage);
       const connection = yield bridgeConnectionStorage.getInjectedConnection();
       return new InjectedProvider(storage, connection.jsBridgeKey);
@@ -55397,7 +55397,7 @@ class InjectedProvider {
     this._connect(PROTOCOL_VERSION, message);
   }
   restoreConnection() {
-    return __awaiter$3(this, void 0, void 0, function* () {
+    return __awaiter$5(this, void 0, void 0, function* () {
       try {
         const connectEvent = yield this.injectedWallet.restoreConnection();
         if (connectEvent.event === "connect") {
@@ -55434,12 +55434,12 @@ class InjectedProvider {
     return () => this.listeners = this.listeners.filter((listener) => listener !== eventsCallback);
   }
   sendRequest(request2) {
-    return __awaiter$3(this, void 0, void 0, function* () {
+    return __awaiter$5(this, void 0, void 0, function* () {
       return this.injectedWallet.send(Object.assign(Object.assign({}, request2), { id: "0" }));
     });
   }
   _connect(protocolVersion, message) {
-    return __awaiter$3(this, void 0, void 0, function* () {
+    return __awaiter$5(this, void 0, void 0, function* () {
       try {
         const connectEvent = yield this.injectedWallet.connect(protocolVersion, message);
         if (connectEvent.event === "connect") {
@@ -55479,7 +55479,7 @@ class InjectedProvider {
   }
 }
 InjectedProvider.window = getWindow();
-var __awaiter$2 = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+var __awaiter$4 = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -55515,12 +55515,12 @@ class DefaultStorage {
     this.window = window2;
   }
   getItem(key2) {
-    return __awaiter$2(this, void 0, void 0, function* () {
+    return __awaiter$4(this, void 0, void 0, function* () {
       return Promise.resolve(this.window.localStorage.getItem(key2));
     });
   }
   removeItem(key2) {
-    return __awaiter$2(this, void 0, void 0, function* () {
+    return __awaiter$4(this, void 0, void 0, function* () {
       this.window.localStorage.removeItem(key2);
       return Promise.resolve();
     });
@@ -55533,7 +55533,7 @@ class DefaultStorage {
 function isWalletInfoInjected(value) {
   return "jsBridgeKey" in value;
 }
-var __awaiter$1 = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+var __awaiter$3 = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -55569,7 +55569,7 @@ class WalletsListManager {
     }
   }
   getWallets() {
-    return __awaiter$1(this, void 0, void 0, function* () {
+    return __awaiter$3(this, void 0, void 0, function* () {
       if (!this.walletsListCache) {
         this.walletsListCache = this.fetchWalletsList();
         this.walletsListCache.catch(() => this.walletsListCache = null);
@@ -55578,7 +55578,7 @@ class WalletsListManager {
     });
   }
   getEmbeddedWallet() {
-    return __awaiter$1(this, void 0, void 0, function* () {
+    return __awaiter$3(this, void 0, void 0, function* () {
       const walletsList = yield this.getWallets();
       const embeddedWallets = walletsList.filter((item) => isWalletInfoInjected(item) && item.embedded);
       if (embeddedWallets.length !== 1) {
@@ -55588,7 +55588,7 @@ class WalletsListManager {
     });
   }
   fetchWalletsList() {
-    return __awaiter$1(this, void 0, void 0, function* () {
+    return __awaiter$3(this, void 0, void 0, function* () {
       try {
         const walletsResponse = yield fetch(this.walletsListSource);
         const walletsList = yield walletsResponse.json();
@@ -55657,7 +55657,7 @@ class WalletsListManager {
     return true;
   }
 }
-var __awaiter = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
+var __awaiter$2 = globalThis && globalThis.__awaiter || function(thisArg, _arguments, P2, generator) {
   function adopt(value) {
     return value instanceof P2 ? value : new P2(function(resolve) {
       resolve(value);
@@ -55779,7 +55779,7 @@ class TonConnect {
    * Try to restore existing session and reconnect to the corresponding wallet. Call it immediately when your app is loaded.
    */
   restoreConnection() {
-    return __awaiter(this, void 0, void 0, function* () {
+    return __awaiter$2(this, void 0, void 0, function* () {
       const [bridgeConnectionType, embeddedWallet] = yield Promise.all([
         this.bridgeConnectionStorage.storedConnectionType(),
         this.walletsList.getEmbeddedWallet()
@@ -55809,7 +55809,7 @@ class TonConnect {
    * If user rejects transaction, method will throw the corresponding error.
    */
   sendTransaction(transaction) {
-    return __awaiter(this, void 0, void 0, function* () {
+    return __awaiter$2(this, void 0, void 0, function* () {
       this.checkConnection();
       this.checkFeatureSupport("SendTransaction");
       const { validUntil } = transaction, tx = __rest(transaction, ["validUntil"]);
@@ -55824,7 +55824,7 @@ class TonConnect {
    * Disconnect form thw connected wallet and drop current session.
    */
   disconnect() {
-    return __awaiter(this, void 0, void 0, function* () {
+    return __awaiter$2(this, void 0, void 0, function* () {
       if (!this.connected) {
         throw new WalletNotConnectedError();
       }
@@ -55926,6 +55926,794 @@ for (let ord = 0; ord <= 255; ord++) {
     s2 = "0" + s2;
   }
 }
+const PUBLIC_TON_BRIDGE_ADDRESS = "Ef_iaSk-krmFUAk9fFbmMJcnfRvbyUCrQBa7SS83gWXJhG9s";
+var lib = {};
+var nodes$1 = {};
+var global$1 = typeof globalThis !== "undefined" && globalThis || typeof self !== "undefined" && self || typeof global$1 !== "undefined" && global$1;
+var support = {
+  searchParams: "URLSearchParams" in global$1,
+  iterable: "Symbol" in global$1 && "iterator" in Symbol,
+  blob: "FileReader" in global$1 && "Blob" in global$1 && function() {
+    try {
+      new Blob();
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }(),
+  formData: "FormData" in global$1,
+  arrayBuffer: "ArrayBuffer" in global$1
+};
+function isDataView(obj) {
+  return obj && DataView.prototype.isPrototypeOf(obj);
+}
+if (support.arrayBuffer) {
+  var viewClasses = [
+    "[object Int8Array]",
+    "[object Uint8Array]",
+    "[object Uint8ClampedArray]",
+    "[object Int16Array]",
+    "[object Uint16Array]",
+    "[object Int32Array]",
+    "[object Uint32Array]",
+    "[object Float32Array]",
+    "[object Float64Array]"
+  ];
+  var isArrayBufferView = ArrayBuffer.isView || function(obj) {
+    return obj && viewClasses.indexOf(Object.prototype.toString.call(obj)) > -1;
+  };
+}
+function normalizeName(name2) {
+  if (typeof name2 !== "string") {
+    name2 = String(name2);
+  }
+  if (/[^a-z0-9\-#$%&'*+.^_`|~!]/i.test(name2) || name2 === "") {
+    throw new TypeError('Invalid character in header field name: "' + name2 + '"');
+  }
+  return name2.toLowerCase();
+}
+function normalizeValue(value) {
+  if (typeof value !== "string") {
+    value = String(value);
+  }
+  return value;
+}
+function iteratorFor(items) {
+  var iterator2 = {
+    next: function() {
+      var value = items.shift();
+      return { done: value === void 0, value };
+    }
+  };
+  if (support.iterable) {
+    iterator2[Symbol.iterator] = function() {
+      return iterator2;
+    };
+  }
+  return iterator2;
+}
+function Headers$1(headers) {
+  this.map = {};
+  if (headers instanceof Headers$1) {
+    headers.forEach(function(value, name2) {
+      this.append(name2, value);
+    }, this);
+  } else if (Array.isArray(headers)) {
+    headers.forEach(function(header) {
+      this.append(header[0], header[1]);
+    }, this);
+  } else if (headers) {
+    Object.getOwnPropertyNames(headers).forEach(function(name2) {
+      this.append(name2, headers[name2]);
+    }, this);
+  }
+}
+Headers$1.prototype.append = function(name2, value) {
+  name2 = normalizeName(name2);
+  value = normalizeValue(value);
+  var oldValue = this.map[name2];
+  this.map[name2] = oldValue ? oldValue + ", " + value : value;
+};
+Headers$1.prototype["delete"] = function(name2) {
+  delete this.map[normalizeName(name2)];
+};
+Headers$1.prototype.get = function(name2) {
+  name2 = normalizeName(name2);
+  return this.has(name2) ? this.map[name2] : null;
+};
+Headers$1.prototype.has = function(name2) {
+  return this.map.hasOwnProperty(normalizeName(name2));
+};
+Headers$1.prototype.set = function(name2, value) {
+  this.map[normalizeName(name2)] = normalizeValue(value);
+};
+Headers$1.prototype.forEach = function(callback, thisArg) {
+  for (var name2 in this.map) {
+    if (this.map.hasOwnProperty(name2)) {
+      callback.call(thisArg, this.map[name2], name2, this);
+    }
+  }
+};
+Headers$1.prototype.keys = function() {
+  var items = [];
+  this.forEach(function(value, name2) {
+    items.push(name2);
+  });
+  return iteratorFor(items);
+};
+Headers$1.prototype.values = function() {
+  var items = [];
+  this.forEach(function(value) {
+    items.push(value);
+  });
+  return iteratorFor(items);
+};
+Headers$1.prototype.entries = function() {
+  var items = [];
+  this.forEach(function(value, name2) {
+    items.push([name2, value]);
+  });
+  return iteratorFor(items);
+};
+if (support.iterable) {
+  Headers$1.prototype[Symbol.iterator] = Headers$1.prototype.entries;
+}
+function consumed(body) {
+  if (body.bodyUsed) {
+    return Promise.reject(new TypeError("Already read"));
+  }
+  body.bodyUsed = true;
+}
+function fileReaderReady(reader) {
+  return new Promise(function(resolve, reject) {
+    reader.onload = function() {
+      resolve(reader.result);
+    };
+    reader.onerror = function() {
+      reject(reader.error);
+    };
+  });
+}
+function readBlobAsArrayBuffer(blob) {
+  var reader = new FileReader();
+  var promise = fileReaderReady(reader);
+  reader.readAsArrayBuffer(blob);
+  return promise;
+}
+function readBlobAsText(blob) {
+  var reader = new FileReader();
+  var promise = fileReaderReady(reader);
+  reader.readAsText(blob);
+  return promise;
+}
+function readArrayBufferAsText(buf) {
+  var view = new Uint8Array(buf);
+  var chars = new Array(view.length);
+  for (var i2 = 0; i2 < view.length; i2++) {
+    chars[i2] = String.fromCharCode(view[i2]);
+  }
+  return chars.join("");
+}
+function bufferClone(buf) {
+  if (buf.slice) {
+    return buf.slice(0);
+  } else {
+    var view = new Uint8Array(buf.byteLength);
+    view.set(new Uint8Array(buf));
+    return view.buffer;
+  }
+}
+function Body() {
+  this.bodyUsed = false;
+  this._initBody = function(body) {
+    this.bodyUsed = this.bodyUsed;
+    this._bodyInit = body;
+    if (!body) {
+      this._bodyText = "";
+    } else if (typeof body === "string") {
+      this._bodyText = body;
+    } else if (support.blob && Blob.prototype.isPrototypeOf(body)) {
+      this._bodyBlob = body;
+    } else if (support.formData && FormData.prototype.isPrototypeOf(body)) {
+      this._bodyFormData = body;
+    } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
+      this._bodyText = body.toString();
+    } else if (support.arrayBuffer && support.blob && isDataView(body)) {
+      this._bodyArrayBuffer = bufferClone(body.buffer);
+      this._bodyInit = new Blob([this._bodyArrayBuffer]);
+    } else if (support.arrayBuffer && (ArrayBuffer.prototype.isPrototypeOf(body) || isArrayBufferView(body))) {
+      this._bodyArrayBuffer = bufferClone(body);
+    } else {
+      this._bodyText = body = Object.prototype.toString.call(body);
+    }
+    if (!this.headers.get("content-type")) {
+      if (typeof body === "string") {
+        this.headers.set("content-type", "text/plain;charset=UTF-8");
+      } else if (this._bodyBlob && this._bodyBlob.type) {
+        this.headers.set("content-type", this._bodyBlob.type);
+      } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
+        this.headers.set("content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+      }
+    }
+  };
+  if (support.blob) {
+    this.blob = function() {
+      var rejected = consumed(this);
+      if (rejected) {
+        return rejected;
+      }
+      if (this._bodyBlob) {
+        return Promise.resolve(this._bodyBlob);
+      } else if (this._bodyArrayBuffer) {
+        return Promise.resolve(new Blob([this._bodyArrayBuffer]));
+      } else if (this._bodyFormData) {
+        throw new Error("could not read FormData body as blob");
+      } else {
+        return Promise.resolve(new Blob([this._bodyText]));
+      }
+    };
+    this.arrayBuffer = function() {
+      if (this._bodyArrayBuffer) {
+        var isConsumed = consumed(this);
+        if (isConsumed) {
+          return isConsumed;
+        }
+        if (ArrayBuffer.isView(this._bodyArrayBuffer)) {
+          return Promise.resolve(
+            this._bodyArrayBuffer.buffer.slice(
+              this._bodyArrayBuffer.byteOffset,
+              this._bodyArrayBuffer.byteOffset + this._bodyArrayBuffer.byteLength
+            )
+          );
+        } else {
+          return Promise.resolve(this._bodyArrayBuffer);
+        }
+      } else {
+        return this.blob().then(readBlobAsArrayBuffer);
+      }
+    };
+  }
+  this.text = function() {
+    var rejected = consumed(this);
+    if (rejected) {
+      return rejected;
+    }
+    if (this._bodyBlob) {
+      return readBlobAsText(this._bodyBlob);
+    } else if (this._bodyArrayBuffer) {
+      return Promise.resolve(readArrayBufferAsText(this._bodyArrayBuffer));
+    } else if (this._bodyFormData) {
+      throw new Error("could not read FormData body as text");
+    } else {
+      return Promise.resolve(this._bodyText);
+    }
+  };
+  if (support.formData) {
+    this.formData = function() {
+      return this.text().then(decode);
+    };
+  }
+  this.json = function() {
+    return this.text().then(JSON.parse);
+  };
+  return this;
+}
+var methods = ["DELETE", "GET", "HEAD", "OPTIONS", "POST", "PUT"];
+function normalizeMethod(method) {
+  var upcased = method.toUpperCase();
+  return methods.indexOf(upcased) > -1 ? upcased : method;
+}
+function Request$1(input, options) {
+  if (!(this instanceof Request$1)) {
+    throw new TypeError('Please use the "new" operator, this DOM object constructor cannot be called as a function.');
+  }
+  options = options || {};
+  var body = options.body;
+  if (input instanceof Request$1) {
+    if (input.bodyUsed) {
+      throw new TypeError("Already read");
+    }
+    this.url = input.url;
+    this.credentials = input.credentials;
+    if (!options.headers) {
+      this.headers = new Headers$1(input.headers);
+    }
+    this.method = input.method;
+    this.mode = input.mode;
+    this.signal = input.signal;
+    if (!body && input._bodyInit != null) {
+      body = input._bodyInit;
+      input.bodyUsed = true;
+    }
+  } else {
+    this.url = String(input);
+  }
+  this.credentials = options.credentials || this.credentials || "same-origin";
+  if (options.headers || !this.headers) {
+    this.headers = new Headers$1(options.headers);
+  }
+  this.method = normalizeMethod(options.method || this.method || "GET");
+  this.mode = options.mode || this.mode || null;
+  this.signal = options.signal || this.signal;
+  this.referrer = null;
+  if ((this.method === "GET" || this.method === "HEAD") && body) {
+    throw new TypeError("Body not allowed for GET or HEAD requests");
+  }
+  this._initBody(body);
+  if (this.method === "GET" || this.method === "HEAD") {
+    if (options.cache === "no-store" || options.cache === "no-cache") {
+      var reParamSearch = /([?&])_=[^&]*/;
+      if (reParamSearch.test(this.url)) {
+        this.url = this.url.replace(reParamSearch, "$1_=" + new Date().getTime());
+      } else {
+        var reQueryString = /\?/;
+        this.url += (reQueryString.test(this.url) ? "&" : "?") + "_=" + new Date().getTime();
+      }
+    }
+  }
+}
+Request$1.prototype.clone = function() {
+  return new Request$1(this, { body: this._bodyInit });
+};
+function decode(body) {
+  var form = new FormData();
+  body.trim().split("&").forEach(function(bytes) {
+    if (bytes) {
+      var split = bytes.split("=");
+      var name2 = split.shift().replace(/\+/g, " ");
+      var value = split.join("=").replace(/\+/g, " ");
+      form.append(decodeURIComponent(name2), decodeURIComponent(value));
+    }
+  });
+  return form;
+}
+function parseHeaders(rawHeaders) {
+  var headers = new Headers$1();
+  var preProcessedHeaders = rawHeaders.replace(/\r?\n[\t ]+/g, " ");
+  preProcessedHeaders.split("\r").map(function(header) {
+    return header.indexOf("\n") === 0 ? header.substr(1, header.length) : header;
+  }).forEach(function(line) {
+    var parts = line.split(":");
+    var key2 = parts.shift().trim();
+    if (key2) {
+      var value = parts.join(":").trim();
+      headers.append(key2, value);
+    }
+  });
+  return headers;
+}
+Body.call(Request$1.prototype);
+function Response$1(bodyInit, options) {
+  if (!(this instanceof Response$1)) {
+    throw new TypeError('Please use the "new" operator, this DOM object constructor cannot be called as a function.');
+  }
+  if (!options) {
+    options = {};
+  }
+  this.type = "default";
+  this.status = options.status === void 0 ? 200 : options.status;
+  this.ok = this.status >= 200 && this.status < 300;
+  this.statusText = options.statusText === void 0 ? "" : "" + options.statusText;
+  this.headers = new Headers$1(options.headers);
+  this.url = options.url || "";
+  this._initBody(bodyInit);
+}
+Body.call(Response$1.prototype);
+Response$1.prototype.clone = function() {
+  return new Response$1(this._bodyInit, {
+    status: this.status,
+    statusText: this.statusText,
+    headers: new Headers$1(this.headers),
+    url: this.url
+  });
+};
+Response$1.error = function() {
+  var response = new Response$1(null, { status: 0, statusText: "" });
+  response.type = "error";
+  return response;
+};
+var redirectStatuses = [301, 302, 303, 307, 308];
+Response$1.redirect = function(url, status) {
+  if (redirectStatuses.indexOf(status) === -1) {
+    throw new RangeError("Invalid status code");
+  }
+  return new Response$1(null, { status, headers: { location: url } });
+};
+var DOMException = global$1.DOMException;
+try {
+  new DOMException();
+} catch (err) {
+  DOMException = function(message, name2) {
+    this.message = message;
+    this.name = name2;
+    var error = Error(message);
+    this.stack = error.stack;
+  };
+  DOMException.prototype = Object.create(Error.prototype);
+  DOMException.prototype.constructor = DOMException;
+}
+function fetch$1(input, init5) {
+  return new Promise(function(resolve, reject) {
+    var request2 = new Request$1(input, init5);
+    if (request2.signal && request2.signal.aborted) {
+      return reject(new DOMException("Aborted", "AbortError"));
+    }
+    var xhr2 = new XMLHttpRequest();
+    function abortXhr() {
+      xhr2.abort();
+    }
+    xhr2.onload = function() {
+      var options = {
+        status: xhr2.status,
+        statusText: xhr2.statusText,
+        headers: parseHeaders(xhr2.getAllResponseHeaders() || "")
+      };
+      options.url = "responseURL" in xhr2 ? xhr2.responseURL : options.headers.get("X-Request-URL");
+      var body = "response" in xhr2 ? xhr2.response : xhr2.responseText;
+      setTimeout(function() {
+        resolve(new Response$1(body, options));
+      }, 0);
+    };
+    xhr2.onerror = function() {
+      setTimeout(function() {
+        reject(new TypeError("Network request failed"));
+      }, 0);
+    };
+    xhr2.ontimeout = function() {
+      setTimeout(function() {
+        reject(new TypeError("Network request failed"));
+      }, 0);
+    };
+    xhr2.onabort = function() {
+      setTimeout(function() {
+        reject(new DOMException("Aborted", "AbortError"));
+      }, 0);
+    };
+    function fixUrl(url) {
+      try {
+        return url === "" && global$1.location.href ? global$1.location.href : url;
+      } catch (e) {
+        return url;
+      }
+    }
+    xhr2.open(request2.method, fixUrl(request2.url), true);
+    if (request2.credentials === "include") {
+      xhr2.withCredentials = true;
+    } else if (request2.credentials === "omit") {
+      xhr2.withCredentials = false;
+    }
+    if ("responseType" in xhr2) {
+      if (support.blob) {
+        xhr2.responseType = "blob";
+      } else if (support.arrayBuffer && request2.headers.get("Content-Type") && request2.headers.get("Content-Type").indexOf("application/octet-stream") !== -1) {
+        xhr2.responseType = "arraybuffer";
+      }
+    }
+    if (init5 && typeof init5.headers === "object" && !(init5.headers instanceof Headers$1)) {
+      Object.getOwnPropertyNames(init5.headers).forEach(function(name2) {
+        xhr2.setRequestHeader(name2, normalizeValue(init5.headers[name2]));
+      });
+    } else {
+      request2.headers.forEach(function(value, name2) {
+        xhr2.setRequestHeader(name2, value);
+      });
+    }
+    if (request2.signal) {
+      request2.signal.addEventListener("abort", abortXhr);
+      xhr2.onreadystatechange = function() {
+        if (xhr2.readyState === 4) {
+          request2.signal.removeEventListener("abort", abortXhr);
+        }
+      };
+    }
+    xhr2.send(typeof request2._bodyInit === "undefined" ? null : request2._bodyInit);
+  });
+}
+fetch$1.polyfill = true;
+if (!global$1.fetch) {
+  global$1.fetch = fetch$1;
+  global$1.Headers = Headers$1;
+  global$1.Request = Request$1;
+  global$1.Response = Response$1;
+}
+self.fetch.bind(self);
+var __awaiter$1 = commonjsGlobal && commonjsGlobal.__awaiter || function(thisArg, _arguments, P2, generator) {
+  function adopt(value) {
+    return value instanceof P2 ? value : new P2(function(resolve) {
+      resolve(value);
+    });
+  }
+  return new (P2 || (P2 = Promise))(function(resolve, reject) {
+    function fulfilled(value) {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+    function rejected(value) {
+      try {
+        step(generator["throw"](value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+    function step(result) {
+      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+    }
+    step((generator = generator.apply(thisArg, _arguments || [])).next());
+  });
+};
+Object.defineProperty(nodes$1, "__esModule", { value: true });
+nodes$1.Nodes = void 0;
+const STALE_PERIOD = 2 * 60 * 1e3;
+class Nodes {
+  ///////////////////////////////////
+  constructor() {
+    this.nodeIndex = -1;
+    this.committee = /* @__PURE__ */ new Set();
+    this.topology = [];
+    this.initTime = 0;
+  }
+  ///////////////////////////////////
+  init(nodesUrl) {
+    return __awaiter$1(this, void 0, void 0, function* () {
+      this.nodeIndex = -1;
+      this.committee.clear();
+      this.topology = [];
+      this.initTime = Date.now();
+      let topology = [];
+      try {
+        const response = yield fetch(nodesUrl);
+        const data2 = yield response.json();
+        topology = data2;
+      } catch (e) {
+        throw new Error(`exception in fetch(${nodesUrl}): ${e}`);
+      }
+      for (const node2 of topology) {
+        if (node2.Healthy === "1") {
+          this.topology.push(node2);
+        }
+      }
+      if (this.topology.length === 0)
+        throw new Error(`no healthy nodes retrieved`);
+    });
+  }
+  getHealthyFor(protonet) {
+    var _a2;
+    const res = [];
+    for (const node2 of this.topology) {
+      if (this.initTime - node2.Mngr.successTS < STALE_PERIOD && node2.Weight > 0 && ((_a2 = node2.Mngr) === null || _a2 === void 0 ? void 0 : _a2.health[protonet])) {
+        res.push(node2);
+      }
+    }
+    return res;
+  }
+}
+nodes$1.Nodes = Nodes;
+const name = "@orbs-network/ton-access";
+const version = "2.3.0";
+const description = "Unthrottled anonymous RPC access to TON blockchain via a robust decentralized network";
+const source = "lib/index.js";
+const main = "lib/index.js";
+const types = "lib/index.d.ts";
+const files = [
+  "lib/**/*"
+];
+const scripts = {
+  test: "env mocha -r ts-node/register test/**/*.ts",
+  "test:v2": "env mocha -r ts-node/register test/ton-v2.ts",
+  "test:v4": "env mocha -r ts-node/register test/ton-v4.ts",
+  cleanup: "rimraf ./lib",
+  "build:web:reg": "esbuild ./lib/web.js --bundle  --sourcemap --target=es2015 --outfile=./dist/index.js",
+  "build:web:min": "esbuild ./lib/web.js --bundle  --minify    --target=es2015 --outfile=./dist/index.min.js",
+  "build:web": "rimraf ./dist && npm run build:web:reg && npm run build:web:min",
+  build: "npm run lint && rimraf ./lib && tsc && npm run build:web",
+  format: 'prettier --write "src/**/*.ts"',
+  lint: "tslint -p tsconfig.json",
+  prepare: "npm run build",
+  prepublishOnly: "npm test && npm run lint",
+  preversion: "npm run lint",
+  version: "npm run format && git add -A src",
+  postversion: "git push && git push --tags"
+};
+const repository = {
+  type: "git",
+  url: "git+https://github.com/orbs-network/ton-access.git"
+};
+const author = "yuval@orbs.com";
+const license = "MIT";
+const bugs = {
+  url: "https://github.com/orbs-network/ton-access/issues"
+};
+const homepage = "https://github.com/orbs-network/ton-access#readme";
+const dependencies = {
+  "isomorphic-fetch": "^3.0.0"
+};
+const devDependencies = {
+  "@types/bn.js": "^5.1.1",
+  "@types/chai": "^4.3.4",
+  "@types/isomorphic-fetch": "^0.0.36",
+  "@types/mocha": "^10.0.0",
+  buffer: "^6.0.3",
+  chai: "^4.3.7",
+  esbuild: "^0.15.14",
+  mocha: "^10.1.0",
+  prettier: "^2.7.1",
+  rimraf: "^3.0.2",
+  ton: "^12.1.3",
+  "ton-lite-client": "npm:@truecarry/ton-lite-client@^1.6.1",
+  tonweb: "^0.0.58",
+  "ts-node": "^10.9.1",
+  tslib: "^2.4.0",
+  tslint: "^6.1.3",
+  "tslint-config-prettier": "^1.18.0"
+};
+const require$$1 = {
+  name,
+  version,
+  description,
+  source,
+  main,
+  types,
+  files,
+  scripts,
+  repository,
+  author,
+  license,
+  bugs,
+  homepage,
+  dependencies,
+  devDependencies
+};
+var __awaiter = commonjsGlobal && commonjsGlobal.__awaiter || function(thisArg, _arguments, P2, generator) {
+  function adopt(value) {
+    return value instanceof P2 ? value : new P2(function(resolve) {
+      resolve(value);
+    });
+  }
+  return new (P2 || (P2 = Promise))(function(resolve, reject) {
+    function fulfilled(value) {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+    function rejected(value) {
+      try {
+        step(generator["throw"](value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+    function step(result) {
+      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+    }
+    step((generator = generator.apply(thisArg, _arguments || [])).next());
+  });
+};
+Object.defineProperty(lib, "__esModule", { value: true });
+lib.getHttpV4Endpoint = lib.getHttpV4Endpoints = getHttpEndpoint_1 = lib.getHttpEndpoint = lib.getHttpEndpoints = lib.Access = void 0;
+const nodes_1 = nodes$1;
+class Access {
+  //////////////////////////////////
+  constructor() {
+    this.host = "ton.access.orbs.network";
+    this.urlVersion = 1;
+    this.nodes = new nodes_1.Nodes();
+  }
+  //////////////////////////////////
+  init() {
+    return __awaiter(this, void 0, void 0, function* () {
+      const pjson = require$$1;
+      yield this.nodes.init(`https://${this.host}/mngr/nodes?npm_version=${pjson.version}`);
+    });
+  }
+  //////////////////////////////////
+  makeProtonet(edgeProtocol, network) {
+    let res = "";
+    switch (edgeProtocol) {
+      case "toncenter-api-v2":
+        res += "v2-";
+        break;
+      case "ton-api-v4":
+        res += "v4-";
+        break;
+    }
+    res += network;
+    return res;
+  }
+  //////////////////////////////////
+  weightedRandom(nodes2) {
+    let sumWeights = 0;
+    for (const node2 of nodes2) {
+      sumWeights += node2.Weight;
+    }
+    const rnd = Math.floor(Math.random() * sumWeights);
+    let cur = 0;
+    for (const node2 of nodes2) {
+      if (rnd >= cur && rnd < cur + node2.Weight)
+        return node2;
+      cur += node2.Weight;
+    }
+  }
+  //////////////////////////////////
+  buildUrls(network, edgeProtocol, suffix, single) {
+    if (!suffix)
+      suffix = "";
+    if (!edgeProtocol)
+      edgeProtocol = "toncenter-api-v2";
+    if (!network)
+      network = "mainnet";
+    if (suffix.length)
+      suffix = suffix.replace(/^\/+/, "");
+    const res = [];
+    const protonet = this.makeProtonet(edgeProtocol, network);
+    let healthyNodes = this.nodes.getHealthyFor(protonet);
+    if (!(healthyNodes === null || healthyNodes === void 0 ? void 0 : healthyNodes.length))
+      throw new Error(`no healthy nodes for ${protonet}`);
+    if (single && healthyNodes.length) {
+      const chosen = this.weightedRandom(healthyNodes);
+      if (chosen)
+        healthyNodes = [chosen];
+      else
+        throw new Error("weightedRandom return empty");
+    }
+    for (const node2 of healthyNodes) {
+      let url = `https://${this.host}/${node2.NodeId}/${this.urlVersion}/${network}/${edgeProtocol}`;
+      if (suffix.length)
+        url += `/${suffix}`;
+      res.push(url);
+    }
+    return res;
+  }
+}
+lib.Access = Access;
+function getEndpoints(network, edgeProtocol, suffix, single) {
+  return __awaiter(this, void 0, void 0, function* () {
+    const access = new Access();
+    yield access.init();
+    const res = access.buildUrls(network, edgeProtocol, suffix, single);
+    return res;
+  });
+}
+function getHttpEndpoints(config2, single) {
+  return __awaiter(this, void 0, void 0, function* () {
+    const network = (config2 === null || config2 === void 0 ? void 0 : config2.network) ? config2.network : "mainnet";
+    let suffix = "jsonRPC";
+    if ((config2 === null || config2 === void 0 ? void 0 : config2.protocol) === "rest") {
+      suffix = "";
+    }
+    return yield getEndpoints(network, "toncenter-api-v2", suffix, single);
+  });
+}
+lib.getHttpEndpoints = getHttpEndpoints;
+function getHttpEndpoint(config2) {
+  return __awaiter(this, void 0, void 0, function* () {
+    const endpoints = yield getHttpEndpoints(config2, true);
+    return endpoints[0];
+  });
+}
+var getHttpEndpoint_1 = lib.getHttpEndpoint = getHttpEndpoint;
+function getHttpV4Endpoints(config2, single) {
+  return __awaiter(this, void 0, void 0, function* () {
+    const network = (config2 === null || config2 === void 0 ? void 0 : config2.network) ? config2.network : "mainnet";
+    if ((config2 === null || config2 === void 0 ? void 0 : config2.protocol) === "json-rpc") {
+      throw Error("config.protocol json-rpc is not supported for getTonApiV4Endpoints");
+    }
+    const suffix = "";
+    return yield getEndpoints(network, "ton-api-v4", suffix, single);
+  });
+}
+lib.getHttpV4Endpoints = getHttpV4Endpoints;
+function getHttpV4Endpoint(config2) {
+  return __awaiter(this, void 0, void 0, function* () {
+    const endpoints = yield getHttpV4Endpoints(config2, true);
+    return endpoints[0];
+  });
+}
+lib.getHttpV4Endpoint = getHttpV4Endpoint;
 class TonKeeper extends Wallet$1 {
   constructor() {
     super();
@@ -55951,6 +56739,48 @@ class TonKeeper extends Wallet$1 {
     }, console.error);
     return this.connector.connect(walletConnectionSource);
   }
+  async lockCoins(destAddress, destCoinId, amount) {
+    const destAddressHex = parseInt(destAddress, 16);
+    const body = dist.beginCell().storeUint(1, 32).storeUint(0, 64).storeUint(destAddressHex, 160).storeUint(destCoinId, 32).endCell();
+    const msg = {
+      address: PUBLIC_TON_BRIDGE_ADDRESS,
+      amount: dist.toNano(amount),
+      payload: Base64.encode(body.toBoc())
+    };
+    await this._send(msg);
+  }
+  async burnTokens(destAddress, coinId, amount) {
+    const endpoint = await getHttpEndpoint_1();
+    const client = new dist.TonClient({ endpoint });
+    const getResult2 = await client.callGetMethod(
+      PUBLIC_TON_BRIDGE_ADDRESS,
+      "get_jetton_wallet_address",
+      [
+        { type: "int", value: BigInt(coinId) },
+        { type: "slice", cell: dist.beginCell().storeAddress(this.address).endCell() }
+      ]
+    );
+    const jettonWalletAddress = getResult2.stack.readAddress();
+    const jettonsAmount = dist.toNano(amount);
+    const destAddressHex = parseInt(destAddress, 16);
+    const customPayload = dist.Dictionary.empty(dist.Dictionary.Keys.Uint(32), dist.Dictionary.Values.Cell());
+    customPayload.set(1340432577, dist.beginCell().storeUint(destAddressHex, 160).endCell());
+    customPayload.set(1405275800, dist.beginCell().storeUint(coinId, 32).endCell());
+    const body = dist.beginCell().storeUint(1499400124, 32).storeUint(0, 64).storeCoins(jettonsAmount).storeAddress(null).storeDict(customPayload).endCell();
+    const msg = {
+      address: jettonWalletAddress,
+      amount: dist.toNano("0.02"),
+      payload: Base64.encode(body.toBoc())
+    };
+    await this._send(msg);
+  }
+  async _send(msg) {
+    const request2 = {
+      validUntil: Math.round(Date.now() / 1e3 + 7200),
+      messages: [msg]
+    };
+    await this.connector.sendTransaction(request2);
+  }
 }
 Ethereum.init({
   MetaMask: new MetaMask()
@@ -55963,10 +56793,10 @@ TON.init({
 });
 const matchers = {};
 const nodes = [
-  () => __vitePreload(() => import("./0-df827fbe.js"), true ? ["./0-df827fbe.js","./_layout-a7d677aa.js","../components/pages/_layout.svelte-ef9707ca.js","./index-59ec0738.js","./index-aa5a0dd9.js","../assets/_layout-814a4602.css"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./0-9ad92ee9.js"), true ? ["./0-9ad92ee9.js","./_layout-a7d677aa.js","../components/pages/_layout.svelte-3317c38e.js","./index-59ec0738.js","./index-aa5a0dd9.js","../assets/_layout-5154395d.css"] : void 0, import.meta.url),
   () => __vitePreload(() => import("./1-79a4bd73.js"), true ? ["./1-79a4bd73.js","../components/error.svelte-f093a80a.js","./index-59ec0738.js","./stores-c729a32f.js","./singletons-4f1be034.js","./paths-95a23751.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./2-f12421c1.js"), true ? ["./2-f12421c1.js","../components/pages/_page.svelte-716bb2cc.js","./index-59ec0738.js","./index-aa5a0dd9.js","./paths-95a23751.js","./pages.crossfade-0eb72eee.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./3-0cd125fe.js"), true ? ["./3-0cd125fe.js","../components/pages/swap/_page.svelte-ddc5d3bc.js","./index-59ec0738.js","./stores-c729a32f.js","./singletons-4f1be034.js","./paths-95a23751.js","./pages.crossfade-0eb72eee.js","./index-aa5a0dd9.js","./bignumber-6871c801.js"] : void 0, import.meta.url)
+  () => __vitePreload(() => import("./2-64b72f0d.js"), true ? ["./2-64b72f0d.js","../components/pages/_page.svelte-d91cdec3.js","./index-59ec0738.js","./index-aa5a0dd9.js","./paths-95a23751.js","./pages.crossfade-a98b54f8.js"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./3-892ef1c4.js"), true ? ["./3-892ef1c4.js","../components/pages/swap/_page.svelte-726c0dbd.js","./index-59ec0738.js","./stores-c729a32f.js","./singletons-4f1be034.js","./paths-95a23751.js","./pages.crossfade-a98b54f8.js","./index-aa5a0dd9.js","./bignumber-6871c801.js"] : void 0, import.meta.url)
 ];
 const server_loads = [];
 const dictionary = {

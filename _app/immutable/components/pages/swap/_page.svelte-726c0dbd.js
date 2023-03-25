@@ -1,6 +1,6 @@
 import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, q as text, a as space, l as claim_element, m as children, r as claim_text, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, C as noop, U as src_url_equal, M as listen, f as transition_in, E as run_all, Q as component_subscribe, V as svg_element, W as claim_svg_element, u as set_data, R as add_render_callback, T as create_in_transition, x as create_component, y as claim_component, z as mount_component, t as transition_out, d as check_outros, N as create_out_transition, A as destroy_component, o as onMount, g as group_outros } from "../../../chunks/index-59ec0738.js";
 import { p as page } from "../../../chunks/stores-c729a32f.js";
-import { C as CoinSelect, c as coins, A as Arrows, s as send, r as receive } from "../../../chunks/pages.crossfade-0eb72eee.js";
+import { C as CoinSelect, c as coins, A as Arrows, s as send, r as receive } from "../../../chunks/pages.crossfade-a98b54f8.js";
 import { w as writable } from "../../../chunks/paths-95a23751.js";
 import { B as BigNumber, E as Ethereum, T as Tezos, g as getDefaultExportFromCjs, b as TON } from "../../../chunks/bignumber-6871c801.js";
 import { a as fade$1 } from "../../../chunks/index-aa5a0dd9.js";
@@ -3754,7 +3754,7 @@ function create_fragment(ctx) {
       div14 = element("div");
       div13 = element("div");
       h4 = element("h4");
-      t1 = text("Wrapped Swap");
+      t1 = text("Synthetic Swap");
       t2 = space();
       div3 = element("div");
       p0 = element("p");
@@ -3824,7 +3824,7 @@ function create_fragment(ctx) {
       var div13_nodes = children(div13);
       h4 = claim_element(div13_nodes, "H4", { class: true });
       var h4_nodes = children(h4);
-      t1 = claim_text(h4_nodes, "Wrapped Swap");
+      t1 = claim_text(h4_nodes, "Synthetic Swap");
       h4_nodes.forEach(detach);
       t2 = claim_space(div13_nodes);
       div3 = claim_element(div13_nodes, "DIV", { class: true });
@@ -3969,7 +3969,7 @@ function create_fragment(ctx) {
       input2.value = input2_value_value = coins[
         /*$toNetwork*/
         ctx[1]
-      ].wrappedSymbol;
+      ].syntheticSymbol;
       attr(input2, "class", input2_class_value = "btn btn-sm " + /*assetPair*/
       (ctx[0] === 0 ? "" : "btn-outline"));
       attr(input3, "type", "button");
@@ -3998,7 +3998,7 @@ function create_fragment(ctx) {
       input5.value = input5_value_value = coins[
         /*$fromNetwork*/
         ctx[2]
-      ].wrappedSymbol;
+      ].syntheticSymbol;
       attr(input5, "class", input5_class_value = "btn btn-sm " + /*assetPair*/
       (ctx[0] === 1 ? "" : "btn-outline"));
       attr(div9, "class", "btn-group");
@@ -4159,7 +4159,7 @@ function create_fragment(ctx) {
       2 && input2_value_value !== (input2_value_value = coins[
         /*$toNetwork*/
         ctx2[1]
-      ].wrappedSymbol)) {
+      ].syntheticSymbol)) {
         input2.value = input2_value_value;
       }
       if (!current || dirty & /*assetPair*/
@@ -4195,7 +4195,7 @@ function create_fragment(ctx) {
       4 && input5_value_value !== (input5_value_value = coins[
         /*$fromNetwork*/
         ctx2[2]
-      ].wrappedSymbol)) {
+      ].syntheticSymbol)) {
         input5.value = input5_value_value;
       }
       if (!current || dirty & /*assetPair*/
