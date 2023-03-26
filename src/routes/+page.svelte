@@ -8,6 +8,7 @@
 	import { writable } from 'svelte/store';
 	import { coins } from '$lib/pkg/coins';
 
+	import BifrostLogo from '$lib/images/bifrost_logo.svg';
 	let ready = false;
 	onMount(() => (ready = true));
 
@@ -30,7 +31,10 @@
 			<div class="hero-content text-left">
 				{#if ready}
 					<div class="max-w-xl" in:fly={{ x: -200, duration: 1500 }}>
-						<h1 class="text-5xl font-bold">👾 Bifrost Protocol</h1>
+						<div class="flex flex-row gap-5 items-center">
+							<img src={BifrostLogo} width={60} alt="logo" />
+							<h1 class="text-5xl font-bold">Bifrost Protocol</h1>
+						</div>
 						<p class="text-xl py-8">Swap assets between Ethereum, TON and Tezos with ease.</p>
 					</div>
 				{/if}
@@ -59,7 +63,7 @@
 					on:click={hideHero}
 					class="btn btn-primary w-full mt-7"
 					href={base +
-						'/swap?from=' +
+						'/bridge?from=' +
 						coins[$fromCoin].nativeSymbol +
 						'&to=' +
 						coins[$toCoin].nativeSymbol}>go swap!</a

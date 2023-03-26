@@ -40,7 +40,7 @@
 	let swapFee = bigIntToFloat(0, 18, 9);
 </script>
 
-<Header />
+<Header title="Bridge" />
 
 <div class="flex flex-col md:flex-row h-full justify-center items-center px-5 md:px-0">
 	<div

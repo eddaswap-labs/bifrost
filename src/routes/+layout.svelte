@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="w-full flex flex-col min-h-screen justify-between bg-gradient-to-t from-base-300 to-primary/[.04]"
+	class="w-full flex flex-col min-h-screen justify-between bg-gradient-to-t from-base-300 to-primary/[.08]"
 >
 	<slot />
 
