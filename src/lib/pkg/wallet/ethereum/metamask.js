@@ -32,6 +32,10 @@ export default class MetaMask extends Wallet {
 		return this.address;
 	}
 
+	async disconnect() {
+		this.connected = false;
+	}
+
 	async connectExternal(cb) {
 		throw new Error('External MetaMask is not supported.');
 	}

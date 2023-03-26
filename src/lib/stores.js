@@ -17,18 +17,22 @@ const makeWalletStore = (wallet) => {
 		});
 	};
 
-	const connectExternal = async () => {
+	const connectExternal = async (cb) => {
 		let link = await wallet.connectExternal((address) => {
 			set({
 				address,
 				connected: true
 			});
+
+			cb();
 		});
 
 		return link;
 	};
 
-	const disconnect = () => {
+	const disconnect = async () => {
+		await wallet.disconnect();
+
 		set({
 			address: '',
 			connected: false
@@ -69,10 +73,10 @@ const makeNetworkStore = () => {
 
 			set({ connected, address, wallets: walletStores });
 		},
-		disconnect() {
+		async disconnect() {
 			let network = get(this);
 			for (let wallet of Object.values(network.wallets)) {
-				wallet.disconnect();
+				await wallet.disconnect();
 			}
 		}
 	};

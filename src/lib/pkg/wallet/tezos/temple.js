@@ -49,6 +49,8 @@ export default class TempleWallet extends Wallet {
 		throw new Error('External Temple Wallet is not supported.');
 	}
 
+	async disconnect() {}
+
 	async lockCoins(destAddress, destCoinId, amount) {}
 
 	async burnTokens(token, amount) {}

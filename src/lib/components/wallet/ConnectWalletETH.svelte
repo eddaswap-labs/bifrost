@@ -7,6 +7,8 @@
 
 	const { connected, address, wallets } = $Ethereum;
 
+	export let connectedWallet;
+
 	let errorMessage = '';
 
 	let isConnectingModalOpen = false;
@@ -21,14 +23,16 @@
 
 				await wallets.MetaMask.connectInjected();
 
+				connectedWallet = wallets.MetaMask;
+
 				break;
 			case 'walletconnect':
 				break;
 		}
 		isConnectingModalOpen = false;
 	};
-	const disconnect = () => {
-		Ethereum.disconnect();
+	const disconnect = async () => {
+		await Ethereum.disconnect();
 		isDisconnectingModalOpen = false;
 	};
 </script>

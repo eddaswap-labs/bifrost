@@ -12,7 +12,6 @@
 	import ConnectWalletETH from '$lib/components/wallet/ConnectWalletETH.svelte';
 	import ConnectWalletTZS from '$lib/components/wallet/ConnectWalletTZS.svelte';
 	import ConnectWalletTON from '$lib/components/wallet/ConnectWalletTON.svelte';
-	import { send, receive } from '$lib/animations/pages.crossfade.js';
 	import { fade } from 'svelte/transition';
 
 	let ready = false;
@@ -30,6 +29,9 @@
 
 	let fromValue = '';
 	let toValue = '';
+
+	let fromWallet;
+	let toWallet;
 
 	const switchCoins = () => {
 		const from = $fromNetwork;
@@ -64,11 +66,11 @@
 					<CoinSelect selectedId={fromNetwork} excludedId={toNetwork} />
 				</div>
 				{#if $fromNetwork === 0}
-					<ConnectWalletETH />
+					<ConnectWalletETH bind:connectedWallet={fromWallet} />
 				{:else if $fromNetwork === 1}
-					<ConnectWalletTZS />
+					<ConnectWalletTZS bind:connectedWallet={fromWallet} />
 				{:else if $fromNetwork === 2}
-					<ConnectWalletTON />
+					<ConnectWalletTON bind:connectedWallet={fromWallet} />
 				{/if}
 			</div>
 		</div>
@@ -92,11 +94,11 @@
 					<CoinSelect selectedId={toNetwork} excludedId={fromNetwork} />
 				</div>
 				{#if $toNetwork === 0}
-					<ConnectWalletETH />
+					<ConnectWalletETH bind:connectedWallet={toWallet} />
 				{:else if $toNetwork === 1}
-					<ConnectWalletTZS />
+					<ConnectWalletTZS bind:connectedWallet={toWallet} />
 				{:else if $toNetwork === 2}
-					<ConnectWalletTON />
+					<ConnectWalletTON bind:connectedWallet={toWallet} />
 				{/if}
 			</div>
 		</div>
@@ -143,7 +145,11 @@
 				<p>{swapFee}</p>
 			</div>
 		</div>
-		<button class="btn btn-primary btn-full w-full mt-5">swap</button>
+		<button
+			class="btn btn-primary btn-full w-full mt-5"
+			disabled={!$fromWallet || !$fromWallet.connected || !$toWallet || !$toWallet.connected}
+			>swap</button
+		>
 	</div>
 </div>
 

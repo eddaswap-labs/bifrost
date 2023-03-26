@@ -43,6 +43,14 @@ export default class TonKeeper extends Wallet {
 		return this.connector.connect(walletConnectionSource);
 	}
 
+	async disconnect() {
+		if (!this.connected) return;
+
+		await this.connector.disconnect();
+
+		this.connected = false;
+	}
+
 	async lockCoins(destAddress, destCoinId, amount) {
 		const destAddressHex = parseInt(destAddress, 16);
 

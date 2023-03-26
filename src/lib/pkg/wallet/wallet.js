@@ -55,6 +55,10 @@ export class Wallet {
 		throw new Error("Method 'connectExternal' must be implemented.");
 	}
 
+	disconnect() {
+		throw new Error("Method 'disconnect' must be implemented.");
+	}
+
 	/**
 	 * Sends transaction that calls the method that locks coins on the chain.
 	 * It starts the native-to-wrapped swap process.

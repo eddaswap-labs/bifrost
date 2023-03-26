@@ -2,20 +2,27 @@
 	import { shortAccountString } from '$lib/pkg/utils';
 	import QRCodeStyling from 'qr-code-styling';
 	import * as QROptions from './qr.json';
-	import BifrostLogo from '$lib/images/bifrost.png';
+	import BifrostLogo from '$lib/images/bifrost_logo.svg';
 	import TonkeeperLogo from '$lib/images/tonkeeper_logo.png';
 	import { TON } from '$lib/stores.js';
 	import HashIcon from '../HashIcon.svelte';
 
 	const { connected, address, wallets } = $TON;
 
+	export let connectedWallet;
+
 	const qrCode = new QRCodeStyling(QROptions);
+
+	const onConnected = () => {
+		connectedWallet = wallets.TonKeeper;
+		document.getElementById('qr-modal').checked = false;
+	};
 
 	let isConnectingModalOpen = false;
 	let isDisconnectingModalOpen = false;
 
 	const connect = async () => {
-		let connectionLink = await wallets.TonKeeper.connectExternal();
+		let connectionLink = await wallets.TonKeeper.connectExternal(onConnected);
 
 		qrCode.update({
 			data: connectionLink,
@@ -27,8 +34,8 @@
 
 		isConnectingModalOpen = false;
 	};
-	const disconnect = () => {
-		TON.disconnect();
+	const disconnect = async () => {
+		await TON.disconnect();
 		isDisconnectingModalOpen = false;
 	};
 </script>

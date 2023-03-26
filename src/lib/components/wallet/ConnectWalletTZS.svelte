@@ -6,6 +6,8 @@
 
 	const { connected, address, wallets } = $Tezos;
 
+	export let connectedWallet;
+
 	let errorMessage = '';
 
 	let isConnectingModalOpen = false;
@@ -18,9 +20,11 @@
 
 		await wallets.TempleWallet.connectInjected();
 		isConnectingModalOpen = false;
+
+		connectedWallet = wallets.TempleWallet;
 	};
-	const disconnect = () => {
-		Tezos.disconnect();
+	const disconnect = async () => {
+		await Tezos.disconnect();
 		isDisconnectingModalOpen = false;
 	};
 </script>
