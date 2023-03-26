@@ -1,7 +1,7 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, l as claim_element, m as children, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, f as transition_in, t as transition_out, d as check_outros, o as onMount, Q as component_subscribe, C as noop, q as text, r as claim_text, R as add_render_callback, T as create_in_transition, x as create_component, y as claim_component, U as src_url_equal, z as mount_component, M as listen, A as destroy_component, E as run_all, g as group_outros } from "../../chunks/index-1e1c3d8b.js";
-import { f as fly } from "../../chunks/index-849e2426.js";
-import { b as base, w as writable } from "../../chunks/paths-5e0f90cb.js";
-import { C as CoinSelect, A as Arrows, c as coins } from "../../chunks/CoinSelect-66e1c769.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, l as claim_element, m as children, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, f as transition_in, t as transition_out, d as check_outros, o as onMount, Q as component_subscribe, C as noop, q as text, r as claim_text, R as src_url_equal, T as add_render_callback, U as create_in_transition, x as create_component, y as claim_component, z as mount_component, M as listen, A as destroy_component, E as run_all, g as group_outros } from "../../chunks/index-7469667d.js";
+import { f as fly } from "../../chunks/index-28bd536f.js";
+import { b as base, w as writable } from "../../chunks/paths-5706f729.js";
+import { B as BifrostLogo, C as CoinSelect, A as Arrows, c as coins } from "../../chunks/bifrost_logo-4a9fd498.js";
 function create_if_block_1(ctx) {
   let div;
   let if_block = (
@@ -35,6 +35,7 @@ function create_if_block_1(ctx) {
       if (/*ready*/
       ctx2[0]) {
         if (if_block) {
+          if_block.p(ctx2, dirty);
           if (dirty & /*ready*/
           1) {
             transition_in(if_block, 1);
@@ -63,63 +64,84 @@ function create_if_block_1(ctx) {
   };
 }
 function create_if_block_2(ctx) {
-  let div;
-  let h1;
+  let div1;
+  let div0;
+  let img;
+  let img_src_value;
   let t0;
+  let h1;
   let t1;
-  let p;
   let t2;
-  let div_intro;
+  let p;
+  let t3;
+  let div1_intro;
   return {
     c() {
-      div = element("div");
+      div1 = element("div");
+      div0 = element("div");
+      img = element("img");
+      t0 = space();
       h1 = element("h1");
-      t0 = text("👾 Bifrost Protocol");
-      t1 = space();
+      t1 = text("Bifrost Protocol");
+      t2 = space();
       p = element("p");
-      t2 = text("Swap assets between Ethereum, TON and Tezos with ease.");
+      t3 = text("Swap assets between Ethereum, TON and Tezos with ease.");
       this.h();
     },
     l(nodes) {
-      div = claim_element(nodes, "DIV", { class: true });
-      var div_nodes = children(div);
-      h1 = claim_element(div_nodes, "H1", { class: true });
+      div1 = claim_element(nodes, "DIV", { class: true });
+      var div1_nodes = children(div1);
+      div0 = claim_element(div1_nodes, "DIV", { class: true });
+      var div0_nodes = children(div0);
+      img = claim_element(div0_nodes, "IMG", { src: true, width: true, alt: true });
+      t0 = claim_space(div0_nodes);
+      h1 = claim_element(div0_nodes, "H1", { class: true });
       var h1_nodes = children(h1);
-      t0 = claim_text(h1_nodes, "👾 Bifrost Protocol");
+      t1 = claim_text(h1_nodes, "Bifrost Protocol");
       h1_nodes.forEach(detach);
-      t1 = claim_space(div_nodes);
-      p = claim_element(div_nodes, "P", { class: true });
+      div0_nodes.forEach(detach);
+      t2 = claim_space(div1_nodes);
+      p = claim_element(div1_nodes, "P", { class: true });
       var p_nodes = children(p);
-      t2 = claim_text(p_nodes, "Swap assets between Ethereum, TON and Tezos with ease.");
+      t3 = claim_text(p_nodes, "Swap assets between Ethereum, TON and Tezos with ease.");
       p_nodes.forEach(detach);
-      div_nodes.forEach(detach);
+      div1_nodes.forEach(detach);
       this.h();
     },
     h() {
+      if (!src_url_equal(img.src, img_src_value = BifrostLogo))
+        attr(img, "src", img_src_value);
+      attr(img, "width", 60);
+      attr(img, "alt", "logo");
       attr(h1, "class", "text-5xl font-bold");
+      attr(div0, "class", "flex flex-row gap-5 items-center");
       attr(p, "class", "text-xl py-8");
-      attr(div, "class", "max-w-xl");
+      attr(div1, "class", "max-w-xl");
     },
     m(target, anchor) {
-      insert_hydration(target, div, anchor);
-      append_hydration(div, h1);
-      append_hydration(h1, t0);
-      append_hydration(div, t1);
-      append_hydration(div, p);
-      append_hydration(p, t2);
+      insert_hydration(target, div1, anchor);
+      append_hydration(div1, div0);
+      append_hydration(div0, img);
+      append_hydration(div0, t0);
+      append_hydration(div0, h1);
+      append_hydration(h1, t1);
+      append_hydration(div1, t2);
+      append_hydration(div1, p);
+      append_hydration(p, t3);
     },
+    p: noop,
     i(local) {
-      if (!div_intro) {
+      if (!div1_intro) {
         add_render_callback(() => {
-          div_intro = create_in_transition(div, fly, { x: -200, duration: 1500 });
-          div_intro.start();
+          div1_intro = create_in_transition(div1, fly, { x: -200, duration: 1500 });
+          div1_intro.start();
         });
       }
     },
     o: noop,
     d(detaching) {
       if (detaching)
-        detach(div);
+        detach(div1);
     }
   };
 }
@@ -250,7 +272,7 @@ function create_if_block(ctx) {
       attr(button, "class", "mt-6 mb-1");
       attr(div1, "class", "w-full");
       attr(a, "class", "btn btn-primary w-full mt-7");
-      attr(a, "href", a_href_value = base + "/swap?from=" + coins[
+      attr(a, "href", a_href_value = base + "/bridge?from=" + coins[
         /*$fromCoin*/
         ctx[3]
       ].nativeSymbol + "&to=" + coins[
@@ -302,7 +324,7 @@ function create_if_block(ctx) {
     },
     p(ctx2, dirty) {
       if (!current || dirty & /*$fromCoin, $toCoin*/
-      12 && a_href_value !== (a_href_value = base + "/swap?from=" + coins[
+      12 && a_href_value !== (a_href_value = base + "/bridge?from=" + coins[
         /*$fromCoin*/
         ctx2[3]
       ].nativeSymbol + "&to=" + coins[

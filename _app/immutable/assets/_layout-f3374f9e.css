@@ -1425,21 +1425,6 @@ html {
 .btn.glass:focus-visible {
   outline: 2px solid currentColor;
 }
-.btn-ghost {
-  border-width: 1px;
-  border-color: transparent;
-  background-color: transparent;
-  color: currentColor;
-}
-.btn-ghost:hover,
-    .btn-ghost.btn-active {
-  --tw-border-opacity: 0;
-  background-color: hsl(var(--bc) / var(--tw-bg-opacity));
-  --tw-bg-opacity: 0.2;
-}
-.btn-ghost:focus-visible {
-  outline: 2px solid currentColor;
-}
 .btn-outline {
   border-color: currentColor;
   background-color: transparent;
@@ -1679,9 +1664,6 @@ html {
 }
 .drawer-toggle:focus-visible ~ .drawer-content .drawer-button.btn-secondary {
   outline: 2px solid hsl(var(--s));
-}
-.drawer-toggle:focus-visible ~ .drawer-content .drawer-button.btn-ghost {
-  outline: 2px solid currentColor;
 }
 .dropdown.dropdown-open .dropdown-content,
 .dropdown.dropdown-hover:hover .dropdown-content,
@@ -2390,6 +2372,9 @@ html {
 .gap-4 {
   gap: 1rem;
 }
+.gap-5 {
+  gap: 1.25rem;
+}
 .gap-3 {
   gap: 0.75rem;
 }
@@ -2444,8 +2429,8 @@ html {
   --tw-gradient-to: hsl(var(--b3, var(--b2)) / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
-.to-primary\/\[\.04\] {
-  --tw-gradient-to: hsl(var(--p) / .04);
+.to-primary\/\[\.08\] {
+  --tw-gradient-to: hsl(var(--p) / .08);
 }
 .stroke-current {
   stroke: currentColor;
@@ -2469,6 +2454,10 @@ html {
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 .px-2 {
   padding-left: 0.5rem;

@@ -1,5 +1,5 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, q as text, V as svg_element, l as claim_element, m as children, c as claim_space, r as claim_text, h as detach, W as claim_svg_element, U as src_url_equal, n as attr, b as insert_hydration, I as append_hydration, u as set_data, C as noop, X as destroy_each, e as empty, D as subscribe, M as listen } from "./index-1e1c3d8b.js";
-import { w as writable } from "./paths-5e0f90cb.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, q as text, V as svg_element, l as claim_element, m as children, c as claim_space, r as claim_text, h as detach, W as claim_svg_element, R as src_url_equal, n as attr, b as insert_hydration, I as append_hydration, u as set_data, C as noop, X as destroy_each, e as empty, D as subscribe, M as listen } from "./index-7469667d.js";
+import { w as writable } from "./paths-5706f729.js";
 const Arrows = "" + new URL("../assets/arrows-33f263c7.svg", import.meta.url).href;
 const ETHLogo = "" + new URL("../assets/eth_logo-7d70db0d.png", import.meta.url).href;
 const TZSLogo = "" + new URL("../assets/tzs_logo-7098441a.svg", import.meta.url).href;
@@ -371,8 +371,10 @@ class CoinSelect extends SvelteComponent {
     init(this, options, instance, create_fragment, safe_not_equal, { selectedId: 0, excludedId: 1 });
   }
 }
+const BifrostLogo = "" + new URL("../assets/bifrost_logo-b22a96d5.svg", import.meta.url).href;
 export {
   Arrows as A,
+  BifrostLogo as B,
   CoinSelect as C,
   coins as c
 };

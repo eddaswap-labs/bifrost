@@ -1,7 +1,7 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, a as space, e as empty$2, c as claim_space, b as insert_hydration, g as group_outros, t as transition_out, d as check_outros, f as transition_in, h as detach, j as afterUpdate, o as onMount, k as element, l as claim_element, m as children, n as attr, p as set_style, q as text, r as claim_text, u as set_data, v as binding_callbacks, w as construct_svelte_component, x as create_component, y as claim_component, z as mount_component, A as destroy_component, B as tick } from "./index-1e1c3d8b.js";
-import { S as SCROLL_KEY, a as SNAPSHOT_KEY, I as INDEX_KEY, g as get_base_uri, f as find_anchor, b as get_link_info, c as get_router_options, s as stores, i as is_external_url, d as scroll_state, P as PRELOAD_PRIORITIES, e as init$1, h as set_version } from "./singletons-356bec09.js";
-import { r as require$$0$1, c as commonjsGlobal, s as sha3, W as Wallet$1, g as getDefaultExportFromCjs, a as commonjsRequire$1, w as wipe, b as binary, B as BigNumber$1, n as naclFastExports, d as dist, E as Ethereum, T as Tezos, e as TON } from "./binary-6ef68fdd.js";
-import { b as base$4, s as set_assets } from "./paths-5e0f90cb.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, a as space, e as empty$2, c as claim_space, b as insert_hydration, g as group_outros, t as transition_out, d as check_outros, f as transition_in, h as detach, j as afterUpdate, o as onMount, k as element, l as claim_element, m as children, n as attr, p as set_style, q as text, r as claim_text, u as set_data, v as binding_callbacks, w as construct_svelte_component, x as create_component, y as claim_component, z as mount_component, A as destroy_component, B as tick } from "./index-7469667d.js";
+import { S as SCROLL_KEY, a as SNAPSHOT_KEY, I as INDEX_KEY, g as get_base_uri, f as find_anchor, b as get_link_info, c as get_router_options, s as stores, i as is_external_url, d as scroll_state, P as PRELOAD_PRIORITIES, e as init$1, h as set_version } from "./singletons-c677eda2.js";
+import { r as require$$0$1, c as commonjsGlobal, s as sha3, W as Wallet$1, g as getDefaultExportFromCjs, a as commonjsRequire$1, w as wipe, b as binary, B as BigNumber$1, n as naclFastExports, d as dist, E as Ethereum, T as Tezos, e as TON } from "./binary-f7d4eca8.js";
+import { b as base$4, s as set_assets } from "./paths-5706f729.js";
 function normalize_path(path, trailing_slash) {
   if (path === "/" || trailing_slash === "ignore")
     return path;
@@ -18444,7 +18444,7 @@ var STATUS_CODE;
   STATUS_CODE2[STATUS_CODE2["NETWORK_AUTHENTICATION_REQUIRED"] = 511] = "NETWORK_AUTHENTICATION_REQUIRED";
 })(STATUS_CODE || (STATUS_CODE = {}));
 const isNode$1 = typeof process !== "undefined" && process.versions != null && process.versions.node != null;
-const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-bc7f7c14.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
+const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-f68835e4.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
 var ResponseType;
 (function(ResponseType2) {
   ResponseType2["TEXT"] = "text";
@@ -55757,15 +55757,15 @@ TON.init({
 });
 const matchers = {};
 const nodes = [
-  () => __vitePreload(() => import("./0-36ad716b.js"), true ? ["./0-36ad716b.js","./_layout-a7d677aa.js","../components/pages/_layout.svelte-31a762ec.js","./index-1e1c3d8b.js","./index-849e2426.js","../assets/_layout-596ca31b.css"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./1-d96acb3f.js"), true ? ["./1-d96acb3f.js","../components/error.svelte-37bf03ea.js","./index-1e1c3d8b.js","./stores-b3ff3b2b.js","./singletons-356bec09.js","./paths-5e0f90cb.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./2-be16f7b5.js"), true ? ["./2-be16f7b5.js","../components/pages/_page.svelte-7e2c1892.js","./index-1e1c3d8b.js","./index-849e2426.js","./paths-5e0f90cb.js","./CoinSelect-66e1c769.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./3-fb618378.js"), true ? ["./3-fb618378.js","../components/pages/swap/_page.svelte-55be30e1.js","./index-1e1c3d8b.js","./stores-b3ff3b2b.js","./singletons-356bec09.js","./paths-5e0f90cb.js","./CoinSelect-66e1c769.js","./binary-6ef68fdd.js","./index-849e2426.js","../assets/_page-a49c28f6.css"] : void 0, import.meta.url)
+  () => __vitePreload(() => import("./0-2d7bd1f3.js"), true ? ["./0-2d7bd1f3.js","./_layout-a7d677aa.js","../components/pages/_layout.svelte-e145f4d4.js","./index-7469667d.js","./index-28bd536f.js","../assets/_layout-f3374f9e.css"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./1-1643c9c9.js"), true ? ["./1-1643c9c9.js","../components/error.svelte-d3be40b9.js","./index-7469667d.js","./stores-282b194f.js","./singletons-c677eda2.js","./paths-5706f729.js"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./2-96329527.js"), true ? ["./2-96329527.js","../components/pages/_page.svelte-8065530d.js","./index-7469667d.js","./index-28bd536f.js","./paths-5706f729.js","./bifrost_logo-4a9fd498.js"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./3-b7bae681.js"), true ? ["./3-b7bae681.js","../components/pages/bridge/_page.svelte-9445d3d9.js","./index-7469667d.js","./stores-282b194f.js","./singletons-c677eda2.js","./paths-5706f729.js","./bifrost_logo-4a9fd498.js","./binary-f7d4eca8.js","./index-28bd536f.js","../assets/_page-a49c28f6.css"] : void 0, import.meta.url)
 ];
 const server_loads = [];
 const dictionary = {
   "/": [2],
-  "/swap": [3]
+  "/bridge": [3]
 };
 const hooks = {
   handleError: ({ error }) => {

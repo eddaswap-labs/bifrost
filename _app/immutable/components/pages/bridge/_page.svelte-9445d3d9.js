@@ -1,9 +1,9 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, q as text, a as space, l as claim_element, m as children, r as claim_text, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, C as noop, o as onMount, v as binding_callbacks, U as src_url_equal, M as listen, g as group_outros, t as transition_out, d as check_outros, f as transition_in, E as run_all, Q as component_subscribe, V as svg_element, W as claim_svg_element, u as set_data, R as add_render_callback, T as create_in_transition, x as create_component, y as claim_component, z as mount_component, A as destroy_component, Y as null_to_empty, Z as set_input_value, _ as to_number } from "../../../chunks/index-1e1c3d8b.js";
-import { p as page } from "../../../chunks/stores-b3ff3b2b.js";
-import { C as CoinSelect, c as coins, A as Arrows } from "../../../chunks/CoinSelect-66e1c769.js";
-import { w as writable } from "../../../chunks/paths-5e0f90cb.js";
-import { B as BigNumber, b as binary, w as wipe, c as commonjsGlobal, f as sha3Exports, E as Ethereum, T as Tezos, g as getDefaultExportFromCjs, e as TON } from "../../../chunks/binary-6ef68fdd.js";
-import { a as fade$1, c as crossfade, q as quintOut } from "../../../chunks/index-849e2426.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, q as text, l as claim_element, m as children, h as detach, c as claim_space, r as claim_text, R as src_url_equal, n as attr, b as insert_hydration, I as append_hydration, u as set_data, C as noop, o as onMount, v as binding_callbacks, M as listen, g as group_outros, t as transition_out, d as check_outros, f as transition_in, E as run_all, Q as component_subscribe, V as svg_element, W as claim_svg_element, T as add_render_callback, U as create_in_transition, x as create_component, y as claim_component, z as mount_component, A as destroy_component, Y as null_to_empty, Z as set_input_value, _ as to_number } from "../../../chunks/index-7469667d.js";
+import { p as page } from "../../../chunks/stores-282b194f.js";
+import { B as BifrostLogo$1, C as CoinSelect, c as coins, A as Arrows } from "../../../chunks/bifrost_logo-4a9fd498.js";
+import { w as writable } from "../../../chunks/paths-5706f729.js";
+import { B as BigNumber, b as binary, w as wipe, c as commonjsGlobal, f as sha3Exports, E as Ethereum, T as Tezos, g as getDefaultExportFromCjs, e as TON } from "../../../chunks/binary-f7d4eca8.js";
+import { a as fade$1, c as crossfade, q as quintOut } from "../../../chunks/index-28bd536f.js";
 const ArrowRight = "" + new URL("../../../assets/arrowRight-ebb69799.svg", import.meta.url).href;
 function create_else_block$3(ctx) {
   let span;
@@ -38,12 +38,16 @@ function create_fragment$5(ctx) {
   let div2;
   let div0;
   let a;
+  let img;
+  let img_src_value;
   let t0;
+  let p0;
   let t1;
-  let div1;
-  let p;
   let t2;
+  let div1;
+  let p1;
   let t3;
+  let t4;
   function select_block_type(ctx2, dirty) {
     return create_else_block$3;
   }
@@ -54,12 +58,18 @@ function create_fragment$5(ctx) {
       div2 = element("div");
       div0 = element("div");
       a = element("a");
-      t0 = text("👾 Bifrost");
-      t1 = space();
+      img = element("img");
+      t0 = space();
+      p0 = element("p");
+      t1 = text(
+        /*title*/
+        ctx[0]
+      );
+      t2 = space();
       div1 = element("div");
-      p = element("p");
-      t2 = text("Heimdallr");
-      t3 = space();
+      p1 = element("p");
+      t3 = text("Heimdallr");
+      t4 = space();
       if_block.c();
       this.h();
     },
@@ -68,45 +78,69 @@ function create_fragment$5(ctx) {
       var div2_nodes = children(div2);
       div0 = claim_element(div2_nodes, "DIV", { class: true });
       var div0_nodes = children(div0);
-      a = claim_element(div0_nodes, "A", { class: true, href: true });
+      a = claim_element(div0_nodes, "A", { href: true });
       var a_nodes = children(a);
-      t0 = claim_text(a_nodes, "👾 Bifrost");
+      img = claim_element(a_nodes, "IMG", { src: true, width: true, alt: true });
       a_nodes.forEach(detach);
+      t0 = claim_space(div0_nodes);
+      p0 = claim_element(div0_nodes, "P", { class: true });
+      var p0_nodes = children(p0);
+      t1 = claim_text(
+        p0_nodes,
+        /*title*/
+        ctx[0]
+      );
+      p0_nodes.forEach(detach);
       div0_nodes.forEach(detach);
-      t1 = claim_space(div2_nodes);
+      t2 = claim_space(div2_nodes);
       div1 = claim_element(div2_nodes, "DIV", { class: true, "data-tip": true });
       var div1_nodes = children(div1);
-      p = claim_element(div1_nodes, "P", {});
-      var p_nodes = children(p);
-      t2 = claim_text(p_nodes, "Heimdallr");
-      p_nodes.forEach(detach);
-      t3 = claim_space(div1_nodes);
+      p1 = claim_element(div1_nodes, "P", {});
+      var p1_nodes = children(p1);
+      t3 = claim_text(p1_nodes, "Heimdallr");
+      p1_nodes.forEach(detach);
+      t4 = claim_space(div1_nodes);
       if_block.l(div1_nodes);
       div1_nodes.forEach(detach);
       div2_nodes.forEach(detach);
       this.h();
     },
     h() {
-      attr(a, "class", "btn btn-ghost normal-case text-2xl");
+      if (!src_url_equal(img.src, img_src_value = BifrostLogo$1))
+        attr(img, "src", img_src_value);
+      attr(img, "width", 40);
+      attr(img, "alt", "logo");
       attr(a, "href", "/");
-      attr(div0, "class", "flex-1");
+      attr(p0, "class", "normal-case text-2xl text-bold");
+      attr(div0, "class", "flex-1 flex-row gap-3");
       attr(div1, "class", "tooltip tooltip-left flex flex-row gap-3");
       attr(div1, "data-tip", "Heimdallr is our oracle. It helps to perform cross-chain operations");
-      attr(div2, "class", "navbar px-5");
+      attr(div2, "class", "navbar px-5 py-2");
     },
     m(target, anchor) {
       insert_hydration(target, div2, anchor);
       append_hydration(div2, div0);
       append_hydration(div0, a);
-      append_hydration(a, t0);
-      append_hydration(div2, t1);
+      append_hydration(a, img);
+      append_hydration(div0, t0);
+      append_hydration(div0, p0);
+      append_hydration(p0, t1);
+      append_hydration(div2, t2);
       append_hydration(div2, div1);
-      append_hydration(div1, p);
-      append_hydration(p, t2);
-      append_hydration(div1, t3);
+      append_hydration(div1, p1);
+      append_hydration(p1, t3);
+      append_hydration(div1, t4);
       if_block.m(div1, null);
     },
-    p: noop,
+    p(ctx2, [dirty]) {
+      if (dirty & /*title*/
+      1)
+        set_data(
+          t1,
+          /*title*/
+          ctx2[0]
+        );
+    },
     i: noop,
     o: noop,
     d(detaching) {
@@ -116,10 +150,18 @@ function create_fragment$5(ctx) {
     }
   };
 }
+function instance$5($$self, $$props, $$invalidate) {
+  let { title = "Bifrost" } = $$props;
+  $$self.$$set = ($$props2) => {
+    if ("title" in $$props2)
+      $$invalidate(0, title = $$props2.title);
+  };
+  return [title];
+}
 class Header extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, null, create_fragment$5, safe_not_equal, {});
+    init(this, options, instance$5, create_fragment$5, safe_not_equal, { title: 0 });
   }
 }
 const shortAccountString = (first, last, str) => {
@@ -5775,7 +5817,7 @@ function create_fragment(ctx) {
   let current;
   let mounted;
   let dispose;
-  header = new Header({});
+  header = new Header({ props: { title: "Bridge" } });
   coinselect0 = new CoinSelect({
     props: {
       selectedId: (
