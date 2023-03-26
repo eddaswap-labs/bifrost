@@ -18444,7 +18444,7 @@ var STATUS_CODE;
   STATUS_CODE2[STATUS_CODE2["NETWORK_AUTHENTICATION_REQUIRED"] = 511] = "NETWORK_AUTHENTICATION_REQUIRED";
 })(STATUS_CODE || (STATUS_CODE = {}));
 const isNode$1 = typeof process !== "undefined" && process.versions != null && process.versions.node != null;
-const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-f68835e4.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
+const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-b5e185d6.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
 var ResponseType;
 (function(ResponseType2) {
   ResponseType2["TEXT"] = "text";
@@ -55757,10 +55757,10 @@ TON.init({
 });
 const matchers = {};
 const nodes = [
-  () => __vitePreload(() => import("./0-2d7bd1f3.js"), true ? ["./0-2d7bd1f3.js","./_layout-a7d677aa.js","../components/pages/_layout.svelte-e145f4d4.js","./index-7469667d.js","./index-28bd536f.js","../assets/_layout-f3374f9e.css"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./0-e7a5fba1.js"), true ? ["./0-e7a5fba1.js","./_layout-a7d677aa.js","../components/pages/_layout.svelte-b41eb2b9.js","./index-7469667d.js","./index-28bd536f.js","../assets/_layout-ba539f15.css"] : void 0, import.meta.url),
   () => __vitePreload(() => import("./1-1643c9c9.js"), true ? ["./1-1643c9c9.js","../components/error.svelte-d3be40b9.js","./index-7469667d.js","./stores-282b194f.js","./singletons-c677eda2.js","./paths-5706f729.js"] : void 0, import.meta.url),
   () => __vitePreload(() => import("./2-96329527.js"), true ? ["./2-96329527.js","../components/pages/_page.svelte-8065530d.js","./index-7469667d.js","./index-28bd536f.js","./paths-5706f729.js","./bifrost_logo-4a9fd498.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./3-b7bae681.js"), true ? ["./3-b7bae681.js","../components/pages/bridge/_page.svelte-9445d3d9.js","./index-7469667d.js","./stores-282b194f.js","./singletons-c677eda2.js","./paths-5706f729.js","./bifrost_logo-4a9fd498.js","./binary-f7d4eca8.js","./index-28bd536f.js","../assets/_page-a49c28f6.css"] : void 0, import.meta.url)
+  () => __vitePreload(() => import("./3-ab59c857.js"), true ? ["./3-ab59c857.js","../components/pages/bridge/_page.svelte-9df4743f.js","./index-7469667d.js","./stores-282b194f.js","./singletons-c677eda2.js","./paths-5706f729.js","./bifrost_logo-4a9fd498.js","./binary-f7d4eca8.js","./index-28bd536f.js","../assets/_page-a49c28f6.css"] : void 0, import.meta.url)
 ];
 const server_loads = [];
 const dictionary = {

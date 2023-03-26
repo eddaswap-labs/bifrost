@@ -2320,9 +2320,6 @@ html {
 .w-5\/12 {
   width: 41.666667%;
 }
-.w-80 {
-  width: 20rem;
-}
 .w-6 {
   width: 1.5rem;
 }
@@ -2516,10 +2513,6 @@ html {
 .text-base-content {
   --tw-text-opacity: 1;
   color: hsl(var(--bc) / var(--tw-text-opacity));
-}
-.text-neutral {
-  --tw-text-opacity: 1;
-  color: hsl(var(--n) / var(--tw-text-opacity));
 }
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);

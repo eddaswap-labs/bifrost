@@ -5338,9 +5338,9 @@ function create_fragment$1(ctx) {
       attr(input2, "id", "qr-modal");
       attr(input2, "class", "modal-toggle");
       attr(h32, "class", "text-lg font-bold");
-      attr(p0, "class", "text-neutral text-sm w-56");
+      attr(p0, "class", "text-sm w-56");
       attr(div7, "id", "qr-code");
-      attr(p1, "class", "text-neutral text-sm w-56");
+      attr(p1, "class", "text-sm w-56");
       attr(label2, "class", "modal-box relative w-fit text-center flex flex-col gap-2 items-center py-4 px-6");
       attr(label2, "for", "");
       attr(label3, "for", "qr-modal");
@@ -6113,7 +6113,7 @@ function create_fragment(ctx) {
       attr(input5, "class", input5_class_value = null_to_empty("btn btn-sm normal-case " + /*assetPair*/
       (ctx[0] === 1 ? "btn-primary" : "btn-outline")) + " svelte-6isbck");
       attr(div9, "class", "btn-group");
-      attr(div10, "class", "flex flex-row justify-between w-80 mt-5");
+      attr(div10, "class", "flex flex-row justify-between gap-4 max-w-80 mt-5");
       attr(div11, "class", "flex flex-row justify-between");
       attr(div12, "class", "flex flex-col gap-2 w-full px-2 mt-5");
       attr(button1, "class", "btn btn-primary btn-full w-full mt-5");
