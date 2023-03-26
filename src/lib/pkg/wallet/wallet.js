@@ -75,10 +75,11 @@ export class Wallet {
 	 * Calls burn method in the token (or jetton) contract.
 	 * It starts the wrapped-to-native swap process.
 	 *
-	 * @param {string} token
+	 * @param {string} destAddress
+	 * @param {number} coinId
 	 * @param {string} amount
 	 */
-	burnTokens(token, amount) {
+	burnTokens(destAddress, coinId, amount) {
 		throw new Error("Method 'burnTokens' must be implemented.");
 	}
 }

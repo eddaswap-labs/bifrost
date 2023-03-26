@@ -4,6 +4,7 @@ import TONLogo from '$lib/images/ton_logo.svg';
 
 export let coins = [
 	{
+		id: 66,
 		name: 'Ethereum',
 		nativeSymbol: 'ETH',
 		syntheticSymbol: 'bETH',
@@ -11,6 +12,7 @@ export let coins = [
 		logoSize: 20
 	},
 	{
+		id: 1729,
 		name: 'Tezos',
 		nativeSymbol: 'XTZ',
 		syntheticSymbol: 'bXTZ',
@@ -18,6 +20,7 @@ export let coins = [
 		logoSize: 20
 	},
 	{
+		id: 444,
 		name: 'The Open Network',
 		nativeSymbol: 'TON',
 		syntheticSymbol: 'bTON',

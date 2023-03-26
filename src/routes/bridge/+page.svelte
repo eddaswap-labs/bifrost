@@ -25,7 +25,7 @@
 	);
 	let toNetwork = writable(toSymbol ? coins.findIndex((c) => c.nativeSymbol === toSymbol) : 1);
 
-	let assetPair = 0;
+	let assetPair = 0; // 0 - synthetic-to-native; 1 - native-to-synthetic
 
 	let fromValue = '';
 	let toValue = '';
@@ -39,7 +39,18 @@
 		toNetwork.set(from);
 	};
 
+	// TODO: estimate swap fee
 	let swapFee = bigIntToFloat(0, 18, 9);
+
+	const swap = async () => {
+		if (assetPair === 0) {
+			let coinId = coins[$fromNetwork].id;
+			await fromWallet.burnTokens($toWallet.address, coinId, fromValue);
+		} else if (assetPair === 1) {
+			let destCoinId = coins[$toNetwork].id;
+			await fromWallet.lockCoins($toWallet.address, destCoinId, fromValue);
+		}
+	};
 </script>
 
 <Header title="Bridge" />
@@ -147,8 +158,8 @@
 		</div>
 		<button
 			class="btn btn-primary btn-full w-full mt-5"
-			disabled={!$fromWallet || !$fromWallet.connected || !$toWallet || !$toWallet.connected}
-			>swap</button
+			disabled={!($fromWallet && $fromWallet.connected) || !($toWallet && $toWallet.connected)}
+			on:click={swap}>swap</button
 		>
 	</div>
 </div>

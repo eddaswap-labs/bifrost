@@ -39,14 +39,20 @@ const makeWalletStore = (wallet) => {
 		});
 	};
 
+	const lockCoins = (destAddress, destCoinId, amount) =>
+		wallet.lockCoins(destAddress, destCoinId, amount);
+
+	const burnTokens = (destAddress, coinId, amount) =>
+		wallet.burnTokens(destAddress, coinId, amount);
+
 	return {
 		subscribe,
 		connectInjected,
 		connectExternal,
 		disconnect,
-		available: wallet.available,
-		lockCoins: wallet.lockCoins,
-		burnTokens: wallet.burnTokens
+		lockCoins,
+		burnTokens,
+		available: wallet.available
 	};
 };
 

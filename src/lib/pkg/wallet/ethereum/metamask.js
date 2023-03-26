@@ -1,8 +1,7 @@
 import { ethers } from 'ethers';
 import { Wallet } from '../wallet';
-
-const bridgeABI = []; // TODO
-const tokenABI = []; // TODO
+import { PUBLIC_ETH_BRIDGE_ADDRESS } from '$env/static/public';
+import BridgeABI from './bridge_abi.json';
 
 /**
  * Implements Wallet abstract class for MetaMask.
@@ -43,16 +42,16 @@ export default class MetaMask extends Wallet {
 	async lockCoins(destAddress, destCoinId, amount) {
 		const signer = this.provider.getSigner();
 
-		const bridgeContract = new ethers.Contract(BRIDGE_ADDRESS, bridgeABI, signer);
+		const bridgeContract = new ethers.Contract(PUBLIC_ETH_BRIDGE_ADDRESS, BridgeABI, signer);
 
 		await bridgeContract.lock(destAddress, destCoinId, { value: ethers.utils.parseEther(amount) });
 	}
 
-	async burnTokens(token, amount) {
+	async burnTokens(destAddress, coinId, amount) {
 		const signer = this.provider.getSigner();
 
-		const tokenContract = new ethers.Contract(token, tokenABI, signer);
+		const bridgeContract = new ethers.Contract(PUBLIC_ETH_BRIDGE_ADDRESS, BridgeABI, signer);
 
-		await tokenContract.burn(amount);
+		await bridgeContract.burnERC20(coinId, destAddress, ethers.utils.parseEther(amount));
 	}
 }
