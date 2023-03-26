@@ -6,6 +6,7 @@ const TZSLogo = "" + new URL("../assets/tzs_logo-7098441a.svg", import.meta.url)
 const TONLogo = "" + new URL("../assets/ton_logo-db693a23.svg", import.meta.url).href;
 let coins = [
   {
+    id: 66,
     name: "Ethereum",
     nativeSymbol: "ETH",
     syntheticSymbol: "bETH",
@@ -13,6 +14,7 @@ let coins = [
     logoSize: 20
   },
   {
+    id: 1729,
     name: "Tezos",
     nativeSymbol: "XTZ",
     syntheticSymbol: "bXTZ",
@@ -20,6 +22,7 @@ let coins = [
     logoSize: 20
   },
   {
+    id: 444,
     name: "The Open Network",
     nativeSymbol: "TON",
     syntheticSymbol: "bTON",

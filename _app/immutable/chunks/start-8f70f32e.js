@@ -1,6 +1,6 @@
 import { S as SvelteComponent, i as init, s as safe_not_equal, a as space, e as empty$2, c as claim_space, b as insert_hydration, g as group_outros, t as transition_out, d as check_outros, f as transition_in, h as detach, j as afterUpdate, o as onMount, k as element, l as claim_element, m as children, n as attr, p as set_style, q as text, r as claim_text, u as set_data, v as binding_callbacks, w as construct_svelte_component, x as create_component, y as claim_component, z as mount_component, A as destroy_component, B as tick } from "./index-ff2c6ddd.js";
 import { S as SCROLL_KEY, a as SNAPSHOT_KEY, I as INDEX_KEY, g as get_base_uri, f as find_anchor, b as get_link_info, c as get_router_options, s as stores, i as is_external_url, d as scroll_state, P as PRELOAD_PRIORITIES, e as init$1, h as set_version } from "./singletons-654baec5.js";
-import { r as require$$0$1, c as commonjsGlobal, s as sha3, W as Wallet$1, g as getDefaultExportFromCjs, a as commonjsRequire$1, w as wipe, b as binary, B as BigNumber$1, n as naclFastExports, d as dist, E as Ethereum, T as Tezos, e as TON } from "./binary-68e89099.js";
+import { r as require$$0$1, c as commonjsGlobal, s as sha3, W as Wallet$1, g as getDefaultExportFromCjs, a as commonjsRequire$1, w as wipe, b as binary, B as BigNumber$1, n as naclFastExports, d as dist, E as Ethereum, T as Tezos, e as TON } from "./binary-01823b6c.js";
 import { b as base$4, s as set_assets } from "./paths-47b04bd7.js";
 function normalize_path(path, trailing_slash) {
   if (path === "/" || trailing_slash === "ignore")
@@ -17126,8 +17126,333 @@ function parseUnits(value, unitName) {
 function parseEther(ether) {
   return parseUnits(ether, 18);
 }
-const bridgeABI = [];
-const tokenABI = [];
+const PUBLIC_TON_BRIDGE_ADDRESS = "Ef_iaSk-krmFUAk9fFbmMJcnfRvbyUCrQBa7SS83gWXJhG9s";
+const PUBLIC_ETH_BRIDGE_ADDRESS = " ";
+const BridgeABI = [
+  {
+    inputs: [
+      {
+        internalType: "address[]",
+        name: "_oracles",
+        type: "address[]"
+      }
+    ],
+    stateMutability: "nonpayable",
+    type: "constructor"
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "from",
+        type: "address"
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "value",
+        type: "uint256"
+      },
+      {
+        indexed: false,
+        internalType: "uint32",
+        name: "destCoinId",
+        type: "uint32"
+      },
+      {
+        indexed: false,
+        internalType: "string",
+        name: "destAddress",
+        type: "string"
+      }
+    ],
+    name: "BurnERC20",
+    type: "event"
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "from",
+        type: "address"
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "value",
+        type: "uint256"
+      },
+      {
+        indexed: false,
+        internalType: "uint32",
+        name: "destCoinId",
+        type: "uint32"
+      },
+      {
+        indexed: false,
+        internalType: "string",
+        name: "destAddress",
+        type: "string"
+      }
+    ],
+    name: "Lock",
+    type: "event"
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "uint32",
+        name: "coinId",
+        type: "uint32"
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "to",
+        type: "address"
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "value",
+        type: "uint256"
+      }
+    ],
+    name: "MintERC20",
+    type: "event"
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "previousOwner",
+        type: "address"
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "newOwner",
+        type: "address"
+      }
+    ],
+    name: "OwnershipTransferred",
+    type: "event"
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "uint32",
+        name: "coinId",
+        type: "uint32"
+      },
+      {
+        indexed: false,
+        internalType: "address",
+        name: "tokenAddress",
+        type: "address"
+      }
+    ],
+    name: "TokenCreated",
+    type: "event"
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "to",
+        type: "address"
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "value",
+        type: "uint256"
+      }
+    ],
+    name: "Unlock",
+    type: "event"
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint32",
+        name: "_destCoinId",
+        type: "uint32"
+      },
+      {
+        internalType: "string",
+        name: "_destAddress",
+        type: "string"
+      },
+      {
+        internalType: "uint256",
+        name: "_amount",
+        type: "uint256"
+      }
+    ],
+    name: "burnERC20",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "success",
+        type: "bool"
+      }
+    ],
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "_name",
+        type: "string"
+      },
+      {
+        internalType: "string",
+        name: "_symbol",
+        type: "string"
+      },
+      {
+        internalType: "uint32",
+        name: "_coinId",
+        type: "uint32"
+      }
+    ],
+    name: "createToken",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "success",
+        type: "bool"
+      }
+    ],
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "_destAddress",
+        type: "string"
+      },
+      {
+        internalType: "uint32",
+        name: "_destCoinId",
+        type: "uint32"
+      }
+    ],
+    name: "lock",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "success",
+        type: "bool"
+      }
+    ],
+    stateMutability: "payable",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint32",
+        name: "_destCoinId",
+        type: "uint32"
+      },
+      {
+        internalType: "address",
+        name: "_to",
+        type: "address"
+      },
+      {
+        internalType: "uint256",
+        name: "_amount",
+        type: "uint256"
+      }
+    ],
+    name: "mintERC20",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "success",
+        type: "bool"
+      }
+    ],
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    inputs: [],
+    name: "owner",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address"
+      }
+    ],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [],
+    name: "renounceOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "newOwner",
+        type: "address"
+      }
+    ],
+    name: "transferOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "address payable",
+        name: "_to",
+        type: "address"
+      },
+      {
+        internalType: "uint256",
+        name: "_amount",
+        type: "uint256"
+      }
+    ],
+    name: "unlock",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "success",
+        type: "bool"
+      }
+    ],
+    stateMutability: "nonpayable",
+    type: "function"
+  }
+];
 class MetaMask extends Wallet$1 {
   constructor() {
     super();
@@ -17154,13 +17479,13 @@ class MetaMask extends Wallet$1 {
   }
   async lockCoins(destAddress, destCoinId, amount) {
     const signer = this.provider.getSigner();
-    const bridgeContract = new Contract$1(BRIDGE_ADDRESS, bridgeABI, signer);
+    const bridgeContract = new Contract$1(PUBLIC_ETH_BRIDGE_ADDRESS, BridgeABI, signer);
     await bridgeContract.lock(destAddress, destCoinId, { value: parseEther(amount) });
   }
-  async burnTokens(token, amount) {
+  async burnTokens(destAddress, coinId, amount) {
     const signer = this.provider.getSigner();
-    const tokenContract = new Contract$1(token, tokenABI, signer);
-    await tokenContract.burn(amount);
+    const bridgeContract = new Contract$1(PUBLIC_ETH_BRIDGE_ADDRESS, BridgeABI, signer);
+    await bridgeContract.burnERC20(coinId, destAddress, parseEther(amount));
   }
 }
 var axiosExports$1 = {};
@@ -18447,7 +18772,7 @@ var STATUS_CODE;
   STATUS_CODE2[STATUS_CODE2["NETWORK_AUTHENTICATION_REQUIRED"] = 511] = "NETWORK_AUTHENTICATION_REQUIRED";
 })(STATUS_CODE || (STATUS_CODE = {}));
 const isNode$1 = typeof process !== "undefined" && process.versions != null && process.versions.node != null;
-const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-7ce5a1b6.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
+const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-51ce1dc0.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
 var ResponseType;
 (function(ResponseType2) {
   ResponseType2["TEXT"] = "text";
@@ -54895,7 +55220,6 @@ for (let ord = 0; ord <= 255; ord++) {
     s2 = "0" + s2;
   }
 }
-const PUBLIC_TON_BRIDGE_ADDRESS = "Ef_iaSk-krmFUAk9fFbmMJcnfRvbyUCrQBa7SS83gWXJhG9s";
 var lib = {};
 var nodes$1 = {};
 var global$1 = typeof globalThis !== "undefined" && globalThis || typeof self !== "undefined" && self || typeof global$1 !== "undefined" && global$1;
@@ -55770,8 +56094,8 @@ const matchers = {};
 const nodes = [
   () => __vitePreload(() => import("./0-32d74f6c.js"), true ? ["./0-32d74f6c.js","./_layout-a7d677aa.js","../components/pages/_layout.svelte-b4b3d88c.js","./index-ff2c6ddd.js","./index-5d2e3d7a.js","../assets/_layout-a09ecbe6.css"] : void 0, import.meta.url),
   () => __vitePreload(() => import("./1-0fc752fc.js"), true ? ["./1-0fc752fc.js","../components/error.svelte-874c41be.js","./index-ff2c6ddd.js","./stores-c3461dee.js","./singletons-654baec5.js","./paths-47b04bd7.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./2-ad4825d8.js"), true ? ["./2-ad4825d8.js","../components/pages/_page.svelte-2b29467d.js","./index-ff2c6ddd.js","./index-5d2e3d7a.js","./paths-47b04bd7.js","./bifrost_logo-ad802559.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./3-5684a938.js"), true ? ["./3-5684a938.js","../components/pages/bridge/_page.svelte-7b9cbe5a.js","./index-ff2c6ddd.js","./stores-c3461dee.js","./singletons-654baec5.js","./paths-47b04bd7.js","./bifrost_logo-ad802559.js","./binary-68e89099.js","./index-5d2e3d7a.js","../assets/_page-a49c28f6.css"] : void 0, import.meta.url)
+  () => __vitePreload(() => import("./2-7c249562.js"), true ? ["./2-7c249562.js","../components/pages/_page.svelte-da019ab5.js","./index-ff2c6ddd.js","./index-5d2e3d7a.js","./paths-47b04bd7.js","./bifrost_logo-1d759e42.js"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./3-d3eb99f7.js"), true ? ["./3-d3eb99f7.js","../components/pages/bridge/_page.svelte-d8962e72.js","./index-ff2c6ddd.js","./stores-c3461dee.js","./singletons-654baec5.js","./paths-47b04bd7.js","./bifrost_logo-1d759e42.js","./binary-01823b6c.js","./index-5d2e3d7a.js","../assets/_page-a49c28f6.css"] : void 0, import.meta.url)
 ];
 const server_loads = [];
 const dictionary = {

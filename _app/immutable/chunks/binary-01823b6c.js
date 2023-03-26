@@ -32025,10 +32025,11 @@ class Wallet {
    * Calls burn method in the token (or jetton) contract.
    * It starts the wrapped-to-native swap process.
    *
-   * @param {string} token
+   * @param {string} destAddress
+   * @param {number} coinId
    * @param {string} amount
    */
-  burnTokens(token, amount) {
+  burnTokens(destAddress, coinId, amount) {
     throw new Error("Method 'burnTokens' must be implemented.");
   }
 }
@@ -32061,14 +32062,16 @@ const makeWalletStore = (wallet) => {
       connected: false
     });
   };
+  const lockCoins = (destAddress, destCoinId, amount) => wallet.lockCoins(destAddress, destCoinId, amount);
+  const burnTokens = (destAddress, coinId, amount) => wallet.burnTokens(destAddress, coinId, amount);
   return {
     subscribe,
     connectInjected,
     connectExternal,
     disconnect,
-    available: wallet.available,
-    lockCoins: wallet.lockCoins,
-    burnTokens: wallet.burnTokens
+    lockCoins,
+    burnTokens,
+    available: wallet.available
   };
 };
 const makeNetworkStore = () => {

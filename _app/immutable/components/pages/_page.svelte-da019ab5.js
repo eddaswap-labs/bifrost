@@ -1,7 +1,7 @@
 import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, l as claim_element, m as children, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, f as transition_in, t as transition_out, d as check_outros, o as onMount, P as component_subscribe, C as noop, q as text, r as claim_text, Q as src_url_equal, R as add_render_callback, T as create_in_transition, x as create_component, y as claim_component, z as mount_component, M as listen, A as destroy_component, E as run_all, g as group_outros } from "../../chunks/index-ff2c6ddd.js";
 import { f as fly } from "../../chunks/index-5d2e3d7a.js";
 import { b as base, w as writable } from "../../chunks/paths-47b04bd7.js";
-import { B as BifrostLogo, C as CoinSelect, A as Arrows, c as coins } from "../../chunks/bifrost_logo-ad802559.js";
+import { B as BifrostLogo, C as CoinSelect, A as Arrows, c as coins } from "../../chunks/bifrost_logo-1d759e42.js";
 function create_if_block_1(ctx) {
   let div;
   let if_block = (
