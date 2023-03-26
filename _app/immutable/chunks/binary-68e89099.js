@@ -4,8 +4,8 @@ var __publicField = (obj, key, value) => {
   __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
   return value;
 };
-import { d as derived, w as writable } from "./paths-5706f729.js";
-import { G as get_store_value } from "./index-7469667d.js";
+import { d as derived, w as writable } from "./paths-47b04bd7.js";
+import { G as get_store_value } from "./index-ff2c6ddd.js";
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 function getDefaultExportFromCjs(x) {
   return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
@@ -32007,6 +32007,9 @@ class Wallet {
   connectExternal(cb) {
     throw new Error("Method 'connectExternal' must be implemented.");
   }
+  disconnect() {
+    throw new Error("Method 'disconnect' must be implemented.");
+  }
   /**
    * Sends transaction that calls the method that locks coins on the chain.
    * It starts the native-to-wrapped swap process.
@@ -32041,16 +32044,18 @@ const makeWalletStore = (wallet) => {
       connected: true
     });
   };
-  const connectExternal = async () => {
+  const connectExternal = async (cb) => {
     let link = await wallet.connectExternal((address) => {
       set({
         address,
         connected: true
       });
+      cb();
     });
     return link;
   };
-  const disconnect = () => {
+  const disconnect = async () => {
+    await wallet.disconnect();
     set({
       address: "",
       connected: false
@@ -32085,10 +32090,10 @@ const makeNetworkStore = () => {
       });
       set({ connected, address, wallets: walletStores });
     },
-    disconnect() {
+    async disconnect() {
       let network = get_store_value(this);
       for (let wallet of Object.values(network.wallets)) {
-        wallet.disconnect();
+        await wallet.disconnect();
       }
     }
   };

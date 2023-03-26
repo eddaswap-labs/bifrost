@@ -485,6 +485,9 @@ function tick() {
 function add_render_callback(fn) {
   render_callbacks.push(fn);
 }
+function add_flush_callback(fn) {
+  flush_callbacks.push(fn);
+}
 const seen_callbacks = /* @__PURE__ */ new Set();
 let flushidx = 0;
 function flush() {
@@ -706,6 +709,13 @@ function create_out_transition(node, fn, params) {
     }
   };
 }
+function bind(component, name, callback) {
+  const index = component.$$.props[name];
+  if (index !== void 0) {
+    component.$$.bound[index] = callback;
+    callback(component.$$.ctx[index]);
+  }
+}
 function create_component(block) {
   block && block.c();
 }
@@ -828,6 +838,7 @@ class SvelteComponent {
   }
 }
 export {
+  add_flush_callback as $,
   destroy_component as A,
   tick as B,
   noop as C,
@@ -842,19 +853,19 @@ export {
   get_slot_changes as L,
   listen as M,
   create_out_transition as N,
-  assign as O,
-  identity as P,
-  component_subscribe as Q,
-  src_url_equal as R,
+  identity as O,
+  component_subscribe as P,
+  src_url_equal as Q,
+  add_render_callback as R,
   SvelteComponent as S,
-  add_render_callback as T,
-  create_in_transition as U,
-  svg_element as V,
-  claim_svg_element as W,
-  destroy_each as X,
-  null_to_empty as Y,
-  set_input_value as Z,
-  to_number as _,
+  create_in_transition as T,
+  svg_element as U,
+  claim_svg_element as V,
+  destroy_each as W,
+  null_to_empty as X,
+  set_input_value as Y,
+  to_number as Z,
+  bind as _,
   space as a,
   insert_hydration as b,
   claim_space as c,

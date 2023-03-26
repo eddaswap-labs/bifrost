@@ -1,9 +1,9 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, q as text, l as claim_element, m as children, h as detach, c as claim_space, r as claim_text, R as src_url_equal, n as attr, b as insert_hydration, I as append_hydration, u as set_data, C as noop, o as onMount, v as binding_callbacks, M as listen, g as group_outros, t as transition_out, d as check_outros, f as transition_in, E as run_all, Q as component_subscribe, V as svg_element, W as claim_svg_element, T as add_render_callback, U as create_in_transition, x as create_component, y as claim_component, z as mount_component, A as destroy_component, Y as null_to_empty, Z as set_input_value, _ as to_number } from "../../../chunks/index-7469667d.js";
-import { p as page } from "../../../chunks/stores-282b194f.js";
-import { B as BifrostLogo$1, C as CoinSelect, c as coins, A as Arrows } from "../../../chunks/bifrost_logo-4a9fd498.js";
-import { w as writable } from "../../../chunks/paths-5706f729.js";
-import { B as BigNumber, b as binary, w as wipe, c as commonjsGlobal, f as sha3Exports, E as Ethereum, T as Tezos, g as getDefaultExportFromCjs, e as TON } from "../../../chunks/binary-f7d4eca8.js";
-import { a as fade$1, c as crossfade, q as quintOut } from "../../../chunks/index-28bd536f.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, q as text, l as claim_element, m as children, h as detach, c as claim_space, r as claim_text, Q as src_url_equal, n as attr, b as insert_hydration, I as append_hydration, u as set_data, C as noop, o as onMount, v as binding_callbacks, M as listen, g as group_outros, t as transition_out, d as check_outros, f as transition_in, E as run_all, P as component_subscribe, U as svg_element, V as claim_svg_element, R as add_render_callback, T as create_in_transition, x as create_component, y as claim_component, z as mount_component, A as destroy_component, X as null_to_empty, Y as set_input_value, Z as to_number, _ as bind, $ as add_flush_callback, D as subscribe } from "../../../chunks/index-ff2c6ddd.js";
+import { p as page } from "../../../chunks/stores-c3461dee.js";
+import { B as BifrostLogo, C as CoinSelect, c as coins, A as Arrows } from "../../../chunks/bifrost_logo-ad802559.js";
+import { w as writable } from "../../../chunks/paths-47b04bd7.js";
+import { B as BigNumber, b as binary, w as wipe, c as commonjsGlobal, f as sha3Exports, E as Ethereum, T as Tezos, g as getDefaultExportFromCjs, e as TON } from "../../../chunks/binary-68e89099.js";
+import { a as fade$1 } from "../../../chunks/index-5d2e3d7a.js";
 const ArrowRight = "" + new URL("../../../assets/arrowRight-ebb69799.svg", import.meta.url).href;
 function create_else_block$3(ctx) {
   let span;
@@ -106,7 +106,7 @@ function create_fragment$5(ctx) {
       this.h();
     },
     h() {
-      if (!src_url_equal(img.src, img_src_value = BifrostLogo$1))
+      if (!src_url_equal(img.src, img_src_value = BifrostLogo))
         attr(img, "src", img_src_value);
       attr(img, "width", 40);
       attr(img, "alt", "logo");
@@ -2524,19 +2524,19 @@ function create_fragment$3(ctx) {
             input0,
             "change",
             /*input0_change_handler*/
-            ctx[9]
+            ctx[10]
           ),
           listen(
             button0,
             "click",
             /*click_handler*/
-            ctx[10]
+            ctx[11]
           ),
           listen(
             input1,
             "change",
             /*input1_change_handler*/
-            ctx[11]
+            ctx[12]
           ),
           listen(
             button1,
@@ -2640,10 +2640,11 @@ function instance$3($$self, $$props, $$invalidate) {
   let $Ethereum;
   let $connected;
   let $address;
-  component_subscribe($$self, Ethereum, ($$value) => $$invalidate(12, $Ethereum = $$value));
+  component_subscribe($$self, Ethereum, ($$value) => $$invalidate(13, $Ethereum = $$value));
   const { connected, address, wallets } = $Ethereum;
   component_subscribe($$self, connected, (value) => $$invalidate(3, $connected = value));
   component_subscribe($$self, address, (value) => $$invalidate(4, $address = value));
+  let { connectedWallet } = $$props;
   let errorMessage = "";
   let isConnectingModalOpen = false;
   let isDisconnectingModalOpen = false;
@@ -2655,12 +2656,13 @@ function instance$3($$self, $$props, $$invalidate) {
           return;
         }
         await wallets.MetaMask.connectInjected();
+        $$invalidate(9, connectedWallet = wallets.MetaMask);
         break;
     }
     $$invalidate(1, isConnectingModalOpen = false);
   };
-  const disconnect = () => {
-    Ethereum.disconnect();
+  const disconnect = async () => {
+    await Ethereum.disconnect();
     $$invalidate(2, isDisconnectingModalOpen = false);
   };
   function input0_change_handler() {
@@ -2672,6 +2674,10 @@ function instance$3($$self, $$props, $$invalidate) {
     isDisconnectingModalOpen = this.checked;
     $$invalidate(2, isDisconnectingModalOpen);
   }
+  $$self.$$set = ($$props2) => {
+    if ("connectedWallet" in $$props2)
+      $$invalidate(9, connectedWallet = $$props2.connectedWallet);
+  };
   return [
     errorMessage,
     isConnectingModalOpen,
@@ -2682,6 +2688,7 @@ function instance$3($$self, $$props, $$invalidate) {
     address,
     connect,
     disconnect,
+    connectedWallet,
     input0_change_handler,
     click_handler,
     input1_change_handler
@@ -2690,7 +2697,7 @@ function instance$3($$self, $$props, $$invalidate) {
 class ConnectWalletETH extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$3, create_fragment$3, safe_not_equal, {});
+    init(this, options, instance$3, create_fragment$3, safe_not_equal, { connectedWallet: 9 });
   }
 }
 const TempleLogo = "data:image/png;base64,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";
@@ -3134,7 +3141,7 @@ function create_fragment$2(ctx) {
             input0,
             "change",
             /*input0_change_handler*/
-            ctx[9]
+            ctx[10]
           ),
           listen(
             button0,
@@ -3146,7 +3153,7 @@ function create_fragment$2(ctx) {
             input1,
             "change",
             /*input1_change_handler*/
-            ctx[10]
+            ctx[11]
           ),
           listen(
             button1,
@@ -3250,10 +3257,11 @@ function instance$2($$self, $$props, $$invalidate) {
   let $Tezos;
   let $connected;
   let $address;
-  component_subscribe($$self, Tezos, ($$value) => $$invalidate(11, $Tezos = $$value));
+  component_subscribe($$self, Tezos, ($$value) => $$invalidate(12, $Tezos = $$value));
   const { connected, address, wallets } = $Tezos;
   component_subscribe($$self, connected, (value) => $$invalidate(3, $connected = value));
   component_subscribe($$self, address, (value) => $$invalidate(4, $address = value));
+  let { connectedWallet } = $$props;
   let errorMessage = "";
   let isConnectingModalOpen = false;
   let isDisconnectingModalOpen = false;
@@ -3264,9 +3272,10 @@ function instance$2($$self, $$props, $$invalidate) {
     }
     await wallets.TempleWallet.connectInjected();
     $$invalidate(1, isConnectingModalOpen = false);
+    $$invalidate(9, connectedWallet = wallets.TempleWallet);
   };
-  const disconnect = () => {
-    Tezos.disconnect();
+  const disconnect = async () => {
+    await Tezos.disconnect();
     $$invalidate(2, isDisconnectingModalOpen = false);
   };
   function input0_change_handler() {
@@ -3277,6 +3286,10 @@ function instance$2($$self, $$props, $$invalidate) {
     isDisconnectingModalOpen = this.checked;
     $$invalidate(2, isDisconnectingModalOpen);
   }
+  $$self.$$set = ($$props2) => {
+    if ("connectedWallet" in $$props2)
+      $$invalidate(9, connectedWallet = $$props2.connectedWallet);
+  };
   return [
     errorMessage,
     isConnectingModalOpen,
@@ -3287,6 +3300,7 @@ function instance$2($$self, $$props, $$invalidate) {
     address,
     connect,
     disconnect,
+    connectedWallet,
     input0_change_handler,
     input1_change_handler
   ];
@@ -3294,7 +3308,7 @@ function instance$2($$self, $$props, $$invalidate) {
 class ConnectWalletTZS extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$2, create_fragment$2, safe_not_equal, {});
+    init(this, options, instance$2, create_fragment$2, safe_not_equal, { connectedWallet: 9 });
   }
 }
 var qrCodeStylingExports = {};
@@ -4892,10 +4906,10 @@ const imageOptions = {
 };
 const dotsOptions = {
   type: "rounded",
-  color: "#000000"
+  color: "#ffffff"
 };
 const backgroundOptions = {
-  color: "#ffffff"
+  color: "#101728"
 };
 const image = "";
 const dotsOptionsHelper = {
@@ -4913,7 +4927,7 @@ const dotsOptionsHelper = {
 };
 const cornersSquareOptions = {
   type: "extra-rounded",
-  color: "#000000"
+  color: "#ffffff"
 };
 const cornersSquareOptionsHelper = {
   colorType: {
@@ -4930,7 +4944,7 @@ const cornersSquareOptionsHelper = {
 };
 const cornersDotOptions = {
   type: "square",
-  color: "#000000"
+  color: "#ffffff"
 };
 const cornersDotOptionsHelper = {
   colorType: {
@@ -4994,7 +5008,6 @@ const QROptions = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePro
   type,
   width
 }, Symbol.toStringTag, { value: "Module" }));
-const BifrostLogo = "" + new URL("../../../assets/bifrost-903150fa.png", import.meta.url).href;
 const TonkeeperLogo = "" + new URL("../../../assets/tonkeeper_logo-1118612a.png", import.meta.url).href;
 function create_else_block(ctx) {
   let label;
@@ -5404,7 +5417,7 @@ function create_fragment$1(ctx) {
             input0,
             "change",
             /*input0_change_handler*/
-            ctx[8]
+            ctx[9]
           ),
           listen(
             button0,
@@ -5416,7 +5429,7 @@ function create_fragment$1(ctx) {
             input1,
             "change",
             /*input1_change_handler*/
-            ctx[9]
+            ctx[10]
           ),
           listen(
             button1,
@@ -5507,22 +5520,27 @@ function instance$1($$self, $$props, $$invalidate) {
   let $TON;
   let $connected;
   let $address;
-  component_subscribe($$self, TON, ($$value) => $$invalidate(10, $TON = $$value));
+  component_subscribe($$self, TON, ($$value) => $$invalidate(11, $TON = $$value));
   const { connected, address, wallets } = $TON;
   component_subscribe($$self, connected, (value) => $$invalidate(2, $connected = value));
   component_subscribe($$self, address, (value) => $$invalidate(3, $address = value));
+  let { connectedWallet } = $$props;
   const qrCode = new QRCodeStyling(QROptions);
+  const onConnected = () => {
+    $$invalidate(8, connectedWallet = wallets.TonKeeper);
+    document.getElementById("qr-modal").checked = false;
+  };
   let isConnectingModalOpen = false;
   let isDisconnectingModalOpen = false;
   const connect = async () => {
-    let connectionLink = await wallets.TonKeeper.connectExternal();
+    let connectionLink = await wallets.TonKeeper.connectExternal(onConnected);
     qrCode.update({ data: connectionLink, image: BifrostLogo });
     qrCode.append(document.getElementById("qr-code"));
     document.getElementById("qr-modal").checked = true;
     $$invalidate(0, isConnectingModalOpen = false);
   };
-  const disconnect = () => {
-    TON.disconnect();
+  const disconnect = async () => {
+    await TON.disconnect();
     $$invalidate(1, isDisconnectingModalOpen = false);
   };
   function input0_change_handler() {
@@ -5533,6 +5551,10 @@ function instance$1($$self, $$props, $$invalidate) {
     isDisconnectingModalOpen = this.checked;
     $$invalidate(1, isDisconnectingModalOpen);
   }
+  $$self.$$set = ($$props2) => {
+    if ("connectedWallet" in $$props2)
+      $$invalidate(8, connectedWallet = $$props2.connectedWallet);
+  };
   return [
     isConnectingModalOpen,
     isDisconnectingModalOpen,
@@ -5542,6 +5564,7 @@ function instance$1($$self, $$props, $$invalidate) {
     address,
     connect,
     disconnect,
+    connectedWallet,
     input0_change_handler,
     input1_change_handler
   ];
@@ -5549,28 +5572,25 @@ function instance$1($$self, $$props, $$invalidate) {
 class ConnectWalletTON extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$1, create_fragment$1, safe_not_equal, {});
+    init(this, options, instance$1, create_fragment$1, safe_not_equal, { connectedWallet: 8 });
   }
 }
-crossfade({
-  duration: (d) => Math.sqrt(d * 300),
-  fallback(node, params2) {
-    const style = getComputedStyle(node);
-    const transform = style.transform === "none" ? "" : style.transform;
-    return {
-      duration: 600,
-      easing: quintOut,
-      css: (t) => `
-                transform: ${transform} scale(${t});
-            `
-    };
-  }
-});
 const _page_svelte_svelte_type_style_lang = "";
 function create_if_block_5(ctx) {
   let connectwalletton;
+  let updating_connectedWallet;
   let current;
-  connectwalletton = new ConnectWalletTON({});
+  function connectwalletton_connectedWallet_binding(value) {
+    ctx[16](value);
+  }
+  let connectwalletton_props = {};
+  if (/*fromWallet*/
+  ctx[3] !== void 0) {
+    connectwalletton_props.connectedWallet = /*fromWallet*/
+    ctx[3];
+  }
+  connectwalletton = new ConnectWalletTON({ props: connectwalletton_props });
+  binding_callbacks.push(() => bind(connectwalletton, "connectedWallet", connectwalletton_connectedWallet_binding));
   return {
     c() {
       create_component(connectwalletton.$$.fragment);
@@ -5581,6 +5601,17 @@ function create_if_block_5(ctx) {
     m(target, anchor) {
       mount_component(connectwalletton, target, anchor);
       current = true;
+    },
+    p(ctx2, dirty) {
+      const connectwalletton_changes = {};
+      if (!updating_connectedWallet && dirty & /*fromWallet*/
+      8) {
+        updating_connectedWallet = true;
+        connectwalletton_changes.connectedWallet = /*fromWallet*/
+        ctx2[3];
+        add_flush_callback(() => updating_connectedWallet = false);
+      }
+      connectwalletton.$set(connectwalletton_changes);
     },
     i(local) {
       if (current)
@@ -5599,8 +5630,19 @@ function create_if_block_5(ctx) {
 }
 function create_if_block_4(ctx) {
   let connectwallettzs;
+  let updating_connectedWallet;
   let current;
-  connectwallettzs = new ConnectWalletTZS({});
+  function connectwallettzs_connectedWallet_binding(value) {
+    ctx[15](value);
+  }
+  let connectwallettzs_props = {};
+  if (/*fromWallet*/
+  ctx[3] !== void 0) {
+    connectwallettzs_props.connectedWallet = /*fromWallet*/
+    ctx[3];
+  }
+  connectwallettzs = new ConnectWalletTZS({ props: connectwallettzs_props });
+  binding_callbacks.push(() => bind(connectwallettzs, "connectedWallet", connectwallettzs_connectedWallet_binding));
   return {
     c() {
       create_component(connectwallettzs.$$.fragment);
@@ -5611,6 +5653,17 @@ function create_if_block_4(ctx) {
     m(target, anchor) {
       mount_component(connectwallettzs, target, anchor);
       current = true;
+    },
+    p(ctx2, dirty) {
+      const connectwallettzs_changes = {};
+      if (!updating_connectedWallet && dirty & /*fromWallet*/
+      8) {
+        updating_connectedWallet = true;
+        connectwallettzs_changes.connectedWallet = /*fromWallet*/
+        ctx2[3];
+        add_flush_callback(() => updating_connectedWallet = false);
+      }
+      connectwallettzs.$set(connectwallettzs_changes);
     },
     i(local) {
       if (current)
@@ -5629,8 +5682,19 @@ function create_if_block_4(ctx) {
 }
 function create_if_block_3(ctx) {
   let connectwalleteth;
+  let updating_connectedWallet;
   let current;
-  connectwalleteth = new ConnectWalletETH({});
+  function connectwalleteth_connectedWallet_binding(value) {
+    ctx[14](value);
+  }
+  let connectwalleteth_props = {};
+  if (/*fromWallet*/
+  ctx[3] !== void 0) {
+    connectwalleteth_props.connectedWallet = /*fromWallet*/
+    ctx[3];
+  }
+  connectwalleteth = new ConnectWalletETH({ props: connectwalleteth_props });
+  binding_callbacks.push(() => bind(connectwalleteth, "connectedWallet", connectwalleteth_connectedWallet_binding));
   return {
     c() {
       create_component(connectwalleteth.$$.fragment);
@@ -5641,6 +5705,17 @@ function create_if_block_3(ctx) {
     m(target, anchor) {
       mount_component(connectwalleteth, target, anchor);
       current = true;
+    },
+    p(ctx2, dirty) {
+      const connectwalleteth_changes = {};
+      if (!updating_connectedWallet && dirty & /*fromWallet*/
+      8) {
+        updating_connectedWallet = true;
+        connectwalleteth_changes.connectedWallet = /*fromWallet*/
+        ctx2[3];
+        add_flush_callback(() => updating_connectedWallet = false);
+      }
+      connectwalleteth.$set(connectwalleteth_changes);
     },
     i(local) {
       if (current)
@@ -5659,8 +5734,19 @@ function create_if_block_3(ctx) {
 }
 function create_if_block_2(ctx) {
   let connectwalletton;
+  let updating_connectedWallet;
   let current;
-  connectwalletton = new ConnectWalletTON({});
+  function connectwalletton_connectedWallet_binding_1(value) {
+    ctx[20](value);
+  }
+  let connectwalletton_props = {};
+  if (/*toWallet*/
+  ctx[4] !== void 0) {
+    connectwalletton_props.connectedWallet = /*toWallet*/
+    ctx[4];
+  }
+  connectwalletton = new ConnectWalletTON({ props: connectwalletton_props });
+  binding_callbacks.push(() => bind(connectwalletton, "connectedWallet", connectwalletton_connectedWallet_binding_1));
   return {
     c() {
       create_component(connectwalletton.$$.fragment);
@@ -5671,6 +5757,17 @@ function create_if_block_2(ctx) {
     m(target, anchor) {
       mount_component(connectwalletton, target, anchor);
       current = true;
+    },
+    p(ctx2, dirty) {
+      const connectwalletton_changes = {};
+      if (!updating_connectedWallet && dirty & /*toWallet*/
+      16) {
+        updating_connectedWallet = true;
+        connectwalletton_changes.connectedWallet = /*toWallet*/
+        ctx2[4];
+        add_flush_callback(() => updating_connectedWallet = false);
+      }
+      connectwalletton.$set(connectwalletton_changes);
     },
     i(local) {
       if (current)
@@ -5689,8 +5786,19 @@ function create_if_block_2(ctx) {
 }
 function create_if_block_1(ctx) {
   let connectwallettzs;
+  let updating_connectedWallet;
   let current;
-  connectwallettzs = new ConnectWalletTZS({});
+  function connectwallettzs_connectedWallet_binding_1(value) {
+    ctx[19](value);
+  }
+  let connectwallettzs_props = {};
+  if (/*toWallet*/
+  ctx[4] !== void 0) {
+    connectwallettzs_props.connectedWallet = /*toWallet*/
+    ctx[4];
+  }
+  connectwallettzs = new ConnectWalletTZS({ props: connectwallettzs_props });
+  binding_callbacks.push(() => bind(connectwallettzs, "connectedWallet", connectwallettzs_connectedWallet_binding_1));
   return {
     c() {
       create_component(connectwallettzs.$$.fragment);
@@ -5701,6 +5809,17 @@ function create_if_block_1(ctx) {
     m(target, anchor) {
       mount_component(connectwallettzs, target, anchor);
       current = true;
+    },
+    p(ctx2, dirty) {
+      const connectwallettzs_changes = {};
+      if (!updating_connectedWallet && dirty & /*toWallet*/
+      16) {
+        updating_connectedWallet = true;
+        connectwallettzs_changes.connectedWallet = /*toWallet*/
+        ctx2[4];
+        add_flush_callback(() => updating_connectedWallet = false);
+      }
+      connectwallettzs.$set(connectwallettzs_changes);
     },
     i(local) {
       if (current)
@@ -5719,8 +5838,19 @@ function create_if_block_1(ctx) {
 }
 function create_if_block(ctx) {
   let connectwalleteth;
+  let updating_connectedWallet;
   let current;
-  connectwalleteth = new ConnectWalletETH({});
+  function connectwalleteth_connectedWallet_binding_1(value) {
+    ctx[18](value);
+  }
+  let connectwalleteth_props = {};
+  if (/*toWallet*/
+  ctx[4] !== void 0) {
+    connectwalleteth_props.connectedWallet = /*toWallet*/
+    ctx[4];
+  }
+  connectwalleteth = new ConnectWalletETH({ props: connectwalleteth_props });
+  binding_callbacks.push(() => bind(connectwalleteth, "connectedWallet", connectwalleteth_connectedWallet_binding_1));
   return {
     c() {
       create_component(connectwalleteth.$$.fragment);
@@ -5731,6 +5861,17 @@ function create_if_block(ctx) {
     m(target, anchor) {
       mount_component(connectwalleteth, target, anchor);
       current = true;
+    },
+    p(ctx2, dirty) {
+      const connectwalleteth_changes = {};
+      if (!updating_connectedWallet && dirty & /*toWallet*/
+      16) {
+        updating_connectedWallet = true;
+        connectwalleteth_changes.connectedWallet = /*toWallet*/
+        ctx2[4];
+        add_flush_callback(() => updating_connectedWallet = false);
+      }
+      connectwalleteth.$set(connectwalleteth_changes);
     },
     i(local) {
       if (current)
@@ -5813,6 +5954,7 @@ function create_fragment(ctx) {
   let t18;
   let button1;
   let t19;
+  let button1_disabled_value;
   let div13_intro;
   let current;
   let mounted;
@@ -5822,11 +5964,11 @@ function create_fragment(ctx) {
     props: {
       selectedId: (
         /*fromNetwork*/
-        ctx[5]
+        ctx[9]
       ),
       excludedId: (
         /*toNetwork*/
-        ctx[6]
+        ctx[10]
       )
     }
   });
@@ -5834,13 +5976,13 @@ function create_fragment(ctx) {
   const if_blocks = [];
   function select_block_type(ctx2, dirty) {
     if (/*$fromNetwork*/
-    ctx2[4] === 0)
+    ctx2[6] === 0)
       return 0;
     if (/*$fromNetwork*/
-    ctx2[4] === 1)
+    ctx2[6] === 1)
       return 1;
     if (/*$fromNetwork*/
-    ctx2[4] === 2)
+    ctx2[6] === 2)
       return 2;
     return -1;
   }
@@ -5851,11 +5993,11 @@ function create_fragment(ctx) {
     props: {
       selectedId: (
         /*toNetwork*/
-        ctx[6]
+        ctx[10]
       ),
       excludedId: (
         /*fromNetwork*/
-        ctx[5]
+        ctx[9]
       )
     }
   });
@@ -5863,13 +6005,13 @@ function create_fragment(ctx) {
   const if_blocks_1 = [];
   function select_block_type_1(ctx2, dirty) {
     if (/*$toNetwork*/
-    ctx2[3] === 0)
+    ctx2[5] === 0)
       return 0;
     if (/*$toNetwork*/
-    ctx2[3] === 1)
+    ctx2[5] === 1)
       return 1;
     if (/*$toNetwork*/
-    ctx2[3] === 2)
+    ctx2[5] === 2)
       return 2;
     return -1;
   }
@@ -5931,7 +6073,7 @@ function create_fragment(ctx) {
       p1 = element("p");
       t17 = text(
         /*swapFee*/
-        ctx[8]
+        ctx[12]
       );
       t18 = space();
       button1 = element("button");
@@ -6038,7 +6180,7 @@ function create_fragment(ctx) {
       t17 = claim_text(
         p1_nodes,
         /*swapFee*/
-        ctx[8]
+        ctx[12]
       );
       p1_nodes.forEach(detach);
       div11_nodes.forEach(detach);
@@ -6079,7 +6221,7 @@ function create_fragment(ctx) {
       attr(input2, "name", "from-options");
       input2.value = input2_value_value = coins[
         /*$toNetwork*/
-        ctx[3]
+        ctx[5]
       ].syntheticSymbol;
       attr(input2, "class", input2_class_value = null_to_empty("btn btn-sm normal-case " + /*assetPair*/
       (ctx[0] === 0 ? "btn-primary" : "btn-outline")) + " svelte-6isbck");
@@ -6087,7 +6229,7 @@ function create_fragment(ctx) {
       attr(input3, "name", "from-options");
       input3.value = input3_value_value = coins[
         /*$fromNetwork*/
-        ctx[4]
+        ctx[6]
       ].nativeSymbol;
       attr(input3, "class", input3_class_value = null_to_empty("btn btn-sm normal-case	" + /*assetPair*/
       (ctx[0] === 1 ? "btn-primary" : "btn-outline")) + " svelte-6isbck");
@@ -6100,7 +6242,7 @@ function create_fragment(ctx) {
       attr(input4, "name", "to-options");
       input4.value = input4_value_value = coins[
         /*$toNetwork*/
-        ctx[3]
+        ctx[5]
       ].nativeSymbol;
       attr(input4, "class", input4_class_value = null_to_empty("btn btn-sm normal-case " + /*assetPair*/
       (ctx[0] === 0 ? "btn-primary" : "btn-outline")) + " svelte-6isbck");
@@ -6108,7 +6250,7 @@ function create_fragment(ctx) {
       attr(input5, "name", "to-options");
       input5.value = input5_value_value = coins[
         /*$fromNetwork*/
-        ctx[4]
+        ctx[6]
       ].syntheticSymbol;
       attr(input5, "class", input5_class_value = null_to_empty("btn btn-sm normal-case " + /*assetPair*/
       (ctx[0] === 1 ? "btn-primary" : "btn-outline")) + " svelte-6isbck");
@@ -6117,6 +6259,11 @@ function create_fragment(ctx) {
       attr(div11, "class", "flex flex-row justify-between");
       attr(div12, "class", "flex flex-col gap-2 w-full px-2 mt-5");
       attr(button1, "class", "btn btn-primary btn-full w-full mt-5");
+      button1.disabled = button1_disabled_value = !/*$fromWallet*/
+      ctx[7] || !/*$fromWallet*/
+      ctx[7].connected || !/*$toWallet*/
+      ctx[8] || !/*$toWallet*/
+      ctx[8].connected;
       attr(div13, "class", "card bg-base-300 flex flex-col items-center p-2 w-full md:w-1/3 border border-neutral");
       attr(div14, "class", "flex flex-col md:flex-row h-full justify-center items-center px-5 md:px-0");
     },
@@ -6195,43 +6342,43 @@ function create_fragment(ctx) {
             input0,
             "input",
             /*input0_input_handler*/
-            ctx[9]
+            ctx[13]
           ),
           listen(
             button0,
             "click",
             /*switchCoins*/
-            ctx[7]
+            ctx[11]
           ),
           listen(
             input1,
             "input",
             /*input1_input_handler*/
-            ctx[10]
+            ctx[17]
           ),
           listen(
             input2,
             "click",
             /*click_handler*/
-            ctx[11]
+            ctx[21]
           ),
           listen(
             input3,
             "click",
             /*click_handler_1*/
-            ctx[12]
+            ctx[22]
           ),
           listen(
             input4,
             "click",
             /*click_handler_2*/
-            ctx[13]
+            ctx[23]
           ),
           listen(
             input5,
             "click",
             /*click_handler_3*/
-            ctx[14]
+            ctx[24]
           )
         ];
         mounted = true;
@@ -6249,7 +6396,11 @@ function create_fragment(ctx) {
       }
       let previous_block_index = current_block_type_index;
       current_block_type_index = select_block_type(ctx2);
-      if (current_block_type_index !== previous_block_index) {
+      if (current_block_type_index === previous_block_index) {
+        if (~current_block_type_index) {
+          if_blocks[current_block_type_index].p(ctx2, dirty);
+        }
+      } else {
         if (if_block0) {
           group_outros();
           transition_out(if_blocks[previous_block_index], 1, 1, () => {
@@ -6262,6 +6413,8 @@ function create_fragment(ctx) {
           if (!if_block0) {
             if_block0 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx2);
             if_block0.c();
+          } else {
+            if_block0.p(ctx2, dirty);
           }
           transition_in(if_block0, 1);
           if_block0.m(div2, null);
@@ -6280,7 +6433,11 @@ function create_fragment(ctx) {
       }
       let previous_block_index_1 = current_block_type_index_1;
       current_block_type_index_1 = select_block_type_1(ctx2);
-      if (current_block_type_index_1 !== previous_block_index_1) {
+      if (current_block_type_index_1 === previous_block_index_1) {
+        if (~current_block_type_index_1) {
+          if_blocks_1[current_block_type_index_1].p(ctx2, dirty);
+        }
+      } else {
         if (if_block1) {
           group_outros();
           transition_out(if_blocks_1[previous_block_index_1], 1, 1, () => {
@@ -6293,6 +6450,8 @@ function create_fragment(ctx) {
           if (!if_block1) {
             if_block1 = if_blocks_1[current_block_type_index_1] = if_block_creators_1[current_block_type_index_1](ctx2);
             if_block1.c();
+          } else {
+            if_block1.p(ctx2, dirty);
           }
           transition_in(if_block1, 1);
           if_block1.m(div6, null);
@@ -6301,9 +6460,9 @@ function create_fragment(ctx) {
         }
       }
       if (!current || dirty & /*$toNetwork*/
-      8 && input2_value_value !== (input2_value_value = coins[
+      32 && input2_value_value !== (input2_value_value = coins[
         /*$toNetwork*/
-        ctx2[3]
+        ctx2[5]
       ].syntheticSymbol)) {
         input2.value = input2_value_value;
       }
@@ -6313,9 +6472,9 @@ function create_fragment(ctx) {
         attr(input2, "class", input2_class_value);
       }
       if (!current || dirty & /*$fromNetwork*/
-      16 && input3_value_value !== (input3_value_value = coins[
+      64 && input3_value_value !== (input3_value_value = coins[
         /*$fromNetwork*/
-        ctx2[4]
+        ctx2[6]
       ].nativeSymbol)) {
         input3.value = input3_value_value;
       }
@@ -6325,9 +6484,9 @@ function create_fragment(ctx) {
         attr(input3, "class", input3_class_value);
       }
       if (!current || dirty & /*$toNetwork*/
-      8 && input4_value_value !== (input4_value_value = coins[
+      32 && input4_value_value !== (input4_value_value = coins[
         /*$toNetwork*/
-        ctx2[3]
+        ctx2[5]
       ].nativeSymbol)) {
         input4.value = input4_value_value;
       }
@@ -6337,9 +6496,9 @@ function create_fragment(ctx) {
         attr(input4, "class", input4_class_value);
       }
       if (!current || dirty & /*$fromNetwork*/
-      16 && input5_value_value !== (input5_value_value = coins[
+      64 && input5_value_value !== (input5_value_value = coins[
         /*$fromNetwork*/
-        ctx2[4]
+        ctx2[6]
       ].syntheticSymbol)) {
         input5.value = input5_value_value;
       }
@@ -6347,6 +6506,14 @@ function create_fragment(ctx) {
       1 && input5_class_value !== (input5_class_value = null_to_empty("btn btn-sm normal-case " + /*assetPair*/
       (ctx2[0] === 1 ? "btn-primary" : "btn-outline")) + " svelte-6isbck")) {
         attr(input5, "class", input5_class_value);
+      }
+      if (!current || dirty & /*$fromWallet, $toWallet*/
+      384 && button1_disabled_value !== (button1_disabled_value = !/*$fromWallet*/
+      ctx2[7] || !/*$fromWallet*/
+      ctx2[7].connected || !/*$toWallet*/
+      ctx2[8] || !/*$toWallet*/
+      ctx2[8].connected)) {
+        button1.disabled = button1_disabled_value;
       }
     },
     i(local) {
@@ -6396,17 +6563,23 @@ function instance($$self, $$props, $$invalidate) {
   let $toNetwork;
   let $fromNetwork;
   let $page;
-  component_subscribe($$self, page, ($$value) => $$invalidate(16, $page = $$value));
+  let $fromWallet, $$unsubscribe_fromWallet = noop, $$subscribe_fromWallet = () => ($$unsubscribe_fromWallet(), $$unsubscribe_fromWallet = subscribe(fromWallet, ($$value) => $$invalidate(7, $fromWallet = $$value)), fromWallet);
+  let $toWallet, $$unsubscribe_toWallet = noop, $$subscribe_toWallet = () => ($$unsubscribe_toWallet(), $$unsubscribe_toWallet = subscribe(toWallet, ($$value) => $$invalidate(8, $toWallet = $$value)), toWallet);
+  component_subscribe($$self, page, ($$value) => $$invalidate(26, $page = $$value));
+  $$self.$$.on_destroy.push(() => $$unsubscribe_fromWallet());
+  $$self.$$.on_destroy.push(() => $$unsubscribe_toWallet());
   onMount(() => true);
   let fromSymbol = $page.url.searchParams.get("from");
   let toSymbol = $page.url.searchParams.get("to");
   let fromNetwork = writable(fromSymbol ? coins.findIndex((c) => c.nativeSymbol === fromSymbol) : 0);
-  component_subscribe($$self, fromNetwork, (value) => $$invalidate(4, $fromNetwork = value));
+  component_subscribe($$self, fromNetwork, (value) => $$invalidate(6, $fromNetwork = value));
   let toNetwork = writable(toSymbol ? coins.findIndex((c) => c.nativeSymbol === toSymbol) : 1);
-  component_subscribe($$self, toNetwork, (value) => $$invalidate(3, $toNetwork = value));
+  component_subscribe($$self, toNetwork, (value) => $$invalidate(5, $toNetwork = value));
   let assetPair = 0;
   let fromValue = "";
   let toValue = "";
+  let fromWallet;
+  let toWallet;
   const switchCoins = () => {
     const from = $fromNetwork;
     fromNetwork.set($toNetwork);
@@ -6417,9 +6590,33 @@ function instance($$self, $$props, $$invalidate) {
     fromValue = to_number(this.value);
     $$invalidate(1, fromValue);
   }
+  function connectwalleteth_connectedWallet_binding(value) {
+    fromWallet = value;
+    $$subscribe_fromWallet($$invalidate(3, fromWallet));
+  }
+  function connectwallettzs_connectedWallet_binding(value) {
+    fromWallet = value;
+    $$subscribe_fromWallet($$invalidate(3, fromWallet));
+  }
+  function connectwalletton_connectedWallet_binding(value) {
+    fromWallet = value;
+    $$subscribe_fromWallet($$invalidate(3, fromWallet));
+  }
   function input1_input_handler() {
     toValue = to_number(this.value);
     $$invalidate(2, toValue);
+  }
+  function connectwalleteth_connectedWallet_binding_1(value) {
+    toWallet = value;
+    $$subscribe_toWallet($$invalidate(4, toWallet));
+  }
+  function connectwallettzs_connectedWallet_binding_1(value) {
+    toWallet = value;
+    $$subscribe_toWallet($$invalidate(4, toWallet));
+  }
+  function connectwalletton_connectedWallet_binding_1(value) {
+    toWallet = value;
+    $$subscribe_toWallet($$invalidate(4, toWallet));
   }
   const click_handler = () => $$invalidate(0, assetPair = 0);
   const click_handler_1 = () => $$invalidate(0, assetPair = 1);
@@ -6429,14 +6626,24 @@ function instance($$self, $$props, $$invalidate) {
     assetPair,
     fromValue,
     toValue,
+    fromWallet,
+    toWallet,
     $toNetwork,
     $fromNetwork,
+    $fromWallet,
+    $toWallet,
     fromNetwork,
     toNetwork,
     switchCoins,
     swapFee,
     input0_input_handler,
+    connectwalleteth_connectedWallet_binding,
+    connectwallettzs_connectedWallet_binding,
+    connectwalletton_connectedWallet_binding,
     input1_input_handler,
+    connectwalleteth_connectedWallet_binding_1,
+    connectwallettzs_connectedWallet_binding_1,
+    connectwalletton_connectedWallet_binding_1,
     click_handler,
     click_handler_1,
     click_handler_2,

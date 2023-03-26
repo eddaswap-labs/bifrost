@@ -1,7 +1,7 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, a as space, e as empty$2, c as claim_space, b as insert_hydration, g as group_outros, t as transition_out, d as check_outros, f as transition_in, h as detach, j as afterUpdate, o as onMount, k as element, l as claim_element, m as children, n as attr, p as set_style, q as text, r as claim_text, u as set_data, v as binding_callbacks, w as construct_svelte_component, x as create_component, y as claim_component, z as mount_component, A as destroy_component, B as tick } from "./index-7469667d.js";
-import { S as SCROLL_KEY, a as SNAPSHOT_KEY, I as INDEX_KEY, g as get_base_uri, f as find_anchor, b as get_link_info, c as get_router_options, s as stores, i as is_external_url, d as scroll_state, P as PRELOAD_PRIORITIES, e as init$1, h as set_version } from "./singletons-c677eda2.js";
-import { r as require$$0$1, c as commonjsGlobal, s as sha3, W as Wallet$1, g as getDefaultExportFromCjs, a as commonjsRequire$1, w as wipe, b as binary, B as BigNumber$1, n as naclFastExports, d as dist, E as Ethereum, T as Tezos, e as TON } from "./binary-f7d4eca8.js";
-import { b as base$4, s as set_assets } from "./paths-5706f729.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, a as space, e as empty$2, c as claim_space, b as insert_hydration, g as group_outros, t as transition_out, d as check_outros, f as transition_in, h as detach, j as afterUpdate, o as onMount, k as element, l as claim_element, m as children, n as attr, p as set_style, q as text, r as claim_text, u as set_data, v as binding_callbacks, w as construct_svelte_component, x as create_component, y as claim_component, z as mount_component, A as destroy_component, B as tick } from "./index-ff2c6ddd.js";
+import { S as SCROLL_KEY, a as SNAPSHOT_KEY, I as INDEX_KEY, g as get_base_uri, f as find_anchor, b as get_link_info, c as get_router_options, s as stores, i as is_external_url, d as scroll_state, P as PRELOAD_PRIORITIES, e as init$1, h as set_version } from "./singletons-654baec5.js";
+import { r as require$$0$1, c as commonjsGlobal, s as sha3, W as Wallet$1, g as getDefaultExportFromCjs, a as commonjsRequire$1, w as wipe, b as binary, B as BigNumber$1, n as naclFastExports, d as dist, E as Ethereum, T as Tezos, e as TON } from "./binary-68e89099.js";
+import { b as base$4, s as set_assets } from "./paths-47b04bd7.js";
 function normalize_path(path, trailing_slash) {
   if (path === "/" || trailing_slash === "ignore")
     return path;
@@ -17146,6 +17146,9 @@ class MetaMask extends Wallet$1 {
     this.address = await signer.getAddress();
     return this.address;
   }
+  async disconnect() {
+    this.connected = false;
+  }
   async connectExternal(cb) {
     throw new Error("External MetaMask is not supported.");
   }
@@ -18444,7 +18447,7 @@ var STATUS_CODE;
   STATUS_CODE2[STATUS_CODE2["NETWORK_AUTHENTICATION_REQUIRED"] = 511] = "NETWORK_AUTHENTICATION_REQUIRED";
 })(STATUS_CODE || (STATUS_CODE = {}));
 const isNode$1 = typeof process !== "undefined" && process.versions != null && process.versions.node != null;
-const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-b5e185d6.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
+const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-7ce5a1b6.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
 var ResponseType;
 (function(ResponseType2) {
   ResponseType2["TEXT"] = "text";
@@ -53453,6 +53456,8 @@ class TempleWallet extends Wallet$1 {
   async connectExternal(cb) {
     throw new Error("External Temple Wallet is not supported.");
   }
+  async disconnect() {
+  }
   async lockCoins(destAddress, destCoinId, amount) {
   }
   async burnTokens(token, amount) {
@@ -55703,6 +55708,12 @@ class TonKeeper extends Wallet$1 {
     }, console.error);
     return this.connector.connect(walletConnectionSource);
   }
+  async disconnect() {
+    if (!this.connected)
+      return;
+    await this.connector.disconnect();
+    this.connected = false;
+  }
   async lockCoins(destAddress, destCoinId, amount) {
     const destAddressHex = parseInt(destAddress, 16);
     const body = dist.beginCell().storeUint(1, 32).storeUint(0, 64).storeUint(destAddressHex, 160).storeUint(destCoinId, 32).endCell();
@@ -55757,10 +55768,10 @@ TON.init({
 });
 const matchers = {};
 const nodes = [
-  () => __vitePreload(() => import("./0-e7a5fba1.js"), true ? ["./0-e7a5fba1.js","./_layout-a7d677aa.js","../components/pages/_layout.svelte-b41eb2b9.js","./index-7469667d.js","./index-28bd536f.js","../assets/_layout-ba539f15.css"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./1-1643c9c9.js"), true ? ["./1-1643c9c9.js","../components/error.svelte-d3be40b9.js","./index-7469667d.js","./stores-282b194f.js","./singletons-c677eda2.js","./paths-5706f729.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./2-96329527.js"), true ? ["./2-96329527.js","../components/pages/_page.svelte-8065530d.js","./index-7469667d.js","./index-28bd536f.js","./paths-5706f729.js","./bifrost_logo-4a9fd498.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./3-ab59c857.js"), true ? ["./3-ab59c857.js","../components/pages/bridge/_page.svelte-9df4743f.js","./index-7469667d.js","./stores-282b194f.js","./singletons-c677eda2.js","./paths-5706f729.js","./bifrost_logo-4a9fd498.js","./binary-f7d4eca8.js","./index-28bd536f.js","../assets/_page-a49c28f6.css"] : void 0, import.meta.url)
+  () => __vitePreload(() => import("./0-32d74f6c.js"), true ? ["./0-32d74f6c.js","./_layout-a7d677aa.js","../components/pages/_layout.svelte-b4b3d88c.js","./index-ff2c6ddd.js","./index-5d2e3d7a.js","../assets/_layout-a09ecbe6.css"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./1-0fc752fc.js"), true ? ["./1-0fc752fc.js","../components/error.svelte-874c41be.js","./index-ff2c6ddd.js","./stores-c3461dee.js","./singletons-654baec5.js","./paths-47b04bd7.js"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./2-ad4825d8.js"), true ? ["./2-ad4825d8.js","../components/pages/_page.svelte-2b29467d.js","./index-ff2c6ddd.js","./index-5d2e3d7a.js","./paths-47b04bd7.js","./bifrost_logo-ad802559.js"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./3-5684a938.js"), true ? ["./3-5684a938.js","../components/pages/bridge/_page.svelte-7b9cbe5a.js","./index-ff2c6ddd.js","./stores-c3461dee.js","./singletons-654baec5.js","./paths-47b04bd7.js","./bifrost_logo-ad802559.js","./binary-68e89099.js","./index-5d2e3d7a.js","../assets/_page-a49c28f6.css"] : void 0, import.meta.url)
 ];
 const server_loads = [];
 const dictionary = {
