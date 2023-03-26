@@ -5,6 +5,7 @@
 	import BifrostLogo from '$lib/images/bifrost.png';
 	import TonkeeperLogo from '$lib/images/tonkeeper_logo.png';
 	import { TON } from '$lib/stores.js';
+	import HashIcon from '../HashIcon.svelte';
 
 	const { connected, address, wallets } = $TON;
 
@@ -32,12 +33,12 @@
 	};
 </script>
 
-<div>
+<div class="w-full">
 	{#if !$connected}
-		<label for="connect-modal-ton" class="btn btn-sm btn-secondary">Connect Wallet</label>
+		<label for="connect-modal-ton" class="btn btn-sm w-full btn-secondary">Connect Wallet</label>
 	{:else}
-		<label for="disconnect-modal-ton" class="btn btn-sm btn-secondary"
-			>{shortAccountString(10, 5, $address ?? '')}</label
+		<label for="disconnect-modal-ton" class="btn btn-sm w-full btn-secondary gap-2"
+			><HashIcon value={$address} size={25} />{shortAccountString(5, 5, $address ?? '')}</label
 		>
 	{/if}
 </div>

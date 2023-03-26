@@ -7,7 +7,6 @@
 	import CoinSelect from '$lib/components/CoinSelect.svelte';
 	import { writable } from 'svelte/store';
 	import { coins } from '$lib/pkg/coins';
-	import { send, receive } from '$lib/animations/pages.crossfade.js';
 
 	let ready = false;
 	onMount(() => (ready = true));
@@ -25,16 +24,14 @@
 	};
 </script>
 
-<div
-	class="absolute w-full flex flex-col md:flex-row h-screen justify-center items-center bg-base-100"
->
+<div class="w-full flex flex-col md:flex-row h-screen justify-center items-center">
 	<div class="hero md:h-full">
 		{#if showHero}
 			<div class="hero-content text-left">
 				{#if ready}
 					<div class="max-w-xl" in:fly={{ x: -200, duration: 1500 }}>
 						<h1 class="text-5xl font-bold">👾 Bifrost Protocol</h1>
-						<p class="py-8">Swap assets between Ethereum, TON and Tezos with ease.</p>
+						<p class="text-xl py-8">Swap assets between Ethereum, TON and Tezos with ease.</p>
 					</div>
 				{/if}
 			</div>
@@ -43,11 +40,10 @@
 	<div class="container flex justify-center items-center">
 		{#if ready}
 			<div
-				class="bg-base-200 shadow-xl flex flex-col items-center py-8 mx-10 px-5 w-96 border-4 border-black"
-				out:send={{ key: 'swap' }}
-				in:receive={{ key: 'swap' }}
+				class="card bg-base-200 flex flex-col items-center mx-10 p-3 w-96 border border-primary"
+				in:fly={{ x: 200, duration: 1500 }}
 			>
-				<h4 class="mb-5">Choose networks</h4>
+				<h4 class="text-xl mb-5 uppercase">Choose networks</h4>
 				<div class="w-full">
 					<p>from</p>
 					<CoinSelect selectedId={fromCoin} excludedId={toCoin} />
@@ -61,7 +57,7 @@
 				</div>
 				<a
 					on:click={hideHero}
-					class="btn btn-primary btn-wide mt-7"
+					class="btn btn-primary w-full mt-7"
 					href={base +
 						'/swap?from=' +
 						coins[$fromCoin].nativeSymbol +
