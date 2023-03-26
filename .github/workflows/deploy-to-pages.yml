@@ -32,6 +32,8 @@ jobs:
           npm install --force
           npm run build
         env:
+          PUBLIC_ETH_BRIDGE_ADDRESS: ${{ vars.PUBLIC_ETH_BRIDGE_ADDRESS }}
+          PUBLIC_XTZ_BRIDGE_ADDRESS: ${{ vars.PUBLIC_XTZ_BRIDGE_ADDRESS }}
           PUBLIC_TON_BRIDGE_ADDRESS: ${{ vars.PUBLIC_TON_BRIDGE_ADDRESS }}
 
       - name: Deploy to GitHub Pages
