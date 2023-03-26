@@ -91,10 +91,8 @@
 		for=""
 	>
 		<h3 class="text-lg font-bold">Connect TON</h3>
-		<p class="text-neutral text-sm w-56">Scan the QR code with your phone's camera or Tonkeeper.</p>
+		<p class="text-sm w-56">Scan the QR code with your phone's camera or Tonkeeper.</p>
 		<div id="qr-code" />
-		<p class="text-neutral text-sm w-56">
-			We do not store your wallet credentials, so your TON is safe.
-		</p>
+		<p class="text-sm w-56">We do not store your wallet credentials, so your TON is safe.</p>
 	</label>
 </label>

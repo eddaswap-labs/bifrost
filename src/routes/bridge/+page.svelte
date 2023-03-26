@@ -100,7 +100,7 @@
 				{/if}
 			</div>
 		</div>
-		<div class="flex flex-row justify-between w-80 mt-5">
+		<div class="flex flex-row justify-between gap-4 max-w-80 mt-5">
 			<div class="btn-group">
 				<input
 					type="button"
