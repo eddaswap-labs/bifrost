@@ -37,7 +37,7 @@
 		toNetwork.set(from);
 	};
 
-	let swapFee = bigIntToFloat(0, 18, 18);
+	let swapFee = bigIntToFloat(0, 18, 9);
 </script>
 
 <Header />

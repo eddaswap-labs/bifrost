@@ -13,7 +13,7 @@
 <div class="dropdown w-full">
 	<label
 		tabindex="0"
-		class="btn flex-shrink-0 z-10 inline-flex items-center justify-between border text-sm font-medium text-center bg-base-100 w-full h-12"
+		class="btn flex-shrink-0 z-10 inline-flex items-center justify-between border text-sm font-medium text-center  w-full h-12"
 	>
 		<div class="flex flex-row gap-3 items-center">
 			<img src={coins[$selectedId].logo} alt="" width={coins[$selectedId].logoSize} />
@@ -28,7 +28,10 @@
 			/></svg
 		>
 	</label>
-	<ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 w-full border border-black">
+	<ul
+		tabindex="0"
+		class="dropdown-content menu p-2 shadow bg-base-100 w-full border border-black rounded-xl"
+	>
 		{#each coins as coin, id}
 			{#if id !== $selectedId && id !== $excludedId}
 				<li>

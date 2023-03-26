@@ -7,7 +7,6 @@
 	import CoinSelect from '$lib/components/CoinSelect.svelte';
 	import { writable } from 'svelte/store';
 	import { coins } from '$lib/pkg/coins';
-	import { send, receive } from '$lib/animations/pages.crossfade.js';
 
 	let ready = false;
 	onMount(() => (ready = true));
@@ -32,7 +31,7 @@
 				{#if ready}
 					<div class="max-w-xl" in:fly={{ x: -200, duration: 1500 }}>
 						<h1 class="text-5xl font-bold">👾 Bifrost Protocol</h1>
-						<p class="py-8">Swap assets between Ethereum, TON and Tezos with ease.</p>
+						<p class="text-xl py-8">Swap assets between Ethereum, TON and Tezos with ease.</p>
 					</div>
 				{/if}
 			</div>
