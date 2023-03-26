@@ -13,6 +13,7 @@
 	import ConnectWalletTZS from '$lib/components/wallet/ConnectWalletTZS.svelte';
 	import ConnectWalletTON from '$lib/components/wallet/ConnectWalletTON.svelte';
 	import { send, receive } from '$lib/animations/pages.crossfade.js';
+	import { fade } from 'svelte/transition';
 
 	let ready = false;
 	onMount(() => (ready = true));
@@ -27,8 +28,8 @@
 
 	let assetPair = 0;
 
-	let fromValue = writable(0.0);
-	let toValue = writable(0.0);
+	let fromValue = '';
+	let toValue = '';
 
 	const switchCoins = () => {
 		const from = $fromNetwork;
@@ -43,15 +44,23 @@
 
 <div class="flex flex-col md:flex-row h-full justify-center items-center px-5 md:px-0">
 	<div
-		class="absolute bg-base-200 shadow-sm flex flex-col items-center py-4 px-5 w-full md:w-1/3 border-4 border-black"
-		out:send={{ key: 'swap' }}
-		in:receive={{ key: 'swap' }}
+		class="card bg-base-300 flex flex-col items-center p-2 w-full md:w-1/3 border border-neutral"
+		in:fade
 	>
-		<h4 class="text-2xl mb-5">Synthetic Swap</h4>
-		<div class="w-full">
-			<p>from</p>
-			<div class="flex flex-row justify-between items-center my-3">
-				<div class="w-1/3">
+		<h4 class="text-xl p-2 w-full text-left uppercase">Synthetic Swap</h4>
+		<div class="flex flex-row justify-between gap-2 w-full bg-base-100 rounded-xl p-5">
+			<div class="w-6/12">
+				<input
+					type="number"
+					placeholder="0"
+					class="input input-lg input-ghost text-4xl focus:bg-transparent w-full !outline-none p-0"
+					min="0.000"
+					step="0.001"
+					bind:value={fromValue}
+				/>
+			</div>
+			<div class="flex flex-col gap-3 w-5/12">
+				<div>
 					<CoinSelect selectedId={fromNetwork} excludedId={toNetwork} />
 				</div>
 				{#if $fromNetwork === 0}
@@ -62,23 +71,26 @@
 					<ConnectWalletTON />
 				{/if}
 			</div>
-			<div class="flex flex-row justify-between gap-5 items-center">
+		</div>
+		<button
+			class="-my-4 z-20 bg-base-100 border-4 border-base-300 rounded-lg"
+			on:click={switchCoins}><img src={Arrows} width={30} alt="arrows" /></button
+		>
+		<div class="flex flex-row justify-between gap-2 w-full bg-base-100 rounded-xl p-5">
+			<div class="w-6/12">
 				<input
 					type="number"
-					placeholder="0.001"
-					class="input input-bordered border-black w-full"
+					placeholder="0"
+					class="input input-lg input-ghost text-4xl focus:bg-transparent w-full !outline-none p-0"
 					min="0.000"
 					step="0.001"
+					bind:value={toValue}
 				/>
 			</div>
-		</div>
-		<button class="mt-6 mb-1" on:click={switchCoins}
-			><img src={Arrows} width={30} alt="arrows" /></button
-		>
-		<div class="w-full">
-			<p>to</p>
-			<div class="flex flex-row justify-between items-center my-3">
-				<div class="w-1/3"><CoinSelect selectedId={toNetwork} excludedId={fromNetwork} /></div>
+			<div class="flex flex-col gap-3 w-5/12">
+				<div>
+					<CoinSelect selectedId={toNetwork} excludedId={fromNetwork} />
+				</div>
 				{#if $toNetwork === 0}
 					<ConnectWalletETH />
 				{:else if $toNetwork === 1}
@@ -87,15 +99,6 @@
 					<ConnectWalletTON />
 				{/if}
 			</div>
-			<div class="flex flex-row justify-between gap-5 items-center">
-				<input
-					type="number"
-					placeholder="0.001"
-					class="input input-bordered border-black w-full"
-					min="0.000"
-					step="0.001"
-				/>
-			</div>
 		</div>
 		<div class="flex flex-row justify-between w-80 mt-5">
 			<div class="btn-group">
@@ -103,14 +106,14 @@
 					type="button"
 					name="from-options"
 					value={coins[$toNetwork].syntheticSymbol}
-					class={'btn btn-sm ' + (assetPair === 0 ? '' : 'btn-outline')}
+					class={'btn btn-sm normal-case ' + (assetPair === 0 ? 'btn-primary' : 'btn-outline')}
 					on:click={() => (assetPair = 0)}
 				/>
 				<input
 					type="button"
 					name="from-options"
 					value={coins[$fromNetwork].nativeSymbol}
-					class={'btn btn-sm ' + (assetPair === 1 ? '' : 'btn-outline')}
+					class={'btn btn-sm normal-case	' + (assetPair === 1 ? 'btn-primary' : 'btn-outline')}
 					on:click={() => (assetPair = 1)}
 				/>
 			</div>
@@ -122,14 +125,14 @@
 					type="button"
 					name="to-options"
 					value={coins[$toNetwork].nativeSymbol}
-					class={'btn btn-sm ' + (assetPair === 0 ? '' : 'btn-outline')}
+					class={'btn btn-sm normal-case ' + (assetPair === 0 ? 'btn-primary' : 'btn-outline')}
 					on:click={() => (assetPair = 0)}
 				/>
 				<input
 					type="button"
 					name="to-options"
 					value={coins[$fromNetwork].syntheticSymbol}
-					class={'btn btn-sm ' + (assetPair === 1 ? '' : 'btn-outline')}
+					class={'btn btn-sm normal-case ' + (assetPair === 1 ? 'btn-primary' : 'btn-outline')}
 					on:click={() => (assetPair = 1)}
 				/>
 			</div>
@@ -143,3 +146,17 @@
 		<button class="btn btn-primary btn-full w-full mt-5">swap</button>
 	</div>
 </div>
+
+<style>
+	/* Chrome, Safari, Edge, Opera */
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	/* Firefox */
+	input[type='number'] {
+		-moz-appearance: textfield;
+	}
+</style>

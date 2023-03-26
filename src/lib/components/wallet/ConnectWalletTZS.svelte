@@ -2,6 +2,7 @@
 	import TempleLogo from '$lib/images/temple_logo.png';
 	import { shortAccountString } from '$lib/pkg/utils';
 	import { Tezos } from '$lib/stores.js';
+	import HashIcon from '../HashIcon.svelte';
 
 	const { connected, address, wallets } = $Tezos;
 
@@ -24,12 +25,12 @@
 	};
 </script>
 
-<div>
+<div class="w-full">
 	{#if !$connected}
-		<label for="connect-modal-tzs" class="btn btn-sm btn-secondary">Connect Wallet</label>
+		<label for="connect-modal-tzs" class="btn btn-sm w-full btn-secondary">Connect Wallet</label>
 	{:else}
-		<label for="disconnect-modal-tzs" class="btn btn-sm btn-secondary"
-			>{shortAccountString(10, 5, $address ?? '')}</label
+		<label for="disconnect-modal-tzs" class="btn btn-sm w-full btn-secondary gap-2"
+			><HashIcon value={$address} size={25} />{shortAccountString(5, 5, $address ?? '')}</label
 		>
 	{/if}
 </div>

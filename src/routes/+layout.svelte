@@ -5,10 +5,12 @@
 	let showAlert = true;
 </script>
 
-<div class="flex flex-col min-h-screen justify-between">
+<div
+	class="w-full flex flex-col min-h-screen justify-between bg-gradient-to-t from-base-300 to-primary/[.04]"
+>
 	<slot />
 
-	<footer class="footer footer-center p-5 bg-base-100 gap-2 text-base-content rounded">
+	<footer class="footer footer-center p-5 gap-2 text-base-content rounded">
 		<div class="grid grid-flow-col gap-4">
 			<a class="link link-hover" target="_blank" rel="noreferrer" href="https://t.me/bifrost_defi"
 				>Telegram</a
@@ -17,7 +19,7 @@
 				class="link link-hover"
 				target="_blank"
 				rel="noreferrer"
-				href="https://github.com/bifrost-defi">Github</a
+				href="https://github.com/bifrost-defi">GitHub</a
 			>
 		</div>
 		<div>

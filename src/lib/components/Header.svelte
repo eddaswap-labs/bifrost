@@ -2,7 +2,7 @@
 	let oracleStatus = false;
 </script>
 
-<div class="navbar bg-base-100 px-5">
+<div class="navbar px-5">
 	<div class="flex-1">
 		<a class="btn btn-ghost normal-case text-2xl" href="/">👾 Bifrost</a>
 	</div>

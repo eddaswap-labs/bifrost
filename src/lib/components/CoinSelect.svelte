@@ -13,7 +13,7 @@
 <div class="dropdown w-full">
 	<label
 		tabindex="0"
-		class="btn flex-shrink-0 z-10 inline-flex items-center justify-between border border-black text-sm font-medium text-center text-gray-500 bg-base-100 w-full h-12"
+		class="btn flex-shrink-0 z-10 inline-flex items-center justify-between border text-sm font-medium text-center bg-base-100 w-full h-12"
 	>
 		<div class="flex flex-row gap-3 items-center">
 			<img src={coins[$selectedId].logo} alt="" width={coins[$selectedId].logoSize} />
@@ -24,6 +24,7 @@
 				fill-rule="evenodd"
 				d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
 				clip-rule="evenodd"
+				fill="#ffffff"
 			/></svg
 		>
 	</label>
