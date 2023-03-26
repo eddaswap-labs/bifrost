@@ -1,24 +1,26 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, q as text, V as svg_element, l as claim_element, m as children, c as claim_space, r as claim_text, h as detach, W as claim_svg_element, U as src_url_equal, n as attr, b as insert_hydration, I as append_hydration, u as set_data, C as noop, X as destroy_each, e as empty, D as subscribe, M as listen } from "./index-59ec0738.js";
-import { w as writable } from "./paths-95a23751.js";
-import { c as crossfade, q as quintOut } from "./index-aa5a0dd9.js";
-const Arrows = "" + new URL("../assets/arrows-ebfb004d.svg", import.meta.url).href;
+import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, q as text, V as svg_element, l as claim_element, m as children, c as claim_space, r as claim_text, h as detach, W as claim_svg_element, U as src_url_equal, n as attr, b as insert_hydration, I as append_hydration, u as set_data, C as noop, X as destroy_each, e as empty, D as subscribe, M as listen } from "./index-1e1c3d8b.js";
+import { w as writable } from "./paths-5e0f90cb.js";
+const Arrows = "" + new URL("../assets/arrows-33f263c7.svg", import.meta.url).href;
 const ETHLogo = "" + new URL("../assets/eth_logo-7d70db0d.png", import.meta.url).href;
 const TZSLogo = "" + new URL("../assets/tzs_logo-7098441a.svg", import.meta.url).href;
 const TONLogo = "" + new URL("../assets/ton_logo-db693a23.svg", import.meta.url).href;
 let coins = [
   {
+    name: "Ethereum",
     nativeSymbol: "ETH",
     syntheticSymbol: "bETH",
     logo: ETHLogo,
     logoSize: 20
   },
   {
+    name: "Tezos",
     nativeSymbol: "XTZ",
     syntheticSymbol: "bXTZ",
     logo: TZSLogo,
     logoSize: 20
   },
   {
+    name: "The Open Network",
     nativeSymbol: "TON",
     syntheticSymbol: "bTON",
     logo: TONLogo,
@@ -232,7 +234,8 @@ function create_fragment(ctx) {
       path = claim_svg_element(svg_nodes, "path", {
         "fill-rule": true,
         d: true,
-        "clip-rule": true
+        "clip-rule": true,
+        fill: true
       });
       children(path).forEach(detach);
       svg_nodes.forEach(detach);
@@ -262,14 +265,15 @@ function create_fragment(ctx) {
       attr(path, "fill-rule", "evenodd");
       attr(path, "d", "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z");
       attr(path, "clip-rule", "evenodd");
+      attr(path, "fill", "#ffffff");
       attr(svg, "aria-hidden", "true");
       attr(svg, "class", "w-4 h-4");
       attr(svg, "viewBox", "0 0 20 20");
       attr(svg, "xmlns", "http://www.w3.org/2000/svg");
       attr(label, "tabindex", "0");
-      attr(label, "class", "btn flex-shrink-0 z-10 inline-flex items-center justify-between border border-black text-sm font-medium text-center text-gray-500 bg-base-100 w-full h-12");
+      attr(label, "class", "btn flex-shrink-0 z-10 inline-flex items-center justify-between border text-sm font-medium text-center w-full h-12");
       attr(ul, "tabindex", "0");
-      attr(ul, "class", "dropdown-content menu p-2 shadow bg-base-100 w-full border border-black");
+      attr(ul, "class", "dropdown-content menu p-2 shadow bg-base-100 w-full border border-black rounded-xl");
       attr(div1, "class", "dropdown w-full");
     },
     m(target, anchor) {
@@ -367,24 +371,8 @@ class CoinSelect extends SvelteComponent {
     init(this, options, instance, create_fragment, safe_not_equal, { selectedId: 0, excludedId: 1 });
   }
 }
-const [send, receive] = crossfade({
-  duration: (d) => Math.sqrt(d * 300),
-  fallback(node, params) {
-    const style = getComputedStyle(node);
-    const transform = style.transform === "none" ? "" : style.transform;
-    return {
-      duration: 600,
-      easing: quintOut,
-      css: (t) => `
-                transform: ${transform} scale(${t});
-            `
-    };
-  }
-});
 export {
   Arrows as A,
   CoinSelect as C,
-  coins as c,
-  receive as r,
-  send as s
+  coins as c
 };

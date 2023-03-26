@@ -1,5 +1,5 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, H as create_slot, k as element, a as space, q as text, l as claim_element, m as children, c as claim_space, r as claim_text, h as detach, n as attr, b as insert_hydration, I as append_hydration, J as update_slot_base, K as get_all_dirty_from_scope, L as get_slot_changes, f as transition_in, t as transition_out, d as check_outros, M as listen, C as noop, N as create_out_transition, g as group_outros } from "../../chunks/index-59ec0738.js";
-import { f as fly } from "../../chunks/index-aa5a0dd9.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, H as create_slot, k as element, a as space, q as text, l as claim_element, m as children, c as claim_space, r as claim_text, h as detach, n as attr, b as insert_hydration, I as append_hydration, J as update_slot_base, K as get_all_dirty_from_scope, L as get_slot_changes, f as transition_in, t as transition_out, d as check_outros, M as listen, C as noop, N as create_out_transition, g as group_outros } from "../../chunks/index-1e1c3d8b.js";
+import { f as fly } from "../../chunks/index-849e2426.js";
 const app = "";
 function create_if_block(ctx) {
   let div3;
@@ -148,7 +148,7 @@ function create_fragment(ctx) {
       t1 = text("Telegram");
       t2 = space();
       a1 = element("a");
-      t3 = text("Github");
+      t3 = text("GitHub");
       t4 = space();
       div1 = element("div");
       p = element("p");
@@ -187,7 +187,7 @@ function create_fragment(ctx) {
         href: true
       });
       var a1_nodes = children(a1);
-      t3 = claim_text(a1_nodes, "Github");
+      t3 = claim_text(a1_nodes, "GitHub");
       a1_nodes.forEach(detach);
       div0_nodes.forEach(detach);
       t4 = claim_space(footer_nodes);
@@ -217,8 +217,8 @@ function create_fragment(ctx) {
       attr(a1, "rel", "noreferrer");
       attr(a1, "href", "https://github.com/bifrost-defi");
       attr(div0, "class", "grid grid-flow-col gap-4");
-      attr(footer, "class", "footer footer-center p-5 bg-base-100 gap-2 text-base-content rounded");
-      attr(div2, "class", "flex flex-col min-h-screen justify-between");
+      attr(footer, "class", "footer footer-center p-5 gap-2 text-base-content rounded");
+      attr(div2, "class", "w-full flex flex-col min-h-screen justify-between bg-gradient-to-t from-base-300 to-primary/[.04]");
     },
     m(target, anchor) {
       insert_hydration(target, div2, anchor);

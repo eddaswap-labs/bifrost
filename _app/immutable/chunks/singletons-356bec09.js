@@ -1,4 +1,4 @@
-import { w as writable, a as assets } from "./paths-95a23751.js";
+import { w as writable, a as assets } from "./paths-5e0f90cb.js";
 let version = "";
 function set_version(value) {
   version = value;

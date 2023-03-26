@@ -1,10 +1,10 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, q as text, a as space, l as claim_element, m as children, r as claim_text, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, C as noop, U as src_url_equal, M as listen, f as transition_in, E as run_all, Q as component_subscribe, V as svg_element, W as claim_svg_element, u as set_data, R as add_render_callback, T as create_in_transition, x as create_component, y as claim_component, z as mount_component, t as transition_out, d as check_outros, N as create_out_transition, A as destroy_component, o as onMount, g as group_outros } from "../../../chunks/index-59ec0738.js";
-import { p as page } from "../../../chunks/stores-c729a32f.js";
-import { C as CoinSelect, c as coins, A as Arrows, s as send, r as receive } from "../../../chunks/pages.crossfade-a98b54f8.js";
-import { w as writable } from "../../../chunks/paths-95a23751.js";
-import { B as BigNumber, E as Ethereum, T as Tezos, g as getDefaultExportFromCjs, b as TON } from "../../../chunks/bignumber-6871c801.js";
-import { a as fade$1 } from "../../../chunks/index-aa5a0dd9.js";
-const ArrowRight = "" + new URL("../../../assets/arrowRight-47960979.svg", import.meta.url).href;
+import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, q as text, a as space, l as claim_element, m as children, r as claim_text, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, C as noop, o as onMount, v as binding_callbacks, U as src_url_equal, M as listen, g as group_outros, t as transition_out, d as check_outros, f as transition_in, E as run_all, Q as component_subscribe, V as svg_element, W as claim_svg_element, u as set_data, R as add_render_callback, T as create_in_transition, x as create_component, y as claim_component, z as mount_component, A as destroy_component, Y as null_to_empty, Z as set_input_value, _ as to_number } from "../../../chunks/index-1e1c3d8b.js";
+import { p as page } from "../../../chunks/stores-b3ff3b2b.js";
+import { C as CoinSelect, c as coins, A as Arrows } from "../../../chunks/CoinSelect-66e1c769.js";
+import { w as writable } from "../../../chunks/paths-5e0f90cb.js";
+import { B as BigNumber, b as binary, w as wipe, c as commonjsGlobal, f as sha3Exports, E as Ethereum, T as Tezos, g as getDefaultExportFromCjs, e as TON } from "../../../chunks/binary-6ef68fdd.js";
+import { a as fade$1, c as crossfade, q as quintOut } from "../../../chunks/index-849e2426.js";
+const ArrowRight = "" + new URL("../../../assets/arrowRight-ebb69799.svg", import.meta.url).href;
 function create_else_block$3(ctx) {
   let span;
   let t;
@@ -34,7 +34,7 @@ function create_else_block$3(ctx) {
     }
   };
 }
-function create_fragment$4(ctx) {
+function create_fragment$5(ctx) {
   let div2;
   let div0;
   let a;
@@ -92,7 +92,7 @@ function create_fragment$4(ctx) {
       attr(div0, "class", "flex-1");
       attr(div1, "class", "tooltip tooltip-left flex flex-row gap-3");
       attr(div1, "data-tip", "Heimdallr is our oracle. It helps to perform cross-chain operations");
-      attr(div2, "class", "navbar bg-base-100 px-5");
+      attr(div2, "class", "navbar px-5");
     },
     m(target, anchor) {
       insert_hydration(target, div2, anchor);
@@ -119,7 +119,7 @@ function create_fragment$4(ctx) {
 class Header extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, null, create_fragment$4, safe_not_equal, {});
+    init(this, options, null, create_fragment$5, safe_not_equal, {});
   }
 }
 const shortAccountString = (first, last, str) => {
@@ -129,49 +129,1991 @@ const bigIntToFloat = (number, decimals, precision) => {
   return new BigNumber(number).div(new BigNumber(10).pow(decimals)).toFixed(precision);
 };
 const MetamaskLogo = "" + new URL("../../../assets/metamask_logo-b137a78b.png", import.meta.url).href;
+var renderer = {};
+var figures = {};
+figures.__esModule = true;
+figures.StandardFigures = void 0;
+figures.StandardFigures = [
+  [0, 8, 9, 9, 9, 9, 0, 8, 8, 0, 0, 0, 9, 9, 8, 8, 0, 0, 0, 9, 9, 0, 8, 9, 9, 9, 9, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 0, 8, 9, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0],
+  [0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 9, 8, 0, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0],
+  [0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 9, 0],
+  [0, 9, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0],
+  [0, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 0],
+  [0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 0, 0, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0, 0, 9, 8, 8, 9, 9, 0, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 9, 9, 9, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 9, 9, 9, 9, 9, 0, 9, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 0, 9, 9, 0, 9, 9, 0, 9, 9, 0],
+  [0, 9, 9, 0, 9, 9, 0, 9, 9, 0, 0, 0, 9, 9, 9, 0, 0, 0, 0, 0, 9, 0, 9, 9, 9, 9, 9, 0],
+  [0, 9, 0, 0, 0, 9, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 9, 0, 0, 0, 9, 0],
+  [0, 8, 8, 0, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 0, 8, 8, 0],
+  [0, 0, 8, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 9, 0, 0],
+  [0, 9, 8, 0, 9, 8, 0, 8, 0, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 8, 0, 8, 9, 0, 8, 9, 0],
+  [0, 9, 9, 0, 9, 9, 0, 9, 0, 8, 9, 9, 0, 9, 9, 0, 8, 9, 9, 0, 9, 0, 9, 9, 0, 9, 9, 0],
+  [0, 9, 0, 0, 9, 0, 0, 0, 0, 8, 9, 9, 0, 9, 9, 0, 8, 9, 9, 0, 0, 0, 0, 9, 0, 0, 9, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 8, 0, 0, 9, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 9, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 9, 0, 9, 0, 0, 0, 9, 9, 9, 9, 0, 0, 0, 9, 9, 9, 0, 0, 0, 0, 0, 9, 0],
+  [0, 9, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 0, 9, 9, 9, 9, 0, 0, 0, 9, 0, 9, 0, 0, 0, 0, 0],
+  [0, 9, 0, 0, 9, 9, 0, 9, 9, 9, 0, 0, 9, 9, 9, 9, 9, 0, 0, 9, 9, 0, 9, 0, 0, 9, 9, 0],
+  [0, 9, 9, 0, 9, 9, 0, 9, 0, 0, 0, 0, 0, 9, 0, 9, 8, 8, 8, 9, 0, 0, 9, 0, 9, 0, 9, 0],
+  [0, 9, 0, 9, 0, 9, 0, 0, 9, 8, 8, 8, 9, 0, 9, 0, 0, 0, 0, 0, 9, 0, 9, 9, 0, 9, 9, 0],
+  [0, 8, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 9, 0],
+  [0, 0, 9, 0, 0, 8, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 9, 0, 0, 8, 0, 0],
+  [0, 0, 9, 0, 0, 9, 0, 9, 0, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 0, 9, 0, 9, 0, 0, 9, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 9, 8, 8, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 9, 0, 0, 0, 9, 0, 9, 9, 9, 0, 9, 9, 0, 9, 9, 9, 0, 9, 0, 0, 0, 9, 0, 0, 0],
+  [0, 0, 0, 9, 0, 0, 0, 9, 0, 0, 9, 0, 0, 9, 9, 0, 0, 9, 0, 0, 9, 0, 0, 0, 9, 0, 0, 0],
+  [0, 9, 9, 9, 9, 9, 0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 0, 9, 9, 9, 0, 9, 0, 0, 0, 9, 0],
+  [0, 9, 0, 0, 0, 9, 0, 9, 9, 9, 0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 0, 9, 9, 9, 9, 9, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 0, 0, 9, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 0, 0, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 9, 8, 0, 0, 0, 0, 9, 8, 0, 0, 9, 8, 9, 8, 0, 0, 9, 8, 0, 0, 0, 0, 9, 8, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 8, 8, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 9, 9, 9, 9, 0, 0, 0, 0, 9, 9, 9, 9, 9, 9, 9, 9, 0, 0, 0, 0, 9, 9, 9, 9, 0, 0],
+  [0, 9, 0, 0, 9, 0, 0, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 0, 0, 0, 9, 0],
+  [0, 9, 0, 0, 0, 9, 0, 0, 9, 9, 0, 9, 9, 0, 0, 9, 9, 0, 9, 9, 0, 0, 9, 0, 0, 0, 9, 0],
+  [0, 0, 9, 9, 0, 0, 0, 0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 0, 0, 0, 0, 9, 9, 0, 0],
+  [0, 0, 0, 9, 9, 0, 0, 9, 9, 9, 9, 9, 9, 0, 0, 9, 9, 9, 9, 9, 9, 0, 0, 9, 9, 0, 0, 0],
+  [0, 9, 0, 9, 0, 9, 0, 0, 9, 9, 9, 9, 9, 0, 0, 9, 9, 9, 9, 9, 0, 0, 9, 0, 9, 0, 9, 0],
+  [0, 0, 0, 9, 8, 0, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 0, 0, 9, 8, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 0, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 9, 8, 0, 0, 9, 8, 0, 0, 9, 8, 0, 0, 9, 8, 0, 0, 9, 8, 0, 0, 9, 8, 0, 0, 0],
+  [0, 8, 8, 0, 0, 9, 0, 8, 8, 0, 0, 9, 9, 0, 8, 0, 0, 9, 9, 0, 0, 0, 0, 9, 9, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 8, 8, 0, 0, 9, 9, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 9, 9, 0, 0, 0],
+  [0, 8, 8, 9, 9, 0, 0, 8, 8, 9, 9, 0, 0, 0, 0, 0, 0, 8, 8, 9, 9, 0, 0, 8, 8, 9, 9, 0],
+  [0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 8, 9, 9, 9, 9, 8, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0],
+  [0, 9, 9, 0, 9, 9, 0, 9, 9, 0, 8, 0, 9, 9, 9, 0, 8, 0, 8, 0, 9, 0, 9, 9, 9, 9, 9, 0],
+  [0, 0, 9, 0, 9, 0, 0, 0, 9, 0, 8, 0, 9, 0, 9, 0, 8, 0, 8, 0, 9, 0, 9, 0, 9, 0, 9, 0],
+  [0, 9, 0, 9, 0, 9, 0, 9, 0, 8, 0, 8, 0, 9, 0, 9, 0, 8, 0, 9, 0, 0, 0, 9, 0, 9, 0, 0],
+  [0, 0, 9, 0, 9, 9, 0, 8, 9, 0, 8, 0, 0, 9, 8, 9, 0, 8, 0, 0, 9, 0, 0, 9, 0, 9, 9, 0],
+  [0, 9, 9, 0, 9, 9, 0, 8, 9, 0, 8, 0, 0, 9, 8, 9, 0, 8, 0, 0, 9, 0, 9, 9, 0, 9, 9, 0],
+  [0, 0, 0, 9, 9, 0, 0, 0, 0, 8, 9, 0, 9, 9, 0, 0, 8, 9, 0, 9, 9, 0, 0, 0, 9, 9, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 8, 8, 8, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 9, 9, 0, 0, 0],
+  [0, 0, 0, 9, 9, 0, 0, 0, 0, 9, 9, 0, 0, 8, 0, 9, 9, 0, 0, 8, 8, 0, 9, 0, 0, 8, 8, 0],
+  [0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 9, 8, 8, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 9, 9, 0],
+  [0, 8, 0, 0, 9, 9, 0, 0, 8, 0, 0, 0, 9, 9, 0, 8, 0, 0, 0, 9, 9, 0, 8, 0, 0, 9, 9, 0],
+  [0, 8, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 9, 9, 0, 8, 0, 0, 0, 9, 0],
+  [0, 0, 0, 9, 9, 0, 0, 8, 8, 8, 8, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 0, 0, 8, 8, 0, 0, 0],
+  [0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 8, 8, 8, 8, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0],
+  [0, 0, 0, 9, 9, 0, 0, 0, 8, 8, 8, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 0, 0, 8, 8, 0, 0, 0],
+  [0, 9, 9, 9, 9, 0, 0, 0, 0, 8, 8, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 8, 8, 8, 8, 0],
+  [0, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 8, 8, 8, 9, 9, 9, 0, 0, 0, 0, 0, 0, 8, 8, 8, 8, 0],
+  [0, 0, 9, 9, 0, 0, 0, 8, 9, 0, 9, 8, 0, 0, 8, 9, 0, 9, 8, 0, 0, 0, 0, 9, 9, 0, 0, 0],
+  [0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 9, 8, 0, 0, 9, 9, 9, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 8, 8, 0, 0, 0, 0, 8, 8, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 9, 9, 0],
+  [0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 9, 8, 9, 9, 9, 9, 9, 8, 8, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 8, 0, 9, 0, 0, 0, 0, 8, 0, 9, 0, 0, 0, 0, 8, 0, 9, 0, 0, 0, 0, 8, 0, 9, 0, 0],
+  [0, 0, 9, 0, 9, 9, 0, 0, 9, 9, 0, 8, 9, 9, 0, 9, 9, 0, 8, 9, 9, 0, 0, 9, 0, 9, 9, 0],
+  [0, 8, 9, 0, 9, 9, 0, 0, 8, 9, 0, 9, 9, 0, 0, 8, 9, 0, 9, 9, 0, 0, 8, 9, 0, 9, 9, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 9, 0, 9, 0, 0, 8, 8, 0, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 9, 0, 9, 0, 8, 9, 0, 9, 0, 9, 8, 8, 9, 0, 9, 0, 9, 8, 0, 0, 0, 9, 0, 9, 0],
+  [0, 0, 9, 9, 8, 0, 0, 0, 0, 0, 9, 9, 8, 0, 0, 8, 9, 9, 0, 0, 0, 0, 0, 8, 9, 9, 0, 0],
+  [0, 8, 9, 9, 9, 9, 0, 8, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 8, 8, 8, 0, 9, 9, 9, 9, 8, 0],
+  [0, 9, 9, 9, 9, 8, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8, 0, 0, 0, 0, 0, 0, 8, 9, 9, 9, 9, 0],
+  [0, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 8, 0, 0, 0, 0, 0, 0, 0],
+  [0, 8, 9, 9, 0, 0, 0, 0, 8, 8, 9, 9, 0, 0, 0, 0, 8, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 0, 0, 0, 0, 8, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 9, 9, 8, 8, 0, 0, 9, 0, 0, 0, 8, 8, 8, 8, 0, 0, 0, 9, 0, 0, 8, 8, 9, 9, 0, 0],
+  [0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 8, 0, 9, 9, 9, 9, 0, 8, 0, 0, 0, 0, 9, 9, 8, 0, 0, 0],
+  [0, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 9, 0],
+  [0, 0, 0, 0, 9, 8, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 0, 9, 8, 0, 0, 0, 0],
+  [0, 9, 0, 9, 9, 0, 0, 0, 9, 9, 9, 0, 0, 8, 0, 0, 9, 0, 0, 8, 8, 0, 0, 0, 0, 8, 8, 0],
+  [0, 0, 8, 9, 9, 0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 0, 0, 9, 9, 8, 0, 0, 0, 9, 9, 8, 0, 0],
+  [0, 9, 9, 9, 9, 9, 0, 0, 0, 0, 0, 8, 8, 8, 8, 8, 8, 0, 0, 0, 0, 0, 9, 9, 9, 9, 9, 0],
+  [0, 8, 9, 9, 9, 9, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 9, 9, 9, 9, 8, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 8, 9, 0, 9, 8, 0, 9, 8, 0, 0, 0, 8, 9, 9, 8, 0, 0, 0, 8, 9, 0, 8, 9, 0, 9, 8, 0],
+  [0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 8, 9, 0, 0],
+  [0, 0, 8, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0, 0],
+  [0, 0, 8, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 9, 0, 0],
+  [0, 9, 0, 8, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 8, 0, 9, 0],
+  [0, 9, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 9, 0, 0, 9, 0, 8, 0, 0, 0],
+  [0, 8, 0, 9, 9, 0, 0, 0, 8, 9, 9, 0, 9, 9, 9, 9, 0, 9, 8, 8, 0, 0, 0, 9, 9, 0, 9, 0],
+  [0, 0, 9, 9, 9, 0, 0, 8, 9, 9, 0, 8, 0, 9, 8, 9, 9, 0, 8, 0, 9, 0, 0, 9, 9, 9, 0, 0],
+  [0, 0, 9, 9, 0, 9, 0, 8, 0, 9, 0, 8, 9, 0, 8, 0, 9, 0, 8, 9, 0, 0, 0, 9, 9, 0, 9, 0],
+  [0, 0, 0, 9, 9, 0, 0, 9, 0, 8, 9, 0, 9, 8, 9, 0, 8, 9, 0, 9, 8, 0, 0, 0, 9, 9, 0, 0],
+  [0, 0, 0, 9, 9, 0, 0, 9, 0, 8, 9, 8, 9, 0, 9, 0, 8, 9, 8, 9, 0, 0, 0, 0, 9, 9, 0, 0],
+  [0, 9, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 8, 8, 8, 8, 0],
+  [0, 0, 0, 9, 0, 0, 0, 0, 0, 8, 9, 8, 0, 0, 0, 0, 8, 9, 8, 0, 0, 0, 0, 0, 9, 0, 0, 0],
+  [0, 0, 9, 8, 9, 0, 0, 0, 0, 8, 0, 9, 0, 0, 0, 0, 8, 0, 9, 0, 0, 0, 0, 9, 8, 9, 0, 0],
+  [0, 8, 8, 9, 9, 9, 0, 8, 8, 0, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0],
+  [0, 9, 9, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 8, 8, 0, 0, 0, 0, 0, 0, 8, 8, 9, 9, 9, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 8, 8, 0, 9, 0, 0, 8, 8, 0],
+  [0, 9, 0, 0, 8, 8, 0, 9, 9, 9, 0, 0, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 9, 0, 0, 8, 0, 0, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 9, 0, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 0, 9, 0, 0, 0, 0, 0, 0, 0],
+  [0, 8, 8, 0, 9, 9, 0, 8, 0, 0, 9, 0, 0, 9, 9, 0, 0, 9, 0, 0, 8, 0, 9, 9, 0, 8, 8, 0],
+  [0, 0, 9, 0, 9, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0, 9, 0, 9, 0, 0],
+  [0, 9, 0, 0, 0, 8, 0, 8, 9, 0, 0, 0, 8, 8, 8, 8, 0, 0, 0, 9, 8, 0, 8, 0, 0, 0, 9, 0],
+  [0, 9, 9, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0],
+  [0, 8, 8, 0, 9, 9, 0, 0, 8, 0, 0, 0, 9, 0, 0, 9, 0, 0, 0, 8, 0, 0, 9, 9, 0, 8, 8, 0],
+  [0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0, 8, 8, 8, 8, 8, 0],
+  [0, 8, 8, 8, 8, 8, 0, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 9, 9, 0, 0, 0],
+  [0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 9, 9, 8, 8, 9, 0, 0, 0, 9, 0, 8, 0, 0, 0, 0, 0],
+  [0, 8, 0, 0, 9, 9, 0, 9, 8, 8, 0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 8, 9, 0, 0, 0, 0, 0, 9, 0, 0, 9, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0, 9, 9, 0, 8, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 9, 0, 9, 0, 0, 9, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 8, 0, 0, 8, 0, 8, 0, 0],
+  [0, 9, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 9, 0],
+  [0, 0, 9, 0, 9, 0, 0, 8, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 9, 0, 0, 9, 0, 9, 0, 0],
+  [0, 0, 0, 9, 9, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0],
+  [0, 0, 9, 0, 9, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 9, 0, 9, 0, 0],
+  [0, 0, 0, 0, 0, 8, 0, 8, 9, 9, 9, 9, 8, 8, 8, 8, 9, 9, 9, 9, 8, 0, 8, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 9, 0, 0, 0, 8, 8, 8, 8, 8, 9, 8, 8, 9, 9, 0, 0, 0, 8, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 8, 0, 9, 9, 0, 8, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0],
+  [0, 0, 0, 8, 8, 8, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 8, 8, 8, 0, 0, 0],
+  [0, 0, 9, 9, 8, 8, 0, 9, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 8, 0, 9, 9, 8, 8, 0, 0],
+  [0, 0, 9, 9, 9, 9, 0, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 8, 0, 9, 9, 9, 9, 0, 0],
+  [0, 0, 0, 8, 8, 0, 0, 0, 9, 9, 9, 9, 0, 0, 0, 0, 9, 9, 9, 9, 0, 0, 0, 8, 8, 0, 0, 0],
+  [0, 0, 0, 8, 9, 9, 0, 0, 9, 9, 8, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0, 0, 9, 9, 8, 0, 0, 0],
+  [0, 0, 0, 0, 8, 8, 0, 0, 0, 9, 9, 9, 9, 0, 0, 9, 9, 9, 9, 0, 0, 0, 8, 8, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 0, 9, 0],
+  [0, 9, 9, 9, 8, 8, 0, 0, 0, 9, 0, 0, 8, 8, 8, 8, 0, 0, 9, 0, 0, 0, 8, 8, 9, 9, 9, 0],
+  [0, 8, 0, 0, 0, 0, 0, 8, 8, 9, 9, 9, 9, 9, 8, 9, 9, 9, 9, 9, 9, 0, 0, 0, 0, 0, 8, 0],
+  [0, 8, 0, 0, 0, 0, 0, 9, 8, 8, 9, 9, 0, 0, 0, 0, 8, 8, 9, 9, 8, 0, 0, 0, 0, 0, 9, 0],
+  [0, 9, 0, 0, 0, 0, 0, 9, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 9, 0, 0, 0, 0, 0, 9, 0],
+  [0, 8, 8, 9, 9, 0, 0, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 8, 0, 9, 9, 9, 8, 8, 0],
+  [0, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 8, 9, 9, 9, 8, 8, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 0],
+  [0, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 8, 8, 8, 8, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 0],
+  [0, 0, 8, 8, 0, 0, 0, 0, 0, 9, 9, 9, 9, 0, 0, 9, 9, 9, 9, 0, 0, 0, 0, 0, 8, 8, 0, 0],
+  [0, 9, 9, 8, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0, 0, 9, 9, 8, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0],
+  [0, 9, 9, 0, 0, 0, 0, 0, 9, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 8, 0, 0, 0, 0, 0, 8, 8, 0],
+  [0, 9, 9, 0, 0, 8, 0, 9, 9, 0, 0, 8, 8, 0, 9, 9, 0, 0, 8, 8, 0, 0, 9, 9, 0, 0, 8, 0],
+  [0, 8, 9, 9, 9, 9, 0, 8, 8, 0, 0, 9, 0, 0, 0, 0, 9, 0, 0, 8, 8, 0, 9, 9, 9, 8, 8, 0],
+  [0, 0, 0, 9, 0, 0, 0, 0, 9, 9, 0, 8, 9, 0, 0, 9, 9, 0, 8, 9, 0, 0, 0, 0, 9, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 8, 8, 0, 9, 0, 9, 0, 0, 9, 0, 9, 0, 8, 8, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 9, 0, 8, 8, 8, 8, 0, 9, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 9, 0, 0, 0, 9, 9, 0, 0, 8, 9, 0, 0, 8, 8, 0, 0, 0, 8, 0, 0, 0, 0, 0],
+  [0, 8, 0, 0, 0, 0, 0, 9, 0, 0, 8, 8, 0, 0, 0, 0, 9, 9, 0, 0, 8, 0, 0, 0, 0, 0, 9, 0],
+  [0, 0, 0, 8, 8, 0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 8, 8, 0, 0, 0, 9, 9, 0, 0, 0],
+  [0, 0, 8, 8, 0, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0, 8, 8, 0, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0],
+  [0, 0, 9, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 8, 0, 9, 8, 8, 0, 8, 0, 0, 0, 8, 0],
+  [0, 8, 0, 0, 0, 8, 0, 9, 8, 8, 0, 9, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 9, 0, 0],
+  [0, 0, 8, 9, 9, 0, 0, 8, 9, 0, 9, 0, 9, 9, 8, 9, 0, 9, 0, 9, 9, 0, 0, 8, 9, 9, 0, 0],
+  [0, 0, 0, 0, 0, 9, 0, 0, 9, 8, 0, 0, 9, 8, 0, 9, 8, 0, 0, 9, 8, 0, 0, 0, 0, 0, 9, 0],
+  [0, 9, 0, 8, 0, 9, 0, 8, 0, 0, 0, 0, 0, 8, 0, 9, 0, 0, 0, 9, 0, 0, 0, 8, 0, 9, 0, 0],
+  [0, 0, 9, 0, 9, 0, 0, 0, 8, 0, 0, 0, 8, 0, 9, 0, 0, 0, 0, 0, 9, 0, 9, 0, 8, 0, 9, 0],
+  [0, 0, 0, 9, 0, 8, 0, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 0, 8, 0, 9, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 9, 0, 8, 0, 0, 0, 8, 0, 0, 0, 9, 0, 9, 0, 0],
+  [0, 0, 9, 0, 9, 0, 0, 0, 8, 0, 0, 0, 8, 0, 9, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 8, 9, 9, 0, 0, 8, 9, 9, 0, 8, 9, 9, 8, 9, 9, 0, 8, 9, 9, 0, 0, 8, 9, 9, 0, 0],
+  [0, 0, 8, 9, 9, 0, 0, 8, 9, 0, 0, 0, 9, 9, 8, 9, 0, 0, 0, 9, 9, 0, 0, 8, 9, 9, 0, 0],
+  [0, 0, 9, 0, 9, 0, 0, 8, 9, 9, 0, 8, 9, 9, 8, 9, 9, 0, 8, 9, 9, 0, 0, 9, 0, 9, 0, 0],
+  [0, 0, 8, 8, 8, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0, 8, 9, 9, 8, 9, 9, 0, 8, 9, 9, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 8, 8, 8, 0, 0, 0, 0, 0, 8, 0, 0, 0, 9, 9, 9, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 9, 9, 0],
+  [0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 9, 9, 0, 0, 0],
+  [0, 9, 0, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0],
+  [0, 8, 0, 0, 9, 9, 0, 0, 8, 8, 0, 0, 9, 9, 0, 8, 8, 0, 0, 9, 9, 0, 8, 0, 0, 9, 9, 0],
+  [0, 0, 0, 0, 9, 9, 0, 0, 9, 9, 0, 8, 9, 9, 0, 9, 9, 0, 8, 9, 9, 0, 0, 0, 0, 9, 9, 0],
+  [0, 0, 9, 9, 9, 0, 0, 8, 0, 0, 9, 0, 0, 8, 8, 0, 0, 9, 0, 0, 8, 0, 0, 9, 9, 9, 0, 0],
+  [0, 0, 9, 0, 9, 0, 0, 0, 9, 9, 0, 8, 9, 0, 0, 9, 9, 0, 8, 9, 0, 0, 0, 9, 0, 9, 0, 0],
+  [0, 0, 9, 0, 9, 0, 0, 8, 9, 0, 0, 0, 9, 9, 8, 9, 0, 0, 0, 9, 9, 0, 0, 9, 0, 9, 0, 0],
+  [0, 0, 9, 9, 9, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 9, 8, 9, 9, 9, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 8, 8, 8, 8, 8, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 8, 8, 9, 9, 9, 0],
+  [0, 9, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 8, 8, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 8, 8, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 9, 9, 0, 0, 0, 9, 0, 0, 8, 8, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 9, 0],
+  [0, 0, 9, 9, 9, 0, 0, 0, 8, 8, 9, 8, 8, 0, 0, 8, 8, 9, 8, 8, 0, 0, 0, 9, 9, 9, 0, 0],
+  [0, 0, 9, 9, 9, 0, 0, 8, 9, 9, 9, 8, 9, 9, 8, 9, 9, 9, 8, 9, 9, 0, 0, 9, 9, 9, 0, 0],
+  [0, 8, 9, 0, 9, 9, 0, 0, 8, 9, 0, 0, 9, 8, 0, 0, 9, 9, 0, 9, 8, 0, 0, 0, 9, 9, 9, 0],
+  [0, 0, 0, 9, 9, 9, 0, 0, 0, 9, 9, 0, 9, 8, 0, 8, 9, 0, 0, 9, 8, 0, 8, 9, 0, 9, 9, 0],
+  [0, 0, 9, 9, 9, 0, 0, 0, 0, 0, 9, 0, 0, 0, 8, 8, 8, 0, 9, 9, 9, 0, 8, 0, 0, 0, 9, 0],
+  [0, 8, 8, 8, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 9, 9, 9, 0, 0, 0, 8, 0, 0, 0, 0, 0, 8, 8, 8, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 9, 9, 0, 9, 9, 9, 9, 9, 0],
+  [0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 9, 9, 0, 9, 9, 9, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 9, 9, 0, 0, 9, 9, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 9, 9, 0, 0, 9, 9, 8, 8, 0, 0, 9, 0, 0, 0, 0, 0, 9, 9, 0, 9, 9, 9, 8, 8, 0],
+  [0, 0, 0, 0, 0, 0, 0, 9, 8, 9, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 0, 9, 9, 0, 0, 0, 8, 9, 9, 0],
+  [0, 0, 0, 8, 9, 9, 0, 0, 0, 9, 8, 0, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 9, 9, 9, 0, 0, 0, 9, 9, 0, 9, 8, 0, 9, 9, 0, 0, 9, 8, 0, 9, 0, 0, 9, 9, 0],
+  [0, 9, 0, 0, 0, 8, 0, 9, 9, 9, 0, 8, 8, 8, 0, 0, 0, 9, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0],
+  [0, 8, 0, 0, 0, 9, 0, 8, 8, 0, 0, 9, 9, 0, 8, 0, 0, 9, 9, 0, 0, 0, 0, 0, 9, 0, 0, 0],
+  [0, 0, 8, 8, 8, 0, 0, 9, 0, 0, 8, 0, 0, 9, 9, 9, 0, 0, 0, 9, 9, 0, 9, 9, 0, 9, 9, 0],
+  [0, 9, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 8, 8, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 9, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 8, 8, 0, 0, 0, 0, 0, 0, 9, 9, 0, 0],
+  [0, 9, 9, 9, 8, 8, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 8, 8, 0, 0, 9, 0, 0, 0, 9, 9, 0, 0],
+  [0, 9, 0, 8, 0, 9, 0, 0, 9, 0, 8, 0, 9, 0, 0, 8, 0, 9, 0, 8, 0, 0, 8, 0, 9, 0, 8, 0],
+  [0, 9, 8, 9, 8, 9, 0, 0, 9, 0, 9, 0, 9, 0, 0, 9, 0, 9, 0, 9, 0, 0, 9, 8, 9, 8, 9, 0],
+  [0, 8, 0, 8, 0, 8, 0, 9, 0, 9, 0, 9, 0, 9, 9, 0, 9, 0, 9, 0, 9, 0, 8, 0, 8, 0, 8, 0],
+  [0, 9, 9, 0, 9, 9, 0, 9, 9, 0, 8, 0, 9, 9, 9, 9, 0, 8, 0, 9, 9, 0, 9, 9, 0, 9, 9, 0],
+  [0, 8, 8, 9, 9, 0, 0, 9, 9, 0, 0, 9, 0, 0, 9, 9, 0, 0, 9, 0, 0, 0, 8, 8, 9, 9, 0, 0],
+  [0, 0, 0, 9, 0, 0, 0, 0, 0, 9, 9, 0, 0, 8, 0, 9, 9, 0, 0, 8, 8, 0, 9, 0, 0, 0, 8, 0],
+  [0, 9, 9, 0, 9, 9, 0, 9, 9, 0, 0, 0, 9, 9, 9, 0, 0, 8, 0, 0, 9, 0, 0, 8, 8, 8, 0, 0],
+  [0, 8, 8, 9, 9, 9, 0, 9, 9, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 8, 9, 9, 9, 0, 9, 9, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 8, 9, 9, 0, 0, 9, 9, 0, 0, 0],
+  [0, 8, 8, 9, 9, 9, 0, 9, 9, 0, 0, 0, 0, 0, 9, 0, 0, 8, 8, 9, 9, 0, 0, 9, 9, 0, 0, 0],
+  [0, 9, 9, 8, 9, 9, 0, 0, 9, 0, 0, 0, 9, 0, 0, 9, 0, 0, 0, 9, 0, 0, 9, 9, 8, 9, 9, 0],
+  [0, 8, 9, 9, 0, 0, 0, 0, 8, 8, 9, 9, 0, 0, 0, 8, 8, 9, 9, 0, 0, 0, 8, 9, 9, 0, 0, 0],
+  [0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 8, 8, 9, 9, 0, 0, 0, 8, 8, 9, 9, 0, 0, 0, 8, 9, 9, 0],
+  [0, 9, 9, 8, 9, 9, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 9, 9, 8, 9, 9, 0],
+  [0, 9, 9, 9, 9, 8, 0, 0, 0, 0, 0, 0, 8, 8, 0, 0, 0, 0, 0, 8, 8, 0, 9, 9, 9, 9, 8, 0],
+  [0, 0, 0, 8, 9, 9, 0, 0, 0, 8, 8, 9, 9, 0, 0, 8, 8, 9, 9, 0, 0, 0, 8, 9, 9, 0, 0, 0],
+  [0, 8, 9, 9, 9, 9, 0, 8, 8, 0, 0, 0, 0, 0, 8, 8, 0, 0, 0, 0, 0, 0, 8, 9, 9, 9, 9, 0],
+  [0, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 8, 9, 9, 9, 9, 0, 0, 8, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 9, 9, 9, 9, 0, 0, 8, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0, 8, 9, 9, 8, 9, 9, 0, 8, 9, 9, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 8, 9, 0, 9, 8, 0, 0, 8, 9, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 9, 0, 9, 8, 0, 0, 8, 9, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 9, 8, 0, 9, 9, 9, 9, 9, 8, 0, 0, 0, 0, 0, 0, 0],
+  [0, 9, 8, 8, 8, 9, 0, 9, 9, 0, 0, 0, 9, 9, 9, 9, 0, 0, 0, 9, 9, 0, 9, 8, 8, 8, 9, 0],
+  [0, 0, 0, 0, 0, 0, 0, 8, 9, 9, 9, 9, 9, 0, 8, 9, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 8, 9, 9, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 8, 9, 0, 9, 0, 9, 8, 8, 9, 0, 9, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 8, 0, 9, 0, 8, 0, 9, 8, 0, 9, 0, 8, 0, 9, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 8, 9, 0, 0, 0, 9, 8, 8, 9, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 8, 9, 0, 0, 8, 9, 9, 8, 9, 0, 0, 8, 9, 9, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 8, 0, 0, 0, 9, 9, 9, 8, 0, 0, 0, 0, 0, 0, 0]
+];
+var sprite = {};
+sprite.__esModule = true;
+sprite.Sprites = void 0;
+sprite.Sprites = [
+  { x: 0, y: 0, shape: 1, hidden: true },
+  { x: 0, y: 0, shape: 0, light: "top" },
+  { x: 0, y: 0.25, shape: 1, light: "left" },
+  { x: 0, y: 0.25, shape: 0, light: "left" },
+  { x: 0, y: 0.5, shape: 1, light: "left" },
+  { x: 0, y: 0.5, shape: 0, light: "left" },
+  { x: 0, y: 0.75, shape: 1, hidden: true },
+  { x: 0.25, y: -0.125, shape: 0, light: "top" },
+  { x: 0.25, y: 0.125, shape: 1, light: "top" },
+  { x: 0.25, y: 0.125, shape: 0, light: "top" },
+  { x: 0.25, y: 0.375, shape: 1, light: "left" },
+  { x: 0.25, y: 0.375, shape: 0, light: "left" },
+  { x: 0.25, y: 0.625, shape: 1, light: "left" },
+  { x: 0.25, y: 0.625, shape: 0, light: "left" },
+  { x: 0.5, y: 0, shape: 1, light: "top" },
+  { x: 0.5, y: 0, shape: 0, light: "top" },
+  { x: 0.5, y: 0.25, shape: 1, light: "top" },
+  { x: 0.5, y: 0.25, shape: 0, light: "right" },
+  { x: 0.5, y: 0.5, shape: 1, light: "right" },
+  { x: 0.5, y: 0.5, shape: 0, light: "right" },
+  { x: 0.5, y: 0.75, shape: 1, light: "right" },
+  { x: 0.75, y: -0.125, shape: 0, hidden: true },
+  { x: 0.75, y: 0.125, shape: 1, light: "top" },
+  { x: 0.75, y: 0.125, shape: 0, light: "right" },
+  { x: 0.75, y: 0.375, shape: 1, light: "right" },
+  { x: 0.75, y: 0.375, shape: 0, light: "right" },
+  { x: 0.75, y: 0.625, shape: 1, light: "right" },
+  { x: 0.75, y: 0.625, shape: 0, hidden: true }
+];
+var shapes = {};
+shapes.__esModule = true;
+shapes.Shapes = void 0;
+shapes.Shapes = [
+  { x1: 0, y1: 0.25, x2: 0.25, y2: 0.125, x3: 0.25, y3: 0.375 },
+  { x1: 0, y1: 0, x2: 0.25, y2: 0.125, x3: 0, y3: 0.25 }
+];
+(function(exports) {
+  exports.__esModule = true;
+  var figures_1 = figures;
+  var sprite_1 = sprite;
+  var shapes_1 = shapes;
+  function processParam(param, value) {
+    return param.min + value % (param.max - param.min);
+  }
+  function renderer2(hashValues, params2) {
+    var hue = processParam(params2.hue, hashValues[0]);
+    var saturation = processParam(params2.saturation, hashValues[1]);
+    var lightness = processParam(params2.lightness, hashValues[2]);
+    var shift = processParam(params2.shift, hashValues[3]);
+    var figureAlpha = processParam(params2.figureAlpha, hashValues[4]);
+    var figureIndex = hashValues[5] % figures_1.StandardFigures.length;
+    var createCanvas2 = params2.createCanvas;
+    var size = params2.size || 100;
+    var canvas = createCanvas2(size, size);
+    var ctx = canvas.getContext("2d");
+    sprite_1.Sprites.forEach(function(line, i) {
+      var light = params2.light.enabled ? params2.light[line.light] : 1;
+      var x = Math.round(hashValues[6] / (i + 1));
+      var variation = params2.variation.enabled ? processParam(params2.variation, x) : 0;
+      ctx.beginPath();
+      if (!line.hidden) {
+        var shape = shapes_1.Shapes[line.shape];
+        ctx.moveTo(size * (shape.x1 + line.x), size * (shape.y1 + line.y));
+        ctx.lineTo(size * (shape.x2 + line.x), size * (shape.y2 + line.y));
+        ctx.lineTo(size * (shape.x3 + line.x), size * (shape.y3 + line.y));
+      }
+      ctx.fillStyle = "hsla(" + (hue + variation) + ", " + saturation + "%, " + (lightness + light) + "%, 1)";
+      ctx.fill();
+      var figure = figures_1.StandardFigures[figureIndex];
+      if (figure[i] > 0) {
+        var alpha = figure[i] * figureAlpha / 10;
+        ctx.fillStyle = "hsla(" + (hue + shift + variation) + ", " + saturation + "%, " + (lightness + light) + "%, " + alpha + ")";
+        ctx.fill();
+      }
+    });
+    return canvas;
+  }
+  exports["default"] = renderer2;
+})(renderer);
+var params = {};
+var utils = {};
+utils.__esModule = true;
+utils.createCanvas = utils.deepMerge = void 0;
+var deepMerge = function() {
+  var objects = [];
+  for (var _i = 0; _i < arguments.length; _i++) {
+    objects[_i] = arguments[_i];
+  }
+  var isObject = function(obj) {
+    return obj && typeof obj === "object";
+  };
+  return objects.reduce(function(prev, obj) {
+    Object.keys(obj).forEach(function(key2) {
+      var pVal = prev[key2];
+      var oVal = obj[key2];
+      if (Array.isArray(pVal) && Array.isArray(oVal)) {
+        prev[key2] = pVal.concat.apply(pVal, oVal);
+      } else if (isObject(pVal) && isObject(oVal)) {
+        prev[key2] = deepMerge(pVal, oVal);
+      } else {
+        prev[key2] = oVal;
+      }
+    });
+    return prev;
+  }, {});
+};
+utils.deepMerge = deepMerge;
+var createCanvas = function(width2, height2) {
+  var canvas = document.createElement("canvas");
+  canvas.style.width = width2 + "px";
+  canvas.style.height = height2 + "px";
+  var dpr = window.devicePixelRatio || 1;
+  canvas.width = width2 * dpr;
+  canvas.height = height2 * dpr;
+  var ctx = canvas.getContext("2d");
+  ctx.scale(dpr, dpr);
+  return canvas;
+};
+utils.createCanvas = createCanvas;
+params.__esModule = true;
+params.DefaultParams = void 0;
+var utils_1$1 = utils;
+params.DefaultParams = {
+  hasher: "blake2",
+  hue: { min: 0, max: 360 },
+  saturation: { min: 70, max: 100 },
+  lightness: { min: 45, max: 65 },
+  variation: { min: 5, max: 20, enabled: true },
+  shift: { min: 60, max: 300 },
+  figureAlpha: { min: 0.7, max: 1.2 },
+  light: { top: 10, right: -8, left: -4, enabled: true },
+  createCanvas: utils_1$1.createCanvas
+};
+var blake2s = {};
+(function(exports) {
+  Object.defineProperty(exports, "__esModule", { value: true });
+  var binary_1 = binary;
+  var wipe_1 = wipe;
+  exports.BLOCK_SIZE = 64;
+  exports.DIGEST_LENGTH = 32;
+  exports.KEY_LENGTH = 32;
+  exports.PERSONALIZATION_LENGTH = 8;
+  exports.SALT_LENGTH = 8;
+  exports.MAX_LEAF_SIZE = Math.pow(2, 32) - 1;
+  exports.MAX_NODE_OFFSET = Math.pow(2, 48) - 1;
+  exports.MAX_FANOUT = 255;
+  exports.MAX_MAX_DEPTH = 255;
+  var IV = new Uint32Array([
+    1779033703,
+    3144134277,
+    1013904242,
+    2773480762,
+    1359893119,
+    2600822924,
+    528734635,
+    1541459225
+  ]);
+  var BLAKE2s = function() {
+    function BLAKE2s2(digestLength, config) {
+      if (digestLength === void 0) {
+        digestLength = 32;
+      }
+      this.digestLength = digestLength;
+      this.blockSize = exports.BLOCK_SIZE;
+      this._state = new Uint32Array(IV);
+      this._buffer = new Uint8Array(exports.BLOCK_SIZE);
+      this._bufferLength = 0;
+      this._ctr0 = 0;
+      this._ctr1 = 0;
+      this._flag0 = 0;
+      this._flag1 = 0;
+      this._lastNode = false;
+      this._finished = false;
+      if (digestLength < 1 || digestLength > exports.DIGEST_LENGTH) {
+        throw new Error("blake2s: wrong digest length");
+      }
+      if (config) {
+        this.validateConfig(config);
+      }
+      var keyLength = 0;
+      if (config && config.key) {
+        keyLength = config.key.length;
+      }
+      var fanout = 1;
+      var maxDepth = 1;
+      if (config && config.tree) {
+        fanout = config.tree.fanout;
+        maxDepth = config.tree.maxDepth;
+      }
+      this._state[0] ^= digestLength | keyLength << 8 | fanout << 16 | maxDepth << 24;
+      if (config && config.tree) {
+        this._state[1] ^= config.tree.leafSize;
+        var nofHi = config.tree.nodeOffset / 4294967296 >>> 0;
+        var nofLo = config.tree.nodeOffset >>> 0;
+        this._state[2] ^= nofLo;
+        this._state[3] ^= nofHi | config.tree.nodeDepth << 16 | config.tree.innerDigestLength << 24;
+        this._lastNode = config.tree.lastNode;
+      }
+      if (config && config.salt) {
+        this._state[4] ^= binary_1.readUint32LE(config.salt, 0);
+        this._state[5] ^= binary_1.readUint32LE(config.salt, 4);
+      }
+      if (config && config.personalization) {
+        this._state[6] ^= binary_1.readUint32LE(config.personalization, 0);
+        this._state[7] ^= binary_1.readUint32LE(config.personalization, 4);
+      }
+      this._initialState = new Uint32Array(this._state);
+      if (config && config.key && keyLength > 0) {
+        this._paddedKey = new Uint8Array(exports.BLOCK_SIZE);
+        this._paddedKey.set(config.key);
+        this._buffer.set(this._paddedKey);
+        this._bufferLength = exports.BLOCK_SIZE;
+      }
+    }
+    BLAKE2s2.prototype.reset = function() {
+      this._state.set(this._initialState);
+      if (this._paddedKey) {
+        this._buffer.set(this._paddedKey);
+        this._bufferLength = exports.BLOCK_SIZE;
+      } else {
+        this._bufferLength = 0;
+      }
+      this._ctr0 = 0;
+      this._ctr1 = 0;
+      this._flag0 = 0;
+      this._flag1 = 0;
+      this._finished = false;
+      return this;
+    };
+    BLAKE2s2.prototype.validateConfig = function(config) {
+      if (config.key && config.key.length > exports.KEY_LENGTH) {
+        throw new Error("blake2s: wrong key length");
+      }
+      if (config.salt && config.salt.length !== exports.SALT_LENGTH) {
+        throw new Error("blake2s: wrong salt length");
+      }
+      if (config.personalization && config.personalization.length !== exports.PERSONALIZATION_LENGTH) {
+        throw new Error("blake2s: wrong personalization length");
+      }
+      if (config.tree) {
+        if (config.tree.fanout < 0 || config.tree.fanout > exports.MAX_FANOUT) {
+          throw new Error("blake2s: wrong tree fanout");
+        }
+        if (config.tree.maxDepth < 0 || config.tree.maxDepth > exports.MAX_MAX_DEPTH) {
+          throw new Error("blake2s: wrong tree depth");
+        }
+        if (config.tree.leafSize < 0 || config.tree.leafSize > exports.MAX_LEAF_SIZE) {
+          throw new Error("blake2s: wrong leaf size");
+        }
+        if (config.tree.innerDigestLength < 0 || config.tree.innerDigestLength > exports.DIGEST_LENGTH) {
+          throw new Error("blake2s: wrong tree inner digest length");
+        }
+        if (config.tree.nodeOffset < 0 || config.tree.nodeOffset > exports.MAX_NODE_OFFSET) {
+          throw new Error("blake2s: tree node offset is too large");
+        }
+      }
+    };
+    BLAKE2s2.prototype.update = function(data, dataLength) {
+      if (dataLength === void 0) {
+        dataLength = data.length;
+      }
+      if (this._finished) {
+        throw new Error("blake2s: can't update because hash was finished.");
+      }
+      var left = exports.BLOCK_SIZE - this._bufferLength;
+      var dataPos = 0;
+      if (dataLength === 0) {
+        return this;
+      }
+      if (dataLength > left) {
+        for (var i = 0; i < left; i++) {
+          this._buffer[this._bufferLength + i] = data[dataPos + i];
+        }
+        this._processBlock(exports.BLOCK_SIZE);
+        dataPos += left;
+        dataLength -= left;
+        this._bufferLength = 0;
+      }
+      while (dataLength > exports.BLOCK_SIZE) {
+        for (var i = 0; i < exports.BLOCK_SIZE; i++) {
+          this._buffer[i] = data[dataPos + i];
+        }
+        this._processBlock(exports.BLOCK_SIZE);
+        dataPos += exports.BLOCK_SIZE;
+        dataLength -= exports.BLOCK_SIZE;
+        this._bufferLength = 0;
+      }
+      for (var i = 0; i < dataLength; i++) {
+        this._buffer[this._bufferLength + i] = data[dataPos + i];
+      }
+      this._bufferLength += dataLength;
+      return this;
+    };
+    BLAKE2s2.prototype.finish = function(out) {
+      if (!this._finished) {
+        for (var i = this._bufferLength; i < exports.BLOCK_SIZE; i++) {
+          this._buffer[i] = 0;
+        }
+        this._flag0 = 4294967295;
+        if (this._lastNode) {
+          this._flag1 = 4294967295;
+        }
+        this._processBlock(this._bufferLength);
+        this._finished = true;
+      }
+      var tmp = this._buffer.subarray(0, 32);
+      for (var i = 0; i < 8; i++) {
+        binary_1.writeUint32LE(this._state[i], tmp, i * 4);
+      }
+      out.set(tmp.subarray(0, out.length));
+      return this;
+    };
+    BLAKE2s2.prototype.digest = function() {
+      var out = new Uint8Array(this.digestLength);
+      this.finish(out);
+      return out;
+    };
+    BLAKE2s2.prototype.clean = function() {
+      wipe_1.wipe(this._state);
+      wipe_1.wipe(this._buffer);
+      wipe_1.wipe(this._initialState);
+      if (this._paddedKey) {
+        wipe_1.wipe(this._paddedKey);
+      }
+      this._bufferLength = 0;
+      this._ctr0 = 0;
+      this._ctr1 = 0;
+      this._flag0 = 0;
+      this._flag1 = 0;
+      this._lastNode = false;
+      this._finished = false;
+    };
+    BLAKE2s2.prototype.saveState = function() {
+      if (this._finished) {
+        throw new Error("blake2s: cannot save finished state");
+      }
+      return {
+        state: new Uint32Array(this._state),
+        buffer: new Uint8Array(this._buffer),
+        bufferLength: this._bufferLength,
+        ctr0: this._ctr0,
+        ctr1: this._ctr1,
+        flag0: this._flag0,
+        flag1: this._flag1,
+        lastNode: this._lastNode,
+        paddedKey: this._paddedKey ? new Uint8Array(this._paddedKey) : void 0,
+        initialState: new Uint32Array(this._initialState)
+      };
+    };
+    BLAKE2s2.prototype.restoreState = function(savedState) {
+      this._state.set(savedState.state);
+      this._buffer.set(savedState.buffer);
+      this._bufferLength = savedState.bufferLength;
+      this._ctr0 = savedState.ctr0;
+      this._ctr1 = savedState.ctr1;
+      this._flag0 = savedState.flag0;
+      this._flag1 = savedState.flag1;
+      this._lastNode = savedState.lastNode;
+      if (this._paddedKey) {
+        wipe_1.wipe(this._paddedKey);
+      }
+      this._paddedKey = savedState.paddedKey ? new Uint8Array(savedState.paddedKey) : void 0;
+      this._initialState.set(savedState.initialState);
+      return this;
+    };
+    BLAKE2s2.prototype.cleanSavedState = function(savedState) {
+      wipe_1.wipe(savedState.state);
+      wipe_1.wipe(savedState.buffer);
+      wipe_1.wipe(savedState.initialState);
+      if (savedState.paddedKey) {
+        wipe_1.wipe(savedState.paddedKey);
+      }
+      savedState.bufferLength = 0;
+      savedState.ctr0 = 0;
+      savedState.ctr1 = 0;
+      savedState.flag0 = 0;
+      savedState.flag1 = 0;
+      savedState.lastNode = false;
+    };
+    BLAKE2s2.prototype._processBlock = function(length) {
+      var nc = this._ctr0 + length;
+      this._ctr0 = nc >>> 0;
+      if (nc !== this._ctr0) {
+        this._ctr1++;
+      }
+      var v0 = this._state[0], v1 = this._state[1], v2 = this._state[2], v3 = this._state[3], v4 = this._state[4], v5 = this._state[5], v6 = this._state[6], v7 = this._state[7], v8 = IV[0], v9 = IV[1], v10 = IV[2], v11 = IV[3], v12 = IV[4] ^ this._ctr0, v13 = IV[5] ^ this._ctr1, v14 = IV[6] ^ this._flag0, v15 = IV[7] ^ this._flag1;
+      var x = this._buffer;
+      var m0 = x[3] << 24 | x[2] << 16 | x[1] << 8 | x[0];
+      var m1 = x[7] << 24 | x[6] << 16 | x[5] << 8 | x[4];
+      var m2 = x[11] << 24 | x[10] << 16 | x[9] << 8 | x[8];
+      var m3 = x[15] << 24 | x[14] << 16 | x[13] << 8 | x[12];
+      var m4 = x[19] << 24 | x[18] << 16 | x[17] << 8 | x[16];
+      var m5 = x[23] << 24 | x[22] << 16 | x[21] << 8 | x[20];
+      var m6 = x[27] << 24 | x[26] << 16 | x[25] << 8 | x[24];
+      var m7 = x[31] << 24 | x[30] << 16 | x[29] << 8 | x[28];
+      var m8 = x[35] << 24 | x[34] << 16 | x[33] << 8 | x[32];
+      var m9 = x[39] << 24 | x[38] << 16 | x[37] << 8 | x[36];
+      var m10 = x[43] << 24 | x[42] << 16 | x[41] << 8 | x[40];
+      var m11 = x[47] << 24 | x[46] << 16 | x[45] << 8 | x[44];
+      var m12 = x[51] << 24 | x[50] << 16 | x[49] << 8 | x[48];
+      var m13 = x[55] << 24 | x[54] << 16 | x[53] << 8 | x[52];
+      var m14 = x[59] << 24 | x[58] << 16 | x[57] << 8 | x[56];
+      var m15 = x[63] << 24 | x[62] << 16 | x[61] << 8 | x[60];
+      v0 = v0 + m0 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v1 = v1 + m2 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v2 = v2 + m4 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v3 = v3 + m6 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v2 = v2 + m5 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v3 = v3 + m7 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v1 = v1 + m3 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m1 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v0 = v0 + m8 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v1 = v1 + m10 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v2 = v2 + m12 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v3 = v3 + m14 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v2 = v2 + m13 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v3 = v3 + m15 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v1 = v1 + m11 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v0 = v0 + m9 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m14 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v1 = v1 + m4 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v2 = v2 + m9 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v3 = v3 + m13 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v2 = v2 + m15 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v3 = v3 + m6 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v1 = v1 + m8 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m10 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v0 = v0 + m1 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v1 = v1 + m0 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v2 = v2 + m11 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v3 = v3 + m5 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v2 = v2 + m7 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v3 = v3 + m3 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v1 = v1 + m2 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v0 = v0 + m12 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m11 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v1 = v1 + m12 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v2 = v2 + m5 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v3 = v3 + m15 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v2 = v2 + m2 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v3 = v3 + m13 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v1 = v1 + m0 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m8 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v0 = v0 + m10 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v1 = v1 + m3 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v2 = v2 + m7 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v3 = v3 + m9 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v2 = v2 + m1 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v3 = v3 + m4 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v1 = v1 + m6 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v0 = v0 + m14 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m7 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v1 = v1 + m3 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v2 = v2 + m13 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v3 = v3 + m11 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v2 = v2 + m12 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v3 = v3 + m14 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v1 = v1 + m1 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m9 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v0 = v0 + m2 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v1 = v1 + m5 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v2 = v2 + m4 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v3 = v3 + m15 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v2 = v2 + m0 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v3 = v3 + m8 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v1 = v1 + m10 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v0 = v0 + m6 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m9 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v1 = v1 + m5 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v2 = v2 + m2 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v3 = v3 + m10 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v2 = v2 + m4 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v3 = v3 + m15 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v1 = v1 + m7 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m0 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v0 = v0 + m14 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v1 = v1 + m11 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v2 = v2 + m6 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v3 = v3 + m3 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v2 = v2 + m8 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v3 = v3 + m13 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v1 = v1 + m12 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v0 = v0 + m1 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m2 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v1 = v1 + m6 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v2 = v2 + m0 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v3 = v3 + m8 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v2 = v2 + m11 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v3 = v3 + m3 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v1 = v1 + m10 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m12 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v0 = v0 + m4 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v1 = v1 + m7 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v2 = v2 + m15 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v3 = v3 + m1 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v2 = v2 + m14 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v3 = v3 + m9 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v1 = v1 + m5 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v0 = v0 + m13 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m12 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v1 = v1 + m1 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v2 = v2 + m14 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v3 = v3 + m4 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v2 = v2 + m13 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v3 = v3 + m10 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v1 = v1 + m15 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m5 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v0 = v0 + m0 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v1 = v1 + m6 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v2 = v2 + m9 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v3 = v3 + m8 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v2 = v2 + m2 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v3 = v3 + m11 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v1 = v1 + m3 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v0 = v0 + m7 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m13 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v1 = v1 + m7 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v2 = v2 + m12 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v3 = v3 + m3 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v2 = v2 + m1 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v3 = v3 + m9 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v1 = v1 + m14 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m11 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v0 = v0 + m5 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v1 = v1 + m15 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v2 = v2 + m8 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v3 = v3 + m2 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v2 = v2 + m6 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v3 = v3 + m10 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v1 = v1 + m4 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v0 = v0 + m0 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m6 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v1 = v1 + m14 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v2 = v2 + m11 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v3 = v3 + m0 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v2 = v2 + m3 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v3 = v3 + m8 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v1 = v1 + m9 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m15 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v0 = v0 + m12 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v1 = v1 + m13 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v2 = v2 + m1 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v3 = v3 + m10 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v2 = v2 + m4 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v3 = v3 + m5 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v1 = v1 + m7 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v0 = v0 + m2 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m10 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v1 = v1 + m8 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v2 = v2 + m7 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v3 = v3 + m1 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v2 = v2 + m6 | 0;
+      v2 = v2 + v6 | 0;
+      v14 ^= v2;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v10 = v10 + v14 | 0;
+      v6 ^= v10;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v3 = v3 + m5 | 0;
+      v3 = v3 + v7 | 0;
+      v15 ^= v3;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v11 = v11 + v15 | 0;
+      v7 ^= v11;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v1 = v1 + m4 | 0;
+      v1 = v1 + v5 | 0;
+      v13 ^= v1;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v9 = v9 + v13 | 0;
+      v5 ^= v9;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      v0 = v0 + m2 | 0;
+      v0 = v0 + v4 | 0;
+      v12 ^= v0;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v8 = v8 + v12 | 0;
+      v4 ^= v8;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v0 = v0 + m15 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 16 | v15 >>> 16;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 12 | v5 >>> 12;
+      v1 = v1 + m9 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 16 | v12 >>> 16;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 12 | v6 >>> 12;
+      v2 = v2 + m3 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 16 | v13 >>> 16;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 12 | v7 >>> 12;
+      v3 = v3 + m13 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 16 | v14 >>> 16;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 12 | v4 >>> 12;
+      v2 = v2 + m12 | 0;
+      v2 = v2 + v7 | 0;
+      v13 ^= v2;
+      v13 = v13 << 32 - 8 | v13 >>> 8;
+      v8 = v8 + v13 | 0;
+      v7 ^= v8;
+      v7 = v7 << 32 - 7 | v7 >>> 7;
+      v3 = v3 + m0 | 0;
+      v3 = v3 + v4 | 0;
+      v14 ^= v3;
+      v14 = v14 << 32 - 8 | v14 >>> 8;
+      v9 = v9 + v14 | 0;
+      v4 ^= v9;
+      v4 = v4 << 32 - 7 | v4 >>> 7;
+      v1 = v1 + m14 | 0;
+      v1 = v1 + v6 | 0;
+      v12 ^= v1;
+      v12 = v12 << 32 - 8 | v12 >>> 8;
+      v11 = v11 + v12 | 0;
+      v6 ^= v11;
+      v6 = v6 << 32 - 7 | v6 >>> 7;
+      v0 = v0 + m11 | 0;
+      v0 = v0 + v5 | 0;
+      v15 ^= v0;
+      v15 = v15 << 32 - 8 | v15 >>> 8;
+      v10 = v10 + v15 | 0;
+      v5 ^= v10;
+      v5 = v5 << 32 - 7 | v5 >>> 7;
+      this._state[0] ^= v0 ^ v8;
+      this._state[1] ^= v1 ^ v9;
+      this._state[2] ^= v2 ^ v10;
+      this._state[3] ^= v3 ^ v11;
+      this._state[4] ^= v4 ^ v12;
+      this._state[5] ^= v5 ^ v13;
+      this._state[6] ^= v6 ^ v14;
+      this._state[7] ^= v7 ^ v15;
+    };
+    return BLAKE2s2;
+  }();
+  exports.BLAKE2s = BLAKE2s;
+  function hash(data, digestLength, config) {
+    if (digestLength === void 0) {
+      digestLength = exports.DIGEST_LENGTH;
+    }
+    var h = new BLAKE2s(digestLength, config);
+    h.update(data);
+    var digest = h.digest();
+    h.clean();
+    return digest;
+  }
+  exports.hash = hash;
+})(blake2s);
+var __assign = commonjsGlobal && commonjsGlobal.__assign || function() {
+  __assign = Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+      for (var p in s)
+        if (Object.prototype.hasOwnProperty.call(s, p))
+          t[p] = s[p];
+    }
+    return t;
+  };
+  return __assign.apply(this, arguments);
+};
+var hashicon_1 = void 0;
+var renderer_1 = renderer;
+var params_1 = params;
+var utils_1 = utils;
+var js_sha3_1 = sha3Exports;
+var blake2s_1 = blake2s;
+var enc = new TextEncoder();
+var key = new Uint8Array(enc.encode("emerald/hashicon"));
+function hashKeccak(hash) {
+  return new Uint8Array(js_sha3_1.keccak256.arrayBuffer(hash));
+}
+function hashBlake2(hash) {
+  var hasher = new blake2s_1.BLAKE2s(16, { key });
+  hasher.update(enc.encode(hash));
+  return hasher.digest();
+}
+function hashicon(hash, options) {
+  if (options === void 0) {
+    options = {};
+  }
+  var extraParams = {};
+  if (typeof options == "number") {
+    extraParams = __assign(__assign({}, extraParams), { size: options });
+  } else if (typeof options == "object") {
+    extraParams = __assign(__assign({}, extraParams), options);
+  }
+  var params2 = utils_1.deepMerge(params_1.DefaultParams, extraParams);
+  var result;
+  if (params2.hasher === "blake2") {
+    result = new Uint16Array(hashBlake2(hash));
+  } else if (params2.hasher === "legacy" || params2.hasher === "keccak") {
+    result = new Uint16Array(hashKeccak(hash));
+  } else {
+    throw Error("Unsupported hasher: " + params2.hasher);
+  }
+  return renderer_1["default"](result, params2);
+}
+hashicon_1 = hashicon;
+function create_fragment$4(ctx) {
+  let span;
+  return {
+    c() {
+      span = element("span");
+    },
+    l(nodes) {
+      span = claim_element(nodes, "SPAN", {});
+      children(span).forEach(detach);
+    },
+    m(target, anchor) {
+      insert_hydration(target, span, anchor);
+      ctx[3](span);
+    },
+    p: noop,
+    i: noop,
+    o: noop,
+    d(detaching) {
+      if (detaching)
+        detach(span);
+      ctx[3](null);
+    }
+  };
+}
+function instance$4($$self, $$props, $$invalidate) {
+  let { value } = $$props;
+  let { size = 100 } = $$props;
+  let container;
+  const icon = hashicon_1(value, size);
+  onMount(() => {
+    container.appendChild(icon);
+  });
+  function span_binding($$value) {
+    binding_callbacks[$$value ? "unshift" : "push"](() => {
+      container = $$value;
+      $$invalidate(0, container);
+    });
+  }
+  $$self.$$set = ($$props2) => {
+    if ("value" in $$props2)
+      $$invalidate(1, value = $$props2.value);
+    if ("size" in $$props2)
+      $$invalidate(2, size = $$props2.size);
+  };
+  return [container, value, size, span_binding];
+}
+class HashIcon extends SvelteComponent {
+  constructor(options) {
+    super();
+    init(this, options, instance$4, create_fragment$4, safe_not_equal, { value: 1, size: 2 });
+  }
+}
 function create_else_block$2(ctx) {
   let label;
+  let hashicon2;
   let t_value = shortAccountString(
-    10,
+    5,
     5,
     /*$address*/
     ctx[4] ?? ""
   ) + "";
   let t;
+  let current;
+  hashicon2 = new HashIcon({
+    props: { value: (
+      /*$address*/
+      ctx[4]
+    ), size: 25 }
+  });
   return {
     c() {
       label = element("label");
+      create_component(hashicon2.$$.fragment);
       t = text(t_value);
       this.h();
     },
     l(nodes) {
       label = claim_element(nodes, "LABEL", { for: true, class: true });
       var label_nodes = children(label);
+      claim_component(hashicon2.$$.fragment, label_nodes);
       t = claim_text(label_nodes, t_value);
       label_nodes.forEach(detach);
       this.h();
     },
     h() {
       attr(label, "for", "disconnect-modal-eth");
-      attr(label, "class", "btn btn-sm btn-secondary");
+      attr(label, "class", "btn btn-sm w-full btn-secondary gap-2");
     },
     m(target, anchor) {
       insert_hydration(target, label, anchor);
+      mount_component(hashicon2, label, null);
       append_hydration(label, t);
+      current = true;
     },
     p(ctx2, dirty) {
+      const hashicon_changes = {};
       if (dirty & /*$address*/
-      16 && t_value !== (t_value = shortAccountString(
-        10,
+      16)
+        hashicon_changes.value = /*$address*/
+        ctx2[4];
+      hashicon2.$set(hashicon_changes);
+      if ((!current || dirty & /*$address*/
+      16) && t_value !== (t_value = shortAccountString(
+        5,
         5,
         /*$address*/
         ctx2[4] ?? ""
       ) + ""))
         set_data(t, t_value);
     },
+    i(local) {
+      if (current)
+        return;
+      transition_in(hashicon2.$$.fragment, local);
+      current = true;
+    },
+    o(local) {
+      transition_out(hashicon2.$$.fragment, local);
+      current = false;
+    },
     d(detaching) {
       if (detaching)
         detach(label);
+      destroy_component(hashicon2);
     }
   };
 }
@@ -193,13 +2135,15 @@ function create_if_block_1$2(ctx) {
     },
     h() {
       attr(label, "for", "connect-modal-eth");
-      attr(label, "class", "btn btn-sm btn-secondary");
+      attr(label, "class", "btn btn-sm w-full btn-secondary");
     },
     m(target, anchor) {
       insert_hydration(target, label, anchor);
       append_hydration(label, t);
     },
     p: noop,
+    i: noop,
+    o: noop,
     d(detaching) {
       if (detaching)
         detach(label);
@@ -308,6 +2252,8 @@ function create_if_block$3(ctx) {
 }
 function create_fragment$3(ctx) {
   let div0;
+  let current_block_type_index;
+  let if_block0;
   let t0;
   let input0;
   let t1;
@@ -339,16 +2285,19 @@ function create_fragment$3(ctx) {
   let div4;
   let button1;
   let t14;
+  let current;
   let mounted;
   let dispose;
+  const if_block_creators = [create_if_block_1$2, create_else_block$2];
+  const if_blocks = [];
   function select_block_type(ctx2, dirty) {
     if (!/*$connected*/
     ctx2[3])
-      return create_if_block_1$2;
-    return create_else_block$2;
+      return 0;
+    return 1;
   }
-  let current_block_type = select_block_type(ctx);
-  let if_block0 = current_block_type(ctx);
+  current_block_type_index = select_block_type(ctx);
+  if_block0 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
   let if_block1 = (
     /*errorMessage*/
     ctx[0] !== "" && create_if_block$3(ctx)
@@ -392,7 +2341,7 @@ function create_fragment$3(ctx) {
       this.h();
     },
     l(nodes) {
-      div0 = claim_element(nodes, "DIV", {});
+      div0 = claim_element(nodes, "DIV", { class: true });
       var div0_nodes = children(div0);
       if_block0.l(div0_nodes);
       div0_nodes.forEach(detach);
@@ -460,6 +2409,7 @@ function create_fragment$3(ctx) {
       this.h();
     },
     h() {
+      attr(div0, "class", "w-full");
       attr(input0, "type", "checkbox");
       attr(input0, "id", "connect-modal-eth");
       attr(input0, "class", "modal-toggle");
@@ -488,7 +2438,7 @@ function create_fragment$3(ctx) {
     },
     m(target, anchor) {
       insert_hydration(target, div0, anchor);
-      if_block0.m(div0, null);
+      if_blocks[current_block_type_index].m(div0, null);
       insert_hydration(target, t0, anchor);
       insert_hydration(target, input0, anchor);
       input0.checked = /*isConnectingModalOpen*/
@@ -525,6 +2475,7 @@ function create_fragment$3(ctx) {
       append_hydration(div5, div4);
       append_hydration(div4, button1);
       append_hydration(button1, t14);
+      current = true;
       if (!mounted) {
         dispose = [
           listen(
@@ -556,15 +2507,25 @@ function create_fragment$3(ctx) {
       }
     },
     p(ctx2, [dirty]) {
-      if (current_block_type === (current_block_type = select_block_type(ctx2)) && if_block0) {
-        if_block0.p(ctx2, dirty);
+      let previous_block_index = current_block_type_index;
+      current_block_type_index = select_block_type(ctx2);
+      if (current_block_type_index === previous_block_index) {
+        if_blocks[current_block_type_index].p(ctx2, dirty);
       } else {
-        if_block0.d(1);
-        if_block0 = current_block_type(ctx2);
-        if (if_block0) {
+        group_outros();
+        transition_out(if_blocks[previous_block_index], 1, 1, () => {
+          if_blocks[previous_block_index] = null;
+        });
+        check_outros();
+        if_block0 = if_blocks[current_block_type_index];
+        if (!if_block0) {
+          if_block0 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx2);
           if_block0.c();
-          if_block0.m(div0, null);
+        } else {
+          if_block0.p(ctx2, dirty);
         }
+        transition_in(if_block0, 1);
+        if_block0.m(div0, null);
       }
       if (dirty & /*isConnectingModalOpen*/
       2) {
@@ -596,13 +2557,20 @@ function create_fragment$3(ctx) {
       }
     },
     i(local) {
+      if (current)
+        return;
+      transition_in(if_block0);
       transition_in(if_block1);
+      current = true;
     },
-    o: noop,
+    o(local) {
+      transition_out(if_block0);
+      current = false;
+    },
     d(detaching) {
       if (detaching)
         detach(div0);
-      if_block0.d();
+      if_blocks[current_block_type_index].d();
       if (detaching)
         detach(t0);
       if (detaching)
@@ -686,47 +2654,76 @@ class ConnectWalletETH extends SvelteComponent {
 const TempleLogo = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABUFBMVEUAAAD/6036SgP7bhT7Vgn8exn9jSL8ehn7axL/7k/8gRz/7k/9jSL/7k/7cBT8gh3/6Uz9lCX/6U39jyP/7U79jyP8ehn8hx/9jyP9iiD/6Ez8dxj8cxb/6037chb/70/9jCH8dxj7bhP/6077aRH8kyT/7k//7U//7E77bxT8dBb/8FD/7U7/8FD/71D7Wwv+00P/4Ej/2kX/5kv/3kf+10T/5Er/603/6Uz/7U7/1EL+yj7+0UH/zD/8eRn8iSD+z0D8fBr8hh78gx38jCH8dhf6SgP9kiT6Ugf7YQ78cRX6Twb8gRz8fxv7ahL9jyL7ZA/7ZxD8dBb7VQn6TQX+yD37WQr7XAz7Wwv7Xg36RgH/70/9lSX9kCP9lyb8bhP7Vwn+uzf7VAj6QwD+wjr+xjz+uDb9myj+vjj+tjX9nyr+rDD+py79pCz+sTL6QgBC7dvyAAAAMXRSTlMAUIAwgFAQEO+/j4BQEO/Pj2AQz4+PgGAg38/Pj89gQJ9gYEAw78/Pz8+fj0DPz3AwWk4INgAAB+hJREFUeNq1mleT2jAURknvvffee+8QDNhgAoReQkwINhBa/v9b7hXSDQpjEjnSeduZnTlndj9YvFJsI9tuBEEdeId8AD4C75G3yAvGU8Zz5MmSl8AzxuvXr1+92heLyrbdBR0BeyL7D/Z6voaAV//h7011BFyL7HddT0fAvmh+F/mkI2BPVD/i/3cAEN1fqUx1BFyL5K8wPB0B+5T9FU4mk9IQoDyCk1zO8DUEvFEM2AFyYqojQHEEuzJEPD7SEaA6gnNcjiR0BKiO4DzICV8EBD9WGEr0/2C85IkIUB5BnEgmFyLALwJl4PPnzzmg3W42m61Wo/GtWq1+z2az+Xy+VqvZSKfTGQy+LSjgvuIIhBwZ0a8grhaQLzoUoDwCkAvSFPBVIQAoFl0KUB3B3iRRKPgiYKYUkIPvfM8D1Ecg5MhCBPgqAVX8vikFqI4A5JxPnyaRXoYTrExTgOoIDnE5UooU0MefUZkClEcAck4qFUQJeM5+Qx95gPoIhBxZRHonzLRgH1MKuKQ4ApAT80gBHq4zRQHKIyC9ZTmRAobw0vjepADlEXA5I4gS8DwL5D+IgC+KAftBTvyI9NewiO8LcwpQHMFOi0gk5pECvuK7UpIClEfA5Uj33wLevpMCxi4QpwDlEYCcCP4l4G3bCftAggHKI1jxp3/8NQD9g+KmAOURCDky+3vA29xgMNgUoDyCYyAXeH8PQP9guCFAeQQn0kSpFPw1oIgBzoYA9REIOTL8a8BXDChuCFAfAcg5X7/O/hrwo4NsClAfAZcDzujvrwIWMAwPiDACLmfU/xpQxAAnPCDCCEAuKFkl9lW363neCJhMJgs5wMGAHgUMp8BiscBnGHxS8X0/eKw4Aue3v5nPZqvVRqPVbLZzuc+fy+VichRIAcMOQgGznlvJwLNF4VPKghd0yel6R2KqI2Dybrf7tZVfC4h73lAKWI6gLwLqawHgVx0Bypm/thYAfm8mB/Q6Hdvu0gb+DEC/6giWfqdRWwsAPyAHODbQo4C0HEB+lRF0cXNOw14LyHgepgVSwNBGKGAqBZBfbQQe+L/ZawGZ7pIfKwGAjfRFQH014FQsEifAX7XXAiood4C5HNDDgC69D/wOIL/yCDzne2ctoAJyjhzQxQCXAkoUQH71EXzvrAW4wg7vksHvABoBBUxFAPnVebRVsJ1YygH4Q7GQAvgIRMCLvScZO2J6OcblyEQOcDHAWwYAW2JGOFHipAE5oFsDXAo4HDPCfiFHfCmgX0Mo4GzMCDvTRCKxkB9MWMCYBSBHY0Y4xuXISA5wMcCjAFMjADkhB3gYUKEAUyMQcgvwpQAcQT5PAaZGIOTIQn44zSNjDDA5gkMWkRrJARUMGGGAyRHs5XKGHOBhQAYDjI4A5IQvBfTzCAYYHQHZ4R9pUymAj4A+lpsaAZcjnhxQyQIjCjA1Ai4vIHLACAMyFGBoBDu4HEgmfSmgn0UowNAIdgk5Ml0JAFjAWAQYGwHIBY4ckGEjoABTIxD2OCAF8BFQgKkRCDniSwFj8H//TgGmRhBfYfY7APmO+DzA2AjOcXkGKMkBGfBXRxRgaATnUS6QA0ZVIE4BpkZAdjhn96WAcRWhgAsxI+wScmRGAQwW4NO/aEyNgMtdIC0HxDFgQgGmRoBygRww+gYkKcDUCNzf9MZSwPgbQgGmRiDkyJwCGN8agC8CTI3gDrgFCTkgiQETCjAzgqtW+JHNBAOSFGBkBFd7vfAAv4FQAIzAgN91++GHVqBvtXweYGIEF11gHh6QbAETCthiwl+ppMMDJhhQoIDjuv38olV4gN9CKOCCdn+GMQ4/uER/M1gGAAd0+q8s7fhBJDyg0AQmFLBFsz++xAkPmGBAgQI0joCuOCWB8AC/iVDAbY0/AHRzCn744TULCOjIRt8ITgs5Mg0PKLSBOQVoHMEZLmfPpeEBEwz4RAEaR3AX5UgKCA/w2wgFaBzBKS5HLD8kAGABgQjQOQIhR6bhAZ/An5tTgM4RoJyRSIzCA+Y5IEUBGkdwmcsZ4QFBDqGAWxpHAHK62uCHX2JhAQEP0DoCIUccdo47AebzvhyQwoA5BegcQZouFqQa3xotdo5XLidHcoAYAQvQOwKUI19T36oUEPe8D1KAGAEL0DqCI/xWgWNVsxQAfq8vX2TKfQbqPEDrCFAOWNksBWS6wEwOSGHAjAJ0jsBZ+vMUAH4HkAPmGGBRgM4R4KG6la9RQIWfI36QAoLPCAXc1DgCONK2ajYFuCjHk7wf8mU2FlCnKxwaR+B5iZpNAS7KkfREDrDYCChA5wgStk0BvaWcIQfMwF+2KEDjCI6sHOfeRbk4RpOv8wVlhAJgBCbYKeTIYiUAYAHvRACMwAjHVs7QRnKAhQEzCjB1isjlSEoOmGFAggLuxYywX8iRuhRQLyMU8FC7m26/0gnSQgqgEbAAYyM4xOVAwZMDEkVgSgGmzg64HEnKATMMSFCAoRHsEHKkLgXUiwgFPIgZYRfKOfEpBTBYwDseYG4EXA5k2vjPG/YAj49wn1wMiIuPkDdOx4ywF92MSta22Y2f7/hXqtUsox+v/jF2b4uZYYc4O6nkbSngM/NDgCE/jQDkiJvvSAHcDwHkN8Q5dnbh1jpyQDuHYIAxP50dAL3aQATQBtptHmDOT2cHPXsQHmDKTyNA/88NAbuvx8xyp2j/DA8w6KcRgD88YKP/Fx7dSgHaoR+IAAAAAElFTkSuQmCC";
 function create_else_block$1(ctx) {
   let label;
+  let hashicon2;
   let t_value = shortAccountString(
-    10,
+    5,
     5,
     /*$address*/
     ctx[4] ?? ""
   ) + "";
   let t;
+  let current;
+  hashicon2 = new HashIcon({
+    props: { value: (
+      /*$address*/
+      ctx[4]
+    ), size: 25 }
+  });
   return {
     c() {
       label = element("label");
+      create_component(hashicon2.$$.fragment);
       t = text(t_value);
       this.h();
     },
     l(nodes) {
       label = claim_element(nodes, "LABEL", { for: true, class: true });
       var label_nodes = children(label);
+      claim_component(hashicon2.$$.fragment, label_nodes);
       t = claim_text(label_nodes, t_value);
       label_nodes.forEach(detach);
       this.h();
     },
     h() {
       attr(label, "for", "disconnect-modal-tzs");
-      attr(label, "class", "btn btn-sm btn-secondary");
+      attr(label, "class", "btn btn-sm w-full btn-secondary gap-2");
     },
     m(target, anchor) {
       insert_hydration(target, label, anchor);
+      mount_component(hashicon2, label, null);
       append_hydration(label, t);
+      current = true;
     },
     p(ctx2, dirty) {
+      const hashicon_changes = {};
       if (dirty & /*$address*/
-      16 && t_value !== (t_value = shortAccountString(
-        10,
+      16)
+        hashicon_changes.value = /*$address*/
+        ctx2[4];
+      hashicon2.$set(hashicon_changes);
+      if ((!current || dirty & /*$address*/
+      16) && t_value !== (t_value = shortAccountString(
+        5,
         5,
         /*$address*/
         ctx2[4] ?? ""
       ) + ""))
         set_data(t, t_value);
     },
+    i(local) {
+      if (current)
+        return;
+      transition_in(hashicon2.$$.fragment, local);
+      current = true;
+    },
+    o(local) {
+      transition_out(hashicon2.$$.fragment, local);
+      current = false;
+    },
     d(detaching) {
       if (detaching)
         detach(label);
+      destroy_component(hashicon2);
     }
   };
 }
@@ -748,13 +2745,15 @@ function create_if_block_1$1(ctx) {
     },
     h() {
       attr(label, "for", "connect-modal-tzs");
-      attr(label, "class", "btn btn-sm btn-secondary");
+      attr(label, "class", "btn btn-sm w-full btn-secondary");
     },
     m(target, anchor) {
       insert_hydration(target, label, anchor);
       append_hydration(label, t);
     },
     p: noop,
+    i: noop,
+    o: noop,
     d(detaching) {
       if (detaching)
         detach(label);
@@ -863,6 +2862,8 @@ function create_if_block$2(ctx) {
 }
 function create_fragment$2(ctx) {
   let div0;
+  let current_block_type_index;
+  let if_block0;
   let t0;
   let input0;
   let t1;
@@ -894,16 +2895,19 @@ function create_fragment$2(ctx) {
   let div4;
   let button1;
   let t14;
+  let current;
   let mounted;
   let dispose;
+  const if_block_creators = [create_if_block_1$1, create_else_block$1];
+  const if_blocks = [];
   function select_block_type(ctx2, dirty) {
     if (!/*$connected*/
     ctx2[3])
-      return create_if_block_1$1;
-    return create_else_block$1;
+      return 0;
+    return 1;
   }
-  let current_block_type = select_block_type(ctx);
-  let if_block0 = current_block_type(ctx);
+  current_block_type_index = select_block_type(ctx);
+  if_block0 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
   let if_block1 = (
     /*errorMessage*/
     ctx[0] !== "" && create_if_block$2(ctx)
@@ -947,7 +2951,7 @@ function create_fragment$2(ctx) {
       this.h();
     },
     l(nodes) {
-      div0 = claim_element(nodes, "DIV", {});
+      div0 = claim_element(nodes, "DIV", { class: true });
       var div0_nodes = children(div0);
       if_block0.l(div0_nodes);
       div0_nodes.forEach(detach);
@@ -1015,6 +3019,7 @@ function create_fragment$2(ctx) {
       this.h();
     },
     h() {
+      attr(div0, "class", "w-full");
       attr(input0, "type", "checkbox");
       attr(input0, "id", "connect-modal-tzs");
       attr(input0, "class", "modal-toggle");
@@ -1043,7 +3048,7 @@ function create_fragment$2(ctx) {
     },
     m(target, anchor) {
       insert_hydration(target, div0, anchor);
-      if_block0.m(div0, null);
+      if_blocks[current_block_type_index].m(div0, null);
       insert_hydration(target, t0, anchor);
       insert_hydration(target, input0, anchor);
       input0.checked = /*isConnectingModalOpen*/
@@ -1080,6 +3085,7 @@ function create_fragment$2(ctx) {
       append_hydration(div5, div4);
       append_hydration(div4, button1);
       append_hydration(button1, t14);
+      current = true;
       if (!mounted) {
         dispose = [
           listen(
@@ -1111,15 +3117,25 @@ function create_fragment$2(ctx) {
       }
     },
     p(ctx2, [dirty]) {
-      if (current_block_type === (current_block_type = select_block_type(ctx2)) && if_block0) {
-        if_block0.p(ctx2, dirty);
+      let previous_block_index = current_block_type_index;
+      current_block_type_index = select_block_type(ctx2);
+      if (current_block_type_index === previous_block_index) {
+        if_blocks[current_block_type_index].p(ctx2, dirty);
       } else {
-        if_block0.d(1);
-        if_block0 = current_block_type(ctx2);
-        if (if_block0) {
+        group_outros();
+        transition_out(if_blocks[previous_block_index], 1, 1, () => {
+          if_blocks[previous_block_index] = null;
+        });
+        check_outros();
+        if_block0 = if_blocks[current_block_type_index];
+        if (!if_block0) {
+          if_block0 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx2);
           if_block0.c();
-          if_block0.m(div0, null);
+        } else {
+          if_block0.p(ctx2, dirty);
         }
+        transition_in(if_block0, 1);
+        if_block0.m(div0, null);
       }
       if (dirty & /*isConnectingModalOpen*/
       2) {
@@ -1151,13 +3167,20 @@ function create_fragment$2(ctx) {
       }
     },
     i(local) {
+      if (current)
+        return;
+      transition_in(if_block0);
       transition_in(if_block1);
+      current = true;
     },
-    o: noop,
+    o(local) {
+      transition_out(if_block0);
+      current = false;
+    },
     d(detaching) {
       if (detaching)
         detach(div0);
-      if_block0.d();
+      if_blocks[current_block_type_index].d();
       if (detaching)
         detach(t0);
       if (detaching)
@@ -2933,47 +4956,76 @@ const BifrostLogo = "" + new URL("../../../assets/bifrost-903150fa.png", import.
 const TonkeeperLogo = "" + new URL("../../../assets/tonkeeper_logo-1118612a.png", import.meta.url).href;
 function create_else_block(ctx) {
   let label;
+  let hashicon2;
   let t_value = shortAccountString(
-    10,
+    5,
     5,
     /*$address*/
     ctx[3] ?? ""
   ) + "";
   let t;
+  let current;
+  hashicon2 = new HashIcon({
+    props: { value: (
+      /*$address*/
+      ctx[3]
+    ), size: 25 }
+  });
   return {
     c() {
       label = element("label");
+      create_component(hashicon2.$$.fragment);
       t = text(t_value);
       this.h();
     },
     l(nodes) {
       label = claim_element(nodes, "LABEL", { for: true, class: true });
       var label_nodes = children(label);
+      claim_component(hashicon2.$$.fragment, label_nodes);
       t = claim_text(label_nodes, t_value);
       label_nodes.forEach(detach);
       this.h();
     },
     h() {
       attr(label, "for", "disconnect-modal-ton");
-      attr(label, "class", "btn btn-sm btn-secondary");
+      attr(label, "class", "btn btn-sm w-full btn-secondary gap-2");
     },
     m(target, anchor) {
       insert_hydration(target, label, anchor);
+      mount_component(hashicon2, label, null);
       append_hydration(label, t);
+      current = true;
     },
     p(ctx2, dirty) {
+      const hashicon_changes = {};
       if (dirty & /*$address*/
-      8 && t_value !== (t_value = shortAccountString(
-        10,
+      8)
+        hashicon_changes.value = /*$address*/
+        ctx2[3];
+      hashicon2.$set(hashicon_changes);
+      if ((!current || dirty & /*$address*/
+      8) && t_value !== (t_value = shortAccountString(
+        5,
         5,
         /*$address*/
         ctx2[3] ?? ""
       ) + ""))
         set_data(t, t_value);
     },
+    i(local) {
+      if (current)
+        return;
+      transition_in(hashicon2.$$.fragment, local);
+      current = true;
+    },
+    o(local) {
+      transition_out(hashicon2.$$.fragment, local);
+      current = false;
+    },
     d(detaching) {
       if (detaching)
         detach(label);
+      destroy_component(hashicon2);
     }
   };
 }
@@ -2995,13 +5047,15 @@ function create_if_block$1(ctx) {
     },
     h() {
       attr(label, "for", "connect-modal-ton");
-      attr(label, "class", "btn btn-sm btn-secondary");
+      attr(label, "class", "btn btn-sm w-full btn-secondary");
     },
     m(target, anchor) {
       insert_hydration(target, label, anchor);
       append_hydration(label, t);
     },
     p: noop,
+    i: noop,
+    o: noop,
     d(detaching) {
       if (detaching)
         detach(label);
@@ -3010,6 +5064,8 @@ function create_if_block$1(ctx) {
 }
 function create_fragment$1(ctx) {
   let div0;
+  let current_block_type_index;
+  let if_block;
   let t0;
   let input0;
   let t1;
@@ -3055,16 +5111,19 @@ function create_fragment$1(ctx) {
   let t20;
   let p1;
   let t21;
+  let current;
   let mounted;
   let dispose;
+  const if_block_creators = [create_if_block$1, create_else_block];
+  const if_blocks = [];
   function select_block_type(ctx2, dirty) {
     if (!/*$connected*/
     ctx2[2])
-      return create_if_block$1;
-    return create_else_block;
+      return 0;
+    return 1;
   }
-  let current_block_type = select_block_type(ctx);
-  let if_block = current_block_type(ctx);
+  current_block_type_index = select_block_type(ctx);
+  if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
   return {
     c() {
       div0 = element("div");
@@ -3116,7 +5175,7 @@ function create_fragment$1(ctx) {
       this.h();
     },
     l(nodes) {
-      div0 = claim_element(nodes, "DIV", {});
+      div0 = claim_element(nodes, "DIV", { class: true });
       var div0_nodes = children(div0);
       if_block.l(div0_nodes);
       div0_nodes.forEach(detach);
@@ -3207,6 +5266,7 @@ function create_fragment$1(ctx) {
       this.h();
     },
     h() {
+      attr(div0, "class", "w-full");
       attr(input0, "type", "checkbox");
       attr(input0, "id", "connect-modal-ton");
       attr(input0, "class", "modal-toggle");
@@ -3246,7 +5306,7 @@ function create_fragment$1(ctx) {
     },
     m(target, anchor) {
       insert_hydration(target, div0, anchor);
-      if_block.m(div0, null);
+      if_blocks[current_block_type_index].m(div0, null);
       insert_hydration(target, t0, anchor);
       insert_hydration(target, input0, anchor);
       input0.checked = /*isConnectingModalOpen*/
@@ -3295,6 +5355,7 @@ function create_fragment$1(ctx) {
       append_hydration(label2, t20);
       append_hydration(label2, p1);
       append_hydration(p1, t21);
+      current = true;
       if (!mounted) {
         dispose = [
           listen(
@@ -3326,15 +5387,25 @@ function create_fragment$1(ctx) {
       }
     },
     p(ctx2, [dirty]) {
-      if (current_block_type === (current_block_type = select_block_type(ctx2)) && if_block) {
-        if_block.p(ctx2, dirty);
+      let previous_block_index = current_block_type_index;
+      current_block_type_index = select_block_type(ctx2);
+      if (current_block_type_index === previous_block_index) {
+        if_blocks[current_block_type_index].p(ctx2, dirty);
       } else {
-        if_block.d(1);
-        if_block = current_block_type(ctx2);
-        if (if_block) {
+        group_outros();
+        transition_out(if_blocks[previous_block_index], 1, 1, () => {
+          if_blocks[previous_block_index] = null;
+        });
+        check_outros();
+        if_block = if_blocks[current_block_type_index];
+        if (!if_block) {
+          if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx2);
           if_block.c();
-          if_block.m(div0, null);
+        } else {
+          if_block.p(ctx2, dirty);
         }
+        transition_in(if_block, 1);
+        if_block.m(div0, null);
       }
       if (dirty & /*isConnectingModalOpen*/
       1) {
@@ -3347,12 +5418,20 @@ function create_fragment$1(ctx) {
         ctx2[1];
       }
     },
-    i: noop,
-    o: noop,
+    i(local) {
+      if (current)
+        return;
+      transition_in(if_block);
+      current = true;
+    },
+    o(local) {
+      transition_out(if_block);
+      current = false;
+    },
     d(detaching) {
       if (detaching)
         detach(div0);
-      if_block.d();
+      if_blocks[current_block_type_index].d();
       if (detaching)
         detach(t0);
       if (detaching)
@@ -3431,6 +5510,21 @@ class ConnectWalletTON extends SvelteComponent {
     init(this, options, instance$1, create_fragment$1, safe_not_equal, {});
   }
 }
+crossfade({
+  duration: (d) => Math.sqrt(d * 300),
+  fallback(node, params2) {
+    const style = getComputedStyle(node);
+    const transform = style.transform === "none" ? "" : style.transform;
+    return {
+      duration: 600,
+      easing: quintOut,
+      css: (t) => `
+                transform: ${transform} scale(${t});
+            `
+    };
+  }
+});
+const _page_svelte_svelte_type_style_lang = "";
 function create_if_block_5(ctx) {
   let connectwalletton;
   let current;
@@ -3620,71 +5714,64 @@ function create_fragment(ctx) {
   let t1;
   let t2;
   let div3;
-  let p0;
-  let t3;
-  let t4;
-  let div1;
   let div0;
+  let input0;
+  let t3;
+  let div2;
+  let div1;
   let coinselect0;
-  let t5;
+  let t4;
   let current_block_type_index;
   let if_block0;
-  let t6;
-  let div2;
-  let input0;
-  let t7;
+  let t5;
   let button0;
   let img0;
   let img0_src_value;
-  let t8;
+  let t6;
   let div7;
-  let p1;
-  let t9;
-  let t10;
-  let div5;
   let div4;
+  let input1;
+  let t7;
+  let div6;
+  let div5;
   let coinselect1;
-  let t11;
+  let t8;
   let current_block_type_index_1;
   let if_block1;
-  let t12;
-  let div6;
-  let input1;
-  let t13;
+  let t9;
   let div10;
   let div8;
   let input2;
   let input2_value_value;
   let input2_class_value;
-  let t14;
+  let t10;
   let input3;
   let input3_value_value;
   let input3_class_value;
-  let t15;
+  let t11;
   let img1;
   let img1_src_value;
-  let t16;
+  let t12;
   let div9;
   let input4;
   let input4_value_value;
   let input4_class_value;
-  let t17;
+  let t13;
   let input5;
   let input5_value_value;
   let input5_class_value;
-  let t18;
+  let t14;
   let div12;
   let div11;
-  let p2;
-  let t19;
-  let t20;
-  let p3;
-  let t21;
-  let t22;
+  let p0;
+  let t15;
+  let t16;
+  let p1;
+  let t17;
+  let t18;
   let button1;
-  let t23;
+  let t19;
   let div13_intro;
-  let div13_outro;
   let current;
   let mounted;
   let dispose;
@@ -3693,11 +5780,11 @@ function create_fragment(ctx) {
     props: {
       selectedId: (
         /*fromNetwork*/
-        ctx[3]
+        ctx[5]
       ),
       excludedId: (
         /*toNetwork*/
-        ctx[4]
+        ctx[6]
       )
     }
   });
@@ -3705,13 +5792,13 @@ function create_fragment(ctx) {
   const if_blocks = [];
   function select_block_type(ctx2, dirty) {
     if (/*$fromNetwork*/
-    ctx2[2] === 0)
+    ctx2[4] === 0)
       return 0;
     if (/*$fromNetwork*/
-    ctx2[2] === 1)
+    ctx2[4] === 1)
       return 1;
     if (/*$fromNetwork*/
-    ctx2[2] === 2)
+    ctx2[4] === 2)
       return 2;
     return -1;
   }
@@ -3722,11 +5809,11 @@ function create_fragment(ctx) {
     props: {
       selectedId: (
         /*toNetwork*/
-        ctx[4]
+        ctx[6]
       ),
       excludedId: (
         /*fromNetwork*/
-        ctx[3]
+        ctx[5]
       )
     }
   });
@@ -3734,13 +5821,13 @@ function create_fragment(ctx) {
   const if_blocks_1 = [];
   function select_block_type_1(ctx2, dirty) {
     if (/*$toNetwork*/
-    ctx2[1] === 0)
+    ctx2[3] === 0)
       return 0;
     if (/*$toNetwork*/
-    ctx2[1] === 1)
+    ctx2[3] === 1)
       return 1;
     if (/*$toNetwork*/
-    ctx2[1] === 2)
+    ctx2[3] === 2)
       return 2;
     return -1;
   }
@@ -3757,62 +5844,56 @@ function create_fragment(ctx) {
       t1 = text("Synthetic Swap");
       t2 = space();
       div3 = element("div");
-      p0 = element("p");
-      t3 = text("from");
-      t4 = space();
-      div1 = element("div");
       div0 = element("div");
+      input0 = element("input");
+      t3 = space();
+      div2 = element("div");
+      div1 = element("div");
       create_component(coinselect0.$$.fragment);
-      t5 = space();
+      t4 = space();
       if (if_block0)
         if_block0.c();
-      t6 = space();
-      div2 = element("div");
-      input0 = element("input");
-      t7 = space();
+      t5 = space();
       button0 = element("button");
       img0 = element("img");
-      t8 = space();
+      t6 = space();
       div7 = element("div");
-      p1 = element("p");
-      t9 = text("to");
-      t10 = space();
-      div5 = element("div");
       div4 = element("div");
+      input1 = element("input");
+      t7 = space();
+      div6 = element("div");
+      div5 = element("div");
       create_component(coinselect1.$$.fragment);
-      t11 = space();
+      t8 = space();
       if (if_block1)
         if_block1.c();
-      t12 = space();
-      div6 = element("div");
-      input1 = element("input");
-      t13 = space();
+      t9 = space();
       div10 = element("div");
       div8 = element("div");
       input2 = element("input");
-      t14 = space();
+      t10 = space();
       input3 = element("input");
-      t15 = space();
+      t11 = space();
       img1 = element("img");
-      t16 = space();
+      t12 = space();
       div9 = element("div");
       input4 = element("input");
-      t17 = space();
+      t13 = space();
       input5 = element("input");
-      t18 = space();
+      t14 = space();
       div12 = element("div");
       div11 = element("div");
-      p2 = element("p");
-      t19 = text("Swap fee");
-      t20 = space();
-      p3 = element("p");
-      t21 = text(
+      p0 = element("p");
+      t15 = text("Swap fee");
+      t16 = space();
+      p1 = element("p");
+      t17 = text(
         /*swapFee*/
-        ctx[6]
+        ctx[8]
       );
-      t22 = space();
+      t18 = space();
       button1 = element("button");
-      t23 = text("swap");
+      t19 = text("swap");
       this.h();
     },
     l(nodes) {
@@ -3829,157 +5910,145 @@ function create_fragment(ctx) {
       t2 = claim_space(div13_nodes);
       div3 = claim_element(div13_nodes, "DIV", { class: true });
       var div3_nodes = children(div3);
-      p0 = claim_element(div3_nodes, "P", {});
-      var p0_nodes = children(p0);
-      t3 = claim_text(p0_nodes, "from");
-      p0_nodes.forEach(detach);
-      t4 = claim_space(div3_nodes);
-      div1 = claim_element(div3_nodes, "DIV", { class: true });
-      var div1_nodes = children(div1);
-      div0 = claim_element(div1_nodes, "DIV", { class: true });
+      div0 = claim_element(div3_nodes, "DIV", { class: true });
       var div0_nodes = children(div0);
-      claim_component(coinselect0.$$.fragment, div0_nodes);
-      div0_nodes.forEach(detach);
-      t5 = claim_space(div1_nodes);
-      if (if_block0)
-        if_block0.l(div1_nodes);
-      div1_nodes.forEach(detach);
-      t6 = claim_space(div3_nodes);
-      div2 = claim_element(div3_nodes, "DIV", { class: true });
-      var div2_nodes = children(div2);
-      input0 = claim_element(div2_nodes, "INPUT", {
+      input0 = claim_element(div0_nodes, "INPUT", {
         type: true,
         placeholder: true,
         class: true,
         min: true,
         step: true
       });
+      div0_nodes.forEach(detach);
+      t3 = claim_space(div3_nodes);
+      div2 = claim_element(div3_nodes, "DIV", { class: true });
+      var div2_nodes = children(div2);
+      div1 = claim_element(div2_nodes, "DIV", {});
+      var div1_nodes = children(div1);
+      claim_component(coinselect0.$$.fragment, div1_nodes);
+      div1_nodes.forEach(detach);
+      t4 = claim_space(div2_nodes);
+      if (if_block0)
+        if_block0.l(div2_nodes);
       div2_nodes.forEach(detach);
       div3_nodes.forEach(detach);
-      t7 = claim_space(div13_nodes);
+      t5 = claim_space(div13_nodes);
       button0 = claim_element(div13_nodes, "BUTTON", { class: true });
       var button0_nodes = children(button0);
       img0 = claim_element(button0_nodes, "IMG", { src: true, width: true, alt: true });
       button0_nodes.forEach(detach);
-      t8 = claim_space(div13_nodes);
+      t6 = claim_space(div13_nodes);
       div7 = claim_element(div13_nodes, "DIV", { class: true });
       var div7_nodes = children(div7);
-      p1 = claim_element(div7_nodes, "P", {});
-      var p1_nodes = children(p1);
-      t9 = claim_text(p1_nodes, "to");
-      p1_nodes.forEach(detach);
-      t10 = claim_space(div7_nodes);
-      div5 = claim_element(div7_nodes, "DIV", { class: true });
-      var div5_nodes = children(div5);
-      div4 = claim_element(div5_nodes, "DIV", { class: true });
+      div4 = claim_element(div7_nodes, "DIV", { class: true });
       var div4_nodes = children(div4);
-      claim_component(coinselect1.$$.fragment, div4_nodes);
-      div4_nodes.forEach(detach);
-      t11 = claim_space(div5_nodes);
-      if (if_block1)
-        if_block1.l(div5_nodes);
-      div5_nodes.forEach(detach);
-      t12 = claim_space(div7_nodes);
-      div6 = claim_element(div7_nodes, "DIV", { class: true });
-      var div6_nodes = children(div6);
-      input1 = claim_element(div6_nodes, "INPUT", {
+      input1 = claim_element(div4_nodes, "INPUT", {
         type: true,
         placeholder: true,
         class: true,
         min: true,
         step: true
       });
+      div4_nodes.forEach(detach);
+      t7 = claim_space(div7_nodes);
+      div6 = claim_element(div7_nodes, "DIV", { class: true });
+      var div6_nodes = children(div6);
+      div5 = claim_element(div6_nodes, "DIV", {});
+      var div5_nodes = children(div5);
+      claim_component(coinselect1.$$.fragment, div5_nodes);
+      div5_nodes.forEach(detach);
+      t8 = claim_space(div6_nodes);
+      if (if_block1)
+        if_block1.l(div6_nodes);
       div6_nodes.forEach(detach);
       div7_nodes.forEach(detach);
-      t13 = claim_space(div13_nodes);
+      t9 = claim_space(div13_nodes);
       div10 = claim_element(div13_nodes, "DIV", { class: true });
       var div10_nodes = children(div10);
       div8 = claim_element(div10_nodes, "DIV", { class: true });
       var div8_nodes = children(div8);
       input2 = claim_element(div8_nodes, "INPUT", { type: true, name: true, class: true });
-      t14 = claim_space(div8_nodes);
+      t10 = claim_space(div8_nodes);
       input3 = claim_element(div8_nodes, "INPUT", { type: true, name: true, class: true });
       div8_nodes.forEach(detach);
-      t15 = claim_space(div10_nodes);
+      t11 = claim_space(div10_nodes);
       img1 = claim_element(div10_nodes, "IMG", { src: true, width: true, alt: true });
-      t16 = claim_space(div10_nodes);
+      t12 = claim_space(div10_nodes);
       div9 = claim_element(div10_nodes, "DIV", { class: true });
       var div9_nodes = children(div9);
       input4 = claim_element(div9_nodes, "INPUT", { type: true, name: true, class: true });
-      t17 = claim_space(div9_nodes);
+      t13 = claim_space(div9_nodes);
       input5 = claim_element(div9_nodes, "INPUT", { type: true, name: true, class: true });
       div9_nodes.forEach(detach);
       div10_nodes.forEach(detach);
-      t18 = claim_space(div13_nodes);
+      t14 = claim_space(div13_nodes);
       div12 = claim_element(div13_nodes, "DIV", { class: true });
       var div12_nodes = children(div12);
       div11 = claim_element(div12_nodes, "DIV", { class: true });
       var div11_nodes = children(div11);
-      p2 = claim_element(div11_nodes, "P", {});
-      var p2_nodes = children(p2);
-      t19 = claim_text(p2_nodes, "Swap fee");
-      p2_nodes.forEach(detach);
-      t20 = claim_space(div11_nodes);
-      p3 = claim_element(div11_nodes, "P", {});
-      var p3_nodes = children(p3);
-      t21 = claim_text(
-        p3_nodes,
+      p0 = claim_element(div11_nodes, "P", {});
+      var p0_nodes = children(p0);
+      t15 = claim_text(p0_nodes, "Swap fee");
+      p0_nodes.forEach(detach);
+      t16 = claim_space(div11_nodes);
+      p1 = claim_element(div11_nodes, "P", {});
+      var p1_nodes = children(p1);
+      t17 = claim_text(
+        p1_nodes,
         /*swapFee*/
-        ctx[6]
+        ctx[8]
       );
-      p3_nodes.forEach(detach);
+      p1_nodes.forEach(detach);
       div11_nodes.forEach(detach);
       div12_nodes.forEach(detach);
-      t22 = claim_space(div13_nodes);
+      t18 = claim_space(div13_nodes);
       button1 = claim_element(div13_nodes, "BUTTON", { class: true });
       var button1_nodes = children(button1);
-      t23 = claim_text(button1_nodes, "swap");
+      t19 = claim_text(button1_nodes, "swap");
       button1_nodes.forEach(detach);
       div13_nodes.forEach(detach);
       div14_nodes.forEach(detach);
       this.h();
     },
     h() {
-      attr(h4, "class", "text-2xl mb-5");
-      attr(div0, "class", "w-1/3");
-      attr(div1, "class", "flex flex-row justify-between items-center my-3");
+      attr(h4, "class", "text-xl p-2 w-full text-left uppercase");
       attr(input0, "type", "number");
-      attr(input0, "placeholder", "0.001");
-      attr(input0, "class", "input input-bordered border-black w-full");
+      attr(input0, "placeholder", "0");
+      attr(input0, "class", "input input-lg input-ghost text-4xl focus:bg-transparent w-full !outline-none p-0 svelte-6isbck");
       attr(input0, "min", "0.000");
       attr(input0, "step", "0.001");
-      attr(div2, "class", "flex flex-row justify-between gap-5 items-center");
-      attr(div3, "class", "w-full");
+      attr(div0, "class", "w-6/12");
+      attr(div2, "class", "flex flex-col gap-3 w-5/12");
+      attr(div3, "class", "flex flex-row justify-between gap-2 w-full bg-base-100 rounded-xl p-5");
       if (!src_url_equal(img0.src, img0_src_value = Arrows))
         attr(img0, "src", img0_src_value);
       attr(img0, "width", 30);
       attr(img0, "alt", "arrows");
-      attr(button0, "class", "mt-6 mb-1");
-      attr(div4, "class", "w-1/3");
-      attr(div5, "class", "flex flex-row justify-between items-center my-3");
+      attr(button0, "class", "-my-4 z-20 bg-base-100 border-4 border-base-300 rounded-lg");
       attr(input1, "type", "number");
-      attr(input1, "placeholder", "0.001");
-      attr(input1, "class", "input input-bordered border-black w-full");
+      attr(input1, "placeholder", "0");
+      attr(input1, "class", "input input-lg input-ghost text-4xl focus:bg-transparent w-full !outline-none p-0 svelte-6isbck");
       attr(input1, "min", "0.000");
       attr(input1, "step", "0.001");
-      attr(div6, "class", "flex flex-row justify-between gap-5 items-center");
-      attr(div7, "class", "w-full");
+      attr(div4, "class", "w-6/12");
+      attr(div6, "class", "flex flex-col gap-3 w-5/12");
+      attr(div7, "class", "flex flex-row justify-between gap-2 w-full bg-base-100 rounded-xl p-5");
       attr(input2, "type", "button");
       attr(input2, "name", "from-options");
       input2.value = input2_value_value = coins[
         /*$toNetwork*/
-        ctx[1]
+        ctx[3]
       ].syntheticSymbol;
-      attr(input2, "class", input2_class_value = "btn btn-sm " + /*assetPair*/
-      (ctx[0] === 0 ? "" : "btn-outline"));
+      attr(input2, "class", input2_class_value = null_to_empty("btn btn-sm normal-case " + /*assetPair*/
+      (ctx[0] === 0 ? "btn-primary" : "btn-outline")) + " svelte-6isbck");
       attr(input3, "type", "button");
       attr(input3, "name", "from-options");
       input3.value = input3_value_value = coins[
         /*$fromNetwork*/
-        ctx[2]
+        ctx[4]
       ].nativeSymbol;
-      attr(input3, "class", input3_class_value = "btn btn-sm " + /*assetPair*/
-      (ctx[0] === 1 ? "" : "btn-outline"));
+      attr(input3, "class", input3_class_value = null_to_empty("btn btn-sm normal-case	" + /*assetPair*/
+      (ctx[0] === 1 ? "btn-primary" : "btn-outline")) + " svelte-6isbck");
       attr(div8, "class", "btn-group");
       if (!src_url_equal(img1.src, img1_src_value = ArrowRight))
         attr(img1, "src", img1_src_value);
@@ -3989,24 +6058,24 @@ function create_fragment(ctx) {
       attr(input4, "name", "to-options");
       input4.value = input4_value_value = coins[
         /*$toNetwork*/
-        ctx[1]
+        ctx[3]
       ].nativeSymbol;
-      attr(input4, "class", input4_class_value = "btn btn-sm " + /*assetPair*/
-      (ctx[0] === 0 ? "" : "btn-outline"));
+      attr(input4, "class", input4_class_value = null_to_empty("btn btn-sm normal-case " + /*assetPair*/
+      (ctx[0] === 0 ? "btn-primary" : "btn-outline")) + " svelte-6isbck");
       attr(input5, "type", "button");
       attr(input5, "name", "to-options");
       input5.value = input5_value_value = coins[
         /*$fromNetwork*/
-        ctx[2]
+        ctx[4]
       ].syntheticSymbol;
-      attr(input5, "class", input5_class_value = "btn btn-sm " + /*assetPair*/
-      (ctx[0] === 1 ? "" : "btn-outline"));
+      attr(input5, "class", input5_class_value = null_to_empty("btn btn-sm normal-case " + /*assetPair*/
+      (ctx[0] === 1 ? "btn-primary" : "btn-outline")) + " svelte-6isbck");
       attr(div9, "class", "btn-group");
       attr(div10, "class", "flex flex-row justify-between w-80 mt-5");
       attr(div11, "class", "flex flex-row justify-between");
       attr(div12, "class", "flex flex-col gap-2 w-full px-2 mt-5");
       attr(button1, "class", "btn btn-primary btn-full w-full mt-5");
-      attr(div13, "class", "absolute bg-base-200 shadow-sm flex flex-col items-center py-4 px-5 w-full md:w-1/3 border-4 border-black");
+      attr(div13, "class", "card bg-base-300 flex flex-col items-center p-2 w-full md:w-1/3 border border-neutral");
       attr(div14, "class", "flex flex-col md:flex-row h-full justify-center items-center px-5 md:px-0");
     },
     m(target, anchor) {
@@ -4018,99 +6087,124 @@ function create_fragment(ctx) {
       append_hydration(h4, t1);
       append_hydration(div13, t2);
       append_hydration(div13, div3);
-      append_hydration(div3, p0);
-      append_hydration(p0, t3);
-      append_hydration(div3, t4);
-      append_hydration(div3, div1);
-      append_hydration(div1, div0);
-      mount_component(coinselect0, div0, null);
-      append_hydration(div1, t5);
-      if (~current_block_type_index) {
-        if_blocks[current_block_type_index].m(div1, null);
-      }
-      append_hydration(div3, t6);
+      append_hydration(div3, div0);
+      append_hydration(div0, input0);
+      set_input_value(
+        input0,
+        /*fromValue*/
+        ctx[1]
+      );
+      append_hydration(div3, t3);
       append_hydration(div3, div2);
-      append_hydration(div2, input0);
-      append_hydration(div13, t7);
+      append_hydration(div2, div1);
+      mount_component(coinselect0, div1, null);
+      append_hydration(div2, t4);
+      if (~current_block_type_index) {
+        if_blocks[current_block_type_index].m(div2, null);
+      }
+      append_hydration(div13, t5);
       append_hydration(div13, button0);
       append_hydration(button0, img0);
-      append_hydration(div13, t8);
+      append_hydration(div13, t6);
       append_hydration(div13, div7);
-      append_hydration(div7, p1);
-      append_hydration(p1, t9);
-      append_hydration(div7, t10);
-      append_hydration(div7, div5);
-      append_hydration(div5, div4);
-      mount_component(coinselect1, div4, null);
-      append_hydration(div5, t11);
-      if (~current_block_type_index_1) {
-        if_blocks_1[current_block_type_index_1].m(div5, null);
-      }
-      append_hydration(div7, t12);
+      append_hydration(div7, div4);
+      append_hydration(div4, input1);
+      set_input_value(
+        input1,
+        /*toValue*/
+        ctx[2]
+      );
+      append_hydration(div7, t7);
       append_hydration(div7, div6);
-      append_hydration(div6, input1);
-      append_hydration(div13, t13);
+      append_hydration(div6, div5);
+      mount_component(coinselect1, div5, null);
+      append_hydration(div6, t8);
+      if (~current_block_type_index_1) {
+        if_blocks_1[current_block_type_index_1].m(div6, null);
+      }
+      append_hydration(div13, t9);
       append_hydration(div13, div10);
       append_hydration(div10, div8);
       append_hydration(div8, input2);
-      append_hydration(div8, t14);
+      append_hydration(div8, t10);
       append_hydration(div8, input3);
-      append_hydration(div10, t15);
+      append_hydration(div10, t11);
       append_hydration(div10, img1);
-      append_hydration(div10, t16);
+      append_hydration(div10, t12);
       append_hydration(div10, div9);
       append_hydration(div9, input4);
-      append_hydration(div9, t17);
+      append_hydration(div9, t13);
       append_hydration(div9, input5);
-      append_hydration(div13, t18);
+      append_hydration(div13, t14);
       append_hydration(div13, div12);
       append_hydration(div12, div11);
-      append_hydration(div11, p2);
-      append_hydration(p2, t19);
-      append_hydration(div11, t20);
-      append_hydration(div11, p3);
-      append_hydration(p3, t21);
-      append_hydration(div13, t22);
+      append_hydration(div11, p0);
+      append_hydration(p0, t15);
+      append_hydration(div11, t16);
+      append_hydration(div11, p1);
+      append_hydration(p1, t17);
+      append_hydration(div13, t18);
       append_hydration(div13, button1);
-      append_hydration(button1, t23);
+      append_hydration(button1, t19);
       current = true;
       if (!mounted) {
         dispose = [
           listen(
+            input0,
+            "input",
+            /*input0_input_handler*/
+            ctx[9]
+          ),
+          listen(
             button0,
             "click",
             /*switchCoins*/
-            ctx[5]
+            ctx[7]
+          ),
+          listen(
+            input1,
+            "input",
+            /*input1_input_handler*/
+            ctx[10]
           ),
           listen(
             input2,
             "click",
             /*click_handler*/
-            ctx[7]
+            ctx[11]
           ),
           listen(
             input3,
             "click",
             /*click_handler_1*/
-            ctx[8]
+            ctx[12]
           ),
           listen(
             input4,
             "click",
             /*click_handler_2*/
-            ctx[9]
+            ctx[13]
           ),
           listen(
             input5,
             "click",
             /*click_handler_3*/
-            ctx[10]
+            ctx[14]
           )
         ];
         mounted = true;
       }
     },
     p(ctx2, [dirty]) {
+      if (dirty & /*fromValue*/
+      2 && to_number(input0.value) !== /*fromValue*/
+      ctx2[1]) {
+        set_input_value(
+          input0,
+          /*fromValue*/
+          ctx2[1]
+        );
+      }
       let previous_block_index = current_block_type_index;
       current_block_type_index = select_block_type(ctx2);
       if (current_block_type_index !== previous_block_index) {
@@ -4128,10 +6222,19 @@ function create_fragment(ctx) {
             if_block0.c();
           }
           transition_in(if_block0, 1);
-          if_block0.m(div1, null);
+          if_block0.m(div2, null);
         } else {
           if_block0 = null;
         }
+      }
+      if (dirty & /*toValue*/
+      4 && to_number(input1.value) !== /*toValue*/
+      ctx2[2]) {
+        set_input_value(
+          input1,
+          /*toValue*/
+          ctx2[2]
+        );
       }
       let previous_block_index_1 = current_block_type_index_1;
       current_block_type_index_1 = select_block_type_1(ctx2);
@@ -4150,57 +6253,57 @@ function create_fragment(ctx) {
             if_block1.c();
           }
           transition_in(if_block1, 1);
-          if_block1.m(div5, null);
+          if_block1.m(div6, null);
         } else {
           if_block1 = null;
         }
       }
       if (!current || dirty & /*$toNetwork*/
-      2 && input2_value_value !== (input2_value_value = coins[
+      8 && input2_value_value !== (input2_value_value = coins[
         /*$toNetwork*/
-        ctx2[1]
+        ctx2[3]
       ].syntheticSymbol)) {
         input2.value = input2_value_value;
       }
       if (!current || dirty & /*assetPair*/
-      1 && input2_class_value !== (input2_class_value = "btn btn-sm " + /*assetPair*/
-      (ctx2[0] === 0 ? "" : "btn-outline"))) {
+      1 && input2_class_value !== (input2_class_value = null_to_empty("btn btn-sm normal-case " + /*assetPair*/
+      (ctx2[0] === 0 ? "btn-primary" : "btn-outline")) + " svelte-6isbck")) {
         attr(input2, "class", input2_class_value);
       }
       if (!current || dirty & /*$fromNetwork*/
-      4 && input3_value_value !== (input3_value_value = coins[
+      16 && input3_value_value !== (input3_value_value = coins[
         /*$fromNetwork*/
-        ctx2[2]
+        ctx2[4]
       ].nativeSymbol)) {
         input3.value = input3_value_value;
       }
       if (!current || dirty & /*assetPair*/
-      1 && input3_class_value !== (input3_class_value = "btn btn-sm " + /*assetPair*/
-      (ctx2[0] === 1 ? "" : "btn-outline"))) {
+      1 && input3_class_value !== (input3_class_value = null_to_empty("btn btn-sm normal-case	" + /*assetPair*/
+      (ctx2[0] === 1 ? "btn-primary" : "btn-outline")) + " svelte-6isbck")) {
         attr(input3, "class", input3_class_value);
       }
       if (!current || dirty & /*$toNetwork*/
-      2 && input4_value_value !== (input4_value_value = coins[
+      8 && input4_value_value !== (input4_value_value = coins[
         /*$toNetwork*/
-        ctx2[1]
+        ctx2[3]
       ].nativeSymbol)) {
         input4.value = input4_value_value;
       }
       if (!current || dirty & /*assetPair*/
-      1 && input4_class_value !== (input4_class_value = "btn btn-sm " + /*assetPair*/
-      (ctx2[0] === 0 ? "" : "btn-outline"))) {
+      1 && input4_class_value !== (input4_class_value = null_to_empty("btn btn-sm normal-case " + /*assetPair*/
+      (ctx2[0] === 0 ? "btn-primary" : "btn-outline")) + " svelte-6isbck")) {
         attr(input4, "class", input4_class_value);
       }
       if (!current || dirty & /*$fromNetwork*/
-      4 && input5_value_value !== (input5_value_value = coins[
+      16 && input5_value_value !== (input5_value_value = coins[
         /*$fromNetwork*/
-        ctx2[2]
+        ctx2[4]
       ].syntheticSymbol)) {
         input5.value = input5_value_value;
       }
       if (!current || dirty & /*assetPair*/
-      1 && input5_class_value !== (input5_class_value = "btn btn-sm " + /*assetPair*/
-      (ctx2[0] === 1 ? "" : "btn-outline"))) {
+      1 && input5_class_value !== (input5_class_value = null_to_empty("btn btn-sm normal-case " + /*assetPair*/
+      (ctx2[0] === 1 ? "btn-primary" : "btn-outline")) + " svelte-6isbck")) {
         attr(input5, "class", input5_class_value);
       }
     },
@@ -4212,12 +6315,12 @@ function create_fragment(ctx) {
       transition_in(if_block0);
       transition_in(coinselect1.$$.fragment, local);
       transition_in(if_block1);
-      add_render_callback(() => {
-        if (div13_outro)
-          div13_outro.end(1);
-        div13_intro = create_in_transition(div13, receive, { key: "swap" });
-        div13_intro.start();
-      });
+      if (!div13_intro) {
+        add_render_callback(() => {
+          div13_intro = create_in_transition(div13, fade$1, {});
+          div13_intro.start();
+        });
+      }
       current = true;
     },
     o(local) {
@@ -4226,9 +6329,6 @@ function create_fragment(ctx) {
       transition_out(if_block0);
       transition_out(coinselect1.$$.fragment, local);
       transition_out(if_block1);
-      if (div13_intro)
-        div13_intro.invalidate();
-      div13_outro = create_out_transition(div13, send, { key: "swap" });
       current = false;
     },
     d(detaching) {
@@ -4245,8 +6345,6 @@ function create_fragment(ctx) {
       if (~current_block_type_index_1) {
         if_blocks_1[current_block_type_index_1].d();
       }
-      if (detaching && div13_outro)
-        div13_outro.end();
       mounted = false;
       run_all(dispose);
     }
@@ -4256,33 +6354,47 @@ function instance($$self, $$props, $$invalidate) {
   let $toNetwork;
   let $fromNetwork;
   let $page;
-  component_subscribe($$self, page, ($$value) => $$invalidate(12, $page = $$value));
+  component_subscribe($$self, page, ($$value) => $$invalidate(16, $page = $$value));
   onMount(() => true);
   let fromSymbol = $page.url.searchParams.get("from");
   let toSymbol = $page.url.searchParams.get("to");
   let fromNetwork = writable(fromSymbol ? coins.findIndex((c) => c.nativeSymbol === fromSymbol) : 0);
-  component_subscribe($$self, fromNetwork, (value) => $$invalidate(2, $fromNetwork = value));
+  component_subscribe($$self, fromNetwork, (value) => $$invalidate(4, $fromNetwork = value));
   let toNetwork = writable(toSymbol ? coins.findIndex((c) => c.nativeSymbol === toSymbol) : 1);
-  component_subscribe($$self, toNetwork, (value) => $$invalidate(1, $toNetwork = value));
+  component_subscribe($$self, toNetwork, (value) => $$invalidate(3, $toNetwork = value));
   let assetPair = 0;
+  let fromValue = "";
+  let toValue = "";
   const switchCoins = () => {
     const from = $fromNetwork;
     fromNetwork.set($toNetwork);
     toNetwork.set(from);
   };
-  let swapFee = bigIntToFloat(0, 18, 18);
+  let swapFee = bigIntToFloat(0, 18, 9);
+  function input0_input_handler() {
+    fromValue = to_number(this.value);
+    $$invalidate(1, fromValue);
+  }
+  function input1_input_handler() {
+    toValue = to_number(this.value);
+    $$invalidate(2, toValue);
+  }
   const click_handler = () => $$invalidate(0, assetPair = 0);
   const click_handler_1 = () => $$invalidate(0, assetPair = 1);
   const click_handler_2 = () => $$invalidate(0, assetPair = 0);
   const click_handler_3 = () => $$invalidate(0, assetPair = 1);
   return [
     assetPair,
+    fromValue,
+    toValue,
     $toNetwork,
     $fromNetwork,
     fromNetwork,
     toNetwork,
     switchCoins,
     swapFee,
+    input0_input_handler,
+    input1_input_handler,
     click_handler,
     click_handler_1,
     click_handler_2,

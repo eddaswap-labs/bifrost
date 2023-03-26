@@ -91,6 +91,9 @@ function get_all_dirty_from_scope($$scope) {
   }
   return -1;
 }
+function null_to_empty(value) {
+  return value == null ? "" : value;
+}
 const is_client = typeof window !== "undefined";
 let now = is_client ? () => window.performance.now() : () => Date.now();
 let raf = is_client ? (cb) => requestAnimationFrame(cb) : noop;
@@ -270,6 +273,9 @@ function attr(node, attribute, value) {
   else if (node.getAttribute(attribute) !== value)
     node.setAttribute(attribute, value);
 }
+function to_number(value) {
+  return value === "" ? null : +value;
+}
 function children(element2) {
   return Array.from(element2.childNodes);
 }
@@ -364,6 +370,9 @@ function set_data(text2, data) {
   data = "" + data;
   if (text2.wholeText !== data)
     text2.data = data;
+}
+function set_input_value(input, value) {
+  input.value = value == null ? "" : value;
 }
 function set_style(node, key, value, important) {
   if (value === null) {
@@ -843,6 +852,9 @@ export {
   svg_element as V,
   claim_svg_element as W,
   destroy_each as X,
+  null_to_empty as Y,
+  set_input_value as Z,
+  to_number as _,
   space as a,
   insert_hydration as b,
   claim_space as c,

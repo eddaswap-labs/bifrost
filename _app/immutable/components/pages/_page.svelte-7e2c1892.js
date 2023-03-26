@@ -1,7 +1,7 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, l as claim_element, m as children, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, f as transition_in, t as transition_out, d as check_outros, o as onMount, Q as component_subscribe, C as noop, q as text, r as claim_text, R as add_render_callback, T as create_in_transition, x as create_component, y as claim_component, U as src_url_equal, z as mount_component, M as listen, N as create_out_transition, A as destroy_component, E as run_all, g as group_outros } from "../../chunks/index-59ec0738.js";
-import { f as fly } from "../../chunks/index-aa5a0dd9.js";
-import { b as base, w as writable } from "../../chunks/paths-95a23751.js";
-import { C as CoinSelect, A as Arrows, c as coins, s as send, r as receive } from "../../chunks/pages.crossfade-a98b54f8.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, l as claim_element, m as children, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, f as transition_in, t as transition_out, d as check_outros, o as onMount, Q as component_subscribe, C as noop, q as text, r as claim_text, R as add_render_callback, T as create_in_transition, x as create_component, y as claim_component, U as src_url_equal, z as mount_component, M as listen, A as destroy_component, E as run_all, g as group_outros } from "../../chunks/index-1e1c3d8b.js";
+import { f as fly } from "../../chunks/index-849e2426.js";
+import { b as base, w as writable } from "../../chunks/paths-5e0f90cb.js";
+import { C as CoinSelect, A as Arrows, c as coins } from "../../chunks/CoinSelect-66e1c769.js";
 function create_if_block_1(ctx) {
   let div;
   let if_block = (
@@ -97,7 +97,7 @@ function create_if_block_2(ctx) {
     },
     h() {
       attr(h1, "class", "text-5xl font-bold");
-      attr(p, "class", "py-8");
+      attr(p, "class", "text-xl py-8");
       attr(div, "class", "max-w-xl");
     },
     m(target, anchor) {
@@ -148,7 +148,6 @@ function create_if_block(ctx) {
   let t9;
   let a_href_value;
   let div2_intro;
-  let div2_outro;
   let current;
   let mounted;
   let dispose;
@@ -242,7 +241,7 @@ function create_if_block(ctx) {
       this.h();
     },
     h() {
-      attr(h4, "class", "mb-5");
+      attr(h4, "class", "text-xl mb-5 uppercase");
       attr(div0, "class", "w-full");
       if (!src_url_equal(img.src, img_src_value = Arrows))
         attr(img, "src", img_src_value);
@@ -250,7 +249,7 @@ function create_if_block(ctx) {
       attr(img, "alt", "arrows");
       attr(button, "class", "mt-6 mb-1");
       attr(div1, "class", "w-full");
-      attr(a, "class", "btn btn-primary btn-wide mt-7");
+      attr(a, "class", "btn btn-primary w-full mt-7");
       attr(a, "href", a_href_value = base + "/swap?from=" + coins[
         /*$fromCoin*/
         ctx[3]
@@ -258,7 +257,7 @@ function create_if_block(ctx) {
         /*$toCoin*/
         ctx[2]
       ].nativeSymbol);
-      attr(div2, "class", "bg-base-200 shadow-xl flex flex-col items-center py-8 mx-10 px-5 w-96 border-4 border-black");
+      attr(div2, "class", "card bg-base-200 flex flex-col items-center mx-10 p-3 w-96 border border-primary");
     },
     m(target, anchor) {
       insert_hydration(target, div2, anchor);
@@ -318,20 +317,17 @@ function create_if_block(ctx) {
         return;
       transition_in(coinselect0.$$.fragment, local);
       transition_in(coinselect1.$$.fragment, local);
-      add_render_callback(() => {
-        if (div2_outro)
-          div2_outro.end(1);
-        div2_intro = create_in_transition(div2, receive, { key: "swap" });
-        div2_intro.start();
-      });
+      if (!div2_intro) {
+        add_render_callback(() => {
+          div2_intro = create_in_transition(div2, fly, { x: 200, duration: 1500 });
+          div2_intro.start();
+        });
+      }
       current = true;
     },
     o(local) {
       transition_out(coinselect0.$$.fragment, local);
       transition_out(coinselect1.$$.fragment, local);
-      if (div2_intro)
-        div2_intro.invalidate();
-      div2_outro = create_out_transition(div2, send, { key: "swap" });
       current = false;
     },
     d(detaching) {
@@ -339,8 +335,6 @@ function create_if_block(ctx) {
         detach(div2);
       destroy_component(coinselect0);
       destroy_component(coinselect1);
-      if (detaching && div2_outro)
-        div2_outro.end();
       mounted = false;
       run_all(dispose);
     }
@@ -392,7 +386,7 @@ function create_fragment(ctx) {
     h() {
       attr(div0, "class", "hero md:h-full");
       attr(div1, "class", "container flex justify-center items-center");
-      attr(div2, "class", "absolute w-full flex flex-col md:flex-row h-screen justify-center items-center bg-base-100");
+      attr(div2, "class", "w-full flex flex-col md:flex-row h-screen justify-center items-center");
     },
     m(target, anchor) {
       insert_hydration(target, div2, anchor);
