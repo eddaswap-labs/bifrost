@@ -60,7 +60,7 @@
 		class="card bg-base-300 flex flex-col items-center p-2 w-full md:w-1/3 border border-neutral"
 		in:fade
 	>
-		<h4 class="text-xl p-2 w-full text-left uppercase">Synthetic Swap</h4>
+		<h4 class="text-xl p-2 w-full text-left lowercase">Synthetic Swap</h4>
 		<div class="flex flex-row justify-between gap-2 w-full bg-base-100 rounded-xl p-5">
 			<div class="w-6/12">
 				<input
@@ -157,7 +157,7 @@
 			</div>
 		</div>
 		<button
-			class="btn btn-primary btn-full w-full mt-5"
+			class="btn btn-primary btn-full w-full mt-5 lowercase"
 			disabled={!($fromWallet && $fromWallet.connected) || !($toWallet && $toWallet.connected)}
 			on:click={swap}>swap</button
 		>
@@ -175,5 +175,13 @@
 	/* Firefox */
 	input[type='number'] {
 		-moz-appearance: textfield;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	button {
+		font-family: 'Major Mono Display', monospace;
 	}
 </style>

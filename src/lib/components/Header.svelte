@@ -9,13 +9,13 @@
 <div class="navbar px-5 py-2">
 	<div class="flex-1 flex-row gap-3">
 		<a href="/"><img src={BifrostLogo} width={40} alt="logo" /></a>
-		<p class="normal-case text-2xl text-bold">{title}</p>
+		<h2 class="text-2xl text-bold lowercase">{title}</h2>
 	</div>
 	<div
 		class="tooltip tooltip-left flex flex-row gap-3"
 		data-tip="Heimdallr is our oracle. It helps to perform cross-chain operations"
 	>
-		<p>Heimdallr</p>
+		<p>heimdallr</p>
 		{#if oracleStatus}
 			<span class="badge badge-success">UP</span>
 		{:else}
@@ -23,3 +23,13 @@
 		{/if}
 	</div>
 </div>
+
+<style>
+	h1,
+	h2,
+	h3,
+	h4,
+	p {
+		font-family: 'Major Mono Display', monospace;
+	}
+</style>
