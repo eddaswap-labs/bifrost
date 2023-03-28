@@ -18772,7 +18772,7 @@ var STATUS_CODE;
   STATUS_CODE2[STATUS_CODE2["NETWORK_AUTHENTICATION_REQUIRED"] = 511] = "NETWORK_AUTHENTICATION_REQUIRED";
 })(STATUS_CODE || (STATUS_CODE = {}));
 const isNode$1 = typeof process !== "undefined" && process.versions != null && process.versions.node != null;
-const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-501314c3.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
+const adapterPromise = isNode$1 ? void 0 : __vitePreload(() => import("./index-f126212a.js"), true ? [] : void 0, import.meta.url).then((mod) => mod.default).catch(() => void 0);
 var ResponseType;
 (function(ResponseType2) {
   ResponseType2["TEXT"] = "text";
@@ -56094,7 +56094,7 @@ const matchers = {};
 const nodes = [
   () => __vitePreload(() => import("./0-e4113f82.js"), true ? ["./0-e4113f82.js","./_layout-a7d677aa.js","../components/pages/_layout.svelte-ddf7d08e.js","./index-994bc733.js","./index-ae640bd0.js","../assets/_layout-03259bb8.css"] : void 0, import.meta.url),
   () => __vitePreload(() => import("./1-cc538464.js"), true ? ["./1-cc538464.js","../components/error.svelte-2f0e6956.js","./index-994bc733.js","./stores-4b9a4f03.js","./singletons-3c75e7c1.js","./paths-4a482775.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("./2-72d467b1.js"), true ? ["./2-72d467b1.js","../components/pages/_page.svelte-474d0ea9.js","./index-994bc733.js","./index-ae640bd0.js","./paths-4a482775.js","./bifrost_logo-8ec52051.js","../assets/_page-73e41132.css"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("./2-8962f14d.js"), true ? ["./2-8962f14d.js","../components/pages/_page.svelte-4a5d73c2.js","./index-994bc733.js","./index-ae640bd0.js","./paths-4a482775.js","./bifrost_logo-8ec52051.js","../assets/_page-73e41132.css"] : void 0, import.meta.url),
   () => __vitePreload(() => import("./3-c4d00c67.js"), true ? ["./3-c4d00c67.js","../components/pages/bridge/_page.svelte-129c654d.js","./index-994bc733.js","./stores-4b9a4f03.js","./singletons-3c75e7c1.js","./paths-4a482775.js","./bifrost_logo-8ec52051.js","./binary-0932e92d.js","./index-ae640bd0.js","../assets/_page-5b0c157d.css"] : void 0, import.meta.url)
 ];
 const server_loads = [];
