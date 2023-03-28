@@ -54,7 +54,7 @@
 					<a target="_blank" rel="noreferrer" href="https://t.me/bifrost_defi">community</a>
 				</li>
 				<li>
-					<a target="_blank" rel="noreferrer" href="https://github.com/bifrost-defi">GitHub</a>
+					<a target="_blank" rel="noreferrer" href="https://github.com/eddaswap-labs">GitHub</a>
 				</li>
 			</ul>
 		</div>
@@ -66,7 +66,7 @@
 				<a target="_blank" rel="noreferrer" href="https://t.me/bifrost_defi">community</a>
 			</li>
 			<li>
-				<a target="_blank" rel="noreferrer" href="https://github.com/bifrost-defi">Github</a>
+				<a target="_blank" rel="noreferrer" href="https://github.com/eddaswap-labs">Github</a>
 			</li>
 		</ul>
 	</div>
@@ -83,7 +83,7 @@
 					<div class="max-w-xl" in:fly={{ x: -200, duration: 1500 }}>
 						<div class="flex flex-row gap-5 items-center w-full">
 							<img src={BifrostLogo} width={60} alt="logo" />
-							<h1 class="text-4xl lowercase w-full">Bifrost Protocol</h1>
+							<h1 class="text-4xl lowercase w-full">Eddaswap Protocol</h1>
 						</div>
 						<h3 class="text-xl py-8 lowercase">
 							Swap assets between Ethereum, TON and Tezos with ease.
