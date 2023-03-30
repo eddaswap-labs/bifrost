@@ -1,6 +1,6 @@
 {
-	"name": "bifrost",
-	"homepage": "https://github.com/synswap-labs/bifrost",
+	"name": "interface",
+	"homepage": "https://github.com/synswap-labs/interface",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
