@@ -17,7 +17,7 @@ export default class TempleWallet extends Wallet {
 				this.available = false;
 			} else {
 				this.available = true;
-				this.wallet = new TWallet('Bifrost bridge');
+				this.wallet = new TWallet(' Synswap');
 			}
 		});
 	}

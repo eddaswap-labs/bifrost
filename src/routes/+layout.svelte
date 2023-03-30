@@ -19,11 +19,11 @@
 				class="link link-hover"
 				target="_blank"
 				rel="noreferrer"
-				href="https://github.com/bifrost-defi">GitHub</a
+				href="https://github.com/synswap-labs">GitHub</a
 			>
 		</div>
 		<div>
-			<p>&#169; {new Date().getFullYear()} Bifrost</p>
+			<p>&#169; {new Date().getFullYear()} Synswap Labs</p>
 		</div>
 	</footer>
 

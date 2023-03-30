@@ -1,7 +1,7 @@
 <script>
 	import BifrostLogo from '$lib/images/bifrost_logo.svg';
 
-	export let title = 'Bifrost';
+	export let title = 'Synswap';
 
 	let oracleStatus = false;
 </script>
