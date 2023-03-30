@@ -153,7 +153,7 @@ function create_fragment$5(ctx) {
   };
 }
 function instance$5($$self, $$props, $$invalidate) {
-  let { title = "Bifrost" } = $$props;
+  let { title = "Synswap" } = $$props;
   $$self.$$set = ($$props2) => {
     if ("title" in $$props2)
       $$invalidate(0, title = $$props2.title);

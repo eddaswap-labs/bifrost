@@ -154,7 +154,7 @@ function create_fragment(ctx) {
       p = element("p");
       t5 = text("© ");
       t6 = text(t6_value);
-      t7 = text(" Bifrost");
+      t7 = text(" Synswap Labs");
       t8 = space();
       if (if_block)
         if_block.c();
@@ -197,7 +197,7 @@ function create_fragment(ctx) {
       var p_nodes = children(p);
       t5 = claim_text(p_nodes, "© ");
       t6 = claim_text(p_nodes, t6_value);
-      t7 = claim_text(p_nodes, " Bifrost");
+      t7 = claim_text(p_nodes, " Synswap Labs");
       p_nodes.forEach(detach);
       div1_nodes.forEach(detach);
       footer_nodes.forEach(detach);
@@ -215,7 +215,7 @@ function create_fragment(ctx) {
       attr(a1, "class", "link link-hover");
       attr(a1, "target", "_blank");
       attr(a1, "rel", "noreferrer");
-      attr(a1, "href", "https://github.com/bifrost-defi");
+      attr(a1, "href", "https://github.com/synswap-labs");
       attr(div0, "class", "grid grid-flow-col gap-4");
       attr(footer, "class", "footer footer-center p-5 gap-2 text-base-content rounded");
       attr(div2, "class", "w-full flex flex-col min-h-screen justify-between bg-gradient-to-t from-base-300 to-primary/[.08]");

@@ -84,7 +84,7 @@ function create_if_block_1(ctx) {
       img = element("img");
       t0 = space();
       h1 = element("h1");
-      t1 = text("Eddaswap Protocol");
+      t1 = text("Synswap Protocol");
       t2 = space();
       h3 = element("h3");
       t3 = text("Swap assets between Ethereum, TON and Tezos with ease.");
@@ -99,7 +99,7 @@ function create_if_block_1(ctx) {
       t0 = claim_space(div0_nodes);
       h1 = claim_element(div0_nodes, "H1", { class: true });
       var h1_nodes = children(h1);
-      t1 = claim_text(h1_nodes, "Eddaswap Protocol");
+      t1 = claim_text(h1_nodes, "Synswap Protocol");
       h1_nodes.forEach(detach);
       div0_nodes.forEach(detach);
       t2 = claim_space(div1_nodes);
@@ -553,7 +553,7 @@ function create_fragment(ctx) {
       attr(a1, "class", "svelte-1cbot3g");
       attr(a2, "target", "_blank");
       attr(a2, "rel", "noreferrer");
-      attr(a2, "href", "https://github.com/eddaswap-labs");
+      attr(a2, "href", "https://github.com/synswap-labs");
       attr(a2, "class", "svelte-1cbot3g");
       attr(ul0, "tabindex", "0");
       attr(ul0, "class", "menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52");
@@ -567,7 +567,7 @@ function create_fragment(ctx) {
       attr(a4, "class", "svelte-1cbot3g");
       attr(a5, "target", "_blank");
       attr(a5, "rel", "noreferrer");
-      attr(a5, "href", "https://github.com/eddaswap-labs");
+      attr(a5, "href", "https://github.com/synswap-labs");
       attr(a5, "class", "svelte-1cbot3g");
       attr(ul1, "class", "menu menu-horizontal px-1 gap-2");
       attr(div2, "class", "navbar-center hidden lg:flex");
